@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -17,6 +20,21 @@ const VALUES = [
   },
 ];
 
+const ALL_PROPERTIES = [
+  {
+    name: "Riad 19",
+    address: "19 Derb Zemrane",
+    desc: "The original property, featuring five intimate guest suites arranged around a mosaic fountain courtyard. Known for its original 17th-century tilework and rooftop terrace with panoramic medina views.",
+    mapUrl: "https://maps.google.com/?q=19+Derb+Zemrane+Marrakech",
+  },
+  {
+    name: "Riad 141",
+    address: "141 Derb Arset Aouzal",
+    desc: "A beautifully restored riad with five distinctive rooms and suites, a private hammam, and a lush interior garden with jasmine and orange trees. Perfect for families and groups.",
+    mapUrl: "https://maps.google.com/?q=141+Derb+Arset+Aouzal+Marrakech",
+  },
+];
+
 function SectionDivider() {
   return (
     <div className="flex items-center justify-center gap-3 mt-6">
@@ -28,6 +46,19 @@ function SectionDivider() {
 }
 
 export default function About() {
+  const [selectedRiad, setSelectedRiad] = useState<"riad19" | "riad141" | null>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("selectedRiad");
+    if (stored === "riad19" || stored === "riad141") setSelectedRiad(stored);
+  }, []);
+
+  const properties = selectedRiad === "riad19"
+    ? [ALL_PROPERTIES[0]]
+    : selectedRiad === "riad141"
+    ? [ALL_PROPERTIES[1]]
+    : ALL_PROPERTIES;
+
   return (
     <div style={{ background: "var(--background)", color: "var(--ink)", minHeight: "100vh" }}>
       <Navbar />
@@ -76,19 +107,41 @@ export default function About() {
                 sanctuary of Moroccan art, architecture, and timeless hospitality. The name means
                 &ldquo;House of Art&rdquo; — and every corner of the property reflects that identity.
               </p>
-              <p>
-                We operate two beautifully restored properties:{" "}
-                <span className="font-semibold" style={{ color: "#B8973A" }}>
-                  Riad 19
-                </span>{" "}
-                at 19 Derb Zemrane and{" "}
-                <span className="font-semibold" style={{ color: "#B8973A" }}>
-                  Riad 141
-                </span>{" "}
-                at 141 Derb Arset Aouzal. Each is a testament to centuries of Andalusian
-                craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of
-                orange blossom.
-              </p>
+              {selectedRiad === "riad19" ? (
+                <p>
+                  We are delighted to welcome you to{" "}
+                  <span className="font-semibold" style={{ color: "#B8973A" }}>
+                    Riad Dar D&apos;Art 19
+                  </span>
+                  , located at 19 Derb Zemrane, Bab Doukkala. A testament to centuries of Andalusian
+                  craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of
+                  orange blossom.
+                </p>
+              ) : selectedRiad === "riad141" ? (
+                <p>
+                  We are delighted to welcome you to{" "}
+                  <span className="font-semibold" style={{ color: "#B8973A" }}>
+                    Riad Dar D&apos;Art 141
+                  </span>
+                  , located at 141 Derb Arset Aouzal, Bab Doukkala. A testament to centuries of Andalusian
+                  craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of
+                  orange blossom.
+                </p>
+              ) : (
+                <p>
+                  We operate two beautifully restored properties:{" "}
+                  <span className="font-semibold" style={{ color: "#B8973A" }}>
+                    Riad 19
+                  </span>{" "}
+                  at 19 Derb Zemrane and{" "}
+                  <span className="font-semibold" style={{ color: "#B8973A" }}>
+                    Riad 141
+                  </span>{" "}
+                  at 141 Derb Arset Aouzal. Each is a testament to centuries of Andalusian
+                  craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of
+                  orange blossom.
+                </p>
+              )}
               <p>
                 Our mission is to offer guests an authentic Moroccan experience without sacrificing
                 modern comfort. That&apos;s why we&apos;ve built an AI-powered concierge that
@@ -158,26 +211,13 @@ export default function About() {
               className="text-3xl font-light"
               style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
             >
-              Two Riads, One Soul
+              {selectedRiad ? "Your Riad" : "Two Riads, One Soul"}
             </h2>
             <SectionDivider />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5">
-            {[
-              {
-                name: "Riad 19",
-                address: "19 Derb Zemrane",
-                desc: "The original property, featuring four intimate guest rooms arranged around a mosaic fountain courtyard. Known for its original 17th-century tilework and rooftop terrace with panoramic medina views.",
-                mapUrl: "https://maps.google.com/?q=19+Derb+Zemrane+Marrakech",
-              },
-              {
-                name: "Riad 141",
-                address: "141 Derb Arset Aouzal",
-                desc: "A larger, recently restored riad with six rooms and suites, a private hammam, and a lush interior garden with jasmine and orange trees. Perfect for families and groups.",
-                mapUrl: "https://maps.google.com/?q=141+Derb+Arset+Aouzal+Marrakech",
-              },
-            ].map((p) => (
+          <div className={`grid gap-5 ${properties.length > 1 ? "md:grid-cols-2" : "max-w-lg mx-auto"}`}>
+            {properties.map((p) => (
               <div
                 key={p.name}
                 className="p-8 rounded-xl"

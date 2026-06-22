@@ -10,52 +10,57 @@ import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 
 const ROOMS_19 = [
   {
-    name: "The Rose Suite",
-    desc: "Hand-crafted Moroccan tilework, king bed, and a private terrace overlooking the fountain courtyard.",
+    name: "Suite Terrasse Lulu",
+    desc: "A charming suite with a private terrace overlooking the fountain courtyard, blending traditional zellige tilework with modern comfort.",
     img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
   },
   {
-    name: "The Atlas Room",
-    desc: "Rich earthy tones, carved cedar ceilings, and panoramic rooftop views inspired by the Atlas Mountains.",
+    name: "Suite Africa",
+    desc: "Rich earthy tones, carved cedar ceilings, and a warm African-inspired décor create an unforgettable retreat.",
     img: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
   },
   {
-    name: "The Medina Suite",
-    desc: "Our grandest suite with original zellige mosaics, premium linens, and a private in-room hammam.",
+    name: "Suite Familiar Gazelle",
+    desc: "Our spacious family suite with original zellige mosaics, premium linens, and room for the whole family.",
     img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
   },
   {
-    name: "The Garden Room",
-    desc: "A serene escape surrounded by jasmine and orange blossom with direct access to the garden.",
+    name: "Suite Frida",
+    desc: "A vibrant, artful retreat inspired by bold colours and creative spirit, with direct garden access.",
     img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
   },
   {
-    name: "The Courtyard Room",
-    desc: "A tranquil retreat with zellige floors and views across the inner courtyard fountain.",
+    name: "Suite Rosa",
+    desc: "A serene sanctuary in soft rose tones with zellige floors and views across the inner courtyard fountain.",
     img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=80",
   },
 ];
 
 const ROOMS_141 = [
   {
-    name: "The Amber Suite",
-    desc: "Warm amber tones, hand-painted plaster walls, and a four-poster bed draped in Berber textiles.",
+    name: "Lexicon",
+    desc: "A literary-inspired suite with warm amber tones, hand-painted plaster walls, and a four-poster bed draped in Berber textiles.",
     img: "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
   },
   {
-    name: "The Indigo Room",
-    desc: "Midnight-blue tadelakt walls, brass lanterns, and a private courtyard sitting area.",
+    name: "Mategot",
+    desc: "Midnight-blue tadelakt walls, brass lanterns, and a private courtyard sitting area inspired by mid-century Moroccan design.",
     img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
   },
   {
-    name: "The Jasmine Suite",
-    desc: "Flooded with natural light and the scent of jasmine, with a rooftop access and hammam tub.",
+    name: "Chevrerie",
+    desc: "Flooded with natural light, this suite blends rustic charm with rooftop access and a traditional hammam tub.",
     img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
   },
   {
-    name: "The Zellige Room",
-    desc: "A mosaic masterpiece — floor-to-ceiling hand-cut tiles and a king bed of carved cedar.",
+    name: "Poupée",
+    desc: "A mosaic masterpiece — floor-to-ceiling hand-cut tiles and a king bed of carved cedar in a whimsical setting.",
     img: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
+  },
+  {
+    name: "Zagora",
+    desc: "Evocative of the desert south, featuring warm sandstone hues, geometric patterns, and a private terrace.",
+    img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
   },
 ];
 
@@ -181,12 +186,12 @@ const SERVICES: { name: string; desc: string; Icon: ServiceIcon }[] = [
 
 export default function Home() {
   const [chatOpen, setChatOpen] = useState(false);
-  const [roomsRiad, setRoomsRiad] = useState<"riad19" | "riad141">("riad19");
+  const [selectedRiad, setSelectedRiad] = useState<"riad19" | "riad141" | null>(null);
   const [lang, setLang] = useState<Lang>("en");
 
   useEffect(() => {
     const stored = localStorage.getItem("selectedRiad");
-    if (stored === "riad19" || stored === "riad141") setRoomsRiad(stored);
+    if (stored === "riad19" || stored === "riad141") setSelectedRiad(stored);
     setLang(getLang());
   }, []);
 
@@ -196,8 +201,6 @@ export default function Home() {
   function scrollTo(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
-
-  const activeRooms = roomsRiad === "riad141" ? ROOMS_141 : ROOMS_19;
 
   return (
     <div style={{ background: "var(--background)", color: "var(--ink)", minHeight: "100vh" }} dir={dir}>
@@ -301,47 +304,49 @@ export default function Home() {
             className="text-base md:text-lg leading-8"
             style={{ color: "var(--ink-muted)" }}
           >
-            {tr.about.body}{" "}
-            <span className="font-semibold" style={{ color: "var(--ink)" }}>Riad 19</span>
-            {" "}at 19 Derb Zemrane {tr.about.and}{" "}
-            <span className="font-semibold" style={{ color: "var(--ink)" }}>Riad 141</span>
-            {" "}at 141 Derb Arset Aouzal {tr.about.each}
+            {selectedRiad === "riad19"
+              ? "Nestled in the heart of Marrakech’s medina, Riad Dar D’Art 19 is located at 19 Derb Zemrane, Bab Doukkala. A sanctuary of Moroccan art, architecture, and timeless hospitality."
+              : selectedRiad === "riad141"
+              ? "Nestled in the heart of Marrakech’s medina, Riad Dar D’Art 141 is located at 141 Derb Arset Aouzal, Bab Doukkala. A sanctuary of Moroccan art, architecture, and timeless hospitality."
+              : <>{tr.about.body}{" "}<span className="font-semibold" style={{ color: "var(--ink)" }}>Riad 19</span>{" "}at 19 Derb Zemrane {tr.about.and}{" "}<span className="font-semibold" style={{ color: "var(--ink)" }}>Riad 141</span>{" "}at 141 Derb Arset Aouzal {tr.about.each}</>
+            }
           </p>
 
-          {/* Property cards */}
-          <div className="mt-14 grid md:grid-cols-2 gap-5">
-            {[
-              {
-                label: "Riad 19",
-                sub: "19 Derb Zemrane",
-                desc: "Marrakech Medina 40000, Morocco",
-              },
-              {
-                label: "Riad 141",
-                sub: "141 Derb Arset Aouzal",
-                desc: "Marrakech Medina 40000, Morocco",
-              },
-            ].map((p) => (
-              <div
-                key={p.label}
-                className="p-8 text-left rounded-xl"
-                style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
-              >
-                <span
-                  className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-3 px-2.5 py-1 rounded-full"
-                  style={{ background: "var(--background)", color: "#C1440E" }}
-                >
-                  {p.label}
-                </span>
-                <p className="text-base font-semibold mb-1" style={{ color: "var(--ink)" }}>
-                  {p.sub}
-                </p>
-                <p className="text-sm" style={{ color: "var(--ink-faint)" }}>
-                  {p.desc}
-                </p>
+          {/* Property card(s) */}
+          {(() => {
+            const cards = selectedRiad === "riad19"
+              ? [{ label: "Riad 19", sub: "19 Derb Zemrane", desc: "Marrakech Medina 40000, Morocco" }]
+              : selectedRiad === "riad141"
+              ? [{ label: "Riad 141", sub: "141 Derb Arset Aouzal", desc: "Marrakech Medina 40000, Morocco" }]
+              : [
+                  { label: "Riad 19", sub: "19 Derb Zemrane", desc: "Marrakech Medina 40000, Morocco" },
+                  { label: "Riad 141", sub: "141 Derb Arset Aouzal", desc: "Marrakech Medina 40000, Morocco" },
+                ];
+            return (
+              <div className={`mt-14 grid gap-5 ${cards.length > 1 ? "md:grid-cols-2" : "max-w-sm mx-auto"}`}>
+                {cards.map((p) => (
+                  <div
+                    key={p.label}
+                    className="p-8 text-left rounded-xl"
+                    style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
+                  >
+                    <span
+                      className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-3 px-2.5 py-1 rounded-full"
+                      style={{ background: "var(--background)", color: "#C1440E" }}
+                    >
+                      {p.label}
+                    </span>
+                    <p className="text-base font-semibold mb-1" style={{ color: "var(--ink)" }}>
+                      {p.sub}
+                    </p>
+                    <p className="text-sm" style={{ color: "var(--ink-faint)" }}>
+                      {p.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -362,74 +367,62 @@ export default function Home() {
               {tr.rooms.heading}
             </h2>
 
-            {/* Riad toggle */}
-            <div className="inline-flex rounded-lg overflow-hidden" style={{ border: "1px solid var(--hairline)" }}>
-              {(["riad19", "riad141"] as const).map((r) => {
-                const active = roomsRiad === r;
-                const label = r === "riad19" ? "Riad 19" : "Riad 141";
-                return (
-                  <button
-                    key={r}
-                    onClick={() => setRoomsRiad(r)}
-                    className="px-6 py-2.5 text-[15px] font-medium transition-all duration-200"
-                    style={{
-                      background: active ? "#C1440E" : "var(--surface)",
-                      color: active ? "#ffffff" : "var(--ink-secondary)",
-                    }}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
+          </div>
+
+          {selectedRiad ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {(selectedRiad === "riad141" ? ROOMS_141 : ROOMS_19).map((room) => (
+                <article
+                  key={room.name}
+                  className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
+                  style={{
+                    background: "var(--surface)",
+                    border: "1px solid var(--hairline)",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
+                  }}
+                >
+                  {/* Image */}
+                  <div className="overflow-hidden h-52 relative rounded-t-xl">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={room.img}
+                      alt={room.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-col flex-1 p-6">
+                    <span
+                      className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-2 px-2 py-0.5 rounded-full self-start"
+                      style={{ background: "var(--background)", color: "#C1440E" }}
+                    >
+                      {tr.rooms.suite}
+                    </span>
+                    <h3 className="text-[16px] font-semibold mb-3" style={{ color: "var(--ink)", letterSpacing: "-0.125px" }}>
+                      {room.name}
+                    </h3>
+                    <p className="text-[15px] leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
+                      {room.desc}
+                    </p>
+                    <button
+                      onClick={() => scrollTo("contact")}
+                      className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
+                      style={{ border: "1px solid #C1440E", color: "#C1440E" }}
+                    >
+                      {tr.rooms.viewRoom}
+                    </button>
+                  </div>
+                </article>
+              ))}
             </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {activeRooms.map((room) => (
-              <article
-                key={room.name}
-                className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
-                style={{
-                  background: "var(--surface)",
-                  border: "1px solid var(--hairline)",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
-                }}
-              >
-                {/* Image */}
-                <div className="overflow-hidden h-52 relative rounded-t-xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={room.img}
-                    alt={room.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-col flex-1 p-6">
-                  <span
-                    className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-2 px-2 py-0.5 rounded-full self-start"
-                    style={{ background: "var(--background)", color: "#C1440E" }}
-                  >
-                    {tr.rooms.suite}
-                  </span>
-                  <h3 className="text-[16px] font-semibold mb-3" style={{ color: "var(--ink)", letterSpacing: "-0.125px" }}>
-                    {room.name}
-                  </h3>
-                  <p className="text-[15px] leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
-                    {room.desc}
-                  </p>
-                  <button
-                    onClick={() => scrollTo("contact")}
-                    className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
-                    style={{ border: "1px solid #C1440E", color: "#C1440E" }}
-                  >
-                    {tr.rooms.viewRoom}
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
+          ) : (
+            <div className="flex items-center justify-center py-16">
+              <p className="text-[16px]" style={{ color: "var(--ink-muted)" }}>
+                Sign in to see your riad&apos;s rooms
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

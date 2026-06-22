@@ -22,6 +22,10 @@ export default function ChatBox({ initialMessage, riad, language: langProp, gues
   const [lang, setLang] = useState<Lang>((langProp as Lang) ?? "en");
 
   useEffect(() => {
+    console.log("[ChatBox] riad prop on mount:", riad);
+  }, [riad]);
+
+  useEffect(() => {
     if (!langProp) setLang(getLang());
   }, [langProp]);
 
