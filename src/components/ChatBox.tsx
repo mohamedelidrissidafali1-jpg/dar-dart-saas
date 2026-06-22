@@ -91,8 +91,8 @@ export default function ChatBox({ initialMessage, riad }: ChatBoxProps = {}) {
     <div
       className="flex flex-col h-full rounded-xl overflow-hidden"
       style={{
-        background: "#ffffff",
-        border: "1px solid #e6e6e6",
+        background: "var(--surface)",
+        border: "1px solid var(--hairline)",
         boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04)",
       }}
       dir={dir}
@@ -100,16 +100,16 @@ export default function ChatBox({ initialMessage, riad }: ChatBoxProps = {}) {
       {/* Header */}
       <div
         className="flex items-center gap-3 px-5 py-4 border-b"
-        style={{ borderColor: "#e6e6e6", background: "#ffffff" }}
+        style={{ borderColor: "var(--hairline)", background: "var(--surface)" }}
       >
         <div className="w-2 h-2 rounded-full" style={{ background: "#0075de" }} />
-        <span className="text-[15px] font-semibold" style={{ color: "#000000" }}>
+        <span className="text-[15px] font-semibold" style={{ color: "var(--ink)" }}>
           {tr.chat.concierge}
         </span>
       </div>
 
       {/* Message history */}
-      <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4" style={{ background: "#f6f5f4" }}>
+      <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4" style={{ background: "var(--background)" }}>
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -125,10 +125,10 @@ export default function ChatBox({ initialMessage, riad }: ChatBoxProps = {}) {
                       borderBottomRightRadius: "4px",
                     }
                   : {
-                      background: "#ffffff",
-                      color: "#000000",
+                      background: "var(--surface)",
+                      color: "var(--ink)",
                       borderBottomLeftRadius: "4px",
-                      border: "1px solid #e6e6e6",
+                      border: "1px solid var(--hairline)",
                     }
               }
             >
@@ -142,7 +142,7 @@ export default function ChatBox({ initialMessage, riad }: ChatBoxProps = {}) {
           <div className="flex justify-start">
             <div
               className="px-4 py-3 rounded-2xl"
-              style={{ background: "#ffffff", border: "1px solid #e6e6e6", borderBottomLeftRadius: "4px" }}
+              style={{ background: "var(--surface)", border: "1px solid var(--hairline)", borderBottomLeftRadius: "4px" }}
             >
               <span className="flex gap-1 items-center">
                 {[0, 150, 300].map((delay) => (
@@ -164,7 +164,7 @@ export default function ChatBox({ initialMessage, riad }: ChatBoxProps = {}) {
       <form
         onSubmit={handleSend}
         className="flex items-center gap-3 px-4 py-4 border-t"
-        style={{ borderColor: "#e6e6e6", background: "#ffffff" }}
+        style={{ borderColor: "var(--hairline)", background: "var(--surface)" }}
       >
         <input
           type="text"
@@ -172,8 +172,8 @@ export default function ChatBox({ initialMessage, riad }: ChatBoxProps = {}) {
           onChange={(e) => setInput(e.target.value)}
           placeholder={tr.chat.placeholder}
           disabled={loading}
-          className="flex-1 bg-transparent outline-none text-[15px] placeholder:text-[#a39e98] disabled:opacity-50"
-          style={{ color: "#000000", caretColor: "#0075de" }}
+          className="flex-1 bg-transparent outline-none text-[15px] disabled:opacity-50"
+          style={{ color: "var(--ink)", caretColor: "#0075de" }}
         />
         <button
           type="submit"

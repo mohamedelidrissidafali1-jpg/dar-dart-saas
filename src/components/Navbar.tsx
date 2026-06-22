@@ -3,14 +3,20 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import { getLang, getT, type Lang } from "@/lib/translations";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState<Lang>("en");
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const { resolvedTheme } = useTheme();
   const isHome = pathname === "/";
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -32,100 +38,114 @@ export default function Navbar() {
   ];
 
   const solidBg = scrolled || !isHome;
-  const linkColor = solidBg ? "#31302e" : "#ffffff";
-  const logoTopColor = solidBg ? "#0075de" : "rgba(255,255,255,0.7)";
-  const logoBottomColor = solidBg ? "#000000" : "#ffffff";
+  const isDark = mounted && resolvedTheme === "dark";
+
+  const transparent = !solidBg;
+  const linkColor = transparent ? "#ffffff" : (isDark ? "#c9c4be" : "#1a1a1a");
+  const logoColor = transparent ? "#ffffff" : (isDark ? "#f0ede8" : "#1a1a1a");
+  const navBg = solidBg ? (isDark ? "#1a1917" : "#ffffff") : "transparent";
+  const navShadow = solidBg ? "0 1px 24px rgba(0,0,0,0.08)" : "none";
+  const borderColor = isDark ? "#2a2926" : "#e8e8e8";
+  const mobileBg = isDark ? "#1a1917" : "#ffffff";
+  const signInBorderColor = transparent ? "rgba(255,255,255,0.55)" : (isDark ? "#c9c4be" : "#1a1a1a");
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        background: solidBg ? "#ffffff" : "transparent",
-        backdropFilter: solidBg ? "blur(12px)" : "none",
-        borderBottom: solidBg ? "1px solid #e6e6e6" : "none",
-      }}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      style={{ background: navBg, boxShadow: navShadow }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-left leading-tight">
           <div
-            className="text-[11px] font-semibold tracking-[0.3em] uppercase"
-            style={{ color: logoTopColor }}
+            className="text-[10px] font-light tracking-[0.38em] uppercase mb-0.5"
+            style={{ color: transparent ? "rgba(255,255,255,0.65)" : "#C1440E" }}
           >
             Riad
           </div>
           <div
-            className="text-lg font-bold tracking-tight"
-            style={{ color: logoBottomColor, letterSpacing: "-0.25px" }}
+            className="text-[19px] font-light tracking-widest"
+            style={{
+              color: logoColor,
+              fontFamily: "Georgia, 'Garamond', 'Times New Roman', serif",
+            }}
           >
             Dar D&apos;Art
           </div>
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-9">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-[15px] transition-opacity duration-200 opacity-75 hover:opacity-100"
+              className="relative pb-0.5 text-[12px] font-light tracking-[0.18em] uppercase transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[#C1440E] after:transition-all after:duration-300 hover:after:w-full"
               style={{ color: linkColor }}
             >
               {link.label}
             </Link>
           ))}
+
           <Link
             href="/sign-in"
-            className="px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 hover:bg-black/5"
-            style={{ color: linkColor }}
+            className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
+            style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
           >
             {tr.nav.signIn}
           </Link>
+
           <Link
             href="/sign-up"
-            className="px-5 py-2 text-[15px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
-            style={{ background: "#0075de", color: "#ffffff" }}
+            className="px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85"
+            style={{ background: "#C1440E", color: "#ffffff" }}
           >
             {tr.nav.signUp}
           </Link>
+
+          <ThemeToggle color={linkColor} />
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden flex flex-col justify-center gap-1.5 w-8 h-8"
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-            style={{ background: linkColor }}
-          />
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-            style={{ background: linkColor }}
-          />
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-            style={{ background: linkColor }}
-          />
-        </button>
+        {/* Mobile right controls */}
+        <div className="md:hidden flex items-center gap-3">
+          <ThemeToggle color={linkColor} />
+          <button
+            className="flex flex-col justify-center gap-1.5 w-8 h-8"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+              style={{ background: linkColor }}
+            />
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+              style={{ background: linkColor }}
+            />
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              style={{ background: linkColor }}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile dropdown */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-96" : "max-h-0"}`}
         style={{
-          background: "#ffffff",
-          borderTop: menuOpen ? "1px solid #e6e6e6" : "none",
+          background: mobileBg,
+          borderTop: menuOpen ? `1px solid ${borderColor}` : "none",
         }}
       >
-        <div className="px-6 py-4 flex flex-col gap-1">
+        <div className="px-8 py-5 flex flex-col gap-1">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-left text-[15px] py-3 text-[#31302e] hover:text-black transition-colors border-b border-[#e6e6e6]"
+              className="text-left text-[13px] font-light tracking-[0.12em] uppercase py-3.5 border-b transition-colors"
+              style={{ color: isDark ? "#c9c4be" : "#1a1a1a", borderColor }}
             >
               {link.label}
             </Link>
@@ -133,16 +153,16 @@ export default function Navbar() {
           <Link
             href="/sign-in"
             onClick={() => setMenuOpen(false)}
-            className="mt-3 py-3 text-[15px] font-medium text-center rounded-lg transition-colors hover:bg-gray-50"
-            style={{ border: "1px solid #e6e6e6", color: "#000000" }}
+            className="mt-4 py-3 text-[13px] font-light tracking-[0.1em] uppercase text-center rounded-full transition-colors"
+            style={{ border: `1px solid ${isDark ? "#c9c4be" : "#1a1a1a"}`, color: isDark ? "#c9c4be" : "#1a1a1a" }}
           >
             {tr.nav.signIn}
           </Link>
           <Link
             href="/sign-up"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 py-3 text-[15px] font-medium text-center rounded-full"
-            style={{ background: "#0075de", color: "#ffffff" }}
+            className="mt-2 py-3 text-[13px] font-medium tracking-[0.06em] uppercase text-center rounded-full"
+            style={{ background: "#C1440E", color: "#ffffff" }}
           >
             {tr.nav.signUp}
           </Link>

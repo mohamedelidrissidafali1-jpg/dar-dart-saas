@@ -63,31 +63,31 @@ const EXCURSIONS = [
   {
     name: "Medina Walking Tour",
     desc: "Explore the ancient labyrinthine streets and souks of Marrakech with an expert local guide.",
-    img: "https://images.unsplash.com/photo-1539020140153-e479b8b22e5d?w=700&q=80",
+    img: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=800",
     duration: "3 hours",
   },
   {
     name: "Atlas Mountains Day Trip",
     desc: "Journey through Berber villages and stunning high-altitude landscapes, just 40 km from the city.",
-    img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=700&q=80",
+    img: "https://images.unsplash.com/photo-1489493887464-892be6d1daae?w=800",
     duration: "Full day",
   },
   {
     name: "Sahara Desert Tour",
     desc: "A 3-day adventure to the golden dunes of Erg Chebbi — camel trek and overnight camp included.",
-    img: "https://images.unsplash.com/photo-1509233725247-49e657c54213?w=700&q=80",
+    img: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800",
     duration: "3 days",
   },
   {
     name: "Moroccan Cooking Class",
     desc: "Learn to prepare traditional tagines, bastilla, and mint tea in our authentic riad kitchen.",
-    img: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&q=80",
+    img: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=800",
     duration: "4 hours",
   },
   {
     name: "Camel Ride",
     desc: "A sunset ride through the palm groves and olive orchards on the outskirts of Marrakech.",
-    img: "https://images.unsplash.com/photo-1541943869526-7f8da12b07b4?w=700&q=80",
+    img: "https://images.unsplash.com/photo-1452022582947-b521d8779ab6?w=800",
     duration: "2 hours",
   },
 ];
@@ -200,7 +200,7 @@ export default function Home() {
   const activeRooms = roomsRiad === "riad141" ? ROOMS_141 : ROOMS_19;
 
   return (
-    <div style={{ background: "#f6f5f4", color: "#000000", minHeight: "100vh" }} dir={dir}>
+    <div style={{ background: "var(--background)", color: "var(--ink)", minHeight: "100vh" }} dir={dir}>
 
       <Navbar />
 
@@ -208,51 +208,62 @@ export default function Home() {
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=80"
+          src="/hero.jpg"
           alt="Moroccan riad courtyard"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Deep indigo hero overlay — the "night band" */}
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(to bottom, rgba(33,49,131,0.55) 0%, rgba(33,49,131,0.72) 60%, rgba(33,49,131,0.92) 100%)",
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%)",
           }}
         />
 
         {/* Hero content */}
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-          <span
-            className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-6 px-3 py-1 rounded-full"
-            style={{ background: "rgba(255,255,255,0.15)", color: "#ffffff" }}
+          {/* Eyebrow */}
+          <p
+            className="text-[11px] font-light tracking-[0.45em] uppercase mb-8"
+            style={{ color: "#C1440E" }}
           >
             {tr.hero.location}
-          </span>
+          </p>
+
+          {/* Main heading */}
           <h1
-            className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-none"
-            style={{ color: "#ffffff", letterSpacing: "-2px" }}
+            className="text-5xl sm:text-6xl md:text-7xl font-light mb-7 leading-none tracking-wide"
+            style={{
+              color: "#ffffff",
+              fontFamily: "Georgia, 'Garamond', 'Times New Roman', serif",
+            }}
           >
             Riad Dar D&apos;Art
           </h1>
+
+          {/* Gold divider */}
+          <div className="w-16 h-px mx-auto mb-7" style={{ background: "#C9A84C" }} />
+
+          {/* Tagline */}
           <p
-            className="text-base md:text-xl font-light mb-12 leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.85)" }}
+            className="text-lg font-light mb-12 leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.88)" }}
           >
             {tr.hero.tagline}
           </p>
+
+          {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => scrollTo("rooms")}
-              className="px-8 py-3.5 text-[16px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85 active:scale-95"
-              style={{ background: "#0075de", color: "#ffffff" }}
+              className="px-8 py-3 text-[14px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85 active:scale-95"
+              style={{ background: "#C1440E", color: "#ffffff" }}
             >
               {tr.hero.exploreRooms}
             </button>
             <button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-3.5 text-[16px] font-medium rounded-full transition-colors duration-200 hover:bg-white/10"
-              style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
+              className="px-8 py-3 text-[14px] font-light tracking-[0.08em] uppercase rounded-full transition-colors duration-200 hover:bg-white/10"
+              style={{ border: "1px solid rgba(255,255,255,0.65)", color: "#ffffff" }}
             >
               {tr.hero.contactUs}
             </button>
@@ -260,37 +271,40 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style={{ color: "rgba(255,255,255,0.5)" }}>
-          <span className="text-[12px] font-semibold tracking-[0.3em] uppercase">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+          <span
+            className="text-[10px] font-light tracking-[0.45em] uppercase"
+            style={{ color: "rgba(255,255,255,0.55)" }}
+          >
             {tr.hero.scroll}
           </span>
-          <div className="w-px h-10 animate-pulse" style={{ background: "rgba(255,255,255,0.4)" }} />
+          <div className="w-px h-12 animate-pulse" style={{ background: "rgba(255,255,255,0.35)" }} />
         </div>
       </section>
 
       {/* ── ABOUT ── */}
-      <section id="about" className="py-28 px-6" style={{ background: "#f6f5f4" }}>
+      <section id="about" className="py-28 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-4xl mx-auto text-center">
           <span
             className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-            style={{ background: "#ffffff", color: "#0075de", border: "1px solid #e6e6e6" }}
+            style={{ background: "var(--surface)", color: "#C1440E", border: "1px solid var(--hairline)" }}
           >
             {tr.about.label}
           </span>
           <h2
             className="text-3xl md:text-[40px] font-bold mb-8"
-            style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+            style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
           >
             {tr.about.heading}
           </h2>
           <p
             className="text-base md:text-lg leading-8"
-            style={{ color: "#615d59" }}
+            style={{ color: "var(--ink-muted)" }}
           >
             {tr.about.body}{" "}
-            <span className="font-semibold" style={{ color: "#000000" }}>Riad 19</span>
+            <span className="font-semibold" style={{ color: "var(--ink)" }}>Riad 19</span>
             {" "}at 19 Derb Zemrane {tr.about.and}{" "}
-            <span className="font-semibold" style={{ color: "#000000" }}>Riad 141</span>
+            <span className="font-semibold" style={{ color: "var(--ink)" }}>Riad 141</span>
             {" "}at 141 Derb Arset Aouzal {tr.about.each}
           </p>
 
@@ -311,18 +325,18 @@ export default function Home() {
               <div
                 key={p.label}
                 className="p-8 text-left rounded-xl"
-                style={{ background: "#ffffff", border: "1px solid #e6e6e6" }}
+                style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
               >
                 <span
                   className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-3 px-2.5 py-1 rounded-full"
-                  style={{ background: "#f6f5f4", color: "#0075de" }}
+                  style={{ background: "var(--background)", color: "#C1440E" }}
                 >
                   {p.label}
                 </span>
-                <p className="text-base font-semibold mb-1" style={{ color: "#000000" }}>
+                <p className="text-base font-semibold mb-1" style={{ color: "var(--ink)" }}>
                   {p.sub}
                 </p>
-                <p className="text-sm" style={{ color: "#a39e98" }}>
+                <p className="text-sm" style={{ color: "var(--ink-faint)" }}>
                   {p.desc}
                 </p>
               </div>
@@ -332,24 +346,24 @@ export default function Home() {
       </section>
 
       {/* ── ROOMS ── */}
-      <section id="rooms" className="py-28 px-6" style={{ background: "#ffffff" }}>
+      <section id="rooms" className="py-28 px-6" style={{ background: "#faf8f5" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: "#f6f5f4", color: "#0075de", border: "1px solid #e6e6e6" }}
+              style={{ background: "var(--background)", color: "#C1440E", border: "1px solid var(--hairline)" }}
             >
               {tr.rooms.label}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold mb-10"
-              style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
             >
               {tr.rooms.heading}
             </h2>
 
             {/* Riad toggle */}
-            <div className="inline-flex rounded-lg overflow-hidden" style={{ border: "1px solid #e6e6e6" }}>
+            <div className="inline-flex rounded-lg overflow-hidden" style={{ border: "1px solid var(--hairline)" }}>
               {(["riad19", "riad141"] as const).map((r) => {
                 const active = roomsRiad === r;
                 const label = r === "riad19" ? "Riad 19" : "Riad 141";
@@ -359,8 +373,8 @@ export default function Home() {
                     onClick={() => setRoomsRiad(r)}
                     className="px-6 py-2.5 text-[15px] font-medium transition-all duration-200"
                     style={{
-                      background: active ? "#0075de" : "#ffffff",
-                      color: active ? "#ffffff" : "#31302e",
+                      background: active ? "#C1440E" : "var(--surface)",
+                      color: active ? "#ffffff" : "var(--ink-secondary)",
                     }}
                   >
                     {label}
@@ -376,8 +390,8 @@ export default function Home() {
                 key={room.name}
                 className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
                 style={{
-                  background: "#ffffff",
-                  border: "1px solid #e6e6e6",
+                  background: "var(--surface)",
+                  border: "1px solid var(--hairline)",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
                 }}
               >
@@ -395,20 +409,20 @@ export default function Home() {
                 <div className="flex flex-col flex-1 p-6">
                   <span
                     className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-2 px-2 py-0.5 rounded-full self-start"
-                    style={{ background: "#f6f5f4", color: "#0075de" }}
+                    style={{ background: "var(--background)", color: "#C1440E" }}
                   >
                     {tr.rooms.suite}
                   </span>
-                  <h3 className="text-[16px] font-semibold mb-3" style={{ color: "#000000", letterSpacing: "-0.125px" }}>
+                  <h3 className="text-[16px] font-semibold mb-3" style={{ color: "var(--ink)", letterSpacing: "-0.125px" }}>
                     {room.name}
                   </h3>
-                  <p className="text-[15px] leading-relaxed flex-1" style={{ color: "#615d59" }}>
+                  <p className="text-[15px] leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
                     {room.desc}
                   </p>
                   <button
                     onClick={() => scrollTo("contact")}
-                    className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-gray-50"
-                    style={{ border: "1px solid #e6e6e6", color: "#31302e" }}
+                    className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
+                    style={{ border: "1px solid #C1440E", color: "#C1440E" }}
                   >
                     {tr.rooms.viewRoom}
                   </button>
@@ -420,18 +434,18 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="py-28 px-6" style={{ background: "#f6f5f4" }}>
+      <section id="services" className="py-28 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: "#ffffff", color: "#0075de", border: "1px solid #e6e6e6" }}
+              style={{ background: "var(--surface)", color: "#C1440E", border: "1px solid var(--hairline)" }}
             >
               {tr.services.label}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
             >
               {tr.services.heading}
             </h2>
@@ -443,18 +457,18 @@ export default function Home() {
                 key={name}
                 className="p-8 flex gap-5 items-start rounded-xl transition-shadow duration-200 hover:shadow-md"
                 style={{
-                  background: "#ffffff",
-                  border: "1px solid #e6e6e6",
+                  background: "var(--surface)",
+                  border: "1px solid var(--hairline)",
                 }}
               >
-                <div className="flex-shrink-0" style={{ color: "#0075de" }}>
+                <div className="flex-shrink-0" style={{ color: "#C1440E" }}>
                   <Icon />
                 </div>
                 <div>
-                  <h3 className="text-[16px] font-semibold mb-2" style={{ color: "#000000" }}>
+                  <h3 className="text-[16px] font-semibold mb-2" style={{ color: "var(--ink)" }}>
                     {name}
                   </h3>
-                  <p className="text-[15px] leading-relaxed" style={{ color: "#615d59" }}>
+                  <p className="text-[15px] leading-relaxed" style={{ color: "var(--ink-muted)" }}>
                     {desc}
                   </p>
                 </div>
@@ -465,18 +479,18 @@ export default function Home() {
       </section>
 
       {/* ── EXCURSIONS ── */}
-      <section id="excursions" className="py-28 px-6" style={{ background: "#ffffff" }}>
+      <section id="excursions" className="py-28 px-6" style={{ background: "#faf8f5" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: "#f6f5f4", color: "#0075de", border: "1px solid #e6e6e6" }}
+              style={{ background: "var(--background)", color: "#C1440E", border: "1px solid var(--hairline)" }}
             >
               {tr.excursions.label}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
             >
               {tr.excursions.heading}
             </h2>
@@ -488,8 +502,8 @@ export default function Home() {
                 key={ex.name}
                 className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
                 style={{
-                  background: "#ffffff",
-                  border: "1px solid #e6e6e6",
+                  background: "var(--surface)",
+                  border: "1px solid var(--hairline)",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
                 }}
               >
@@ -503,27 +517,27 @@ export default function Home() {
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="text-[16px] font-semibold leading-tight" style={{ color: "#000000" }}>
+                    <h3 className="text-[16px] font-semibold leading-tight" style={{ color: "var(--ink)" }}>
                       {ex.name}
                     </h3>
                     <span
                       className="text-[12px] font-semibold px-2.5 py-1 flex-shrink-0 rounded-full"
                       style={{
-                        background: "#ffffff",
-                        color: "#0075de",
-                        border: "1px solid #e6e6e6",
+                        background: "var(--surface)",
+                        color: "#C1440E",
+                        border: "1px solid var(--hairline)",
                       }}
                     >
                       {ex.duration}
                     </span>
                   </div>
-                  <p className="text-[15px] leading-relaxed flex-1" style={{ color: "#615d59" }}>
+                  <p className="text-[15px] leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
                     {ex.desc}
                   </p>
                   <button
                     onClick={() => scrollTo("contact")}
-                    className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-gray-50"
-                    style={{ border: "1px solid #e6e6e6", color: "#31302e" }}
+                    className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
+                    style={{ border: "1px solid #C1440E", color: "#C1440E" }}
                   >
                     {tr.excursions.inquire}
                   </button>
@@ -535,18 +549,18 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" className="py-28 px-6" style={{ background: "#f6f5f4" }}>
+      <section id="contact" className="py-28 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: "#ffffff", color: "#0075de", border: "1px solid #e6e6e6" }}
+              style={{ background: "var(--surface)", color: "#C1440E", border: "1px solid var(--hairline)" }}
             >
               {tr.contact.label}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
             >
               {tr.contact.heading}
             </h2>
@@ -571,11 +585,11 @@ export default function Home() {
               <div
                 key={p.label}
                 className="p-8 rounded-xl"
-                style={{ background: "#ffffff", border: "1px solid #e6e6e6" }}
+                style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
               >
                 <span
                   className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-4 px-2.5 py-1 rounded-full"
-                  style={{ background: "#f6f5f4", color: "#0075de" }}
+                  style={{ background: "var(--background)", color: "#C1440E" }}
                 >
                   {p.label}
                 </span>
@@ -584,15 +598,15 @@ export default function Home() {
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     className="w-4 h-4 flex-shrink-0 mt-0.5"
-                    style={{ color: "#0075de" }}
+                    style={{ color: "#C1440E" }}
                   >
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                   <div>
-                    <p className="text-[15px] font-medium" style={{ color: "#000000" }}>
+                    <p className="text-[15px] font-medium" style={{ color: "var(--ink)" }}>
                       {p.street}
                     </p>
-                    <p className="text-[14px]" style={{ color: "#a39e98" }}>
+                    <p className="text-[14px]" style={{ color: "var(--ink-faint)" }}>
                       {p.city}
                     </p>
                   </div>
@@ -602,7 +616,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[14px] font-medium transition-opacity duration-200 hover:opacity-70"
-                  style={{ color: "#0075de" }}
+                  style={{ color: "#C1440E" }}
                 >
                   {tr.contact.viewOnMap}
                 </a>
@@ -630,7 +644,7 @@ export default function Home() {
             <a
               href="mailto:contact@riaddartmarrakech.com"
               className="flex items-center justify-center gap-3 px-8 py-4 text-[16px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
-              style={{ background: "#0075de", color: "#ffffff" }}
+              style={{ background: "#C1440E", color: "#ffffff" }}
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />

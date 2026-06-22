@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ChatBox from "@/components/ChatBox";
+import ThemeToggle from "@/components/ThemeToggle";
 import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 
 const RIAD_LABELS: Record<string, string> = {
@@ -36,40 +37,41 @@ export default function Dashboard() {
   return (
     <div
       className="min-h-screen flex flex-col"
-      style={{ background: "#f6f5f4", color: "#000000" }}
+      style={{ background: "var(--background)", color: "var(--ink)" }}
       dir={dir}
     >
       {/* Top bar */}
       <header
         className="flex items-center justify-between px-6 py-4"
         style={{
-          background: "#ffffff",
-          borderBottom: "1px solid #e6e6e6",
+          background: "var(--surface)",
+          borderBottom: "1px solid var(--hairline)",
         }}
       >
         <Link href="/" className="text-left leading-tight">
           <div
             className="text-[11px] font-semibold tracking-[0.3em] uppercase"
-            style={{ color: "#0075de" }}
+            style={{ color: "var(--primary)" }}
           >
             Riad
           </div>
           <div
             className="text-base font-bold tracking-tight"
-            style={{ color: "#000000", letterSpacing: "-0.25px" }}
+            style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
           >
             Dar D&apos;Art
           </div>
         </Link>
 
-        <div className="flex items-center gap-4">
-          <span className="hidden sm:block text-[14px]" style={{ color: "#615d59" }}>
+        <div className="flex items-center gap-3">
+          <span className="hidden sm:block text-[14px]" style={{ color: "var(--ink-muted)" }}>
             {tr.dashboard.welcomeGuest}
           </span>
+          <ThemeToggle color="var(--ink-secondary)" />
           <Link
             href="/"
-            className="text-[14px] font-medium px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-gray-50"
-            style={{ border: "1px solid #e6e6e6", color: "#31302e" }}
+            className="text-[14px] font-medium px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
+            style={{ border: "1px solid var(--hairline)", color: "var(--ink-secondary)" }}
           >
             {tr.dashboard.signOut}
           </Link>
@@ -80,16 +82,16 @@ export default function Dashboard() {
       <main className="flex-1 flex flex-col max-w-3xl w-full mx-auto px-4 py-8 gap-6">
         {/* Welcome banner */}
         <div>
-          <p className="text-[12px] font-semibold tracking-[0.125px] uppercase mb-2" style={{ color: "#0075de" }}>
+          <p className="text-[12px] font-semibold tracking-[0.125px] uppercase mb-2" style={{ color: "var(--primary)" }}>
             {tr.dashboard.aiConcierge}
           </p>
           <h1
             className="text-2xl md:text-3xl font-bold"
-            style={{ color: "#000000", letterSpacing: "-0.5px" }}
+            style={{ color: "var(--ink)", letterSpacing: "-0.5px" }}
           >
             {welcomeText}
           </h1>
-          <p className="text-[15px] mt-1" style={{ color: "#615d59" }}>
+          <p className="text-[15px] mt-1" style={{ color: "var(--ink-muted)" }}>
             {tr.dashboard.howCanIHelp}
           </p>
         </div>
@@ -100,11 +102,11 @@ export default function Dashboard() {
             <button
               key={prompt}
               onClick={() => handleQuickPrompt(prompt)}
-              className="px-4 py-2 text-[14px] rounded-full transition-all duration-200 hover:bg-white hover:shadow-sm"
+              className="px-4 py-2 text-[14px] rounded-full transition-all duration-200 hover:bg-[var(--surface)] hover:shadow-sm"
               style={{
-                border: "1px solid #e6e6e6",
-                color: "#31302e",
-                background: "#ffffff",
+                border: "1px solid var(--hairline)",
+                color: "var(--ink-secondary)",
+                background: "var(--background)",
               }}
             >
               {prompt}
@@ -117,7 +119,7 @@ export default function Dashboard() {
           <ChatBox key={chatKey} initialMessage={pendingPrompt} riad={selectedRiad || undefined} />
         </div>
 
-        <p className="text-center text-[14px]" style={{ color: "#a39e98" }}>
+        <p className="text-center text-[14px]" style={{ color: "var(--ink-faint)" }}>
           {tr.dashboard.poweredBy}
         </p>
       </main>

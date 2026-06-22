@@ -96,7 +96,7 @@ const FAQ_CATEGORIES = [
 
 export default function FAQ() {
   return (
-    <div style={{ background: "#0D1B2A", color: "#E8DFC8", minHeight: "100vh" }}>
+    <div style={{ background: "var(--background)", color: "var(--ink)", minHeight: "100vh" }}>
       <Navbar />
 
       {/* Page header */}
@@ -106,7 +106,7 @@ export default function FAQ() {
         </p>
         <h1
           className="text-4xl md:text-5xl font-light"
-          style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+          style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
         >
           Frequently Asked Questions
         </h1>
@@ -133,11 +133,11 @@ export default function FAQ() {
                   <details
                     key={item.q}
                     className="group"
-                    style={{ borderBottom: "1px solid rgba(184,151,58,0.1)" }}
+                    style={{ borderBottom: "1px solid var(--hairline)" }}
                   >
                     <summary
                       className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none transition-opacity duration-200 hover:opacity-100 opacity-80"
-                      style={{ color: "#E8DFC8" }}
+                      style={{ color: "var(--ink)" }}
                     >
                       <span className="text-sm font-light leading-relaxed">{item.q}</span>
                       <span
@@ -149,8 +149,8 @@ export default function FAQ() {
                       </span>
                     </summary>
                     <p
-                      className="pb-5 text-sm leading-relaxed opacity-60"
-                      style={{ color: "#E8DFC8" }}
+                      className="pb-5 text-sm leading-relaxed"
+                      style={{ color: "var(--ink-muted)" }}
                     >
                       {item.a}
                     </p>
@@ -165,24 +165,24 @@ export default function FAQ() {
       {/* CTA */}
       <section
         className="py-20 px-6 text-center"
-        style={{ background: "#091521" }}
+        style={{ background: "var(--surface)" }}
       >
         <p className="text-xs tracking-[0.4em] uppercase mb-4" style={{ color: "#B8973A" }}>
           Still Have Questions?
         </p>
         <h2
           className="text-2xl font-light mb-6"
-          style={{ color: "#E8DFC8", letterSpacing: "0.04em" }}
+          style={{ color: "var(--ink)", letterSpacing: "0.04em" }}
         >
           Chat with Our AI Concierge
         </h2>
-        <p className="text-sm opacity-55 mb-10 max-w-xs mx-auto leading-relaxed">
+        <p className="text-sm mb-10 max-w-xs mx-auto leading-relaxed" style={{ color: "var(--ink-muted)" }}>
           Your personal concierge is available 24/7 and speaks your language.
         </p>
         <Link
           href="/dashboard"
           className="inline-block px-10 py-3.5 text-xs tracking-[0.3em] uppercase font-semibold transition-opacity duration-200 hover:opacity-85"
-          style={{ background: "#B8973A", color: "#0D1B2A" }}
+          style={{ background: "#B8973A", color: "#ffffff" }}
         >
           Open Concierge
         </Link>

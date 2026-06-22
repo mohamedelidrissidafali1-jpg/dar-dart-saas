@@ -48,21 +48,21 @@ export default function SignUp() {
   const dir = isRtl(lang) ? "rtl" : undefined;
 
   const inputBase = {
-    border: "1px solid #e6e6e6",
-    color: "#000000",
-    background: "#ffffff",
+    border: "1px solid var(--hairline)",
+    color: "var(--ink)",
+    background: "var(--surface)",
     caretColor: "#0075de",
   };
 
   const focusOn = (e: React.FocusEvent<HTMLInputElement>) =>
     (e.target.style.borderColor = "#0075de");
   const focusOff = (e: React.FocusEvent<HTMLInputElement>) =>
-    (e.target.style.borderColor = "#e6e6e6");
+    (e.target.style.borderColor = "var(--hairline)");
 
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-16"
-      style={{ background: "#f6f5f4" }}
+      style={{ background: "var(--background)", color: "var(--ink)" }}
       dir={dir}
     >
       <div className="w-full max-w-md">
@@ -71,18 +71,18 @@ export default function SignUp() {
           <Link href="/">
             <div
               className="text-[11px] font-semibold tracking-[0.3em] uppercase mb-1"
-              style={{ color: "#0075de" }}
+              style={{ color: "var(--primary)" }}
             >
               Riad
             </div>
             <div
               className="text-2xl font-bold tracking-tight"
-              style={{ color: "#000000", letterSpacing: "-0.5px" }}
+              style={{ color: "var(--ink)", letterSpacing: "-0.5px" }}
             >
               Dar D&apos;Art
             </div>
           </Link>
-          <p className="mt-3 text-[15px]" style={{ color: "#615d59" }}>
+          <p className="mt-3 text-[15px]" style={{ color: "var(--ink-muted)" }}>
             {tr.signUp.conciergeAwaits}
           </p>
         </div>
@@ -90,11 +90,11 @@ export default function SignUp() {
         {/* Card */}
         <div
           className="p-8 sm:p-10 rounded-xl"
-          style={{ background: "#ffffff", border: "1px solid #e6e6e6" }}
+          style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
         >
           <h1
             className="text-xl font-bold mb-6"
-            style={{ color: "#000000", letterSpacing: "-0.25px" }}
+            style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
           >
             {tr.signUp.heading}
           </h1>
@@ -102,7 +102,7 @@ export default function SignUp() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {/* Language selection */}
             <div className="flex flex-col gap-2">
-              <p className="text-[14px] font-medium" style={{ color: "#31302e" }}>
+              <p className="text-[14px] font-medium" style={{ color: "var(--ink-secondary)" }}>
                 {tr.signUp.language}
               </p>
               <div className="grid grid-cols-2 gap-2">
@@ -119,14 +119,14 @@ export default function SignUp() {
                           ? "1px solid #0075de"
                           : langError
                           ? "1px solid #ef4444"
-                          : "1px solid #e6e6e6",
-                        background: selected ? "rgba(0,117,222,0.06)" : "#ffffff",
+                          : "1px solid var(--hairline)",
+                        background: selected ? "rgba(0,117,222,0.08)" : "var(--surface)",
                       }}
                     >
                       <span className="text-lg leading-none">{flag}</span>
                       <span
                         className="text-[15px]"
-                        style={{ color: selected ? "#0075de" : "#31302e" }}
+                        style={{ color: selected ? "#0075de" : "var(--ink-secondary)" }}
                       >
                         {label}
                       </span>
@@ -147,7 +147,7 @@ export default function SignUp() {
                 <label
                   htmlFor="firstName"
                   className="text-[14px] font-medium"
-                  style={{ color: "#31302e" }}
+                  style={{ color: "var(--ink-secondary)" }}
                 >
                   {tr.signUp.firstName}
                 </label>
@@ -169,7 +169,7 @@ export default function SignUp() {
                 <label
                   htmlFor="lastName"
                   className="text-[14px] font-medium"
-                  style={{ color: "#31302e" }}
+                  style={{ color: "var(--ink-secondary)" }}
                 >
                   {tr.signUp.lastName}
                 </label>
@@ -194,7 +194,7 @@ export default function SignUp() {
               <label
                 htmlFor="email"
                 className="text-[14px] font-medium"
-                style={{ color: "#31302e" }}
+                style={{ color: "var(--ink-secondary)" }}
               >
                 {tr.signUp.email}
               </label>
@@ -218,7 +218,7 @@ export default function SignUp() {
               <label
                 htmlFor="password"
                 className="text-[14px] font-medium"
-                style={{ color: "#31302e" }}
+                style={{ color: "var(--ink-secondary)" }}
               >
                 {tr.signUp.password}
               </label>
@@ -239,7 +239,7 @@ export default function SignUp() {
 
             {/* Riad selection */}
             <div className="flex flex-col gap-2">
-              <p className="text-[14px] font-medium" style={{ color: "#31302e" }}>
+              <p className="text-[14px] font-medium" style={{ color: "var(--ink-secondary)" }}>
                 {tr.signUp.whichRiad}
               </p>
               <div className="grid grid-cols-2 gap-3">
@@ -259,17 +259,17 @@ export default function SignUp() {
                           ? "1px solid #0075de"
                           : riadError
                           ? "1px solid #ef4444"
-                          : "1px solid #e6e6e6",
-                        background: selected ? "rgba(0,117,222,0.06)" : "#ffffff",
+                          : "1px solid var(--hairline)",
+                        background: selected ? "rgba(0,117,222,0.08)" : "var(--surface)",
                       }}
                     >
                       <div
                         className="text-[15px] font-semibold"
-                        style={{ color: selected ? "#0075de" : "#000000" }}
+                        style={{ color: selected ? "#0075de" : "var(--ink)" }}
                       >
                         {label}
                       </div>
-                      <div className="text-[13px] mt-0.5" style={{ color: "#615d59" }}>
+                      <div className="text-[13px] mt-0.5" style={{ color: "var(--ink-muted)" }}>
                         {sub}
                       </div>
                     </button>
@@ -292,7 +292,7 @@ export default function SignUp() {
                 required
                 className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#0075de]"
               />
-              <span className="text-[14px] leading-relaxed" style={{ color: "#615d59" }}>
+              <span className="text-[14px] leading-relaxed" style={{ color: "var(--ink-muted)" }}>
                 {tr.signUp.terms}{" "}
                 <Link
                   href="/terms-of-service"
@@ -323,12 +323,12 @@ export default function SignUp() {
           </form>
 
           <div className="flex items-center gap-4 my-6">
-            <div className="flex-1 h-px" style={{ background: "#e6e6e6" }} />
-            <span className="text-[14px]" style={{ color: "#a39e98" }}>{tr.signUp.or}</span>
-            <div className="flex-1 h-px" style={{ background: "#e6e6e6" }} />
+            <div className="flex-1 h-px" style={{ background: "var(--hairline)" }} />
+            <span className="text-[14px]" style={{ color: "var(--ink-faint)" }}>{tr.signUp.or}</span>
+            <div className="flex-1 h-px" style={{ background: "var(--hairline)" }} />
           </div>
 
-          <p className="text-center text-[15px]" style={{ color: "#31302e" }}>
+          <p className="text-center text-[15px]" style={{ color: "var(--ink-secondary)" }}>
             <span>{tr.signUp.haveAccount} </span>
             <Link
               href="/sign-in"
@@ -344,8 +344,8 @@ export default function SignUp() {
         <div className="text-center mt-6">
           <Link
             href="/"
-            className="text-[14px] transition-colors duration-200 hover:text-black"
-            style={{ color: "#a39e98" }}
+            className="text-[14px] transition-opacity duration-200 hover:opacity-100 opacity-60"
+            style={{ color: "var(--ink-faint)" }}
           >
             {tr.signUp.backHome}
           </Link>

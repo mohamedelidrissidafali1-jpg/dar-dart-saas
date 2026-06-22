@@ -26,24 +26,24 @@ export default function Footer() {
   ];
 
   return (
-    <footer style={{ background: "#f6f5f4", borderTop: "1px solid #e6e6e6" }}>
+    <footer style={{ background: "var(--background)", borderTop: "1px solid var(--hairline)" }}>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
             <div
               className="text-[11px] font-semibold tracking-[0.3em] uppercase mb-1"
-              style={{ color: "#0075de" }}
+              style={{ color: "var(--primary)" }}
             >
               Riad
             </div>
             <div
               className="text-lg font-bold tracking-tight mb-4"
-              style={{ color: "#000000", letterSpacing: "-0.25px" }}
+              style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
             >
               Dar D&apos;Art
             </div>
-            <p className="text-sm leading-relaxed" style={{ color: "#615d59" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>
               {tr.footer.tagline}
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function Footer() {
           <div>
             <p
               className="text-[12px] font-semibold tracking-[0.125px] uppercase mb-5"
-              style={{ color: "#a39e98" }}
+              style={{ color: "var(--ink-faint)" }}
             >
               {tr.footer.navigate}
             </p>
@@ -61,8 +61,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[14px] transition-colors duration-200 hover:text-black"
-                    style={{ color: "#31302e" }}
+                    className="text-[14px] opacity-75 hover:opacity-100 transition-opacity duration-200"
+                    style={{ color: "var(--ink-secondary)" }}
                   >
                     {link.label}
                   </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
           <div>
             <p
               className="text-[12px] font-semibold tracking-[0.125px] uppercase mb-5"
-              style={{ color: "#a39e98" }}
+              style={{ color: "var(--ink-faint)" }}
             >
               {tr.footer.legal}
             </p>
@@ -84,8 +84,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[14px] transition-colors duration-200 hover:text-black"
-                    style={{ color: "#31302e" }}
+                    className="text-[14px] opacity-75 hover:opacity-100 transition-opacity duration-200"
+                    style={{ color: "var(--ink-secondary)" }}
                   >
                     {link.label}
                   </Link>
@@ -94,22 +94,22 @@ export default function Footer() {
             </ul>
             <p
               className="text-[12px] font-semibold tracking-[0.125px] uppercase mb-3"
-              style={{ color: "#a39e98" }}
+              style={{ color: "var(--ink-faint)" }}
             >
               {tr.footer.contact}
             </p>
             <a
               href="mailto:contact@riaddartmarrakech.com"
-              className="text-[14px] transition-colors duration-200 hover:text-black block"
-              style={{ color: "#31302e" }}
+              className="text-[14px] opacity-75 hover:opacity-100 transition-opacity duration-200 block"
+              style={{ color: "var(--ink-secondary)" }}
             >
               contact@riaddartmarrakech.com
             </a>
           </div>
         </div>
 
-        <div className="h-px" style={{ background: "#e6e6e6" }} />
-        <p className="text-[14px] text-center mt-8" style={{ color: "#a39e98" }}>
+        <div className="h-px" style={{ background: "var(--hairline)" }} />
+        <p className="text-[14px] text-center mt-8" style={{ color: "var(--ink-faint)" }}>
           {tr.footer.copyright}
         </p>
       </div>

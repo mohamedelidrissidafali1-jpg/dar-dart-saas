@@ -29,7 +29,7 @@ function SectionDivider() {
 
 export default function About() {
   return (
-    <div style={{ background: "#0D1B2A", color: "#E8DFC8", minHeight: "100vh" }}>
+    <div style={{ background: "var(--background)", color: "var(--ink)", minHeight: "100vh" }}>
       <Navbar />
 
       {/* Hero banner */}
@@ -42,7 +42,7 @@ export default function About() {
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(13,27,42,1) 0%, rgba(13,27,42,0.4) 60%)" }}
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%)" }}
         />
         <div className="relative z-10 px-6 pb-12 max-w-6xl mx-auto w-full">
           <p className="text-xs tracking-[0.45em] uppercase mb-3" style={{ color: "#B8973A" }}>
@@ -50,7 +50,7 @@ export default function About() {
           </p>
           <h1
             className="text-4xl md:text-5xl font-light"
-            style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+            style={{ color: "#ffffff", letterSpacing: "0.05em" }}
           >
             About Dar D&apos;Art
           </h1>
@@ -58,7 +58,7 @@ export default function About() {
       </section>
 
       {/* History & Mission */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-xs tracking-[0.35em] uppercase mb-5" style={{ color: "#B8973A" }}>
@@ -66,11 +66,11 @@ export default function About() {
             </p>
             <h2
               className="text-3xl font-light mb-8"
-              style={{ color: "#E8DFC8", letterSpacing: "0.04em" }}
+              style={{ color: "var(--ink)", letterSpacing: "0.04em" }}
             >
               A Living Piece of Marrakech
             </h2>
-            <div className="space-y-5 text-sm leading-8 opacity-70">
+            <div className="space-y-5 text-sm leading-8" style={{ color: "var(--ink-muted)" }}>
               <p>
                 Nestled within the ancient walls of Marrakech&apos;s medina, Riad Dar D&apos;Art is a
                 sanctuary of Moroccan art, architecture, and timeless hospitality. The name means
@@ -78,11 +78,11 @@ export default function About() {
               </p>
               <p>
                 We operate two beautifully restored properties:{" "}
-                <span className="font-semibold opacity-100" style={{ color: "#B8973A" }}>
+                <span className="font-semibold" style={{ color: "#B8973A" }}>
                   Riad 19
                 </span>{" "}
                 at 19 Derb Zemrane and{" "}
-                <span className="font-semibold opacity-100" style={{ color: "#B8973A" }}>
+                <span className="font-semibold" style={{ color: "#B8973A" }}>
                   Riad 141
                 </span>{" "}
                 at 141 Derb Arset Aouzal. Each is a testament to centuries of Andalusian
@@ -109,7 +109,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-24 px-6" style={{ background: "#091521" }}>
+      <section className="py-24 px-6" style={{ background: "var(--surface)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
@@ -117,7 +117,7 @@ export default function About() {
             </p>
             <h2
               className="text-3xl font-light"
-              style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+              style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
             >
               Our Values
             </h2>
@@ -128,17 +128,17 @@ export default function About() {
             {VALUES.map((v) => (
               <div
                 key={v.title}
-                className="p-8"
-                style={{ background: "#162436", border: "1px solid rgba(184,151,58,0.15)" }}
+                className="p-8 rounded-xl"
+                style={{ background: "var(--background)", border: "1px solid rgba(184,151,58,0.2)" }}
               >
                 <div className="w-8 h-px mb-6" style={{ background: "#B8973A" }} />
                 <h3
                   className="text-base font-semibold mb-3 tracking-wide"
-                  style={{ color: "#E8DFC8" }}
+                  style={{ color: "var(--ink)" }}
                 >
                   {v.title}
                 </h3>
-                <p className="text-sm leading-relaxed opacity-60" style={{ color: "#E8DFC8" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>
                   {v.desc}
                 </p>
               </div>
@@ -148,7 +148,7 @@ export default function About() {
       </section>
 
       {/* Properties */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
@@ -156,7 +156,7 @@ export default function About() {
             </p>
             <h2
               className="text-3xl font-light"
-              style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+              style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
             >
               Two Riads, One Soul
             </h2>
@@ -180,8 +180,8 @@ export default function About() {
             ].map((p) => (
               <div
                 key={p.name}
-                className="p-8"
-                style={{ background: "#162436", border: "1px solid rgba(184,151,58,0.2)" }}
+                className="p-8 rounded-xl"
+                style={{ background: "var(--surface)", border: "1px solid rgba(184,151,58,0.2)" }}
               >
                 <p
                   className="text-xs tracking-[0.35em] uppercase mb-3 font-semibold"
@@ -189,23 +189,20 @@ export default function About() {
                 >
                   {p.name}
                 </p>
-                <p className="text-base font-light mb-2" style={{ color: "#E8DFC8" }}>
+                <p className="text-base font-light mb-2" style={{ color: "var(--ink)" }}>
                   {p.address}
                 </p>
-                <p
-                  className="text-xs mb-1 opacity-45"
-                  style={{ color: "#E8DFC8" }}
-                >
+                <p className="text-xs mb-1" style={{ color: "var(--ink-faint)" }}>
                   Marrakech Medina 40000, Morocco
                 </p>
-                <p className="text-sm leading-relaxed opacity-60 mt-4 mb-5" style={{ color: "#E8DFC8" }}>
+                <p className="text-sm leading-relaxed mt-4 mb-5" style={{ color: "var(--ink-muted)" }}>
                   {p.desc}
                 </p>
                 <a
                   href={p.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-[0.2em] uppercase opacity-55 hover:opacity-100 transition-opacity duration-200"
+                  className="text-xs tracking-[0.2em] uppercase opacity-70 hover:opacity-100 transition-opacity duration-200"
                   style={{ color: "#B8973A" }}
                 >
                   View on map →
@@ -217,28 +214,28 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 text-center" style={{ background: "#091521" }}>
+      <section className="py-20 px-6 text-center" style={{ background: "var(--surface)" }}>
         <h2
           className="text-2xl font-light mb-6"
-          style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+          style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
         >
           Experience It Yourself
         </h2>
-        <p className="text-sm opacity-55 mb-10 max-w-xs mx-auto leading-relaxed">
+        <p className="text-sm mb-10 max-w-xs mx-auto leading-relaxed" style={{ color: "var(--ink-muted)" }}>
           Ready to stay with us? Get in touch or explore our rooms.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/contact"
             className="inline-block px-8 py-3.5 text-xs tracking-[0.3em] uppercase font-semibold transition-opacity duration-200 hover:opacity-85"
-            style={{ background: "#B8973A", color: "#0D1B2A" }}
+            style={{ background: "#B8973A", color: "#ffffff" }}
           >
             Contact Us
           </Link>
           <Link
             href="/#rooms"
-            className="inline-block px-8 py-3.5 text-xs tracking-[0.3em] uppercase font-light transition-colors duration-200 hover:bg-white/5"
-            style={{ border: "1px solid rgba(184,151,58,0.55)", color: "#E8DFC8" }}
+            className="inline-block px-8 py-3.5 text-xs tracking-[0.3em] uppercase font-light transition-opacity duration-200 hover:opacity-80"
+            style={{ border: "1px solid rgba(184,151,58,0.55)", color: "var(--ink)" }}
           >
             View Rooms
           </Link>

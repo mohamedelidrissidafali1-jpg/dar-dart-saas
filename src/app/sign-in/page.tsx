@@ -25,7 +25,7 @@ export default function SignIn() {
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-16"
-      style={{ background: "#f6f5f4" }}
+      style={{ background: "var(--background)", color: "var(--ink)" }}
       dir={dir}
     >
       <div className="w-full max-w-md">
@@ -34,18 +34,18 @@ export default function SignIn() {
           <Link href="/">
             <div
               className="text-[11px] font-semibold tracking-[0.3em] uppercase mb-1"
-              style={{ color: "#0075de" }}
+              style={{ color: "var(--primary)" }}
             >
               Riad
             </div>
             <div
               className="text-2xl font-bold tracking-tight"
-              style={{ color: "#000000", letterSpacing: "-0.5px" }}
+              style={{ color: "var(--ink)", letterSpacing: "-0.5px" }}
             >
               Dar D&apos;Art
             </div>
           </Link>
-          <p className="mt-3 text-[15px]" style={{ color: "#615d59" }}>
+          <p className="mt-3 text-[15px]" style={{ color: "var(--ink-muted)" }}>
             {tr.signIn.conciergeAwaits}
           </p>
         </div>
@@ -53,11 +53,11 @@ export default function SignIn() {
         {/* Card */}
         <div
           className="p-8 sm:p-10 rounded-xl"
-          style={{ background: "#ffffff", border: "1px solid #e6e6e6" }}
+          style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
         >
           <h1
             className="text-xl font-bold mb-8"
-            style={{ color: "#000000", letterSpacing: "-0.25px" }}
+            style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
           >
             {tr.signIn.heading}
           </h1>
@@ -68,7 +68,7 @@ export default function SignIn() {
               <label
                 htmlFor="email"
                 className="text-[14px] font-medium"
-                style={{ color: "#31302e" }}
+                style={{ color: "var(--ink-secondary)" }}
               >
                 {tr.signIn.email}
               </label>
@@ -80,9 +80,9 @@ export default function SignIn() {
                 required
                 autoComplete="email"
                 className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                style={{ border: "1px solid #e6e6e6", color: "#000000", background: "#ffffff", caretColor: "#0075de" }}
-                onFocus={(e) => (e.target.style.borderColor = "#0075de")}
-                onBlur={(e) => (e.target.style.borderColor = "#e6e6e6")}
+                style={{ border: "1px solid var(--hairline)", color: "var(--ink)", background: "var(--surface)", caretColor: "var(--primary)" }}
+                onFocus={(e) => (e.target.style.borderColor = "var(--primary)")}
+                onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
                 placeholder="you@example.com"
               />
             </div>
@@ -93,14 +93,14 @@ export default function SignIn() {
                 <label
                   htmlFor="password"
                   className="text-[14px] font-medium"
-                  style={{ color: "#31302e" }}
+                  style={{ color: "var(--ink-secondary)" }}
                 >
                   {tr.signIn.password}
                 </label>
                 <Link
                   href="#"
                   className="text-[14px] transition-opacity duration-200 hover:opacity-70"
-                  style={{ color: "#0075de" }}
+                  style={{ color: "var(--primary)" }}
                 >
                   {tr.signIn.forgotPassword}
                 </Link>
@@ -113,9 +113,9 @@ export default function SignIn() {
                 required
                 autoComplete="current-password"
                 className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                style={{ border: "1px solid #e6e6e6", color: "#000000", background: "#ffffff", caretColor: "#0075de" }}
-                onFocus={(e) => (e.target.style.borderColor = "#0075de")}
-                onBlur={(e) => (e.target.style.borderColor = "#e6e6e6")}
+                style={{ border: "1px solid var(--hairline)", color: "var(--ink)", background: "var(--surface)", caretColor: "var(--primary)" }}
+                onFocus={(e) => (e.target.style.borderColor = "var(--primary)")}
+                onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
                 placeholder="••••••••"
               />
             </div>
@@ -128,7 +128,7 @@ export default function SignIn() {
                 onChange={(e) => setRemember(e.target.checked)}
                 className="w-4 h-4 accent-[#0075de]"
               />
-              <span className="text-[14px]" style={{ color: "#615d59" }}>
+              <span className="text-[14px]" style={{ color: "var(--ink-muted)" }}>
                 {tr.signIn.rememberMe}
               </span>
             </label>
@@ -144,17 +144,17 @@ export default function SignIn() {
           </form>
 
           <div className="flex items-center gap-4 my-6">
-            <div className="flex-1 h-px" style={{ background: "#e6e6e6" }} />
-            <span className="text-[14px]" style={{ color: "#a39e98" }}>{tr.signIn.or}</span>
-            <div className="flex-1 h-px" style={{ background: "#e6e6e6" }} />
+            <div className="flex-1 h-px" style={{ background: "var(--hairline)" }} />
+            <span className="text-[14px]" style={{ color: "var(--ink-faint)" }}>{tr.signIn.or}</span>
+            <div className="flex-1 h-px" style={{ background: "var(--hairline)" }} />
           </div>
 
-          <p className="text-center text-[15px]" style={{ color: "#31302e" }}>
+          <p className="text-center text-[15px]" style={{ color: "var(--ink-secondary)" }}>
             <span>{tr.signIn.noAccount} </span>
             <Link
               href="/sign-up"
               className="font-medium transition-opacity duration-200 hover:opacity-70"
-              style={{ color: "#0075de" }}
+              style={{ color: "var(--primary)" }}
             >
               {tr.signIn.createAccount}
             </Link>
@@ -165,8 +165,8 @@ export default function SignIn() {
         <div className="text-center mt-6">
           <Link
             href="/"
-            className="text-[14px] transition-colors duration-200 hover:text-black"
-            style={{ color: "#a39e98" }}
+            className="text-[14px] transition-opacity duration-200 hover:opacity-100 opacity-60"
+            style={{ color: "var(--ink-faint)" }}
           >
             {tr.signIn.backHome}
           </Link>

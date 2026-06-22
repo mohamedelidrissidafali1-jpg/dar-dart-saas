@@ -67,7 +67,7 @@ function Divider() {
 
 export default function HowItWorks() {
   return (
-    <div style={{ background: "#0D1B2A", color: "#E8DFC8", minHeight: "100vh" }}>
+    <div style={{ background: "var(--background)", color: "var(--ink)", minHeight: "100vh" }}>
       <Navbar />
 
       {/* Page header */}
@@ -77,25 +77,25 @@ export default function HowItWorks() {
         </p>
         <h1
           className="text-4xl md:text-5xl font-light"
-          style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+          style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
         >
           How It Works
         </h1>
         <Divider />
-        <p className="mt-8 text-base md:text-lg font-light opacity-65 max-w-xl mx-auto leading-relaxed">
+        <p className="mt-8 text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed" style={{ color: "var(--ink-muted)" }}>
           From booking to chatting with your AI concierge in four simple steps.
         </p>
       </section>
 
       {/* Steps */}
-      <section className="py-20 px-6" style={{ background: "#091521" }}>
+      <section className="py-20 px-6" style={{ background: "var(--surface)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
-            {STEPS.map((step, i) => (
+            {STEPS.map((step) => (
               <div
                 key={step.num}
-                className="flex gap-6 p-8 transition-all duration-200"
-                style={{ background: "#162436", border: "1px solid rgba(184,151,58,0.15)" }}
+                className="flex gap-6 p-8 rounded-xl transition-all duration-200"
+                style={{ background: "var(--background)", border: "1px solid rgba(184,151,58,0.15)" }}
               >
                 {/* Step number */}
                 <div
@@ -110,18 +110,14 @@ export default function HowItWorks() {
                 <div>
                   <h3
                     className="text-base font-semibold mb-3 tracking-wide"
-                    style={{ color: "#E8DFC8" }}
+                    style={{ color: "var(--ink)" }}
                   >
                     {step.title}
                   </h3>
-                  <p className="text-sm leading-relaxed opacity-60" style={{ color: "#E8DFC8" }}>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>
                     {step.desc}
                   </p>
                 </div>
-                {/* Connector arrow on desktop (between columns) */}
-                {i % 2 === 0 && (
-                  <span className="hidden" aria-hidden="true" />
-                )}
               </div>
             ))}
           </div>
@@ -129,7 +125,7 @@ export default function HowItWorks() {
       </section>
 
       {/* Benefits */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
@@ -137,7 +133,7 @@ export default function HowItWorks() {
             </p>
             <h2
               className="text-3xl font-light"
-              style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+              style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
             >
               A Smarter Stay
             </h2>
@@ -148,19 +144,19 @@ export default function HowItWorks() {
             {BENEFITS.map((b) => (
               <div
                 key={b.title}
-                className="p-8 text-center"
-                style={{ background: "#162436", border: "1px solid rgba(184,151,58,0.15)" }}
+                className="p-8 text-center rounded-xl"
+                style={{ background: "var(--surface)", border: "1px solid rgba(184,151,58,0.15)" }}
               >
                 <div className="flex justify-center mb-5" style={{ color: "#B8973A" }}>
                   {b.icon}
                 </div>
                 <h3
                   className="text-sm font-semibold mb-3 tracking-wide"
-                  style={{ color: "#E8DFC8" }}
+                  style={{ color: "var(--ink)" }}
                 >
                   {b.title}
                 </h3>
-                <p className="text-sm leading-relaxed opacity-60" style={{ color: "#E8DFC8" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>
                   {b.desc}
                 </p>
               </div>
@@ -172,24 +168,24 @@ export default function HowItWorks() {
       {/* CTA */}
       <section
         className="py-24 px-6 text-center"
-        style={{ background: "#091521" }}
+        style={{ background: "var(--surface)" }}
       >
         <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
           Ready?
         </p>
         <h2
           className="text-3xl font-light mb-6"
-          style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+          style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
         >
           Start Your Experience
         </h2>
-        <p className="text-sm opacity-55 mb-10 max-w-sm mx-auto leading-relaxed">
+        <p className="text-sm mb-10 max-w-sm mx-auto leading-relaxed" style={{ color: "var(--ink-muted)" }}>
           Have your booking confirmation ready and create your account in under a minute.
         </p>
         <Link
           href="/sign-up"
           className="inline-block px-10 py-3.5 text-xs tracking-[0.3em] uppercase font-semibold transition-opacity duration-200 hover:opacity-85"
-          style={{ background: "#B8973A", color: "#0D1B2A" }}
+          style={{ background: "#B8973A", color: "#ffffff" }}
         >
           Create Account
         </Link>
