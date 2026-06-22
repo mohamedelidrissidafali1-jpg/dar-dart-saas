@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { message, riad, language } = await req.json();
+    const { message, riad, language, guestName } = await req.json();
 
     if (!message || typeof message !== "string") {
       return NextResponse.json(
@@ -34,8 +34,11 @@ export async function POST(req: NextRequest) {
 
     const langName = LANGUAGE_NAMES[language] ?? "English";
     const languageInstruction = `You MUST always respond in ${langName}, regardless of the language the guest uses to write.`;
+    const nameInstruction = guestName && typeof guestName === "string"
+      ? ` The guest's name is ${guestName}. Always address them warmly by their first name.`
+      : "";
 
-    const systemPrompt = `${riadContext} You are a warm, professional luxury riad concierge. ${languageInstruction}`;
+    const systemPrompt = `${riadContext} You are a warm, professional luxury riad concierge.${nameInstruction} ${languageInstruction}`;
 
     const anthropicRes = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",

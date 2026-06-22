@@ -2,21 +2,39 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { getLang, getT, type Lang } from "@/lib/translations";
 import ThemeToggle from "@/components/ThemeToggle";
+import { createClient } from "@/lib/supabase/client";
 
 export default function Navbar() {
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState<Lang>("en");
   const [mounted, setMounted] = useState(false);
+  const [firstName, setFirstName] = useState<string | null>(null);
   const pathname = usePathname();
   const { resolvedTheme } = useTheme();
   const isHome = pathname === "/";
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (user) {
+        supabase
+          .from("profiles")
+          .select("first_name")
+          .eq("id", user.id)
+          .single()
+          .then(({ data }) => {
+            if (data?.first_name) setFirstName(data.first_name);
+          });
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -30,6 +48,13 @@ export default function Navbar() {
 
   const tr = getT(lang);
 
+  async function handleLogout() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    setFirstName(null);
+    router.push("/");
+  }
+
   const NAV_LINKS = [
     { label: tr.nav.howItWorks, href: "/how-it-works" },
     { label: tr.nav.about, href: "/about" },
@@ -41,13 +66,13 @@ export default function Navbar() {
   const isDark = mounted && resolvedTheme === "dark";
 
   const transparent = !solidBg;
-  const linkColor = transparent ? "#ffffff" : (isDark ? "#c9c4be" : "#1a1a1a");
-  const logoColor = transparent ? "#ffffff" : (isDark ? "#f0ede8" : "#1a1a1a");
-  const navBg = solidBg ? (isDark ? "#1a1917" : "#ffffff") : "transparent";
+  const linkColor = transparent ? "#ffffff" : (isDark ? "#E8DFC8" : "#1a1a1a");
+  const logoColor = transparent ? "#ffffff" : (isDark ? "#E8DFC8" : "#1a1a1a");
+  const navBg = solidBg ? (isDark ? "#162436" : "#ffffff") : "transparent";
   const navShadow = solidBg ? "0 1px 24px rgba(0,0,0,0.08)" : "none";
-  const borderColor = isDark ? "#2a2926" : "#e8e8e8";
-  const mobileBg = isDark ? "#1a1917" : "#ffffff";
-  const signInBorderColor = transparent ? "rgba(255,255,255,0.55)" : (isDark ? "#c9c4be" : "#1a1a1a");
+  const borderColor = isDark ? "rgba(184,151,58,0.2)" : "#e8e8e8";
+  const mobileBg = isDark ? "#162436" : "#ffffff";
+  const signInBorderColor = transparent ? "rgba(255,255,255,0.55)" : (isDark ? "#E8DFC8" : "#1a1a1a");
 
   return (
     <nav
@@ -87,21 +112,38 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Link
-            href="/sign-in"
-            className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
-            style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
-          >
-            {tr.nav.signIn}
-          </Link>
+          {firstName ? (
+            <>
+              <span className="text-[12px] font-light tracking-[0.12em]" style={{ color: linkColor }}>
+                {firstName}
+              </span>
+              <button
+                onClick={handleLogout}
+                className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
+                style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/sign-in"
+                className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
+                style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
+              >
+                {tr.nav.signIn}
+              </Link>
 
-          <Link
-            href="/sign-up"
-            className="px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85"
-            style={{ background: "#C1440E", color: "#ffffff" }}
-          >
-            {tr.nav.signUp}
-          </Link>
+              <Link
+                href="/sign-up"
+                className="px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85"
+                style={{ background: "#C1440E", color: "#ffffff" }}
+              >
+                {tr.nav.signUp}
+              </Link>
+            </>
+          )}
 
           <ThemeToggle color={linkColor} />
         </div>
@@ -145,27 +187,47 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className="text-left text-[13px] font-light tracking-[0.12em] uppercase py-3.5 border-b transition-colors"
-              style={{ color: isDark ? "#c9c4be" : "#1a1a1a", borderColor }}
+              style={{ color: isDark ? "#E8DFC8" : "#1a1a1a", borderColor }}
             >
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/sign-in"
-            onClick={() => setMenuOpen(false)}
-            className="mt-4 py-3 text-[13px] font-light tracking-[0.1em] uppercase text-center rounded-full transition-colors"
-            style={{ border: `1px solid ${isDark ? "#c9c4be" : "#1a1a1a"}`, color: isDark ? "#c9c4be" : "#1a1a1a" }}
-          >
-            {tr.nav.signIn}
-          </Link>
-          <Link
-            href="/sign-up"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 py-3 text-[13px] font-medium tracking-[0.06em] uppercase text-center rounded-full"
-            style={{ background: "#C1440E", color: "#ffffff" }}
-          >
-            {tr.nav.signUp}
-          </Link>
+          {firstName ? (
+            <>
+              <span
+                className="mt-4 py-3 text-[13px] font-light tracking-[0.1em] text-center"
+                style={{ color: isDark ? "#E8DFC8" : "#1a1a1a" }}
+              >
+                {firstName}
+              </span>
+              <button
+                onClick={() => { setMenuOpen(false); handleLogout(); }}
+                className="mt-2 py-3 text-[13px] font-light tracking-[0.1em] uppercase text-center rounded-full transition-colors"
+                style={{ border: `1px solid ${isDark ? "#E8DFC8" : "#1a1a1a"}`, color: isDark ? "#E8DFC8" : "#1a1a1a" }}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/sign-in"
+                onClick={() => setMenuOpen(false)}
+                className="mt-4 py-3 text-[13px] font-light tracking-[0.1em] uppercase text-center rounded-full transition-colors"
+                style={{ border: `1px solid ${isDark ? "#E8DFC8" : "#1a1a1a"}`, color: isDark ? "#E8DFC8" : "#1a1a1a" }}
+              >
+                {tr.nav.signIn}
+              </Link>
+              <Link
+                href="/sign-up"
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 py-3 text-[13px] font-medium tracking-[0.06em] uppercase text-center rounded-full"
+                style={{ background: "#C1440E", color: "#ffffff" }}
+              >
+                {tr.nav.signUp}
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

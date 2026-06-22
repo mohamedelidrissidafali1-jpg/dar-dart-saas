@@ -346,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* ── ROOMS ── */}
-      <section id="rooms" className="py-28 px-6" style={{ background: "#faf8f5" }}>
+      <section id="rooms" className="py-28 px-6 bg-[#faf8f5] dark:bg-[#0D1B2A]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span
@@ -479,7 +479,7 @@ export default function Home() {
       </section>
 
       {/* ── EXCURSIONS ── */}
-      <section id="excursions" className="py-28 px-6" style={{ background: "#faf8f5" }}>
+      <section id="excursions" className="py-28 px-6 bg-[#faf8f5] dark:bg-[#0D1B2A]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span

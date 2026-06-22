@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { LANGUAGES, getLang, getT, isRtl, type Lang } from "@/lib/translations";
+import { createClient } from "@/lib/supabase/client";
 
 export default function SignUp() {
+  const router = useRouter();
   const [lang, setLang] = useState<Lang>("en");
 
   useEffect(() => {
@@ -24,6 +27,8 @@ export default function SignUp() {
   });
   const [riadError, setRiadError] = useState(false);
   const [langError, setLangError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   function set(field: string, value: string | boolean) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -34,15 +39,43 @@ export default function SignUp() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     let valid = true;
     if (!form.selectedRiad) { setRiadError(true); valid = false; }
     if (!form.selectedLanguage) { setLangError(true); valid = false; }
     if (!valid) return;
-    localStorage.setItem("selectedRiad", form.selectedRiad);
-    localStorage.setItem("selectedLanguage", form.selectedLanguage);
-    // Auth integration goes here
+
+    setLoading(true);
+    setError(null);
+
+    const supabase = createClient();
+    const { data, error: signUpError } = await supabase.auth.signUp({
+      email: form.email,
+      password: form.password,
+    });
+
+    if (signUpError || !data.user) {
+      setError(signUpError?.message ?? "Sign up failed. Please try again.");
+      setLoading(false);
+      return;
+    }
+
+    const { error: profileError } = await supabase.from("profiles").insert({
+      id: data.user.id,
+      first_name: form.firstName,
+      language: form.selectedLanguage,
+      riad: form.selectedRiad,
+      checked_out: false,
+    });
+
+    if (profileError) {
+      setError("Account created but profile setup failed. Please contact support.");
+      setLoading(false);
+      return;
+    }
+
+    router.push("/dashboard");
   }
 
   const dir = isRtl(lang) ? "rtl" : undefined;
@@ -312,13 +345,19 @@ export default function SignUp() {
               </span>
             </label>
 
+            {/* Error */}
+            {error && (
+              <p className="text-[14px] text-center" style={{ color: "#ef4444" }}>{error}</p>
+            )}
+
             {/* Submit */}
             <button
               type="submit"
-              className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85"
+              disabled={loading}
+              className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
               style={{ background: "#0075de", color: "#ffffff" }}
             >
-              {tr.signUp.submit}
+              {loading ? "Creating account…" : tr.signUp.submit}
             </button>
           </form>
 

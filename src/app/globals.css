@@ -15,17 +15,17 @@
 }
 
 .dark {
-  --background: #0f0e0d;
-  --foreground: #f0ede8;
-  --surface: #1a1917;
-  --ink: #f0ede8;
-  --ink-secondary: #c9c4be;
-  --ink-muted: #8c8580;
-  --ink-faint: #5c5750;
+  --background: #0D1B2A;
+  --foreground: #E8DFC8;
+  --surface: #162436;
+  --ink: #E8DFC8;
+  --ink-secondary: #C5BAA6;
+  --ink-muted: #8a7e70;
+  --ink-faint: #56504a;
   --primary: #3d9eff;
   --primary-active: #66b2ff;
   --secondary: #7b8fd4;
-  --hairline: #2a2926;
+  --hairline: rgba(184,151,58,0.2);
 }
 
 @theme inline {

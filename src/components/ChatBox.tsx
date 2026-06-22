@@ -14,14 +14,16 @@ interface Message {
 interface ChatBoxProps {
   initialMessage?: string;
   riad?: string;
+  language?: string;
+  guestName?: string;
 }
 
-export default function ChatBox({ initialMessage, riad }: ChatBoxProps = {}) {
-  const [lang, setLang] = useState<Lang>("en");
+export default function ChatBox({ initialMessage, riad, language: langProp, guestName }: ChatBoxProps = {}) {
+  const [lang, setLang] = useState<Lang>((langProp as Lang) ?? "en");
 
   useEffect(() => {
-    setLang(getLang());
-  }, []);
+    if (!langProp) setLang(getLang());
+  }, [langProp]);
 
   const tr = getT(lang);
 
@@ -64,7 +66,7 @@ export default function ChatBox({ initialMessage, riad }: ChatBoxProps = {}) {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, riad, language: lang }),
+        body: JSON.stringify({ message: text, riad, language: lang, guestName }),
       });
 
       const data = await res.json();

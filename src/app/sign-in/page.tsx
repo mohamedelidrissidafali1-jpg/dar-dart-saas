@@ -1,14 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
+import { createClient } from "@/lib/supabase/client";
 
 export default function SignIn() {
+  const router = useRouter();
   const [lang, setLang] = useState<Lang>("en");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setLang(getLang());
@@ -17,9 +22,21 @@ export default function SignIn() {
   const tr = getT(lang);
   const dir = isRtl(lang) ? "rtl" : undefined;
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Auth integration goes here
+    setLoading(true);
+    setError(null);
+
+    const supabase = createClient();
+    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+
+    if (signInError) {
+      setError(signInError.message);
+      setLoading(false);
+      return;
+    }
+
+    router.push("/dashboard");
   }
 
   return (
@@ -133,13 +150,19 @@ export default function SignIn() {
               </span>
             </label>
 
+            {/* Error */}
+            {error && (
+              <p className="text-[14px] text-center" style={{ color: "#ef4444" }}>{error}</p>
+            )}
+
             {/* Submit */}
             <button
               type="submit"
-              className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85"
+              disabled={loading}
+              className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
               style={{ background: "#0075de", color: "#ffffff" }}
             >
-              {tr.signIn.submit}
+              {loading ? "Signing in…" : tr.signIn.submit}
             </button>
           </form>
 
