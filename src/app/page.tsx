@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ChatBox from "@/components/ChatBox";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const ROOMS = [
+const ROOMS_19 = [
   {
     name: "The Rose Suite",
     desc: "Hand-crafted Moroccan tilework, king bed, and a private terrace overlooking the fountain courtyard.",
@@ -27,6 +28,34 @@ const ROOMS = [
     name: "The Garden Room",
     desc: "A serene escape surrounded by jasmine and orange blossom with direct access to the garden.",
     img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+  },
+  {
+    name: "The Courtyard Room",
+    desc: "A tranquil retreat with zellige floors and views across the inner courtyard fountain.",
+    img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=80",
+  },
+];
+
+const ROOMS_141 = [
+  {
+    name: "The Amber Suite",
+    desc: "Warm amber tones, hand-painted plaster walls, and a four-poster bed draped in Berber textiles.",
+    img: "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
+  },
+  {
+    name: "The Indigo Room",
+    desc: "Midnight-blue tadelakt walls, brass lanterns, and a private courtyard sitting area.",
+    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+  },
+  {
+    name: "The Jasmine Suite",
+    desc: "Flooded with natural light and the scent of jasmine, with a rooftop access and hammam tub.",
+    img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+  },
+  {
+    name: "The Zellige Room",
+    desc: "A mosaic masterpiece — floor-to-ceiling hand-cut tiles and a king bed of carved cedar.",
+    img: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
   },
 ];
 
@@ -152,116 +181,117 @@ const SERVICES: { name: string; desc: string; Icon: ServiceIcon }[] = [
 
 export default function Home() {
   const [chatOpen, setChatOpen] = useState(false);
+  const [roomsRiad, setRoomsRiad] = useState<"riad19" | "riad141">("riad19");
+  const [lang, setLang] = useState<Lang>("en");
+
+  useEffect(() => {
+    const stored = localStorage.getItem("selectedRiad");
+    if (stored === "riad19" || stored === "riad141") setRoomsRiad(stored);
+    setLang(getLang());
+  }, []);
+
+  const tr = getT(lang);
+  const dir = isRtl(lang) ? "rtl" : undefined;
 
   function scrollTo(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
 
+  const activeRooms = roomsRiad === "riad141" ? ROOMS_141 : ROOMS_19;
+
   return (
-    <div style={{ background: "#0D1B2A", color: "#E8DFC8", minHeight: "100vh" }}>
+    <div style={{ background: "#f6f5f4", color: "#000000", minHeight: "100vh" }} dir={dir}>
 
       <Navbar />
 
       {/* ── HERO ── */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-        {/* Background image - placeholder from Unsplash */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=80"
           alt="Moroccan riad courtyard"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Gradient overlay */}
+        {/* Deep indigo hero overlay — the "night band" */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(13,27,42,0.45) 0%, rgba(13,27,42,0.65) 60%, rgba(13,27,42,0.92) 100%)",
+              "linear-gradient(to bottom, rgba(33,49,131,0.55) 0%, rgba(33,49,131,0.72) 60%, rgba(33,49,131,0.92) 100%)",
           }}
         />
 
         {/* Hero content */}
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-          <p
-            className="text-xs tracking-[0.5em] uppercase mb-8 font-light"
-            style={{ color: "#B8973A" }}
+          <span
+            className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-6 px-3 py-1 rounded-full"
+            style={{ background: "rgba(255,255,255,0.15)", color: "#ffffff" }}
           >
-            Marrakech, Morocco
-          </p>
+            {tr.hero.location}
+          </span>
           <h1
-            className="text-5xl sm:text-6xl md:text-7xl font-light mb-6 leading-tight"
-            style={{ color: "#E8DFC8", letterSpacing: "0.04em" }}
+            className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-none"
+            style={{ color: "#ffffff", letterSpacing: "-2px" }}
           >
             Riad Dar D&apos;Art
           </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-px flex-1 max-w-[60px]" style={{ background: "#B8973A" }} />
-            <div className="w-1.5 h-1.5 rotate-45" style={{ background: "#B8973A" }} />
-            <div className="h-px flex-1 max-w-[60px]" style={{ background: "#B8973A" }} />
-          </div>
           <p
-            className="text-base md:text-xl font-light mb-12 opacity-85 leading-relaxed"
-            style={{ color: "#E8DFC8", letterSpacing: "0.03em" }}
+            className="text-base md:text-xl font-light mb-12 leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.85)" }}
           >
-            Your luxury retreat in the heart of Marrakech
+            {tr.hero.tagline}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => scrollTo("rooms")}
-              className="px-8 py-3.5 text-xs tracking-[0.25em] uppercase font-semibold transition-opacity duration-200 hover:opacity-85"
-              style={{ background: "#B8973A", color: "#0D1B2A" }}
+              className="px-8 py-3.5 text-[16px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85 active:scale-95"
+              style={{ background: "#0075de", color: "#ffffff" }}
             >
-              Explore Rooms
+              {tr.hero.exploreRooms}
             </button>
             <button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-3.5 text-xs tracking-[0.25em] uppercase font-light transition-colors duration-200 hover:bg-white/10"
-              style={{ border: "1px solid rgba(184,151,58,0.55)", color: "#E8DFC8" }}
+              className="px-8 py-3.5 text-[16px] font-medium rounded-full transition-colors duration-200 hover:bg-white/10"
+              style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
             >
-              Contact Us
+              {tr.hero.contactUs}
             </button>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-          <span className="text-xs tracking-[0.3em] uppercase" style={{ color: "#B8973A" }}>
-            Scroll
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <span className="text-[12px] font-semibold tracking-[0.3em] uppercase">
+            {tr.hero.scroll}
           </span>
-          <div className="w-px h-10 animate-pulse" style={{ background: "#B8973A" }} />
+          <div className="w-px h-10 animate-pulse" style={{ background: "rgba(255,255,255,0.4)" }} />
         </div>
       </section>
 
       {/* ── ABOUT ── */}
-      <section id="about" className="py-28 px-6">
+      <section id="about" className="py-28 px-6" style={{ background: "#f6f5f4" }}>
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
-            Our Story
-          </p>
+          <span
+            className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
+            style={{ background: "#ffffff", color: "#0075de", border: "1px solid #e6e6e6" }}
+          >
+            {tr.about.label}
+          </span>
           <h2
-            className="text-3xl md:text-4xl font-light mb-8"
-            style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+            className="text-3xl md:text-[40px] font-bold mb-8"
+            style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
           >
-            A Living Heritage in the Medina
+            {tr.about.heading}
           </h2>
-          <div className="flex items-center justify-center gap-3 mb-10">
-            <div className="h-px w-12" style={{ background: "#B8973A" }} />
-            <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-            <div className="h-px w-12" style={{ background: "#B8973A" }} />
-          </div>
           <p
-            className="text-base md:text-lg leading-8 opacity-75"
-            style={{ color: "#E8DFC8" }}
+            className="text-base md:text-lg leading-8"
+            style={{ color: "#615d59" }}
           >
-            Nestled within the ancient walls of Marrakech&apos;s medina, Riad Dar D&apos;Art is a sanctuary of
-            Moroccan art, architecture, and timeless hospitality. We operate two beautifully restored
-            properties:{" "}
-            <span className="font-semibold opacity-100" style={{ color: "#B8973A" }}>Riad 19</span>
-            {" "}at 19 Derb Zemrane and{" "}
-            <span className="font-semibold opacity-100" style={{ color: "#B8973A" }}>Riad 141</span>
-            {" "}at 141 Derb Arset Aouzal — each a testament to centuries of Andalusian craftsmanship.
-            Mosaic courtyards, hand-carved cedar archways, and the scent of orange blossom welcome you into
-            a world apart from the outside bustle, yet steps away from the vibrant soul of the city.
+            {tr.about.body}{" "}
+            <span className="font-semibold" style={{ color: "#000000" }}>Riad 19</span>
+            {" "}at 19 Derb Zemrane {tr.about.and}{" "}
+            <span className="font-semibold" style={{ color: "#000000" }}>Riad 141</span>
+            {" "}at 141 Derb Arset Aouzal {tr.about.each}
           </p>
 
           {/* Property cards */}
@@ -280,19 +310,19 @@ export default function Home() {
             ].map((p) => (
               <div
                 key={p.label}
-                className="p-8 text-left"
-                style={{
-                  background: "#162436",
-                  border: "1px solid rgba(184,151,58,0.2)",
-                }}
+                className="p-8 text-left rounded-xl"
+                style={{ background: "#ffffff", border: "1px solid #e6e6e6" }}
               >
-                <p className="text-xs tracking-[0.35em] uppercase mb-3 font-semibold" style={{ color: "#B8973A" }}>
+                <span
+                  className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-3 px-2.5 py-1 rounded-full"
+                  style={{ background: "#f6f5f4", color: "#0075de" }}
+                >
                   {p.label}
-                </p>
-                <p className="text-base font-light mb-1" style={{ color: "#E8DFC8" }}>
+                </span>
+                <p className="text-base font-semibold mb-1" style={{ color: "#000000" }}>
                   {p.sub}
                 </p>
-                <p className="text-sm opacity-55" style={{ color: "#E8DFC8" }}>
+                <p className="text-sm" style={{ color: "#a39e98" }}>
                   {p.desc}
                 </p>
               </div>
@@ -302,66 +332,85 @@ export default function Home() {
       </section>
 
       {/* ── ROOMS ── */}
-      <section id="rooms" className="py-28 px-6" style={{ background: "#091521" }}>
+      <section id="rooms" className="py-28 px-6" style={{ background: "#ffffff" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
-              Accommodation
-            </p>
-            <h2
-              className="text-3xl md:text-4xl font-light"
-              style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+            <span
+              className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
+              style={{ background: "#f6f5f4", color: "#0075de", border: "1px solid #e6e6e6" }}
             >
-              Rooms &amp; Suites
+              {tr.rooms.label}
+            </span>
+            <h2
+              className="text-3xl md:text-[40px] font-bold mb-10"
+              style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+            >
+              {tr.rooms.heading}
             </h2>
-            <div className="flex items-center justify-center gap-3 mt-8">
-              <div className="h-px w-12" style={{ background: "#B8973A" }} />
-              <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-              <div className="h-px w-12" style={{ background: "#B8973A" }} />
+
+            {/* Riad toggle */}
+            <div className="inline-flex rounded-lg overflow-hidden" style={{ border: "1px solid #e6e6e6" }}>
+              {(["riad19", "riad141"] as const).map((r) => {
+                const active = roomsRiad === r;
+                const label = r === "riad19" ? "Riad 19" : "Riad 141";
+                return (
+                  <button
+                    key={r}
+                    onClick={() => setRoomsRiad(r)}
+                    className="px-6 py-2.5 text-[15px] font-medium transition-all duration-200"
+                    style={{
+                      background: active ? "#0075de" : "#ffffff",
+                      color: active ? "#ffffff" : "#31302e",
+                    }}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {ROOMS.map((room) => (
+            {activeRooms.map((room) => (
               <article
                 key={room.name}
-                className="group flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
-                style={{ background: "#162436", border: "1px solid rgba(184,151,58,0.15)" }}
+                className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #e6e6e6",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
+                }}
               >
                 {/* Image */}
-                <div className="overflow-hidden h-52 relative">
+                <div className="overflow-hidden h-52 relative rounded-t-xl">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={room.img}
                     alt={room.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: "rgba(184,151,58,0.08)" }}
-                  />
                 </div>
 
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
-                  <p
-                    className="text-xs tracking-[0.3em] uppercase mb-2 font-semibold"
-                    style={{ color: "#B8973A" }}
+                  <span
+                    className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-2 px-2 py-0.5 rounded-full self-start"
+                    style={{ background: "#f6f5f4", color: "#0075de" }}
                   >
-                    Suite
-                  </p>
-                  <h3 className="text-base font-light mb-3" style={{ color: "#E8DFC8" }}>
+                    {tr.rooms.suite}
+                  </span>
+                  <h3 className="text-[16px] font-semibold mb-3" style={{ color: "#000000", letterSpacing: "-0.125px" }}>
                     {room.name}
                   </h3>
-                  <p className="text-sm leading-relaxed opacity-60 flex-1" style={{ color: "#E8DFC8" }}>
+                  <p className="text-[15px] leading-relaxed flex-1" style={{ color: "#615d59" }}>
                     {room.desc}
                   </p>
                   <button
                     onClick={() => scrollTo("contact")}
-                    className="mt-5 w-full py-2.5 text-xs tracking-[0.2em] uppercase font-semibold transition-all duration-200 hover:bg-[#B8973A] hover:text-[#0D1B2A]"
-                    style={{ border: "1px solid #B8973A", color: "#B8973A" }}
+                    className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-gray-50"
+                    style={{ border: "1px solid #e6e6e6", color: "#31302e" }}
                   >
-                    View Room
+                    {tr.rooms.viewRoom}
                   </button>
                 </div>
               </article>
@@ -371,40 +420,41 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="py-28 px-6">
+      <section id="services" className="py-28 px-6" style={{ background: "#f6f5f4" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
-              Amenities
-            </p>
-            <h2
-              className="text-3xl md:text-4xl font-light"
-              style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+            <span
+              className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
+              style={{ background: "#ffffff", color: "#0075de", border: "1px solid #e6e6e6" }}
             >
-              Services &amp; Facilities
+              {tr.services.label}
+            </span>
+            <h2
+              className="text-3xl md:text-[40px] font-bold"
+              style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+            >
+              {tr.services.heading}
             </h2>
-            <div className="flex items-center justify-center gap-3 mt-8">
-              <div className="h-px w-12" style={{ background: "#B8973A" }} />
-              <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-              <div className="h-px w-12" style={{ background: "#B8973A" }} />
-            </div>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map(({ name, desc, Icon }) => (
               <div
                 key={name}
-                className="p-8 flex gap-5 items-start transition-all duration-200 hover:border-[rgba(184,151,58,0.4)]"
-                style={{ background: "#162436", border: "1px solid rgba(184,151,58,0.15)" }}
+                className="p-8 flex gap-5 items-start rounded-xl transition-shadow duration-200 hover:shadow-md"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #e6e6e6",
+                }}
               >
-                <div className="flex-shrink-0" style={{ color: "#B8973A" }}>
+                <div className="flex-shrink-0" style={{ color: "#0075de" }}>
                   <Icon />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold mb-2 tracking-wide" style={{ color: "#E8DFC8" }}>
+                  <h3 className="text-[16px] font-semibold mb-2" style={{ color: "#000000" }}>
                     {name}
                   </h3>
-                  <p className="text-sm leading-relaxed opacity-60" style={{ color: "#E8DFC8" }}>
+                  <p className="text-[15px] leading-relaxed" style={{ color: "#615d59" }}>
                     {desc}
                   </p>
                 </div>
@@ -415,69 +465,67 @@ export default function Home() {
       </section>
 
       {/* ── EXCURSIONS ── */}
-      <section id="excursions" className="py-28 px-6" style={{ background: "#091521" }}>
+      <section id="excursions" className="py-28 px-6" style={{ background: "#ffffff" }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
-              Experiences
-            </p>
-            <h2
-              className="text-3xl md:text-4xl font-light"
-              style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+            <span
+              className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
+              style={{ background: "#f6f5f4", color: "#0075de", border: "1px solid #e6e6e6" }}
             >
-              Curated Excursions
+              {tr.excursions.label}
+            </span>
+            <h2
+              className="text-3xl md:text-[40px] font-bold"
+              style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+            >
+              {tr.excursions.heading}
             </h2>
-            <div className="flex items-center justify-center gap-3 mt-8">
-              <div className="h-px w-12" style={{ background: "#B8973A" }} />
-              <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-              <div className="h-px w-12" style={{ background: "#B8973A" }} />
-            </div>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {EXCURSIONS.map((ex) => (
               <article
                 key={ex.name}
-                className="group flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
-                style={{ background: "#162436", border: "1px solid rgba(184,151,58,0.15)" }}
+                className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #e6e6e6",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
+                }}
               >
-                <div className="overflow-hidden h-44 relative">
+                <div className="overflow-hidden h-44 relative rounded-t-xl">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={ex.img}
                     alt={ex.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: "linear-gradient(to top, rgba(13,27,42,0.6) 0%, transparent 60%)" }}
-                  />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="text-sm font-semibold leading-tight" style={{ color: "#E8DFC8" }}>
+                    <h3 className="text-[16px] font-semibold leading-tight" style={{ color: "#000000" }}>
                       {ex.name}
                     </h3>
                     <span
-                      className="text-xs px-2.5 py-1 flex-shrink-0 tracking-wide"
+                      className="text-[12px] font-semibold px-2.5 py-1 flex-shrink-0 rounded-full"
                       style={{
-                        background: "rgba(184,151,58,0.12)",
-                        color: "#B8973A",
-                        border: "1px solid rgba(184,151,58,0.25)",
+                        background: "#ffffff",
+                        color: "#0075de",
+                        border: "1px solid #e6e6e6",
                       }}
                     >
                       {ex.duration}
                     </span>
                   </div>
-                  <p className="text-sm leading-relaxed opacity-60 flex-1" style={{ color: "#E8DFC8" }}>
+                  <p className="text-[15px] leading-relaxed flex-1" style={{ color: "#615d59" }}>
                     {ex.desc}
                   </p>
                   <button
                     onClick={() => scrollTo("contact")}
-                    className="mt-5 w-full py-2.5 text-xs tracking-[0.2em] uppercase font-semibold transition-all duration-200 hover:bg-[#B8973A] hover:text-[#0D1B2A]"
-                    style={{ border: "1px solid #B8973A", color: "#B8973A" }}
+                    className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-gray-50"
+                    style={{ border: "1px solid #e6e6e6", color: "#31302e" }}
                   >
-                    Inquire
+                    {tr.excursions.inquire}
                   </button>
                 </div>
               </article>
@@ -487,23 +535,21 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" className="py-28 px-6">
+      <section id="contact" className="py-28 px-6" style={{ background: "#f6f5f4" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
-              Get in Touch
-            </p>
-            <h2
-              className="text-3xl md:text-4xl font-light"
-              style={{ color: "#E8DFC8", letterSpacing: "0.05em" }}
+            <span
+              className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
+              style={{ background: "#ffffff", color: "#0075de", border: "1px solid #e6e6e6" }}
             >
-              Contact &amp; Reservations
+              {tr.contact.label}
+            </span>
+            <h2
+              className="text-3xl md:text-[40px] font-bold"
+              style={{ color: "#000000", letterSpacing: "-1px", lineHeight: 1.1 }}
+            >
+              {tr.contact.heading}
             </h2>
-            <div className="flex items-center justify-center gap-3 mt-8">
-              <div className="h-px w-12" style={{ background: "#B8973A" }} />
-              <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-              <div className="h-px w-12" style={{ background: "#B8973A" }} />
-            </div>
           </div>
 
           {/* Address cards */}
@@ -524,29 +570,29 @@ export default function Home() {
             ].map((p) => (
               <div
                 key={p.label}
-                className="p-8"
-                style={{ background: "#162436", border: "1px solid rgba(184,151,58,0.2)" }}
+                className="p-8 rounded-xl"
+                style={{ background: "#ffffff", border: "1px solid #e6e6e6" }}
               >
-                <p
-                  className="text-xs tracking-[0.35em] uppercase mb-4 font-semibold"
-                  style={{ color: "#B8973A" }}
+                <span
+                  className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-4 px-2.5 py-1 rounded-full"
+                  style={{ background: "#f6f5f4", color: "#0075de" }}
                 >
                   {p.label}
-                </p>
+                </span>
                 <div className="flex items-start gap-3 mb-4">
                   <svg
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-60"
-                    style={{ color: "#B8973A" }}
+                    className="w-4 h-4 flex-shrink-0 mt-0.5"
+                    style={{ color: "#0075de" }}
                   >
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                   <div>
-                    <p className="text-sm leading-relaxed" style={{ color: "#E8DFC8" }}>
+                    <p className="text-[15px] font-medium" style={{ color: "#000000" }}>
                       {p.street}
                     </p>
-                    <p className="text-sm opacity-55" style={{ color: "#E8DFC8" }}>
+                    <p className="text-[14px]" style={{ color: "#a39e98" }}>
                       {p.city}
                     </p>
                   </div>
@@ -555,10 +601,10 @@ export default function Home() {
                   href={p.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-[0.2em] uppercase opacity-55 hover:opacity-100 transition-opacity duration-200"
-                  style={{ color: "#B8973A" }}
+                  className="text-[14px] font-medium transition-opacity duration-200 hover:opacity-70"
+                  style={{ color: "#0075de" }}
                 >
-                  View on map →
+                  {tr.contact.viewOnMap}
                 </a>
               </div>
             ))}
@@ -571,25 +617,25 @@ export default function Home() {
               href="https://wa.me/212600000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-8 py-4 text-xs tracking-[0.2em] uppercase font-semibold transition-opacity duration-200 hover:opacity-90"
-              style={{ background: "#25D366", color: "#fff" }}
+              className="flex items-center justify-center gap-3 px-8 py-4 text-[16px] font-medium rounded-full transition-opacity duration-200 hover:opacity-90"
+              style={{ background: "#25D366", color: "#ffffff" }}
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
-              WhatsApp
+              {tr.contact.whatsapp}
             </a>
 
             {/* Email */}
             <a
               href="mailto:contact@riaddartmarrakech.com"
-              className="flex items-center justify-center gap-3 px-8 py-4 text-xs tracking-[0.2em] uppercase font-semibold transition-colors duration-200 hover:bg-white/5"
-              style={{ border: "1px solid rgba(184,151,58,0.55)", color: "#B8973A" }}
+              className="flex items-center justify-center gap-3 px-8 py-4 text-[16px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
+              style={{ background: "#0075de", color: "#ffffff" }}
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
-              Email Us
+              {tr.contact.emailUs}
             </a>
           </div>
         </div>
@@ -600,20 +646,20 @@ export default function Home() {
       {/* ── FLOATING CHAT BUTTON ── */}
       <button
         onClick={() => setChatOpen((o) => !o)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3 shadow-2xl transition-all duration-200 hover:opacity-90 active:scale-95"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3 transition-all duration-200 hover:opacity-90 active:scale-95"
         style={{
-          background: "#B8973A",
-          color: "#0D1B2A",
-          borderRadius: "50px",
-          boxShadow: "0 8px 30px rgba(184,151,58,0.4)",
+          background: "#0075de",
+          color: "#ffffff",
+          borderRadius: "9999px",
+          boxShadow: "0 4px 14px rgba(0,117,222,0.35), 0 2px 6px rgba(0,0,0,0.1)",
         }}
         aria-label="Open concierge chat"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
           <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
         </svg>
-        <span className="text-xs font-semibold tracking-[0.2em] uppercase whitespace-nowrap">
-          Ask our Concierge
+        <span className="text-[15px] font-medium whitespace-nowrap">
+          {tr.common.askConcierge}
         </span>
       </button>
 
@@ -631,7 +677,7 @@ export default function Home() {
         <button
           onClick={() => setChatOpen(false)}
           className="absolute -top-3.5 -right-3.5 z-10 w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold shadow-lg transition-opacity duration-200 hover:opacity-80"
-          style={{ background: "#B8973A", color: "#0D1B2A" }}
+          style={{ background: "#0075de", color: "#ffffff" }}
           aria-label="Close chat"
         >
           ✕

@@ -1,12 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 
 export default function SignIn() {
+  const [lang, setLang] = useState<Lang>("en");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
+
+  useEffect(() => {
+    setLang(getLang());
+  }, []);
+
+  const tr = getT(lang);
+  const dir = isRtl(lang) ? "rtl" : undefined;
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -15,48 +24,42 @@ export default function SignIn() {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative"
-      style={{ background: "#0D1B2A" }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 py-16"
+      style={{ background: "#f6f5f4" }}
+      dir={dir}
     >
-      {/* Faint background image */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=80"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover opacity-10"
-      />
-      <div className="absolute inset-0" style={{ background: "rgba(13,27,42,0.7)" }} />
-
-      <div className="relative z-10 w-full max-w-md">
+      <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-10">
           <Link href="/">
-            <div className="text-xs font-light tracking-[0.4em] uppercase mb-1" style={{ color: "#B8973A" }}>
+            <div
+              className="text-[11px] font-semibold tracking-[0.3em] uppercase mb-1"
+              style={{ color: "#0075de" }}
+            >
               Riad
             </div>
-            <div className="text-2xl font-semibold tracking-[0.2em] uppercase" style={{ color: "#E8DFC8" }}>
+            <div
+              className="text-2xl font-bold tracking-tight"
+              style={{ color: "#000000", letterSpacing: "-0.5px" }}
+            >
               Dar D&apos;Art
             </div>
           </Link>
-          <p className="mt-3 text-sm opacity-50 tracking-wide" style={{ color: "#E8DFC8" }}>
-            Your personal concierge awaits
+          <p className="mt-3 text-[15px]" style={{ color: "#615d59" }}>
+            {tr.signIn.conciergeAwaits}
           </p>
         </div>
 
         {/* Card */}
         <div
-          className="p-8 sm:p-10"
-          style={{
-            background: "#162436",
-            border: "1px solid rgba(184,151,58,0.2)",
-          }}
+          className="p-8 sm:p-10 rounded-xl"
+          style={{ background: "#ffffff", border: "1px solid #e6e6e6" }}
         >
           <h1
-            className="text-xl font-light tracking-[0.1em] mb-8"
-            style={{ color: "#E8DFC8" }}
+            className="text-xl font-bold mb-8"
+            style={{ color: "#000000", letterSpacing: "-0.25px" }}
           >
-            Welcome Back
+            {tr.signIn.heading}
           </h1>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -64,10 +67,10 @@ export default function SignIn() {
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="email"
-                className="text-xs tracking-[0.25em] uppercase opacity-60"
-                style={{ color: "#E8DFC8" }}
+                className="text-[14px] font-medium"
+                style={{ color: "#31302e" }}
               >
-                Email
+                {tr.signIn.email}
               </label>
               <input
                 id="email"
@@ -76,14 +79,10 @@ export default function SignIn() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
-                className="w-full px-4 py-3 text-sm bg-transparent outline-none transition-all duration-200"
-                style={{
-                  border: "1px solid rgba(184,151,58,0.25)",
-                  color: "#E8DFC8",
-                  caretColor: "#B8973A",
-                }}
-                onFocus={(e) => (e.target.style.borderColor = "rgba(184,151,58,0.7)")}
-                onBlur={(e) => (e.target.style.borderColor = "rgba(184,151,58,0.25)")}
+                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
+                style={{ border: "1px solid #e6e6e6", color: "#000000", background: "#ffffff", caretColor: "#0075de" }}
+                onFocus={(e) => (e.target.style.borderColor = "#0075de")}
+                onBlur={(e) => (e.target.style.borderColor = "#e6e6e6")}
                 placeholder="you@example.com"
               />
             </div>
@@ -93,17 +92,17 @@ export default function SignIn() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="text-xs tracking-[0.25em] uppercase opacity-60"
-                  style={{ color: "#E8DFC8" }}
+                  className="text-[14px] font-medium"
+                  style={{ color: "#31302e" }}
                 >
-                  Password
+                  {tr.signIn.password}
                 </label>
                 <Link
                   href="#"
-                  className="text-xs tracking-wide opacity-55 hover:opacity-100 transition-opacity duration-200"
-                  style={{ color: "#B8973A" }}
+                  className="text-[14px] transition-opacity duration-200 hover:opacity-70"
+                  style={{ color: "#0075de" }}
                 >
-                  Forgot password?
+                  {tr.signIn.forgotPassword}
                 </Link>
               </div>
               <input
@@ -113,14 +112,10 @@ export default function SignIn() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
-                className="w-full px-4 py-3 text-sm bg-transparent outline-none transition-all duration-200"
-                style={{
-                  border: "1px solid rgba(184,151,58,0.25)",
-                  color: "#E8DFC8",
-                  caretColor: "#B8973A",
-                }}
-                onFocus={(e) => (e.target.style.borderColor = "rgba(184,151,58,0.7)")}
-                onBlur={(e) => (e.target.style.borderColor = "rgba(184,151,58,0.25)")}
+                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
+                style={{ border: "1px solid #e6e6e6", color: "#000000", background: "#ffffff", caretColor: "#0075de" }}
+                onFocus={(e) => (e.target.style.borderColor = "#0075de")}
+                onBlur={(e) => (e.target.style.borderColor = "#e6e6e6")}
                 placeholder="••••••••"
               />
             </div>
@@ -131,38 +126,37 @@ export default function SignIn() {
                 type="checkbox"
                 checked={remember}
                 onChange={(e) => setRemember(e.target.checked)}
-                className="w-4 h-4 accent-[#B8973A]"
+                className="w-4 h-4 accent-[#0075de]"
               />
-              <span className="text-xs tracking-wide opacity-60" style={{ color: "#E8DFC8" }}>
-                Remember me
+              <span className="text-[14px]" style={{ color: "#615d59" }}>
+                {tr.signIn.rememberMe}
               </span>
             </label>
 
             {/* Submit */}
             <button
               type="submit"
-              className="w-full py-3.5 text-xs tracking-[0.3em] uppercase font-semibold mt-2 transition-opacity duration-200 hover:opacity-85"
-              style={{ background: "#B8973A", color: "#0D1B2A" }}
+              className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85"
+              style={{ background: "#0075de", color: "#ffffff" }}
             >
-              Sign In
+              {tr.signIn.submit}
             </button>
           </form>
 
-          {/* Divider */}
           <div className="flex items-center gap-4 my-6">
-            <div className="flex-1 h-px" style={{ background: "rgba(184,151,58,0.15)" }} />
-            <span className="text-xs opacity-40" style={{ color: "#E8DFC8" }}>or</span>
-            <div className="flex-1 h-px" style={{ background: "rgba(184,151,58,0.15)" }} />
+            <div className="flex-1 h-px" style={{ background: "#e6e6e6" }} />
+            <span className="text-[14px]" style={{ color: "#a39e98" }}>{tr.signIn.or}</span>
+            <div className="flex-1 h-px" style={{ background: "#e6e6e6" }} />
           </div>
 
-          <p className="text-center text-xs tracking-wide" style={{ color: "#E8DFC8" }}>
-            <span className="opacity-55">New guest? </span>
+          <p className="text-center text-[15px]" style={{ color: "#31302e" }}>
+            <span>{tr.signIn.noAccount} </span>
             <Link
               href="/sign-up"
-              className="opacity-100 hover:opacity-70 transition-opacity duration-200"
-              style={{ color: "#B8973A" }}
+              className="font-medium transition-opacity duration-200 hover:opacity-70"
+              style={{ color: "#0075de" }}
             >
-              Create an account →
+              {tr.signIn.createAccount}
             </Link>
           </p>
         </div>
@@ -171,10 +165,10 @@ export default function SignIn() {
         <div className="text-center mt-6">
           <Link
             href="/"
-            className="text-xs tracking-[0.2em] uppercase opacity-40 hover:opacity-70 transition-opacity duration-200"
-            style={{ color: "#E8DFC8" }}
+            className="text-[14px] transition-colors duration-200 hover:text-black"
+            style={{ color: "#a39e98" }}
           >
-            ← Back to home
+            {tr.signIn.backHome}
           </Link>
         </div>
       </div>
