@@ -149,10 +149,28 @@ export default function Navbar() {
         </div>
 
         {/* Mobile right controls */}
-        <div className="md:hidden flex items-center gap-3">
+        <div className="md:hidden flex items-center gap-2">
           <ThemeToggle color={linkColor} />
+          {!firstName && (
+            <>
+              <Link
+                href="/sign-in"
+                className="px-3 py-1.5 text-[11px] font-light tracking-[0.1em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
+                style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
+              >
+                {tr.nav.signIn}
+              </Link>
+              <Link
+                href="/sign-up"
+                className="px-3 py-1.5 text-[11px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85"
+                style={{ background: "#C1440E", color: "#ffffff" }}
+              >
+                {tr.nav.signUp}
+              </Link>
+            </>
+          )}
           <button
-            className="flex flex-col justify-center gap-1.5 w-8 h-8"
+            className="flex flex-col justify-center gap-1.5 w-8 h-8 ml-1"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
           >
@@ -192,7 +210,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          {firstName ? (
+          {firstName && (
             <>
               <span
                 className="mt-4 py-3 text-[13px] font-light tracking-[0.1em] text-center"
@@ -207,25 +225,6 @@ export default function Navbar() {
               >
                 Logout
               </button>
-            </>
-          ) : (
-            <>
-              <Link
-                href="/sign-in"
-                onClick={() => setMenuOpen(false)}
-                className="mt-4 py-3 text-[13px] font-light tracking-[0.1em] uppercase text-center rounded-full transition-colors"
-                style={{ border: `1px solid ${isDark ? "#E8DFC8" : "#1a1a1a"}`, color: isDark ? "#E8DFC8" : "#1a1a1a" }}
-              >
-                {tr.nav.signIn}
-              </Link>
-              <Link
-                href="/sign-up"
-                onClick={() => setMenuOpen(false)}
-                className="mt-2 py-3 text-[13px] font-medium tracking-[0.06em] uppercase text-center rounded-full"
-                style={{ background: "#C1440E", color: "#ffffff" }}
-              >
-                {tr.nav.signUp}
-              </Link>
             </>
           )}
         </div>

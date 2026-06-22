@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import ChatBox from "@/components/ChatBox";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -256,20 +257,20 @@ export default function Home() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => scrollTo("rooms")}
-              className="px-8 py-3 text-[14px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85 active:scale-95"
+            <Link
+              href="/sign-up"
+              className="px-10 py-4 text-[14px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85 active:scale-95 text-center"
               style={{ background: "#C1440E", color: "#ffffff" }}
             >
-              {tr.hero.exploreRooms}
-            </button>
-            <button
-              onClick={() => scrollTo("contact")}
-              className="px-8 py-3 text-[14px] font-light tracking-[0.08em] uppercase rounded-full transition-colors duration-200 hover:bg-white/10"
+              Sign Up
+            </Link>
+            <Link
+              href="/sign-in"
+              className="px-10 py-4 text-[14px] font-light tracking-[0.08em] uppercase rounded-full transition-colors duration-200 hover:bg-white/10 text-center"
               style={{ border: "1px solid rgba(255,255,255,0.65)", color: "#ffffff" }}
             >
-              {tr.hero.contactUs}
-            </button>
+              Sign In
+            </Link>
           </div>
         </div>
 
