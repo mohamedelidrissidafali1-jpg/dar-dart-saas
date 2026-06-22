@@ -10,11 +10,15 @@ interface Message {
   text: string;
 }
 
-export default function ChatBox() {
+interface ChatBoxProps {
+  initialMessage?: string;
+}
+
+export default function ChatBox({ initialMessage }: ChatBoxProps = {}) {
   const [messages, setMessages] = useState<Message[]>([
     { id: 0, role: "assistant", text: "Marhaba! How can I help you today?" },
   ]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(initialMessage ?? "");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const nextId = useRef(1);

@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ChatBox from "@/components/ChatBox";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
-
-const NAV_LINKS = ["Rooms", "Services", "Excursions", "Contact"] as const;
 
 const ROOMS = [
   {
@@ -151,121 +151,16 @@ const SERVICES: { name: string; desc: string; Icon: ServiceIcon }[] = [
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   function scrollTo(id: string) {
-    setMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
     <div style={{ background: "#0D1B2A", color: "#E8DFC8", minHeight: "100vh" }}>
 
-      {/* ── NAVBAR ── */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-        style={{
-          background: scrolled ? "rgba(13,27,42,0.97)" : "transparent",
-          backdropFilter: scrolled ? "blur(10px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(184,151,58,0.2)" : "none",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-left leading-tight"
-          >
-            <div
-              className="text-xs font-light tracking-[0.35em] uppercase"
-              style={{ color: "#B8973A" }}
-            >
-              Riad
-            </div>
-            <div
-              className="text-lg font-semibold tracking-[0.2em] uppercase"
-              style={{ color: "#E8DFC8" }}
-            >
-              Dar D&apos;Art
-            </div>
-          </button>
-
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link}
-                onClick={() => scrollTo(link.toLowerCase())}
-                className="text-xs tracking-[0.2em] uppercase transition-colors duration-200 opacity-70 hover:opacity-100"
-                style={{ color: "#E8DFC8" }}
-              >
-                {link}
-              </button>
-            ))}
-            <button
-              onClick={() => scrollTo("contact")}
-              className="px-5 py-2.5 text-xs tracking-widest uppercase font-semibold transition-opacity duration-200 hover:opacity-80"
-              style={{ background: "#B8973A", color: "#0D1B2A" }}
-            >
-              Book Now
-            </button>
-          </div>
-
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden flex flex-col justify-center gap-1.5 w-8 h-8"
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`block w-6 h-0.5 transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-              style={{ background: "#B8973A" }}
-            />
-            <span
-              className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-              style={{ background: "#B8973A" }}
-            />
-            <span
-              className={`block w-6 h-0.5 transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-              style={{ background: "#B8973A" }}
-            />
-          </button>
-        </div>
-
-        {/* Mobile dropdown */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-64" : "max-h-0"}`}
-          style={{ background: "rgba(13,27,42,0.98)", borderTop: menuOpen ? "1px solid rgba(184,151,58,0.2)" : "none" }}
-        >
-          <div className="px-6 py-4 flex flex-col gap-2">
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link}
-                onClick={() => scrollTo(link.toLowerCase())}
-                className="text-left text-sm tracking-[0.2em] uppercase py-3 opacity-75 hover:opacity-100 transition-opacity border-b border-white/5"
-                style={{ color: "#E8DFC8" }}
-              >
-                {link}
-              </button>
-            ))}
-            <button
-              onClick={() => scrollTo("contact")}
-              className="mt-2 py-3 text-sm tracking-widest uppercase font-semibold text-center"
-              style={{ background: "#B8973A", color: "#0D1B2A" }}
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* ── HERO ── */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
@@ -700,15 +595,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer
-        className="py-10 px-6 text-center"
-        style={{ borderTop: "1px solid rgba(184,151,58,0.12)" }}
-      >
-        <p className="text-xs tracking-[0.3em] uppercase opacity-35" style={{ color: "#E8DFC8" }}>
-          © {new Date().getFullYear()} Riad Dar D&apos;Art — Marrakech, Morocco
-        </p>
-      </footer>
+      <Footer />
 
       {/* ── FLOATING CHAT BUTTON ── */}
       <button
