@@ -71,40 +71,39 @@ const ROOMS_141 = [
 
 const EXCURSIONS = [
   {
-    name: "Agafay Desert – Pack A Express",
-    desc: "Quad 40 min + Camel 10 min + Dinner + Fire show + Pool + Transport.",
-    price: "€30/person",
-    img: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800",
+    name: "Agafay Desert",
+    subtitle: "Quad · Camel · Dinner",
+    desc: "Desert dinner, sunset, camel ride & fire show. Transport included.",
+    price: "€30–55 / person",
+    img: "/excursions/agafay.webp",
   },
   {
-    name: "Agafay Desert – Pack B Full",
-    desc: "Quad 1h + Camel 20 min + Dinner + Fire show + Pool + Transport. The complete experience.",
-    price: "€55/person",
-    img: "https://images.unsplash.com/photo-1452022582947-b521d8779ab6?w=800",
+    name: "Ourika Valley",
+    subtitle: "Atlas · Waterfalls · Berber villages",
+    desc: "Full day trip to the Atlas mountains and waterfalls. Transport included.",
+    price: "From €20 / person",
+    img: "/excursions/ourika-valley.webp",
   },
   {
-    name: "Essaouira Day Trip",
-    desc: "Full-day visit to the UNESCO-listed coastal medina — wind, art, and fresh seafood.",
-    price: "€25/person",
-    img: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=800",
-  },
-  {
-    name: "Ourika Valley & Atlas Mountains",
-    desc: "Berber villages, waterfalls, and stunning high-altitude landscapes just 30 km away.",
-    price: "€20–27/person",
-    img: "https://images.unsplash.com/photo-1489493887464-892be6d1daae?w=800",
+    name: "Atlas Mountains",
+    subtitle: "Mountains · Berber villages · Fresh air",
+    desc: "Journey through Berber villages and stunning high-altitude landscapes.",
+    price: "€35 / person",
+    img: "/excursions/atlas-mountains.webp",
   },
   {
     name: "Hot Air Balloon",
-    desc: "Sunrise flight over the Marrakech plains with panoramic Atlas Mountain views.",
-    price: "€97/person",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
+    subtitle: "Sunrise · Panoramic views",
+    desc: "Sunrise balloon flight over Marrakech, ~1 hour. Transport included.",
+    price: "€97 / person",
+    img: "/excursions/hot-air-balloon.webp",
   },
   {
     name: "City Tour Guide",
-    desc: "Expert local guide through the ancient souks, palaces, and hidden gems of the medina.",
-    price: "€65/group",
-    img: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=800",
+    subtitle: "Medina · Souks · Hidden places",
+    desc: "Explore Marrakech with a local expert guide, history & hidden places.",
+    price: "€20 / person",
+    img: "/excursions/city-tour.webp",
   },
 ];
 
@@ -505,37 +504,35 @@ export default function Dashboard() {
                   boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
                 }}
               >
-                <div className="overflow-hidden h-44 rounded-t-xl">
+                <div className="overflow-hidden rounded-t-xl" style={{ height: "200px" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={ex.img}
                     alt={ex.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <h3 className="text-[15px] font-semibold leading-tight" style={{ color: ink }}>
-                      {ex.name}
-                    </h3>
-                    <span
-                      className="text-[12px] font-semibold px-2.5 py-1 flex-shrink-0 rounded-full whitespace-nowrap"
-                      style={{ background: bg, color: "#C1440E", border: `1px solid ${border}` }}
-                    >
-                      {ex.price}
-                    </span>
-                  </div>
+                  <h3 className="text-[16px] font-bold mb-1 leading-tight" style={{ color: ink }}>
+                    {ex.name}
+                  </h3>
+                  <p className="text-[12px] mb-2" style={{ color: inkFaint }}>
+                    {ex.subtitle}
+                  </p>
+                  <p className="text-[14px] font-semibold mb-3" style={{ color: "#B8973A" }}>
+                    {ex.price}
+                  </p>
                   <p className="text-[14px] leading-relaxed flex-1 mb-5" style={{ color: inkMuted }}>
                     {ex.desc}
                   </p>
                   <a
-                    href="https://wa.me/212699814919"
+                    href={`https://wa.me/212699814919?text=I would like to book the ${encodeURIComponent(ex.name)} excursion`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-75 text-center block"
                     style={{ border: "1px solid #C1440E", color: "#C1440E" }}
                   >
-                    Inquire via WhatsApp
+                    Inquire on WhatsApp
                   </a>
                 </div>
               </article>
