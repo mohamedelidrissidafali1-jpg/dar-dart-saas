@@ -45,6 +45,7 @@ function BookingForm() {
   const [persons, setPersons] = useState(1);
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
+  const [serviceType, setServiceType] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   useEffect(() => {
@@ -125,6 +126,7 @@ function BookingForm() {
           guestName: profile?.first_name ?? "",
           riad: riadLabel,
           service: serviceLabel,
+          ...(serviceSlug === "hammam" && { serviceType }),
           date,
           time,
           persons,
@@ -219,6 +221,26 @@ function BookingForm() {
                   style={{ ...inputStyle, opacity: 0.65, cursor: "not-allowed" }}
                 />
               </div>
+
+              {/* Hammam type */}
+              {serviceSlug === "hammam" && (
+                <div className="flex flex-col gap-1.5">
+                  <label style={labelStyle}>
+                    Type <span style={{ color: "#C1440E" }}>*</span>
+                  </label>
+                  <select
+                    required
+                    value={serviceType}
+                    onChange={(e) => setServiceType(e.target.value)}
+                    style={inputStyle}
+                  >
+                    <option value="" disabled>Select a type…</option>
+                    <option value="Hammam only — €20 / person">Hammam only — €20 / person</option>
+                    <option value="Massage 30 min — €30 / person">Massage 30 min — €30 / person</option>
+                    <option value="Massage 60 min — €40 / person">Massage 60 min — €40 / person</option>
+                  </select>
+                </div>
+              )}
 
               {/* Date */}
               <div className="flex flex-col gap-1.5">
