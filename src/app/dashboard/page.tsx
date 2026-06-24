@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type JSX } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ChatBox from "@/components/ChatBox";
@@ -72,6 +72,7 @@ const ROOMS_141 = [
 const EXCURSIONS = [
   {
     name: "Agafay Desert",
+    slug: "agafay",
     subtitle: "Quad · Camel · Dinner",
     desc: "Desert dinner, sunset, camel ride & fire show. Transport included.",
     price: "€30–55 / person",
@@ -79,6 +80,7 @@ const EXCURSIONS = [
   },
   {
     name: "Ourika Valley",
+    slug: "ourika-valley",
     subtitle: "Atlas · Waterfalls · Berber villages",
     desc: "Full day trip to the Atlas mountains and waterfalls. Transport included.",
     price: "From €20 / person",
@@ -86,6 +88,7 @@ const EXCURSIONS = [
   },
   {
     name: "Atlas Mountains",
+    slug: "atlas-mountains",
     subtitle: "Mountains · Berber villages · Fresh air",
     desc: "Journey through Berber villages and stunning high-altitude landscapes.",
     price: "€35 / person",
@@ -93,6 +96,7 @@ const EXCURSIONS = [
   },
   {
     name: "Hot Air Balloon",
+    slug: "hot-air-balloon",
     subtitle: "Sunrise · Panoramic views",
     desc: "Sunrise balloon flight over Marrakech, ~1 hour. Transport included.",
     price: "€97 / person",
@@ -100,6 +104,7 @@ const EXCURSIONS = [
   },
   {
     name: "City Tour Guide",
+    slug: "city-tour",
     subtitle: "Medina · Souks · Hidden places",
     desc: "Explore Marrakech with a local expert guide, history & hidden places.",
     price: "€20 / person",
@@ -412,7 +417,7 @@ export default function Dashboard() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
+            {(([
               {
                 name: "Breakfast",
                 detail: "8:00 AM – 10:30 AM · Included",
@@ -424,6 +429,7 @@ export default function Dashboard() {
                 detail: "€20/person · Min 2 people",
                 desc: "Authentic hammam ritual with exfoliation and argan soap. Massage: 30 min €30 · 60 min €40. Available 10:00 AM – 9:00 PM. Book via WhatsApp.",
                 Icon: HammamIcon,
+                bookSlug: "hammam",
               },
               {
                 name: "Pool",
@@ -436,6 +442,7 @@ export default function Dashboard() {
                 detail: "€20 (1–4 pax) · €30 (5+)",
                 desc: "Private, air-conditioned transfers available 24/7. Book via WhatsApp at least 2h30 before your flight.",
                 Icon: CarIcon,
+                bookSlug: "airport-transfer",
               },
               {
                 name: "WiFi",
@@ -449,7 +456,7 @@ export default function Dashboard() {
                 desc: "Our team is available around the clock to arrange anything you need — from restaurant bookings to excursions.",
                 Icon: ConciergeIcon,
               },
-            ].map(({ name, detail, desc, Icon }) => (
+            ] as Array<{ name: string; detail: string; desc: string; Icon: () => JSX.Element; bookSlug?: string }>)).map(({ name, detail, desc, Icon, bookSlug }) => (
               <div
                 key={name}
                 className="p-7 flex gap-5 items-start rounded-xl transition-shadow duration-200 hover:shadow-md"
@@ -468,6 +475,15 @@ export default function Dashboard() {
                   <p className="text-[14px] leading-relaxed" style={{ color: inkMuted }}>
                     {desc}
                   </p>
+                  {bookSlug && (
+                    <Link
+                      href={`/booking?service=${bookSlug}`}
+                      className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
+                      style={{ background: "#C1440E", color: "#ffffff" }}
+                    >
+                      Book Now
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}
@@ -522,9 +538,16 @@ export default function Dashboard() {
                   <p className="text-[14px] font-semibold mb-3" style={{ color: "#B8973A" }}>
                     {ex.price}
                   </p>
-                  <p className="text-[14px] leading-relaxed flex-1 mb-5" style={{ color: inkMuted }}>
+                  <p className="text-[14px] leading-relaxed flex-1 mb-4" style={{ color: inkMuted }}>
                     {ex.desc}
                   </p>
+                  <Link
+                    href={`/booking?service=${ex.slug}`}
+                    className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-85 text-center block mb-2"
+                    style={{ background: "#C1440E", color: "#ffffff" }}
+                  >
+                    Book Now
+                  </Link>
                   <a
                     href={`https://wa.me/212699814919?text=I would like to book the ${encodeURIComponent(ex.name)} excursion`}
                     target="_blank"
@@ -560,16 +583,17 @@ export default function Dashboard() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
+            {(([
               { label: "Check-in", value: "2:00 PM", sub: "Early if room ready" },
               { label: "Check-out", value: "12:00 PM", sub: "Late possible on request" },
               {
                 label: "Dinner at Riad",
                 value: "€20/person",
                 sub: "Min 4 people · Book via WhatsApp",
+                bookSlug: "dinner",
               },
               { label: "Water", value: "20 dirhams", sub: "Per bottle · Kitchen available" },
-            ].map((info) => (
+            ] as Array<{ label: string; value: string; sub: string; bookSlug?: string }>)).map((info) => (
               <div
                 key={info.label}
                 className="p-7 rounded-xl text-center"
@@ -590,6 +614,15 @@ export default function Dashboard() {
                 <p className="text-[13px]" style={{ color: inkFaint }}>
                   {info.sub}
                 </p>
+                {info.bookSlug && (
+                  <Link
+                    href={`/booking?service=${info.bookSlug}`}
+                    className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
+                    style={{ background: "#C1440E", color: "#ffffff" }}
+                  >
+                    Book Now
+                  </Link>
+                )}
               </div>
             ))}
           </div>
