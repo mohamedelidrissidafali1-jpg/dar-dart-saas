@@ -9,6 +9,7 @@ import { createClient } from "@/lib/supabase/client";
 export default function CompleteProfile() {
   const router = useRouter();
   const [lang, setLang] = useState<Lang>("en");
+  const [reservationName, setReservationName] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [selectedRiad, setSelectedRiad] = useState("");
   const [riadError, setRiadError] = useState(false);
@@ -52,13 +53,9 @@ export default function CompleteProfile() {
       return;
     }
 
-    const firstName = (user.user_metadata?.full_name as string | undefined)?.split(" ")[0]
-      ?? (user.user_metadata?.name as string | undefined)
-      ?? "";
-
     const { error: upsertError } = await supabase.from("profiles").upsert({
       id: user.id,
-      first_name: firstName,
+      first_name: reservationName,
       language: selectedLanguage,
       riad: selectedRiad,
       checked_out: false,
@@ -114,6 +111,35 @@ export default function CompleteProfile() {
           </h1>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            {/* Reservation name */}
+            <div className="flex flex-col gap-1.5">
+              <label
+                htmlFor="reservationName"
+                className="text-[14px] font-medium"
+                style={{ color: "var(--ink-secondary)" }}
+              >
+                Name on Reservation
+              </label>
+              <input
+                id="reservationName"
+                type="text"
+                value={reservationName}
+                onChange={(e) => setReservationName(e.target.value)}
+                required
+                autoComplete="name"
+                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
+                style={{
+                  border: "1px solid var(--hairline)",
+                  color: "var(--ink)",
+                  background: "var(--surface)",
+                  caretColor: "#0075de",
+                }}
+                onFocus={(e) => (e.target.style.borderColor = "#0075de")}
+                onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
+                placeholder="Enter the name used for your booking"
+              />
+            </div>
+
             {/* Language selection */}
             <div className="flex flex-col gap-2">
               <p className="text-[14px] font-medium" style={{ color: "var(--ink-secondary)" }}>

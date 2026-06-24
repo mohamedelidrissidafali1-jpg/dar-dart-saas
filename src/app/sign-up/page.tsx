@@ -198,52 +198,28 @@ export default function SignUp() {
               )}
             </div>
 
-            {/* Name row */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="firstName"
-                  className="text-[14px] font-medium"
-                  style={{ color: "var(--ink-secondary)" }}
-                >
-                  {tr.signUp.firstName}
-                </label>
-                <input
-                  id="firstName"
-                  type="text"
-                  value={form.firstName}
-                  onChange={(e) => set("firstName", e.target.value)}
-                  required
-                  autoComplete="given-name"
-                  className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                  style={inputBase}
-                  onFocus={focusOn}
-                  onBlur={focusOff}
-                  placeholder="Amina"
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="lastName"
-                  className="text-[14px] font-medium"
-                  style={{ color: "var(--ink-secondary)" }}
-                >
-                  {tr.signUp.lastName}
-                </label>
-                <input
-                  id="lastName"
-                  type="text"
-                  value={form.lastName}
-                  onChange={(e) => set("lastName", e.target.value)}
-                  required
-                  autoComplete="family-name"
-                  className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                  style={inputBase}
-                  onFocus={focusOn}
-                  onBlur={focusOff}
-                  placeholder="Benali"
-                />
-              </div>
+            {/* Reservation name */}
+            <div className="flex flex-col gap-1.5">
+              <label
+                htmlFor="firstName"
+                className="text-[14px] font-medium"
+                style={{ color: "var(--ink-secondary)" }}
+              >
+                Name on Reservation
+              </label>
+              <input
+                id="firstName"
+                type="text"
+                value={form.firstName}
+                onChange={(e) => set("firstName", e.target.value)}
+                required
+                autoComplete="name"
+                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
+                style={inputBase}
+                onFocus={focusOn}
+                onBlur={focusOff}
+                placeholder="Enter the name used for your booking"
+              />
             </div>
 
             {/* Email */}
