@@ -383,9 +383,6 @@ export default function Dashboard() {
                     >
                       {room.name}
                     </h3>
-                    <p className="text-[13px] leading-relaxed" style={{ color: inkMuted }}>
-                      {room.desc}
-                    </p>
                   </div>
                 </article>
               ))}
