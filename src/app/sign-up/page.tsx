@@ -153,7 +153,7 @@ export default function SignUp() {
               <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
               <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/>
             </svg>
-            Sign up with Google
+            {tr.signUp.signUpWithGoogle}
           </button>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -205,7 +205,7 @@ export default function SignUp() {
                 className="text-[14px] font-medium"
                 style={{ color: "var(--ink-secondary)" }}
               >
-                Name on Reservation
+                {tr.signUp.nameOnReservation}
               </label>
               <input
                 id="firstName"
@@ -218,7 +218,7 @@ export default function SignUp() {
                 style={inputBase}
                 onFocus={focusOn}
                 onBlur={focusOff}
-                placeholder="Enter the name used for your booking"
+                placeholder={tr.signUp.namePlaceholder}
               />
             </div>
 
@@ -357,7 +357,7 @@ export default function SignUp() {
               className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
               style={{ background: "#0075de", color: "#ffffff" }}
             >
-              {loading ? "Creating account…" : tr.signUp.submit}
+              {loading ? tr.signUp.creatingAccount : tr.signUp.submit}
             </button>
           </form>
 

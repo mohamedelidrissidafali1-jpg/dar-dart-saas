@@ -2,27 +2,31 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getT, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
 
 interface Props {
   firstName: string;
+  lang: Lang;
   onClose: () => void;
   onCheckedOut: () => void;
 }
 
-const CATEGORIES = [
-  { key: "overall_rating", label: "Overall Stay" },
-  { key: "rooms_rating", label: "Rooms" },
-  { key: "food_rating", label: "Food" },
-  { key: "staff_rating", label: "Staff" },
-  { key: "cleanliness_rating", label: "Cleanliness" },
-  { key: "concierge_rating", label: "AI Concierge" },
+const RATING_KEYS = [
+  { key: "overall_rating", labelKey: "overallRating" },
+  { key: "rooms_rating", labelKey: "roomsRating" },
+  { key: "food_rating", labelKey: "foodRating" },
+  { key: "staff_rating", labelKey: "staffRating" },
+  { key: "cleanliness_rating", labelKey: "cleanlinessRating" },
+  { key: "concierge_rating", labelKey: "conciergeRating" },
 ] as const;
 
-type RatingKey = (typeof CATEGORIES)[number]["key"];
+type RatingKey = (typeof RATING_KEYS)[number]["key"];
 
-export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }: Props) {
+export default function CheckoutSurveyModal({ firstName, lang, onClose, onCheckedOut }: Props) {
   const router = useRouter();
+  const tr = getT(lang);
+
   const [ratings, setRatings] = useState<Record<RatingKey, number>>({
     overall_rating: 0,
     rooms_rating: 0,
@@ -42,9 +46,9 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const missing = CATEGORIES.find(({ key }) => ratings[key] === 0);
+    const missing = RATING_KEYS.find(({ key }) => ratings[key] === 0);
     if (missing) {
-      setError(`Please rate ${missing.label} before submitting.`);
+      setError(`${tr.survey.pleaseRate} ${tr.survey[missing.labelKey]} ${tr.survey.beforeSubmitting}`);
       return;
     }
 
@@ -55,7 +59,7 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
-      setError("Session expired. Please sign in again.");
+      setError(tr.survey.sessionExpired);
       setLoading(false);
       return;
     }
@@ -67,7 +71,7 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
     });
 
     if (surveyError) {
-      setError("Failed to submit survey. Please try again.");
+      setError(tr.survey.failedToSubmit);
       setLoading(false);
       return;
     }
@@ -78,7 +82,7 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
       .eq("id", user.id);
 
     if (profileError) {
-      setError("Survey saved but checkout failed. Please try again.");
+      setError(tr.survey.checkoutFailed);
       setLoading(false);
       return;
     }
@@ -113,13 +117,13 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
               className="text-2xl font-bold"
               style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
             >
-              Thank you, {firstName}!
+              {tr.survey.thankYou} {firstName}!
             </h2>
             <p className="text-[15px]" style={{ color: "var(--ink-muted)" }}>
-              Your feedback means the world to us. We hope to welcome you back soon.
+              {tr.survey.feedbackMessage}
             </p>
             <p className="text-[13px]" style={{ color: "var(--ink-faint)" }}>
-              Signing you out…
+              {tr.survey.signingOut}
             </p>
           </div>
         ) : (
@@ -134,13 +138,13 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
                   className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-0.5"
                   style={{ color: "#C1440E" }}
                 >
-                  Check Out
+                  {tr.survey.checkOut}
                 </div>
                 <h2
                   className="text-[18px] font-bold"
                   style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
                 >
-                  How was your stay, {firstName}?
+                  {tr.survey.howWasStay} {firstName}?
                 </h2>
               </div>
               <button
@@ -158,10 +162,10 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
 
             {/* Ratings */}
             <div className="px-6 py-5 flex flex-col gap-4" style={{ maxHeight: "60vh", overflowY: "auto" }}>
-              {CATEGORIES.map(({ key, label }) => (
+              {RATING_KEYS.map(({ key, labelKey }) => (
                 <div key={key} className="flex items-center justify-between gap-3">
                   <span className="text-[15px]" style={{ color: "var(--ink-secondary)" }}>
-                    {label}
+                    {tr.survey[labelKey]}
                   </span>
                   <div className="flex gap-1">
                     {[1, 2, 3, 4, 5].map((star) => (
@@ -187,13 +191,14 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
                   className="text-[14px] font-medium"
                   style={{ color: "var(--ink-secondary)" }}
                 >
-                  Any comments? <span style={{ color: "var(--ink-faint)", fontWeight: 400 }}>(optional)</span>
+                  {tr.survey.comments}{" "}
+                  <span style={{ color: "var(--ink-faint)", fontWeight: 400 }}>{tr.survey.optional}</span>
                 </label>
                 <textarea
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                   rows={3}
-                  placeholder="Tell us about your experience…"
+                  placeholder={tr.survey.commentsPlaceholder}
                   className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px] resize-none"
                   style={{
                     border: "1px solid var(--hairline)",
@@ -222,7 +227,7 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
                 className="flex-1 py-2.5 text-[15px] font-medium rounded-full transition-opacity hover:opacity-70"
                 style={{ border: "1px solid var(--hairline)", color: "var(--ink-secondary)" }}
               >
-                Cancel
+                {tr.survey.cancel}
               </button>
               <button
                 type="submit"
@@ -230,7 +235,7 @@ export default function CheckoutSurveyModal({ firstName, onClose, onCheckedOut }
                 className="flex-1 py-2.5 text-[15px] font-medium rounded-full transition-opacity hover:opacity-85 disabled:opacity-50"
                 style={{ background: "#C1440E", color: "#ffffff" }}
               >
-                {loading ? "Submitting…" : "Complete Check Out"}
+                {loading ? tr.survey.submitting : tr.survey.complete}
               </button>
             </div>
           </form>

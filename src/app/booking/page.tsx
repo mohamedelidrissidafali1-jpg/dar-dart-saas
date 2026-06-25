@@ -4,9 +4,11 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
 
-const SERVICE_LABELS: Record<string, string> = {
+// English service labels for the webhook payload (staff reads these in English)
+const SERVICE_LABELS_EN: Record<string, string> = {
   hammam: "Hammam & Massage",
   "airport-transfer": "Airport Transfer",
   dinner: "Dinner at the Riad",
@@ -17,10 +19,23 @@ const SERVICE_LABELS: Record<string, string> = {
   "city-tour": "City Tour Guide",
 };
 
+// Slug to translation key mapping for display
+const SLUG_TO_KEY: Record<string, string> = {
+  hammam: "hammam",
+  "airport-transfer": "airportTransfer",
+  dinner: "dinner",
+  agafay: "agafay",
+  "ourika-valley": "ourikaValley",
+  "atlas-mountains": "atlasMountains",
+  "hot-air-balloon": "hotAirBalloon",
+  "city-tour": "cityTour",
+};
+
 const WEBHOOK_URL = "https://PLACEHOLDER_WEBHOOK_URL";
 
 interface Profile {
   first_name: string;
+  language: string;
   riad: string;
 }
 
@@ -36,7 +51,6 @@ function BookingForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const serviceSlug = searchParams.get("service") ?? "";
-  const serviceLabel = SERVICE_LABELS[serviceSlug] ?? serviceSlug;
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [isDark, setIsDark] = useState(false);
@@ -75,7 +89,7 @@ function BookingForm() {
       }
       supabase
         .from("profiles")
-        .select("first_name, riad")
+        .select("first_name, language, riad")
         .eq("id", user.id)
         .single()
         .then(({ data }) => {
@@ -84,12 +98,23 @@ function BookingForm() {
     });
   }, [router]);
 
+  const lang = (profile?.language as Lang) ?? "en";
+  const tr = getT(lang);
+  const dir = isRtl(lang) ? "rtl" : "ltr";
+
   const riadLabel =
     profile?.riad === "riad141"
       ? "Riad 141"
       : profile?.riad === "riad19"
       ? "Riad 19"
       : "Riad Dar D'Art";
+
+  // Translated label for display; English label for webhook
+  const serviceEnLabel = SERVICE_LABELS_EN[serviceSlug] ?? serviceSlug;
+  const serviceDisplayLabel =
+    serviceSlug && SLUG_TO_KEY[serviceSlug]
+      ? tr.booking.services[SLUG_TO_KEY[serviceSlug]] ?? serviceEnLabel
+      : serviceEnLabel || tr.booking.bookingFallback;
 
   const bg = isDark ? "#0D1B2A" : "#faf8f5";
   const surface = isDark ? "#162436" : "#ffffff";
@@ -125,7 +150,7 @@ function BookingForm() {
         body: JSON.stringify({
           guestName: profile?.first_name ?? "",
           riad: riadLabel,
-          service: serviceLabel,
+          service: serviceEnLabel,
           ...(serviceSlug === "hammam" && { serviceType }),
           date,
           time,
@@ -144,7 +169,7 @@ function BookingForm() {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div style={{ background: bg, color: ink, minHeight: "100vh" }}>
+    <div dir={dir} style={{ background: bg, color: ink, minHeight: "100vh" }}>
       <Navbar />
 
       <main className="max-w-lg mx-auto px-6 py-12">
@@ -155,7 +180,7 @@ function BookingForm() {
           style={{ color: inkMuted }}
         >
           <BackArrow />
-          Back to Dashboard
+          {tr.booking.backToDashboard}
         </Link>
 
         {/* Header */}
@@ -164,13 +189,13 @@ function BookingForm() {
             className="text-[11px] font-light tracking-[0.4em] uppercase mb-3"
             style={{ color: "#C1440E" }}
           >
-            Book a Service
+            {tr.booking.bookAService}
           </p>
           <h1
             className="text-3xl font-bold"
             style={{ color: ink, letterSpacing: "-0.5px" }}
           >
-            {serviceLabel || "Booking"}
+            {serviceDisplayLabel}
           </h1>
           {profile && (
             <p className="text-[14px] mt-2" style={{ color: inkMuted }}>
@@ -196,27 +221,27 @@ function BookingForm() {
                 </svg>
               </div>
               <h2 className="text-[20px] font-bold mb-3" style={{ color: ink }}>
-                Request Sent!
+                {tr.booking.successTitle}
               </h2>
               <p className="text-[15px]" style={{ color: inkMuted }}>
-                Your request has been sent! We will confirm shortly 😊
+                {tr.booking.successMessage}
               </p>
               <Link
                 href="/dashboard"
                 className="inline-block mt-6 px-6 py-2.5 text-[14px] font-medium rounded-full transition-opacity hover:opacity-85"
                 style={{ background: "#C1440E", color: "#ffffff" }}
               >
-                Back to Dashboard
+                {tr.booking.backToDashboard}
               </Link>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               {/* Service (readonly) */}
               <div className="flex flex-col gap-1.5">
-                <label style={labelStyle}>Service</label>
+                <label style={labelStyle}>{tr.booking.service}</label>
                 <input
                   type="text"
-                  value={serviceLabel}
+                  value={serviceDisplayLabel}
                   readOnly
                   style={{ ...inputStyle, opacity: 0.65, cursor: "not-allowed" }}
                 />
@@ -226,7 +251,7 @@ function BookingForm() {
               {serviceSlug === "hammam" && (
                 <div className="flex flex-col gap-1.5">
                   <label style={labelStyle}>
-                    Type <span style={{ color: "#C1440E" }}>*</span>
+                    {tr.booking.type} <span style={{ color: "#C1440E" }}>*</span>
                   </label>
                   <select
                     required
@@ -234,10 +259,10 @@ function BookingForm() {
                     onChange={(e) => setServiceType(e.target.value)}
                     style={inputStyle}
                   >
-                    <option value="" disabled>Select a type…</option>
-                    <option value="Hammam only — €20 / person">Hammam only — €20 / person</option>
-                    <option value="Massage 30 min — €30 / person">Massage 30 min — €30 / person</option>
-                    <option value="Massage 60 min — €40 / person">Massage 60 min — €40 / person</option>
+                    <option value="" disabled>{tr.booking.hammamSelect}</option>
+                    <option value="Hammam only — €20 / person">{tr.booking.hammamOnly}</option>
+                    <option value="Massage 30 min — €30 / person">{tr.booking.massage30}</option>
+                    <option value="Massage 60 min — €40 / person">{tr.booking.massage60}</option>
                   </select>
                 </div>
               )}
@@ -245,7 +270,7 @@ function BookingForm() {
               {/* Date */}
               <div className="flex flex-col gap-1.5">
                 <label style={labelStyle}>
-                  Date <span style={{ color: "#C1440E" }}>*</span>
+                  {tr.booking.date} <span style={{ color: "#C1440E" }}>*</span>
                 </label>
                 <input
                   type="date"
@@ -260,7 +285,7 @@ function BookingForm() {
               {/* Time */}
               <div className="flex flex-col gap-1.5">
                 <label style={labelStyle}>
-                  Time <span style={{ color: "#C1440E" }}>*</span>
+                  {tr.booking.time} <span style={{ color: "#C1440E" }}>*</span>
                 </label>
                 <input
                   type="time"
@@ -274,7 +299,7 @@ function BookingForm() {
               {/* Persons */}
               <div className="flex flex-col gap-1.5">
                 <label style={labelStyle}>
-                  Number of persons <span style={{ color: "#C1440E" }}>*</span>
+                  {tr.booking.persons} <span style={{ color: "#C1440E" }}>*</span>
                 </label>
                 <input
                   type="number"
@@ -289,7 +314,7 @@ function BookingForm() {
               {/* Phone */}
               <div className="flex flex-col gap-1.5">
                 <label style={labelStyle}>
-                  Phone number <span style={{ color: "#C1440E" }}>*</span>
+                  {tr.booking.phone} <span style={{ color: "#C1440E" }}>*</span>
                 </label>
                 <input
                   type="tel"
@@ -304,13 +329,13 @@ function BookingForm() {
               {/* Notes */}
               <div className="flex flex-col gap-1.5">
                 <label style={labelStyle}>
-                  Notes{" "}
-                  <span style={{ color: inkMuted, fontWeight: 400 }}>(optional)</span>
+                  {tr.booking.notes}{" "}
+                  <span style={{ color: inkMuted, fontWeight: 400 }}>{tr.booking.optional}</span>
                 </label>
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Any special requests?"
+                  placeholder={tr.booking.notesPlaceholder}
                   rows={3}
                   style={{ ...inputStyle, resize: "vertical" }}
                 />
@@ -322,7 +347,7 @@ function BookingForm() {
                   className="text-[13px] px-4 py-3 rounded-lg"
                   style={{ background: "rgba(193,68,14,0.08)", color: "#C1440E" }}
                 >
-                  Something went wrong. Please try WhatsApp directly.
+                  {tr.booking.errorMessage}
                 </p>
               )}
 
@@ -333,7 +358,7 @@ function BookingForm() {
                 className="mt-1 py-3.5 text-[15px] font-medium rounded-full transition-all duration-200 hover:opacity-85 active:scale-95 disabled:opacity-60"
                 style={{ background: "#C1440E", color: "#ffffff" }}
               >
-                {status === "loading" ? "Sending…" : "Send Booking Request"}
+                {status === "loading" ? tr.booking.sending : tr.booking.sendRequest}
               </button>
             </form>
           )}

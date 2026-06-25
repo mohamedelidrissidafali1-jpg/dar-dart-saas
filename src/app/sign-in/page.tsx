@@ -170,7 +170,7 @@ export default function SignIn() {
               className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
               style={{ background: "#0075de", color: "#ffffff" }}
             >
-              {loading ? "Signing in…" : tr.signIn.submit}
+              {loading ? tr.signIn.signingIn : tr.signIn.submit}
             </button>
           </form>
 
@@ -187,7 +187,7 @@ export default function SignIn() {
               <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
               <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/>
             </svg>
-            Continue with Google
+            {tr.signIn.continueWithGoogle}
           </button>
 
           <div className="flex items-center gap-4 my-6">
