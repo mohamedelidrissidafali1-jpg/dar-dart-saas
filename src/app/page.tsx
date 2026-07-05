@@ -12,27 +12,27 @@ import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 const ROOMS_19 = [
   {
     name: "Suite Terrasse Lulu",
-    desc: "A charming suite with a private terrace overlooking the fountain courtyard, blending traditional zellige tilework with modern comfort.",
+    descKey: "terrasseLulu",
     img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
   },
   {
     name: "Suite Africa",
-    desc: "Rich earthy tones, carved cedar ceilings, and a warm African-inspired décor create an unforgettable retreat.",
+    descKey: "africa",
     img: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
   },
   {
     name: "Suite Familiar Gazelle",
-    desc: "Our spacious family suite with original zellige mosaics, premium linens, and room for the whole family.",
+    descKey: "gazelle",
     img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
   },
   {
     name: "Suite Frida",
-    desc: "A vibrant, artful retreat inspired by bold colours and creative spirit, with direct garden access.",
+    descKey: "frida",
     img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
   },
   {
     name: "Suite Rosa",
-    desc: "A serene sanctuary in soft rose tones with zellige floors and views across the inner courtyard fountain.",
+    descKey: "rosa",
     img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=80",
   },
 ];
@@ -40,61 +40,51 @@ const ROOMS_19 = [
 const ROOMS_141 = [
   {
     name: "Lexicon",
-    desc: "A literary-inspired suite with warm amber tones, hand-painted plaster walls, and a four-poster bed draped in Berber textiles.",
+    descKey: "lexicon",
     img: "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
   },
   {
     name: "Mategot",
-    desc: "Midnight-blue tadelakt walls, brass lanterns, and a private courtyard sitting area inspired by mid-century Moroccan design.",
+    descKey: "mategot",
     img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
   },
   {
     name: "Chevrerie",
-    desc: "Flooded with natural light, this suite blends rustic charm with rooftop access and a traditional hammam tub.",
+    descKey: "chevrerie",
     img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
   },
   {
     name: "Poupée",
-    desc: "A mosaic masterpiece — floor-to-ceiling hand-cut tiles and a king bed of carved cedar in a whimsical setting.",
+    descKey: "poupee",
     img: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
   },
   {
     name: "Zagora",
-    desc: "Evocative of the desert south, featuring warm sandstone hues, geometric patterns, and a private terrace.",
+    descKey: "zagora",
     img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
   },
 ];
 
 const EXCURSIONS = [
   {
-    name: "Medina Walking Tour",
-    desc: "Explore the ancient labyrinthine streets and souks of Marrakech with an expert local guide.",
+    key: "medinaWalkingTour",
     img: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=800",
-    duration: "3 hours",
   },
   {
-    name: "Atlas Mountains Day Trip",
-    desc: "Journey through Berber villages and stunning high-altitude landscapes, just 40 km from the city.",
+    key: "atlasMountainsDayTrip",
     img: "https://images.unsplash.com/photo-1489493887464-892be6d1daae?w=800",
-    duration: "Full day",
   },
   {
-    name: "Sahara Desert Tour",
-    desc: "A 3-day adventure to the golden dunes of Erg Chebbi — camel trek and overnight camp included.",
+    key: "saharaDesertTour",
     img: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800",
-    duration: "3 days",
   },
   {
-    name: "Moroccan Cooking Class",
-    desc: "Learn to prepare traditional tagines, bastilla, and mint tea in our authentic riad kitchen.",
+    key: "moroccanCookingClass",
     img: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=800",
-    duration: "4 hours",
   },
   {
-    name: "Camel Ride",
-    desc: "A sunset ride through the palm groves and olive orchards on the outskirts of Marrakech.",
+    key: "camelRide",
     img: "https://images.unsplash.com/photo-1452022582947-b521d8779ab6?w=800",
-    duration: "2 hours",
   },
 ];
 
@@ -150,37 +140,13 @@ function KeyIcon() {
 
 type ServiceIcon = () => React.JSX.Element;
 
-const SERVICES: { name: string; desc: string; Icon: ServiceIcon }[] = [
-  {
-    name: "Breakfast",
-    desc: "Traditional Moroccan breakfast served daily in the open-air courtyard.",
-    Icon: BreakfastIcon,
-  },
-  {
-    name: "Hammam & Spa",
-    desc: "Authentic hammam rituals and rejuvenating spa treatments on-site.",
-    Icon: HammamIcon,
-  },
-  {
-    name: "Airport Transfer",
-    desc: "Private, air-conditioned transfers available 24/7 to your door.",
-    Icon: CarIcon,
-  },
-  {
-    name: "Rooftop Terrace",
-    desc: "Exclusive rooftop with panoramic views over the Marrakech medina.",
-    Icon: RooftopIcon,
-  },
-  {
-    name: "High-Speed WiFi",
-    desc: "Complimentary high-speed internet throughout both riads.",
-    Icon: WifiIcon,
-  },
-  {
-    name: "Concierge",
-    desc: "A dedicated concierge to arrange every detail of your stay.",
-    Icon: KeyIcon,
-  },
+const SERVICES: { key: string; Icon: ServiceIcon }[] = [
+  { key: "breakfast", Icon: BreakfastIcon },
+  { key: "hammamSpa", Icon: HammamIcon },
+  { key: "airportTransfer", Icon: CarIcon },
+  { key: "rooftopTerrace", Icon: RooftopIcon },
+  { key: "highSpeedWifi", Icon: WifiIcon },
+  { key: "concierge", Icon: KeyIcon },
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -241,7 +207,7 @@ export default function Home() {
               fontFamily: "Georgia, 'Garamond', 'Times New Roman', serif",
             }}
           >
-            Riad Dar D&apos;Art
+            {tr.hero.title}
           </h1>
 
           {/* Gold divider */}
@@ -262,14 +228,14 @@ export default function Home() {
               className="px-10 py-4 text-[14px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85 active:scale-95 text-center"
               style={{ background: "#C1440E", color: "#ffffff" }}
             >
-              Sign Up
+              {tr.nav.signUp}
             </Link>
             <Link
               href="/sign-in"
               className="px-10 py-4 text-[14px] font-light tracking-[0.08em] uppercase rounded-full transition-colors duration-200 hover:bg-white/10 text-center"
               style={{ border: "1px solid rgba(255,255,255,0.65)", color: "#ffffff" }}
             >
-              Sign In
+              {tr.nav.signIn}
             </Link>
           </div>
         </div>
@@ -306,9 +272,9 @@ export default function Home() {
             style={{ color: "var(--ink-muted)" }}
           >
             {selectedRiad === "riad19"
-              ? "Nestled in the heart of Marrakech’s medina, Riad Dar D’Art 19 is located at 19 Derb Zemrane, Bab Doukkala. A sanctuary of Moroccan art, architecture, and timeless hospitality."
+              ? tr.home.riad19Intro
               : selectedRiad === "riad141"
-              ? "Nestled in the heart of Marrakech’s medina, Riad Dar D’Art 141 is located at 141 Derb Arset Aouzal, Bab Doukkala. A sanctuary of Moroccan art, architecture, and timeless hospitality."
+              ? tr.home.riad141Intro
               : <>{tr.about.body}{" "}<span className="font-semibold" style={{ color: "var(--ink)" }}>Riad 19</span>{" "}at 19 Derb Zemrane {tr.about.and}{" "}<span className="font-semibold" style={{ color: "var(--ink)" }}>Riad 141</span>{" "}at 141 Derb Arset Aouzal {tr.about.each}</>
             }
           </p>
@@ -316,12 +282,12 @@ export default function Home() {
           {/* Property card(s) */}
           {(() => {
             const cards = selectedRiad === "riad19"
-              ? [{ label: "Riad 19", sub: "19 Derb Zemrane", desc: "Marrakech Medina 40000, Morocco" }]
+              ? [{ label: "Riad 19", sub: "19 Derb Zemrane", desc: tr.home.cityLine }]
               : selectedRiad === "riad141"
-              ? [{ label: "Riad 141", sub: "141 Derb Arset Aouzal", desc: "Marrakech Medina 40000, Morocco" }]
+              ? [{ label: "Riad 141", sub: "141 Derb Arset Aouzal", desc: tr.home.cityLine }]
               : [
-                  { label: "Riad 19", sub: "19 Derb Zemrane", desc: "Marrakech Medina 40000, Morocco" },
-                  { label: "Riad 141", sub: "141 Derb Arset Aouzal", desc: "Marrakech Medina 40000, Morocco" },
+                  { label: "Riad 19", sub: "19 Derb Zemrane", desc: tr.home.cityLine },
+                  { label: "Riad 141", sub: "141 Derb Arset Aouzal", desc: tr.home.cityLine },
                 ];
             return (
               <div className={`mt-14 grid gap-5 ${cards.length > 1 ? "md:grid-cols-2" : "max-w-sm mx-auto"}`}>
@@ -404,7 +370,7 @@ export default function Home() {
                       {room.name}
                     </h3>
                     <p className="text-[15px] leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
-                      {room.desc}
+                      {(selectedRiad === "riad141" ? tr.home.rooms141 : tr.home.rooms19)[room.descKey]}
                     </p>
                     <button
                       onClick={() => scrollTo("contact")}
@@ -420,7 +386,7 @@ export default function Home() {
           ) : (
             <div className="flex items-center justify-center py-16">
               <p className="text-[16px]" style={{ color: "var(--ink-muted)" }}>
-                Sign in to see your riad&apos;s rooms
+                {tr.home.signInForRooms}
               </p>
             </div>
           )}
@@ -446,28 +412,31 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {SERVICES.map(({ name, desc, Icon }) => (
-              <div
-                key={name}
-                className="p-8 flex gap-5 items-start rounded-xl transition-shadow duration-200 hover:shadow-md"
-                style={{
-                  background: "var(--surface)",
-                  border: "1px solid var(--hairline)",
-                }}
-              >
-                <div className="flex-shrink-0" style={{ color: "#C1440E" }}>
-                  <Icon />
+            {SERVICES.map(({ key, Icon }) => {
+              const svc = tr.home.servicesList[key];
+              return (
+                <div
+                  key={key}
+                  className="p-8 flex gap-5 items-start rounded-xl transition-shadow duration-200 hover:shadow-md"
+                  style={{
+                    background: "var(--surface)",
+                    border: "1px solid var(--hairline)",
+                  }}
+                >
+                  <div className="flex-shrink-0" style={{ color: "#C1440E" }}>
+                    <Icon />
+                  </div>
+                  <div>
+                    <h3 className="text-[16px] font-semibold mb-2" style={{ color: "var(--ink)" }}>
+                      {svc.name}
+                    </h3>
+                    <p className="text-[15px] leading-relaxed" style={{ color: "var(--ink-muted)" }}>
+                      {svc.desc}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-[16px] font-semibold mb-2" style={{ color: "var(--ink)" }}>
-                    {name}
-                  </h3>
-                  <p className="text-[15px] leading-relaxed" style={{ color: "var(--ink-muted)" }}>
-                    {desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -491,53 +460,56 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {EXCURSIONS.map((ex) => (
-              <article
-                key={ex.name}
-                className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
-                style={{
-                  background: "var(--surface)",
-                  border: "1px solid var(--hairline)",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
-                }}
-              >
-                <div className="overflow-hidden h-44 relative rounded-t-xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={ex.img}
-                    alt={ex.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="text-[16px] font-semibold leading-tight" style={{ color: "var(--ink)" }}>
-                      {ex.name}
-                    </h3>
-                    <span
-                      className="text-[12px] font-semibold px-2.5 py-1 flex-shrink-0 rounded-full"
-                      style={{
-                        background: "var(--surface)",
-                        color: "#C1440E",
-                        border: "1px solid var(--hairline)",
-                      }}
-                    >
-                      {ex.duration}
-                    </span>
+            {EXCURSIONS.map((ex) => {
+              const item = tr.home.excursionsList[ex.key];
+              return (
+                <article
+                  key={ex.key}
+                  className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
+                  style={{
+                    background: "var(--surface)",
+                    border: "1px solid var(--hairline)",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
+                  }}
+                >
+                  <div className="overflow-hidden h-44 relative rounded-t-xl">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={ex.img}
+                      alt={item.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                   </div>
-                  <p className="text-[15px] leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
-                    {ex.desc}
-                  </p>
-                  <button
-                    onClick={() => scrollTo("contact")}
-                    className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
-                    style={{ border: "1px solid #C1440E", color: "#C1440E" }}
-                  >
-                    {tr.excursions.inquire}
-                  </button>
-                </div>
-              </article>
-            ))}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <h3 className="text-[16px] font-semibold leading-tight" style={{ color: "var(--ink)" }}>
+                        {item.name}
+                      </h3>
+                      <span
+                        className="text-[12px] font-semibold px-2.5 py-1 flex-shrink-0 rounded-full"
+                        style={{
+                          background: "var(--surface)",
+                          color: "#C1440E",
+                          border: "1px solid var(--hairline)",
+                        }}
+                      >
+                        {item.duration}
+                      </span>
+                    </div>
+                    <p className="text-[15px] leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
+                      {item.desc}
+                    </p>
+                    <button
+                      onClick={() => scrollTo("contact")}
+                      className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
+                      style={{ border: "1px solid #C1440E", color: "#C1440E" }}
+                    >
+                      {tr.excursions.inquire}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -566,13 +538,13 @@ export default function Home() {
               {
                 label: "Riad 19",
                 street: "19 Derb Zemrane",
-                city: "Marrakech Medina 40000, Morocco",
+                city: tr.home.cityLine,
                 mapUrl: "https://maps.google.com/?q=19+Derb+Zemrane+Marrakech",
               },
               {
                 label: "Riad 141",
                 street: "141 Derb Arset Aouzal",
-                city: "Marrakech Medina 40000, Morocco",
+                city: tr.home.cityLine,
                 mapUrl: "https://maps.google.com/?q=141+Derb+Arset+Aouzal+Marrakech",
               },
             ].map((p) => (
@@ -661,7 +633,7 @@ export default function Home() {
           borderRadius: "9999px",
           boxShadow: "0 4px 14px rgba(0,117,222,0.35), 0 2px 6px rgba(0,0,0,0.1)",
         }}
-        aria-label="Open concierge chat"
+        aria-label={tr.common.openChat}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
           <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
@@ -686,7 +658,7 @@ export default function Home() {
           onClick={() => setChatOpen(false)}
           className="absolute -top-3.5 -right-3.5 z-10 w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold shadow-lg transition-opacity duration-200 hover:opacity-80"
           style={{ background: "#0075de", color: "#ffffff" }}
-          aria-label="Close chat"
+          aria-label={tr.common.closeChat}
         >
           ✕
         </button>

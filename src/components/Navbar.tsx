@@ -122,7 +122,7 @@ export default function Navbar() {
                 className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
                 style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
               >
-                Logout
+                {tr.common.logout}
               </button>
             </>
           ) : (
@@ -172,7 +172,7 @@ export default function Navbar() {
           <button
             className="flex flex-col justify-center gap-1.5 w-8 h-8 ml-1"
             onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Toggle menu"
+            aria-label={tr.common.toggleMenu}
           >
             <span
               className={`block w-6 h-0.5 transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
@@ -223,7 +223,7 @@ export default function Navbar() {
                 className="mt-2 py-3 text-[13px] font-light tracking-[0.1em] uppercase text-center rounded-full transition-colors"
                 style={{ border: `1px solid ${isDark ? "#E8DFC8" : "#1a1a1a"}`, color: isDark ? "#E8DFC8" : "#1a1a1a" }}
               >
-                Logout
+                {tr.common.logout}
               </button>
             </>
           )}

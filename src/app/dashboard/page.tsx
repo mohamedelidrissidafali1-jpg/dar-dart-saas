@@ -63,36 +63,26 @@ const EXCURSIONS = [
   {
     name: "Agafay Desert",
     slug: "agafay",
-    subtitle: "Quad · Camel · Dinner",
-    price: "€30–55 / person",
     img: "/excursions/agafay.webp",
   },
   {
     name: "Ourika Valley",
     slug: "ourika-valley",
-    subtitle: "Atlas · Waterfalls · Berber villages",
-    price: "From €20 / person",
     img: "/excursions/ourika-valley.webp",
   },
   {
     name: "Atlas Mountains",
     slug: "atlas-mountains",
-    subtitle: "Mountains · Berber villages · Fresh air",
-    price: "€35 / person",
     img: "/excursions/atlas-mountains.webp",
   },
   {
     name: "Hot Air Balloon",
     slug: "hot-air-balloon",
-    subtitle: "Sunrise · Panoramic views",
-    price: "€97 / person",
     img: "/excursions/hot-air-balloon.webp",
   },
   {
     name: "City Tour Guide",
     slug: "city-tour",
-    subtitle: "Medina · Souks · Hidden places",
-    price: "€20 / person",
     img: "/excursions/city-tour.webp",
   },
 ];
@@ -285,7 +275,7 @@ export default function Dashboard() {
             className="text-[11px] font-semibold tracking-[0.2em] uppercase"
             style={{ color: "#C1440E" }}
           >
-            Riad Dar D&apos;Art
+            {tr.hero.title}
           </div>
           <h1
             className="text-2xl md:text-3xl font-bold"
@@ -513,47 +503,50 @@ export default function Dashboard() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {EXCURSIONS.map((ex) => (
-              <article
-                key={ex.name}
-                className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
-                style={{
-                  background: surface,
-                  border: `1px solid ${border}`,
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
-                }}
-              >
-                <div className="overflow-hidden rounded-t-xl" style={{ height: "200px" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={ex.img}
-                    alt={ex.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-[16px] font-bold mb-1 leading-tight" style={{ color: ink }}>
-                    {ex.name}
-                  </h3>
-                  <p className="text-[12px] mb-2" style={{ color: inkFaint }}>
-                    {ex.subtitle}
-                  </p>
-                  <p className="text-[14px] font-semibold mb-3" style={{ color: "#B8973A" }}>
-                    {ex.price}
-                  </p>
-                  <div className="flex-1 mb-4" />
-                  <a
-                    href={whatsappUrl(ex.slug)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-85 text-center block"
-                    style={{ background: "#C1440E", color: "#ffffff" }}
-                  >
-                    {tr.dashboard.bookViaWhatsApp}
-                  </a>
-                </div>
-              </article>
-            ))}
+            {EXCURSIONS.map((ex) => {
+              const info = tr.dashboard.excursionsList[ex.slug];
+              return (
+                <article
+                  key={ex.name}
+                  className="group flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-1"
+                  style={{
+                    background: surface,
+                    border: `1px solid ${border}`,
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
+                  }}
+                >
+                  <div className="overflow-hidden rounded-t-xl" style={{ height: "200px" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={ex.img}
+                      alt={ex.name}
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-[16px] font-bold mb-1 leading-tight" style={{ color: ink }}>
+                      {ex.name}
+                    </h3>
+                    <p className="text-[12px] mb-2" style={{ color: inkFaint }}>
+                      {info.subtitle}
+                    </p>
+                    <p className="text-[14px] font-semibold mb-3" style={{ color: "#B8973A" }}>
+                      {info.price}
+                    </p>
+                    <div className="flex-1 mb-4" />
+                    <a
+                      href={whatsappUrl(ex.slug)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-85 text-center block"
+                      style={{ background: "#C1440E", color: "#ffffff" }}
+                    >
+                      {tr.dashboard.bookViaWhatsApp}
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -656,7 +649,7 @@ export default function Dashboard() {
           borderRadius: "9999px",
           boxShadow: "0 4px 14px rgba(0,117,222,0.35), 0 2px 6px rgba(0,0,0,0.1)",
         }}
-        aria-label="Open concierge chat"
+        aria-label={tr.common.openChat}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
           <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
@@ -678,7 +671,7 @@ export default function Dashboard() {
           onClick={() => setChatOpen(false)}
           className="absolute -top-3.5 -right-3.5 z-10 w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold shadow-lg transition-opacity duration-200 hover:opacity-80"
           style={{ background: "#0075de", color: "#ffffff" }}
-          aria-label="Close chat"
+          aria-label={tr.common.closeChat}
         >
           ✕
         </button>

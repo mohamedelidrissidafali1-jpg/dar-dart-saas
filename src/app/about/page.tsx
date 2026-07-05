@@ -4,36 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-
-const VALUES = [
-  {
-    title: "Hospitality",
-    desc: "Every guest is welcomed as a cherished visitor. Our philosophy of 'dar' — meaning home — guides every interaction.",
-  },
-  {
-    title: "Authenticity",
-    desc: "Original zellige mosaics, hand-carved cedar, and traditional recipes preserved across generations. Nothing here is a replica.",
-  },
-  {
-    title: "Innovation",
-    desc: "We blend centuries of tradition with modern comforts — including an AI concierge that speaks your language and knows your stay.",
-  },
-];
-
-const ALL_PROPERTIES = [
-  {
-    name: "Riad 19",
-    address: "19 Derb Zemrane",
-    desc: "The original property, featuring five intimate guest suites arranged around a mosaic fountain courtyard. Known for its original 17th-century tilework and rooftop terrace with panoramic medina views.",
-    mapUrl: "https://maps.google.com/?q=19+Derb+Zemrane+Marrakech",
-  },
-  {
-    name: "Riad 141",
-    address: "141 Derb Arset Aouzal",
-    desc: "A beautifully restored riad with five distinctive rooms and suites, a private hammam, and a lush interior garden with jasmine and orange trees. Perfect for families and groups.",
-    mapUrl: "https://maps.google.com/?q=141+Derb+Arset+Aouzal+Marrakech",
-  },
-];
+import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 
 function SectionDivider() {
   return (
@@ -47,11 +18,37 @@ function SectionDivider() {
 
 export default function About() {
   const [selectedRiad, setSelectedRiad] = useState<"riad19" | "riad141" | null>(null);
+  const [lang, setLang] = useState<Lang>("en");
 
   useEffect(() => {
     const stored = localStorage.getItem("selectedRiad");
     if (stored === "riad19" || stored === "riad141") setSelectedRiad(stored);
+    setLang(getLang());
   }, []);
+
+  const tr = getT(lang);
+  const dir = isRtl(lang) ? "rtl" : undefined;
+
+  const ALL_PROPERTIES = [
+    {
+      name: "Riad 19",
+      address: "19 Derb Zemrane",
+      desc: tr.aboutPage.riad19Desc,
+      mapUrl: "https://maps.google.com/?q=19+Derb+Zemrane+Marrakech",
+    },
+    {
+      name: "Riad 141",
+      address: "141 Derb Arset Aouzal",
+      desc: tr.aboutPage.riad141Desc,
+      mapUrl: "https://maps.google.com/?q=141+Derb+Arset+Aouzal+Marrakech",
+    },
+  ];
+
+  const VALUES = [
+    { title: tr.aboutPage.values.hospitality.title, desc: tr.aboutPage.values.hospitality.desc },
+    { title: tr.aboutPage.values.authenticity.title, desc: tr.aboutPage.values.authenticity.desc },
+    { title: tr.aboutPage.values.innovation.title, desc: tr.aboutPage.values.innovation.desc },
+  ];
 
   const properties = selectedRiad === "riad19"
     ? [ALL_PROPERTIES[0]]
@@ -60,7 +57,7 @@ export default function About() {
     : ALL_PROPERTIES;
 
   return (
-    <div style={{ background: "var(--background)", color: "var(--ink)", minHeight: "100vh" }}>
+    <div style={{ background: "var(--background)", color: "var(--ink)", minHeight: "100vh" }} dir={dir}>
       <Navbar />
 
       {/* Hero banner */}
@@ -77,13 +74,13 @@ export default function About() {
         />
         <div className="relative z-10 px-6 pb-12 max-w-6xl mx-auto w-full">
           <p className="text-xs tracking-[0.45em] uppercase mb-3" style={{ color: "#B8973A" }}>
-            Our Story
+            {tr.aboutPage.ourStory}
           </p>
           <h1
             className="text-4xl md:text-5xl font-light"
             style={{ color: "#ffffff", letterSpacing: "0.05em" }}
           >
-            About Dar D&apos;Art
+            {tr.aboutPage.title}
           </h1>
         </div>
       </section>
@@ -93,60 +90,24 @@ export default function About() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-xs tracking-[0.35em] uppercase mb-5" style={{ color: "#B8973A" }}>
-              Heritage
+              {tr.aboutPage.heritageLabel}
             </p>
             <h2
               className="text-3xl font-light mb-8"
               style={{ color: "var(--ink)", letterSpacing: "0.04em" }}
             >
-              A Living Piece of Marrakech
+              {tr.aboutPage.heading}
             </h2>
             <div className="space-y-5 text-sm leading-8" style={{ color: "var(--ink-muted)" }}>
+              <p>{tr.aboutPage.intro}</p>
               <p>
-                Nestled within the ancient walls of Marrakech&apos;s medina, Riad Dar D&apos;Art is a
-                sanctuary of Moroccan art, architecture, and timeless hospitality. The name means
-                &ldquo;House of Art&rdquo; — and every corner of the property reflects that identity.
+                {selectedRiad === "riad19"
+                  ? tr.aboutPage.riad19Welcome
+                  : selectedRiad === "riad141"
+                  ? tr.aboutPage.riad141Welcome
+                  : tr.aboutPage.bothWelcome}
               </p>
-              {selectedRiad === "riad19" ? (
-                <p>
-                  We are delighted to welcome you to{" "}
-                  <span className="font-semibold" style={{ color: "#B8973A" }}>
-                    Riad Dar D&apos;Art 19
-                  </span>
-                  , located at 19 Derb Zemrane, Bab Doukkala. A testament to centuries of Andalusian
-                  craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of
-                  orange blossom.
-                </p>
-              ) : selectedRiad === "riad141" ? (
-                <p>
-                  We are delighted to welcome you to{" "}
-                  <span className="font-semibold" style={{ color: "#B8973A" }}>
-                    Riad Dar D&apos;Art 141
-                  </span>
-                  , located at 141 Derb Arset Aouzal, Bab Doukkala. A testament to centuries of Andalusian
-                  craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of
-                  orange blossom.
-                </p>
-              ) : (
-                <p>
-                  We operate two beautifully restored properties:{" "}
-                  <span className="font-semibold" style={{ color: "#B8973A" }}>
-                    Riad 19
-                  </span>{" "}
-                  at 19 Derb Zemrane and{" "}
-                  <span className="font-semibold" style={{ color: "#B8973A" }}>
-                    Riad 141
-                  </span>{" "}
-                  at 141 Derb Arset Aouzal. Each is a testament to centuries of Andalusian
-                  craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of
-                  orange blossom.
-                </p>
-              )}
-              <p>
-                Our mission is to offer guests an authentic Moroccan experience without sacrificing
-                modern comfort. That&apos;s why we&apos;ve built an AI-powered concierge that
-                brings luxury service to every guest, at every hour.
-              </p>
+              <p>{tr.aboutPage.mission}</p>
             </div>
           </div>
 
@@ -166,13 +127,13 @@ export default function About() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
-              What We Stand For
+              {tr.aboutPage.whatWeStandFor}
             </p>
             <h2
               className="text-3xl font-light"
               style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
             >
-              Our Values
+              {tr.aboutPage.ourValues}
             </h2>
             <SectionDivider />
           </div>
@@ -205,13 +166,13 @@ export default function About() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
-              The Properties
+              {tr.aboutPage.theProperties}
             </p>
             <h2
               className="text-3xl font-light"
               style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
             >
-              {selectedRiad ? "Your Riad" : "Two Riads, One Soul"}
+              {selectedRiad ? tr.aboutPage.yourRiad : tr.aboutPage.twoRiads}
             </h2>
             <SectionDivider />
           </div>
@@ -233,7 +194,7 @@ export default function About() {
                   {p.address}
                 </p>
                 <p className="text-xs mb-1" style={{ color: "var(--ink-faint)" }}>
-                  Marrakech Medina 40000, Morocco
+                  {tr.home.cityLine}
                 </p>
                 <p className="text-sm leading-relaxed mt-4 mb-5" style={{ color: "var(--ink-muted)" }}>
                   {p.desc}
@@ -245,7 +206,7 @@ export default function About() {
                   className="text-xs tracking-[0.2em] uppercase opacity-70 hover:opacity-100 transition-opacity duration-200"
                   style={{ color: "#B8973A" }}
                 >
-                  View on map →
+                  {tr.contact.viewOnMap}
                 </a>
               </div>
             ))}
@@ -259,10 +220,10 @@ export default function About() {
           className="text-2xl font-light mb-6"
           style={{ color: "var(--ink)", letterSpacing: "0.05em" }}
         >
-          Experience It Yourself
+          {tr.aboutPage.experienceItYourself}
         </h2>
         <p className="text-sm mb-10 max-w-xs mx-auto leading-relaxed" style={{ color: "var(--ink-muted)" }}>
-          Ready to stay with us? Get in touch or explore our rooms.
+          {tr.aboutPage.ctaDesc}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
@@ -270,14 +231,14 @@ export default function About() {
             className="inline-block px-8 py-3.5 text-xs tracking-[0.3em] uppercase font-semibold transition-opacity duration-200 hover:opacity-85"
             style={{ background: "#B8973A", color: "#ffffff" }}
           >
-            Contact Us
+            {tr.hero.contactUs}
           </Link>
           <Link
             href="/#rooms"
             className="inline-block px-8 py-3.5 text-xs tracking-[0.3em] uppercase font-light transition-opacity duration-200 hover:opacity-80"
             style={{ border: "1px solid rgba(184,151,58,0.55)", color: "var(--ink)" }}
           >
-            View Rooms
+            {tr.aboutPage.viewRooms}
           </Link>
         </div>
       </section>

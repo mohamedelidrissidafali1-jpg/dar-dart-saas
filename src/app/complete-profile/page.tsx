@@ -62,7 +62,7 @@ export default function CompleteProfile() {
     });
 
     if (upsertError) {
-      setError("Failed to save profile. Please try again.");
+      setError(tr.completeProfile.saveFailed);
       setLoading(false);
       return;
     }
@@ -107,7 +107,7 @@ export default function CompleteProfile() {
             className="text-xl font-bold mb-6"
             style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
           >
-            Complete Your Profile
+            {tr.completeProfile.heading}
           </h1>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -118,7 +118,7 @@ export default function CompleteProfile() {
                 className="text-[14px] font-medium"
                 style={{ color: "var(--ink-secondary)" }}
               >
-                Name on Reservation
+                {tr.signUp.nameOnReservation}
               </label>
               <input
                 id="reservationName"
@@ -136,7 +136,7 @@ export default function CompleteProfile() {
                 }}
                 onFocus={(e) => (e.target.style.borderColor = "#0075de")}
                 onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
-                placeholder="Enter the name used for your booking"
+                placeholder={tr.signUp.namePlaceholder}
               />
             </div>
 
@@ -239,7 +239,7 @@ export default function CompleteProfile() {
               className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
               style={{ background: "#0075de", color: "#ffffff" }}
             >
-              {loading ? "Saving…" : "Continue to Dashboard"}
+              {loading ? tr.completeProfile.saving : tr.completeProfile.continueToDashboard}
             </button>
           </form>
         </div>

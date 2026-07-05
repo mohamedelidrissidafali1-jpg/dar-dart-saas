@@ -117,6 +117,8 @@ const t = {
       haveAccount: "Already have an account?",
       signIn: "Sign In →",
       backHome: "← Back to home",
+      signUpFailedDefault: "Sign up failed. Please try again.",
+      profileSetupFailed: "Account created but profile setup failed. Please contact support.",
     },
     dashboard: {
       aiConcierge: "AI Concierge",
@@ -200,6 +202,13 @@ const t = {
         dinner: { label: "Dinner at Riad", value: "€20/person", sub: "Min 4 people · Book via WhatsApp" },
         water: { label: "Water", value: "20 dirhams", sub: "Per bottle · Kitchen available" },
       },
+      excursionsList: {
+        agafay: { subtitle: "Quad · Camel · Dinner", price: "€30–55 / person" },
+        "ourika-valley": { subtitle: "Atlas · Waterfalls · Berber villages", price: "From €20 / person" },
+        "atlas-mountains": { subtitle: "Mountains · Berber villages · Fresh air", price: "€35 / person" },
+        "hot-air-balloon": { subtitle: "Sunrise · Panoramic views", price: "€97 / person" },
+        "city-tour": { subtitle: "Medina · Souks · Hidden places", price: "€20 / person" },
+      },
     },
     survey: {
       checkOut: "Check Out",
@@ -238,6 +247,314 @@ const t = {
       error: "Something went wrong. Please try again.",
       success: "Success",
       askConcierge: "Ask our Concierge",
+      openChat: "Open concierge chat",
+      closeChat: "Close chat",
+      toggleMenu: "Toggle menu",
+      logout: "Logout",
+      lastUpdated: "Last updated: June 2026",
+      cityLine: "Marrakech Medina 40000, Morocco",
+    },
+    home: {
+      riad19Intro: "Nestled in the heart of Marrakech's medina, Riad Dar D'Art 19 is located at 19 Derb Zemrane, Bab Doukkala. A sanctuary of Moroccan art, architecture, and timeless hospitality.",
+      riad141Intro: "Nestled in the heart of Marrakech's medina, Riad Dar D'Art 141 is located at 141 Derb Arset Aouzal, Bab Doukkala. A sanctuary of Moroccan art, architecture, and timeless hospitality.",
+      signInForRooms: "Sign in to see your riad's rooms",
+      rooms19: {
+        terrasseLulu: "A charming suite with a private terrace overlooking the fountain courtyard, blending traditional zellige tilework with modern comfort.",
+        africa: "Rich earthy tones, carved cedar ceilings, and a warm African-inspired décor create an unforgettable retreat.",
+        gazelle: "Our spacious family suite with original zellige mosaics, premium linens, and room for the whole family.",
+        frida: "A vibrant, artful retreat inspired by bold colours and creative spirit, with direct garden access.",
+        rosa: "A serene sanctuary in soft rose tones with zellige floors and views across the inner courtyard fountain.",
+      },
+      rooms141: {
+        lexicon: "A literary-inspired suite with warm amber tones, hand-painted plaster walls, and a four-poster bed draped in Berber textiles.",
+        mategot: "Midnight-blue tadelakt walls, brass lanterns, and a private courtyard sitting area inspired by mid-century Moroccan design.",
+        chevrerie: "Flooded with natural light, this suite blends rustic charm with rooftop access and a traditional hammam tub.",
+        poupee: "A mosaic masterpiece — floor-to-ceiling hand-cut tiles and a king bed of carved cedar in a whimsical setting.",
+        zagora: "Evocative of the desert south, featuring warm sandstone hues, geometric patterns, and a private terrace.",
+      },
+      excursionsList: {
+        medinaWalkingTour: { name: "Medina Walking Tour", desc: "Explore the ancient labyrinthine streets and souks of Marrakech with an expert local guide.", duration: "3 hours" },
+        atlasMountainsDayTrip: { name: "Atlas Mountains Day Trip", desc: "Journey through Berber villages and stunning high-altitude landscapes, just 40 km from the city.", duration: "Full day" },
+        saharaDesertTour: { name: "Sahara Desert Tour", desc: "A 3-day adventure to the golden dunes of Erg Chebbi — camel trek and overnight camp included.", duration: "3 days" },
+        moroccanCookingClass: { name: "Moroccan Cooking Class", desc: "Learn to prepare traditional tagines, bastilla, and mint tea in our authentic riad kitchen.", duration: "4 hours" },
+        camelRide: { name: "Camel Ride", desc: "A sunset ride through the palm groves and olive orchards on the outskirts of Marrakech.", duration: "2 hours" },
+      },
+      servicesList: {
+        breakfast: { name: "Breakfast", desc: "Traditional Moroccan breakfast served daily in the open-air courtyard." },
+        hammamSpa: { name: "Hammam & Spa", desc: "Authentic hammam rituals and rejuvenating spa treatments on-site." },
+        airportTransfer: { name: "Airport Transfer", desc: "Private, air-conditioned transfers available 24/7 to your door." },
+        rooftopTerrace: { name: "Rooftop Terrace", desc: "Exclusive rooftop with panoramic views over the Marrakech medina." },
+        highSpeedWifi: { name: "High-Speed WiFi", desc: "Complimentary high-speed internet throughout both riads." },
+        concierge: { name: "Concierge", desc: "A dedicated concierge to arrange every detail of your stay." },
+      },
+    },
+    completeProfile: {
+      heading: "Complete Your Profile",
+      saving: "Saving…",
+      continueToDashboard: "Continue to Dashboard",
+      saveFailed: "Failed to save profile. Please try again.",
+    },
+    aboutPage: {
+      ourStory: "Our Story",
+      title: "About Dar D'Art",
+      heritageLabel: "Heritage",
+      heading: "A Living Piece of Marrakech",
+      intro: "Nestled within the ancient walls of Marrakech's medina, Riad Dar D'Art is a sanctuary of Moroccan art, architecture, and timeless hospitality. The name means “House of Art” — and every corner of the property reflects that identity.",
+      riad19Welcome: "We are delighted to welcome you to Riad Dar D'Art 19, located at 19 Derb Zemrane, Bab Doukkala. A testament to centuries of Andalusian craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of orange blossom.",
+      riad141Welcome: "We are delighted to welcome you to Riad Dar D'Art 141, located at 141 Derb Arset Aouzal, Bab Doukkala. A testament to centuries of Andalusian craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of orange blossom.",
+      bothWelcome: "We operate two beautifully restored properties: Riad 19 at 19 Derb Zemrane and Riad 141 at 141 Derb Arset Aouzal. Each is a testament to centuries of Andalusian craftsmanship — mosaic courtyards, hand-carved cedar archways, and the scent of orange blossom.",
+      mission: "Our mission is to offer guests an authentic Moroccan experience without sacrificing modern comfort. That's why we've built an AI-powered concierge that brings luxury service to every guest, at every hour.",
+      whatWeStandFor: "What We Stand For",
+      ourValues: "Our Values",
+      values: {
+        hospitality: { title: "Hospitality", desc: "Every guest is welcomed as a cherished visitor. Our philosophy of 'dar' — meaning home — guides every interaction." },
+        authenticity: { title: "Authenticity", desc: "Original zellige mosaics, hand-carved cedar, and traditional recipes preserved across generations. Nothing here is a replica." },
+        innovation: { title: "Innovation", desc: "We blend centuries of tradition with modern comforts — including an AI concierge that speaks your language and knows your stay." },
+      },
+      theProperties: "The Properties",
+      yourRiad: "Your Riad",
+      twoRiads: "Two Riads, One Soul",
+      riad19Desc: "The original property, featuring five intimate guest suites arranged around a mosaic fountain courtyard. Known for its original 17th-century tilework and rooftop terrace with panoramic medina views.",
+      riad141Desc: "A beautifully restored riad with five distinctive rooms and suites, a private hammam, and a lush interior garden with jasmine and orange trees. Perfect for families and groups.",
+      experienceItYourself: "Experience It Yourself",
+      ctaDesc: "Ready to stay with us? Get in touch or explore our rooms.",
+      viewRooms: "View Rooms",
+    },
+    contactPage: {
+      reachOut: "Reach Out",
+      ourLocations: "Our Locations",
+      directContact: "Direct Contact",
+      whatsappLabel: "WhatsApp: +212 600 000 000",
+      hours: "Hours",
+      deskHours: "Front desk available daily, 08:00 – 22:00",
+      conciergeAvailable: "AI Concierge available 24/7 via",
+      yourDashboard: "your dashboard",
+      messageSent: "Message Sent",
+      messageSentDesc: "Thank you — our team will be in touch shortly.",
+      sendAMessage: "Send a Message",
+      name: "Name",
+      namePlaceholder: "Your name",
+      subject: "Subject",
+      selectSubject: "Select a subject",
+      subjects: {
+        bookingEnquiry: "Booking Enquiry",
+        guestSupport: "Guest Support",
+        partnership: "Partnership",
+        other: "Other",
+      },
+      message: "Message",
+      messagePlaceholder: "How can we help you?",
+      sendMessageBtn: "Send Message",
+    },
+    faqPage: {
+      helpSupport: "Help & Support",
+      title: "Frequently Asked Questions",
+      stillHaveQuestions: "Still Have Questions?",
+      chatWithConcierge: "Chat with Our AI Concierge",
+      ctaDesc: "Your personal concierge is available 24/7 and speaks your language.",
+      openConcierge: "Open Concierge",
+      categories: [
+        {
+          category: "Check-in & Check-out",
+          items: [
+            { q: "What time is check-in and check-out?", a: "Check-in is from 14:00 (2:00 PM). Check-out is by 11:00 AM. Early check-in and late check-out can be arranged subject to availability — just ask your AI concierge or contact us in advance." },
+            { q: "Where do I pick up the keys?", a: "Our team will greet you at the riad entrance. For late arrivals, please let us know your estimated arrival time so we can ensure someone is there to welcome you." },
+            { q: "Can I leave luggage before check-in or after check-out?", a: "Yes, we're happy to store your luggage on the day of arrival before your room is ready, or on the day of departure after check-out." },
+          ],
+        },
+        {
+          category: "Rooms & Amenities",
+          items: [
+            { q: "Is Wi-Fi available?", a: "Yes, complimentary high-speed Wi-Fi is available throughout both riads. Your concierge can provide the current password on request." },
+            { q: "Is there air conditioning?", a: "All rooms are equipped with air conditioning and heating, ensuring comfort year-round in Marrakech's varying climate." },
+            { q: "Do you offer laundry service?", a: "Yes, laundry and dry-cleaning services are available. Please speak to our team or ask your AI concierge for details and turnaround times." },
+          ],
+        },
+        {
+          category: "Services",
+          items: [
+            { q: "What does breakfast include?", a: "We serve a traditional Moroccan breakfast daily in the courtyard — msemen, beghrir, fresh-pressed orange juice, Medjool dates, honey, argan oil, and Moroccan mint tea. Served from 7:30 AM to 10:30 AM." },
+            { q: "Is there a pool?", a: "Riad 141 has a small plunge pool in the garden courtyard, available to all guests staying at either property." },
+            { q: "How do I book the hammam?", a: "The hammam is available for private bookings. Ask your AI concierge or speak to the front desk to check availability and book a session." },
+          ],
+        },
+        {
+          category: "Excursions",
+          items: [
+            { q: "How do I book an excursion?", a: "You can request any excursion through your AI concierge or directly with our team at the front desk. We recommend booking at least 24 hours in advance for day trips." },
+            { q: "What is the cancellation policy for excursions?", a: "Excursions can be cancelled or rescheduled up to 24 hours before the scheduled departure. Same-day cancellations may incur a fee." },
+            { q: "Can you arrange custom private tours?", a: "Absolutely. We work with expert local guides and private drivers to create bespoke experiences. Contact us with your interests and we'll design something special." },
+          ],
+        },
+        {
+          category: "AI Concierge",
+          items: [
+            { q: "What can the AI concierge help me with?", a: "Your AI concierge can answer questions about your room, riad facilities, breakfast times, local recommendations, excursion booking requests, check-in/check-out times, and much more. It's available 24/7." },
+            { q: "What languages does the concierge speak?", a: "The AI concierge automatically detects and responds in your language. It supports English, French, Arabic, Spanish, German, Italian, and many more." },
+            { q: "Are my conversations private?", a: "Yes. Your chat messages are processed securely and are not shared with third parties. Please see our Privacy Policy for full details." },
+            { q: "Can the AI concierge make actual bookings?", a: "Currently the concierge provides information and can relay requests to our team. For confirmed bookings (excursions, hammam, transfers), our staff will follow up to finalise the details." },
+          ],
+        },
+      ],
+    },
+    howItWorksPage: {
+      gettingStarted: "Getting Started",
+      subtitle: "From booking to chatting with your AI concierge in four simple steps.",
+      whyItMatters: "Why It Matters",
+      aSmarterStay: "A Smarter Stay",
+      ready: "Ready?",
+      startExperience: "Start Your Experience",
+      ctaDesc: "Have your booking confirmation ready and create your account in under a minute.",
+      steps: [
+        { title: "Book Your Stay", desc: "Reserve your room at Riad Dar D'Art through our website, Booking.com, or Airbnb. Every confirmed booking includes a personal access code." },
+        { title: "Receive Your Code", desc: "Your unique access code is sent in your booking confirmation email. It's your personal key to the AI concierge platform." },
+        { title: "Create Your Account", desc: "Sign up at dardart.com using your code. Takes less than a minute — just your name, email, and the code from your confirmation." },
+        { title: "Chat 24/7", desc: "Your AI concierge is available around the clock. Ask anything — breakfast times, excursion bookings, room service, local tips, and more." },
+      ],
+      benefits: [
+        { title: "Available 24/7", desc: "No waiting for the front desk. Get answers to your questions at any hour, day or night." },
+        { title: "Multilingual", desc: "The concierge automatically responds in your language — English, French, Arabic, Spanish, and more." },
+        { title: "Personalized", desc: "Knows your riad, your rooms, and your services. Answers are specific to Dar D'Art, not generic." },
+      ],
+    },
+    privacyPage: {
+      legal: "Legal",
+      title: "Privacy Policy",
+      intro: "Riad Dar D'Art (“we”, “us”, or “our”) operates the dardart.com guest concierge platform. This Privacy Policy describes how we collect, use, and protect your personal information when you use our service.",
+      sections: [
+        {
+          title: "1. Information We Collect",
+          body: `When you create an account and use the Dar D'Art concierge platform, we collect the following information:
+
+**Account information:** Your name, email address, and booking access code provided during registration.
+
+**Chat messages:** The text of your conversations with the AI concierge. These are used to generate responses and to improve the quality of the service.
+
+**Usage data:** Basic analytics such as pages visited and session duration. This data is aggregated and anonymised.`,
+        },
+        {
+          title: "2. How We Use Your Information",
+          body: `We use the information we collect to:
+
+- Provide and operate the AI concierge service
+- Authenticate your account and verify your guest status
+- Process your concierge requests and relay booking enquiries to our team
+- Improve the accuracy and relevance of AI responses
+- Communicate with you about your stay or account
+
+We do not sell your personal data to third parties.`,
+        },
+        {
+          title: "3. Data Retention",
+          body: `Account data is retained for the duration of your stay plus 90 days, after which it is permanently deleted unless you request earlier deletion.
+
+Chat logs are retained for 30 days to allow us to review service quality. You may request deletion of your chat history at any time by contacting us.`,
+        },
+        {
+          title: "4. Third-Party Services",
+          body: `The AI concierge is powered by Anthropic's Claude AI. Your chat messages are transmitted to Anthropic's API solely to generate responses. Anthropic processes this data in accordance with their own privacy policy. We do not share your name, email, or booking details with Anthropic.
+
+Our platform is hosted on Vercel. Your data is stored and processed in compliance with Vercel's data processing terms.`,
+        },
+        {
+          title: "5. Your Rights",
+          body: `Under the GDPR and applicable data protection laws, you have the right to:
+
+- **Access** the personal data we hold about you
+- **Correct** inaccurate or incomplete data
+- **Delete** your account and personal data
+- **Object** to the processing of your data
+- **Portability** — request a copy of your data in a machine-readable format
+
+To exercise any of these rights, please contact us at contact@riaddartmarrakech.com. We will respond within 30 days.`,
+        },
+        {
+          title: "6. Cookies",
+          body: `We use only essential cookies required to keep you logged in and maintain your session. We do not use advertising cookies or third-party tracking cookies.`,
+        },
+        {
+          title: "7. Security",
+          body: `We implement industry-standard security measures to protect your data, including encrypted data transmission (HTTPS) and secure password hashing. However, no method of transmission over the internet is 100% secure.`,
+        },
+        {
+          title: "8. Contact for Privacy Concerns",
+          body: `If you have any questions about this Privacy Policy or how we handle your data, please contact us:
+
+**Email:** contact@riaddartmarrakech.com
+**Address:** 19 Derb Zemrane, Marrakech Medina 40000, Morocco`,
+        },
+      ],
+    },
+    termsPage: {
+      legal: "Legal",
+      title: "Terms of Service",
+      intro: "These Terms of Service govern your use of the Dar D'Art guest concierge platform operated by Riad Dar D'Art, located at 19 Derb Zemrane, Marrakech, Morocco. Please read these terms carefully before using our service.",
+      sections: [
+        {
+          title: "1. Acceptance of Terms",
+          body: `By creating an account and using the Dar D'Art guest concierge platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the service.
+
+These terms may be updated from time to time. Continued use of the service after changes constitutes acceptance of the revised terms.`,
+        },
+        {
+          title: "2. Eligibility",
+          body: `Access to the concierge platform is restricted to confirmed guests of Riad Dar D'Art. A valid booking access code — provided in your reservation confirmation — is required to create an account.
+
+By registering, you confirm that you are a current or upcoming guest and that the access code you provide is your own.`,
+        },
+        {
+          title: "3. Use of the Service",
+          body: `You agree to use the platform only for lawful purposes and in a manner consistent with these terms. You must not:
+
+- Use the service to transmit harmful, offensive, or illegal content
+- Attempt to reverse-engineer, hack, or disrupt the platform
+- Share your account credentials or access code with others
+- Use the service in any way that could damage the reputation of Riad Dar D'Art`,
+        },
+        {
+          title: "4. AI Concierge Limitations",
+          body: `The AI concierge provides informational responses based on general knowledge about Riad Dar D'Art and Marrakech. Its responses:
+
+- Are for informational purposes only and do not constitute a contractual commitment
+- May not always be accurate or up to date
+- Should not be relied upon for medical, legal, or safety-critical decisions
+
+For confirmed reservations, bookings, or specific arrangements, please contact our team directly.`,
+        },
+        {
+          title: "5. User Accounts & Access Codes",
+          body: `You are responsible for maintaining the confidentiality of your account and access code. You must notify us immediately if you suspect unauthorised access to your account.
+
+Each access code is valid for one account registration. Access codes expire 30 days after your check-out date.`,
+        },
+        {
+          title: "6. Intellectual Property",
+          body: `All content on the platform — including text, images, design, and the AI concierge system — is the property of Riad Dar D'Art or its licensors and is protected by applicable intellectual property laws.
+
+You may not reproduce, distribute, or create derivative works from any content on the platform without our prior written consent.`,
+        },
+        {
+          title: "7. Limitation of Liability",
+          body: `To the fullest extent permitted by law, Riad Dar D'Art shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the platform.
+
+The service is provided "as is" without warranties of any kind. We do not guarantee the accuracy, reliability, or availability of the AI concierge at any given time.`,
+        },
+        {
+          title: "8. Changes to Terms",
+          body: `We reserve the right to modify these Terms of Service at any time. We will notify users of material changes by updating the "Last updated" date at the top of this page.`,
+        },
+        {
+          title: "9. Governing Law",
+          body: `These terms are governed by the laws of the Kingdom of Morocco. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of Marrakech, Morocco.`,
+        },
+        {
+          title: "10. Contact",
+          body: `For questions about these Terms of Service, please contact us:
+
+**Email:** contact@riaddartmarrakech.com
+**Address:** 19 Derb Zemrane, Marrakech Medina 40000, Morocco`,
+        },
+      ],
     },
   },
 
@@ -338,6 +655,8 @@ const t = {
       haveAccount: "Vous avez déjà un compte ?",
       signIn: "Connexion →",
       backHome: "← Retour à l'accueil",
+      signUpFailedDefault: "Échec de l'inscription. Veuillez réessayer.",
+      profileSetupFailed: "Compte créé mais la configuration du profil a échoué. Veuillez contacter le support.",
     },
     dashboard: {
       aiConcierge: "Concierge IA",
@@ -421,6 +740,13 @@ const t = {
         dinner: { label: "Dîner au Riad", value: "20€/personne", sub: "Min 4 personnes · Réservez via WhatsApp" },
         water: { label: "Eau", value: "20 dirhams", sub: "Par bouteille · Cuisine disponible" },
       },
+      excursionsList: {
+        agafay: { subtitle: "Quad · Chameau · Dîner", price: "30–55 € / personne" },
+        "ourika-valley": { subtitle: "Atlas · Cascades · Villages berbères", price: "À partir de 20 € / personne" },
+        "atlas-mountains": { subtitle: "Montagnes · Villages berbères · Air pur", price: "35 € / personne" },
+        "hot-air-balloon": { subtitle: "Lever du soleil · Vues panoramiques", price: "97 € / personne" },
+        "city-tour": { subtitle: "Médina · Souks · Lieux cachés", price: "20 € / personne" },
+      },
     },
     survey: {
       checkOut: "Départ",
@@ -459,6 +785,314 @@ const t = {
       error: "Une erreur s'est produite. Veuillez réessayer.",
       success: "Succès",
       askConcierge: "Demandez à notre Concierge",
+      openChat: "Ouvrir le chat du concierge",
+      closeChat: "Fermer le chat",
+      toggleMenu: "Afficher/masquer le menu",
+      logout: "Déconnexion",
+      lastUpdated: "Dernière mise à jour : juin 2026",
+      cityLine: "Médina de Marrakech 40000, Maroc",
+    },
+    home: {
+      riad19Intro: "Niché au cœur de la médina de Marrakech, le Riad Dar D'Art 19 est situé au 19 Derb Zemrane, Bab Doukkala. Un sanctuaire d'art marocain, d'architecture et d'hospitalité intemporelle.",
+      riad141Intro: "Niché au cœur de la médina de Marrakech, le Riad Dar D'Art 141 est situé au 141 Derb Arset Aouzal, Bab Doukkala. Un sanctuaire d'art marocain, d'architecture et d'hospitalité intemporelle.",
+      signInForRooms: "Connectez-vous pour voir les chambres de votre riad",
+      rooms19: {
+        terrasseLulu: "Une suite charmante avec une terrasse privée surplombant la cour de la fontaine, alliant zellige traditionnel et confort moderne.",
+        africa: "Des tons chauds et terreux, des plafonds en cèdre sculpté et une décoration chaleureuse d'inspiration africaine créent une retraite inoubliable.",
+        gazelle: "Notre spacieuse suite familiale avec mosaïques zellige d'origine, linge de qualité supérieure et de la place pour toute la famille.",
+        frida: "Une retraite vibrante et artistique inspirée de couleurs audacieuses et d'un esprit créatif, avec accès direct au jardin.",
+        rosa: "Un sanctuaire serein aux tons roses doux, avec sols en zellige et vue sur la fontaine de la cour intérieure.",
+      },
+      rooms141: {
+        lexicon: "Une suite d'inspiration littéraire aux tons ambrés chaleureux, murs en plâtre peints à la main et lit à baldaquin drapé de textiles berbères.",
+        mategot: "Murs en tadelakt bleu nuit, lanternes en laiton et coin salon privé dans la cour, inspirés du design marocain du milieu du siècle.",
+        chevrerie: "Baignée de lumière naturelle, cette suite allie charme rustique, accès au toit-terrasse et baignoire hammam traditionnelle.",
+        poupee: "Un chef-d'œuvre de mosaïque — carreaux taillés à la main du sol au plafond et lit king-size en cèdre sculpté dans un cadre fantaisiste.",
+        zagora: "Évocatrice du sud désertique, avec des teintes chaudes de grès, des motifs géométriques et une terrasse privée.",
+      },
+      excursionsList: {
+        medinaWalkingTour: { name: "Visite guidée de la médina", desc: "Explorez les rues labyrinthiques et les souks ancestraux de Marrakech avec un guide local expert.", duration: "3 heures" },
+        atlasMountainsDayTrip: { name: "Excursion d'une journée dans l'Atlas", desc: "Traversez des villages berbères et des paysages d'altitude à couper le souffle, à seulement 40 km de la ville.", duration: "Journée complète" },
+        saharaDesertTour: { name: "Excursion dans le désert du Sahara", desc: "Une aventure de 3 jours vers les dunes dorées de l'Erg Chebbi — trek à dos de chameau et bivouac inclus.", duration: "3 jours" },
+        moroccanCookingClass: { name: "Cours de cuisine marocaine", desc: "Apprenez à préparer tagines, pastilla et thé à la menthe traditionnels dans notre authentique cuisine de riad.", duration: "4 heures" },
+        camelRide: { name: "Balade à dos de chameau", desc: "Une balade au coucher du soleil à travers les palmeraies et oliveraies aux abords de Marrakech.", duration: "2 heures" },
+      },
+      servicesList: {
+        breakfast: { name: "Petit-déjeuner", desc: "Petit-déjeuner marocain traditionnel servi chaque jour dans la cour en plein air." },
+        hammamSpa: { name: "Hammam & Spa", desc: "Rituels de hammam authentiques et soins de spa revitalisants sur place." },
+        airportTransfer: { name: "Transfert aéroport", desc: "Transferts privés climatisés disponibles 24h/24 jusqu'à votre porte." },
+        rooftopTerrace: { name: "Terrasse sur le toit", desc: "Toit-terrasse exclusif avec vue panoramique sur la médina de Marrakech." },
+        highSpeedWifi: { name: "WiFi haut débit", desc: "Internet haut débit gratuit dans les deux riads." },
+        concierge: { name: "Conciergerie", desc: "Un concierge dédié pour organiser chaque détail de votre séjour." },
+      },
+    },
+    completeProfile: {
+      heading: "Complétez votre profil",
+      saving: "Enregistrement…",
+      continueToDashboard: "Continuer vers le tableau de bord",
+      saveFailed: "Échec de l'enregistrement du profil. Veuillez réessayer.",
+    },
+    aboutPage: {
+      ourStory: "Notre Histoire",
+      title: "À propos de Dar D'Art",
+      heritageLabel: "Patrimoine",
+      heading: "Un Fragment Vivant de Marrakech",
+      intro: "Nichée dans les murs anciens de la médina de Marrakech, Riad Dar D'Art est un sanctuaire d'art marocain, d'architecture et d'hospitalité intemporelle. Le nom signifie « Maison de l'Art » — et chaque recoin de la propriété reflète cette identité.",
+      riad19Welcome: "Nous sommes ravis de vous accueillir au Riad Dar D'Art 19, situé au 19 Derb Zemrane, Bab Doukkala. Un témoignage de siècles de savoir-faire andalou — cours en mosaïque, arches en cèdre sculptées à la main et parfum de fleur d'oranger.",
+      riad141Welcome: "Nous sommes ravis de vous accueillir au Riad Dar D'Art 141, situé au 141 Derb Arset Aouzal, Bab Doukkala. Un témoignage de siècles de savoir-faire andalou — cours en mosaïque, arches en cèdre sculptées à la main et parfum de fleur d'oranger.",
+      bothWelcome: "Nous gérons deux propriétés magnifiquement restaurées : Riad 19 au 19 Derb Zemrane et Riad 141 au 141 Derb Arset Aouzal. Chacune témoigne de siècles de savoir-faire andalou — cours en mosaïque, arches en cèdre sculptées à la main et parfum de fleur d'oranger.",
+      mission: "Notre mission est d'offrir à nos hôtes une expérience marocaine authentique sans sacrifier le confort moderne. C'est pourquoi nous avons créé un concierge propulsé par l'IA qui offre un service de luxe à chaque hôte, à toute heure.",
+      whatWeStandFor: "Ce que nous défendons",
+      ourValues: "Nos Valeurs",
+      values: {
+        hospitality: { title: "Hospitalité", desc: "Chaque hôte est accueilli comme un visiteur précieux. Notre philosophie du « dar » — qui signifie maison — guide chaque interaction." },
+        authenticity: { title: "Authenticité", desc: "Mosaïques zellige d'origine, cèdre sculpté à la main et recettes traditionnelles préservées à travers les générations. Rien ici n'est une réplique." },
+        innovation: { title: "Innovation", desc: "Nous mêlons des siècles de tradition au confort moderne — y compris un concierge IA qui parle votre langue et connaît votre séjour." },
+      },
+      theProperties: "Les Propriétés",
+      yourRiad: "Votre Riad",
+      twoRiads: "Deux Riads, Une Âme",
+      riad19Desc: "La propriété d'origine, avec cinq suites intimistes disposées autour d'une cour à fontaine en mosaïque. Réputée pour ses carreaux d'origine du XVIIe siècle et sa terrasse sur le toit offrant une vue panoramique sur la médina.",
+      riad141Desc: "Un riad magnifiquement restauré avec cinq chambres et suites uniques, un hammam privé et un jardin intérieur luxuriant planté de jasmin et d'orangers. Parfait pour les familles et les groupes.",
+      experienceItYourself: "Vivez l'Expérience",
+      ctaDesc: "Prêt à séjourner chez nous ? Contactez-nous ou découvrez nos chambres.",
+      viewRooms: "Voir les chambres",
+    },
+    contactPage: {
+      reachOut: "Contactez-nous",
+      ourLocations: "Nos Adresses",
+      directContact: "Contact Direct",
+      whatsappLabel: "WhatsApp : +212 600 000 000",
+      hours: "Horaires",
+      deskHours: "Réception ouverte tous les jours, 08h00 – 22h00",
+      conciergeAvailable: "Concierge IA disponible 24h/24 via",
+      yourDashboard: "votre tableau de bord",
+      messageSent: "Message Envoyé",
+      messageSentDesc: "Merci — notre équipe vous contactera sous peu.",
+      sendAMessage: "Envoyer un Message",
+      name: "Nom",
+      namePlaceholder: "Votre nom",
+      subject: "Sujet",
+      selectSubject: "Sélectionnez un sujet",
+      subjects: {
+        bookingEnquiry: "Demande de réservation",
+        guestSupport: "Assistance client",
+        partnership: "Partenariat",
+        other: "Autre",
+      },
+      message: "Message",
+      messagePlaceholder: "Comment pouvons-nous vous aider ?",
+      sendMessageBtn: "Envoyer le Message",
+    },
+    faqPage: {
+      helpSupport: "Aide & Assistance",
+      title: "Foire Aux Questions",
+      stillHaveQuestions: "Encore des Questions ?",
+      chatWithConcierge: "Discutez avec Notre Concierge IA",
+      ctaDesc: "Votre concierge personnel est disponible 24h/24 et parle votre langue.",
+      openConcierge: "Ouvrir le Concierge",
+      categories: [
+        {
+          category: "Arrivée & Départ",
+          items: [
+            { q: "À quelle heure sont l'arrivée et le départ ?", a: "L'arrivée se fait à partir de 14h00. Le départ se fait avant 11h00. Une arrivée anticipée ou un départ tardif peuvent être organisés selon disponibilité — demandez simplement à votre concierge IA ou contactez-nous à l'avance." },
+            { q: "Où puis-je récupérer les clés ?", a: "Notre équipe vous accueillera à l'entrée du riad. Pour les arrivées tardives, merci de nous indiquer votre heure d'arrivée estimée afin que quelqu'un soit présent pour vous accueillir." },
+            { q: "Puis-je laisser mes bagages avant l'arrivée ou après le départ ?", a: "Oui, nous sommes heureux de conserver vos bagages le jour de votre arrivée avant que votre chambre soit prête, ou le jour de votre départ après le check-out." },
+          ],
+        },
+        {
+          category: "Chambres & Équipements",
+          items: [
+            { q: "Le Wi-Fi est-il disponible ?", a: "Oui, le Wi-Fi haut débit gratuit est disponible dans les deux riads. Votre concierge peut vous communiquer le mot de passe actuel sur demande." },
+            { q: "Y a-t-il la climatisation ?", a: "Toutes les chambres sont équipées de climatisation et de chauffage, garantissant un confort toute l'année malgré le climat variable de Marrakech." },
+            { q: "Proposez-vous un service de blanchisserie ?", a: "Oui, des services de blanchisserie et de nettoyage à sec sont disponibles. Merci de vous adresser à notre équipe ou de demander à votre concierge IA pour les détails et délais." },
+          ],
+        },
+        {
+          category: "Services",
+          items: [
+            { q: "Que comprend le petit-déjeuner ?", a: "Nous servons un petit-déjeuner marocain traditionnel chaque jour dans la cour — msemen, beghrir, jus d'orange fraîchement pressé, dattes Medjool, miel, huile d'argan et thé à la menthe marocain. Servi de 7h30 à 10h30." },
+            { q: "Y a-t-il une piscine ?", a: "Le Riad 141 dispose d'une petite piscine dans la cour du jardin, accessible à tous les hôtes séjournant dans l'une ou l'autre des propriétés." },
+            { q: "Comment réserver le hammam ?", a: "Le hammam est disponible sur réservation privée. Demandez à votre concierge IA ou adressez-vous à la réception pour vérifier les disponibilités et réserver une séance." },
+          ],
+        },
+        {
+          category: "Excursions",
+          items: [
+            { q: "Comment réserver une excursion ?", a: "Vous pouvez demander n'importe quelle excursion via votre concierge IA ou directement auprès de notre équipe à la réception. Nous recommandons de réserver au moins 24 heures à l'avance pour les excursions d'une journée." },
+            { q: "Quelle est la politique d'annulation pour les excursions ?", a: "Les excursions peuvent être annulées ou reprogrammées jusqu'à 24 heures avant le départ prévu. Les annulations le jour même peuvent entraîner des frais." },
+            { q: "Pouvez-vous organiser des visites privées sur mesure ?", a: "Absolument. Nous travaillons avec des guides locaux experts et des chauffeurs privés pour créer des expériences sur mesure. Contactez-nous avec vos envies et nous concevrons quelque chose de spécial." },
+          ],
+        },
+        {
+          category: "Concierge IA",
+          items: [
+            { q: "Avec quoi le concierge IA peut-il m'aider ?", a: "Votre concierge IA peut répondre à des questions sur votre chambre, les installations du riad, les horaires du petit-déjeuner, des recommandations locales, des demandes de réservation d'excursions, les horaires d'arrivée/départ, et bien plus. Il est disponible 24h/24." },
+            { q: "Quelles langues parle le concierge ?", a: "Le concierge IA détecte automatiquement votre langue et y répond. Il prend en charge l'anglais, le français, l'arabe, l'espagnol, l'allemand, l'italien et bien d'autres." },
+            { q: "Mes conversations sont-elles privées ?", a: "Oui. Vos messages de chat sont traités de manière sécurisée et ne sont pas partagés avec des tiers. Consultez notre Politique de Confidentialité pour tous les détails." },
+            { q: "Le concierge IA peut-il effectuer de réelles réservations ?", a: "Actuellement, le concierge fournit des informations et peut transmettre des demandes à notre équipe. Pour les réservations confirmées (excursions, hammam, transferts), notre personnel vous recontactera pour finaliser les détails." },
+          ],
+        },
+      ],
+    },
+    howItWorksPage: {
+      gettingStarted: "Pour Commencer",
+      subtitle: "De la réservation à la conversation avec votre concierge IA en quatre étapes simples.",
+      whyItMatters: "Pourquoi C'est Important",
+      aSmarterStay: "Un Séjour Plus Intelligent",
+      ready: "Prêt ?",
+      startExperience: "Démarrez Votre Expérience",
+      ctaDesc: "Ayez votre confirmation de réservation à portée de main et créez votre compte en moins d'une minute.",
+      steps: [
+        { title: "Réservez Votre Séjour", desc: "Réservez votre chambre au Riad Dar D'Art via notre site web, Booking.com ou Airbnb. Chaque réservation confirmée inclut un code d'accès personnel." },
+        { title: "Recevez Votre Code", desc: "Votre code d'accès unique est envoyé dans votre e-mail de confirmation de réservation. C'est votre clé personnelle vers la plateforme du concierge IA." },
+        { title: "Créez Votre Compte", desc: "Inscrivez-vous sur dardart.com avec votre code. Cela prend moins d'une minute — juste votre nom, votre e-mail et le code de votre confirmation." },
+        { title: "Discutez 24h/24", desc: "Votre concierge IA est disponible à toute heure. Demandez tout — horaires du petit-déjeuner, réservations d'excursions, service en chambre, conseils locaux, et plus encore." },
+      ],
+      benefits: [
+        { title: "Disponible 24h/24", desc: "Plus besoin d'attendre à la réception. Obtenez des réponses à vos questions à toute heure, jour et nuit." },
+        { title: "Multilingue", desc: "Le concierge répond automatiquement dans votre langue — anglais, français, arabe, espagnol, et plus encore." },
+        { title: "Personnalisé", desc: "Connaît votre riad, vos chambres et vos services. Les réponses sont spécifiques à Dar D'Art, pas génériques." },
+      ],
+    },
+    privacyPage: {
+      legal: "Mentions légales",
+      title: "Politique de Confidentialité",
+      intro: "Riad Dar D'Art (« nous », « notre » ou « nos ») exploite la plateforme de conciergerie invité dardart.com. Cette Politique de Confidentialité décrit comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez notre service.",
+      sections: [
+        {
+          title: "1. Informations que nous collectons",
+          body: `Lorsque vous créez un compte et utilisez la plateforme de conciergerie Dar D'Art, nous collectons les informations suivantes :
+
+**Informations du compte :** votre nom, votre adresse e-mail et le code d'accès de réservation fourni lors de l'inscription.
+
+**Messages de chat :** le texte de vos conversations avec le concierge IA. Ils sont utilisés pour générer des réponses et améliorer la qualité du service.
+
+**Données d'utilisation :** analyses de base telles que les pages visitées et la durée de session. Ces données sont agrégées et anonymisées.`,
+        },
+        {
+          title: "2. Comment nous utilisons vos informations",
+          body: `Nous utilisons les informations collectées pour :
+
+- Fournir et exploiter le service de concierge IA
+- Authentifier votre compte et vérifier votre statut d'hôte
+- Traiter vos demandes au concierge et transmettre les demandes de réservation à notre équipe
+- Améliorer la précision et la pertinence des réponses de l'IA
+- Communiquer avec vous au sujet de votre séjour ou de votre compte
+
+Nous ne vendons pas vos données personnelles à des tiers.`,
+        },
+        {
+          title: "3. Conservation des données",
+          body: `Les données de compte sont conservées pendant la durée de votre séjour plus 90 jours, après quoi elles sont définitivement supprimées, sauf demande de suppression anticipée de votre part.
+
+Les journaux de chat sont conservés pendant 30 jours afin de nous permettre d'évaluer la qualité du service. Vous pouvez demander la suppression de votre historique de chat à tout moment en nous contactant.`,
+        },
+        {
+          title: "4. Services tiers",
+          body: `Le concierge IA est propulsé par Claude AI d'Anthropic. Vos messages de chat sont transmis à l'API d'Anthropic uniquement pour générer des réponses. Anthropic traite ces données conformément à sa propre politique de confidentialité. Nous ne partageons pas votre nom, votre e-mail ou vos détails de réservation avec Anthropic.
+
+Notre plateforme est hébergée sur Vercel. Vos données sont stockées et traitées conformément aux conditions de traitement des données de Vercel.`,
+        },
+        {
+          title: "5. Vos droits",
+          body: `En vertu du RGPD et des lois applicables sur la protection des données, vous avez le droit de :
+
+- **Accéder** aux données personnelles que nous détenons à votre sujet
+- **Corriger** les données inexactes ou incomplètes
+- **Supprimer** votre compte et vos données personnelles
+- **Vous opposer** au traitement de vos données
+- **Portabilité** — demander une copie de vos données dans un format lisible par machine
+
+Pour exercer l'un de ces droits, veuillez nous contacter à contact@riaddartmarrakech.com. Nous répondrons dans un délai de 30 jours.`,
+        },
+        {
+          title: "6. Cookies",
+          body: `Nous n'utilisons que des cookies essentiels nécessaires pour vous maintenir connecté et conserver votre session. Nous n'utilisons pas de cookies publicitaires ni de cookies de suivi tiers.`,
+        },
+        {
+          title: "7. Sécurité",
+          body: `Nous mettons en œuvre des mesures de sécurité conformes aux normes du secteur pour protéger vos données, notamment la transmission de données chiffrées (HTTPS) et le hachage sécurisé des mots de passe. Cependant, aucune méthode de transmission sur Internet n'est fiable à 100 %.`,
+        },
+        {
+          title: "8. Contact pour les questions de confidentialité",
+          body: `Si vous avez des questions concernant cette Politique de Confidentialité ou la manière dont nous traitons vos données, veuillez nous contacter :
+
+**E-mail :** contact@riaddartmarrakech.com
+**Adresse :** 19 Derb Zemrane, Médina de Marrakech 40000, Maroc`,
+        },
+      ],
+    },
+    termsPage: {
+      legal: "Mentions légales",
+      title: "Conditions d'Utilisation",
+      intro: "Ces Conditions d'Utilisation régissent votre utilisation de la plateforme de conciergerie invité Dar D'Art exploitée par Riad Dar D'Art, situé au 19 Derb Zemrane, Marrakech, Maroc. Veuillez lire attentivement ces conditions avant d'utiliser notre service.",
+      sections: [
+        {
+          title: "1. Acceptation des conditions",
+          body: `En créant un compte et en utilisant la plateforme de conciergerie invité Dar D'Art, vous acceptez d'être lié par ces Conditions d'Utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser le service.
+
+Ces conditions peuvent être mises à jour de temps à autre. L'utilisation continue du service après modification constitue une acceptation des conditions révisées.`,
+        },
+        {
+          title: "2. Éligibilité",
+          body: `L'accès à la plateforme de conciergerie est réservé aux hôtes confirmés du Riad Dar D'Art. Un code d'accès de réservation valide — fourni dans votre confirmation de réservation — est requis pour créer un compte.
+
+En vous inscrivant, vous confirmez que vous êtes un hôte actuel ou à venir et que le code d'accès que vous fournissez est le vôtre.`,
+        },
+        {
+          title: "3. Utilisation du Service",
+          body: `Vous acceptez d'utiliser la plateforme uniquement à des fins légales et d'une manière conforme à ces conditions. Vous ne devez pas :
+
+- Utiliser le service pour transmettre du contenu nuisible, offensant ou illégal
+- Tenter de désassembler, pirater ou perturber la plateforme
+- Partager vos identifiants de compte ou votre code d'accès avec d'autres personnes
+- Utiliser le service d'une manière susceptible de nuire à la réputation de Riad Dar D'Art`,
+        },
+        {
+          title: "4. Limites du Concierge IA",
+          body: `Le concierge IA fournit des réponses informatives basées sur des connaissances générales sur Riad Dar D'Art et Marrakech. Ses réponses :
+
+- Sont fournies à titre informatif uniquement et ne constituent pas un engagement contractuel
+- Peuvent ne pas toujours être exactes ou à jour
+- Ne doivent pas être utilisées pour des décisions médicales, juridiques ou critiques pour la sécurité
+
+Pour les réservations confirmées ou les arrangements spécifiques, veuillez contacter directement notre équipe.`,
+        },
+        {
+          title: "5. Comptes Utilisateurs et Codes d'Accès",
+          body: `Vous êtes responsable du maintien de la confidentialité de votre compte et de votre code d'accès. Vous devez nous informer immédiatement si vous soupçonnez un accès non autorisé à votre compte.
+
+Chaque code d'accès est valable pour une seule inscription de compte. Les codes d'accès expirent 30 jours après votre date de départ.`,
+        },
+        {
+          title: "6. Propriété Intellectuelle",
+          body: `Tout le contenu de la plateforme — y compris les textes, images, la conception et le système de concierge IA — est la propriété de Riad Dar D'Art ou de ses concédants de licence et est protégé par les lois applicables en matière de propriété intellectuelle.
+
+Vous ne pouvez pas reproduire, distribuer ou créer des œuvres dérivées à partir de tout contenu de la plateforme sans notre consentement écrit préalable.`,
+        },
+        {
+          title: "7. Limitation de Responsabilité",
+          body: `Dans toute la mesure permise par la loi, Riad Dar D'Art ne pourra être tenu responsable de tout dommage indirect, accessoire, spécial ou consécutif résultant de votre utilisation de la plateforme.
+
+Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garantissons pas l'exactitude, la fiabilité ou la disponibilité du concierge IA à un moment donné.`,
+        },
+        {
+          title: "8. Modifications des Conditions",
+          body: `Nous nous réservons le droit de modifier ces Conditions d'Utilisation à tout moment. Nous informerons les utilisateurs des changements importants en mettant à jour la date de « Dernière mise à jour » en haut de cette page.`,
+        },
+        {
+          title: "9. Droit Applicable",
+          body: `Ces conditions sont régies par les lois du Royaume du Maroc. Tout litige découlant de ces conditions sera soumis à la juridiction exclusive des tribunaux de Marrakech, Maroc.`,
+        },
+        {
+          title: "10. Contact",
+          body: `Pour toute question concernant ces Conditions d'Utilisation, veuillez nous contacter :
+
+**E-mail :** contact@riaddartmarrakech.com
+**Adresse :** 19 Derb Zemrane, Médina de Marrakech 40000, Maroc`,
+        },
+      ],
     },
   },
 
@@ -559,6 +1193,8 @@ const t = {
       haveAccount: "¿Ya tienes una cuenta?",
       signIn: "Iniciar sesión →",
       backHome: "← Volver al inicio",
+      signUpFailedDefault: "Error al registrarse. Por favor, inténtalo de nuevo.",
+      profileSetupFailed: "Cuenta creada, pero la configuración del perfil falló. Por favor, contacta con soporte.",
     },
     dashboard: {
       aiConcierge: "Conserje IA",
@@ -642,6 +1278,13 @@ const t = {
         dinner: { label: "Cena en el Riad", value: "€20/persona", sub: "Mín 4 personas · Reserve por WhatsApp" },
         water: { label: "Agua", value: "20 dírhams", sub: "Por botella · Cocina disponible" },
       },
+      excursionsList: {
+        agafay: { subtitle: "Quad · Camello · Cena", price: "30–55 € / persona" },
+        "ourika-valley": { subtitle: "Atlas · Cascadas · Pueblos bereberes", price: "Desde 20 € / persona" },
+        "atlas-mountains": { subtitle: "Montañas · Pueblos bereberes · Aire puro", price: "35 € / persona" },
+        "hot-air-balloon": { subtitle: "Amanecer · Vistas panorámicas", price: "97 € / persona" },
+        "city-tour": { subtitle: "Medina · Zocos · Lugares ocultos", price: "20 € / persona" },
+      },
     },
     survey: {
       checkOut: "Check-out",
@@ -680,6 +1323,314 @@ const t = {
       error: "Algo salió mal. Por favor, inténtalo de nuevo.",
       success: "Éxito",
       askConcierge: "Pregunta a nuestro Conserje",
+      openChat: "Abrir el chat del conserje",
+      closeChat: "Cerrar el chat",
+      toggleMenu: "Mostrar/ocultar menú",
+      logout: "Cerrar sesión",
+      lastUpdated: "Última actualización: junio de 2026",
+      cityLine: "Medina de Marrakech 40000, Marruecos",
+    },
+    home: {
+      riad19Intro: "Enclavado en el corazón de la medina de Marrakech, el Riad Dar D'Art 19 se encuentra en 19 Derb Zemrane, Bab Doukkala. Un santuario de arte marroquí, arquitectura y hospitalidad atemporal.",
+      riad141Intro: "Enclavado en el corazón de la medina de Marrakech, el Riad Dar D'Art 141 se encuentra en 141 Derb Arset Aouzal, Bab Doukkala. Un santuario de arte marroquí, arquitectura y hospitalidad atemporal.",
+      signInForRooms: "Inicia sesión para ver las habitaciones de tu riad",
+      rooms19: {
+        terrasseLulu: "Una encantadora suite con terraza privada con vistas al patio de la fuente, que combina el zellige tradicional con el confort moderno.",
+        africa: "Tonos cálidos y terrosos, techos de cedro tallado y una cálida decoración de inspiración africana crean un refugio inolvidable.",
+        gazelle: "Nuestra amplia suite familiar con mosaicos zellige originales, ropa de cama de primera calidad y espacio para toda la familia.",
+        frida: "Un refugio vibrante y artístico inspirado en colores audaces y espíritu creativo, con acceso directo al jardín.",
+        rosa: "Un santuario sereno en suaves tonos rosados con suelos de zellige y vistas a la fuente del patio interior.",
+      },
+      rooms141: {
+        lexicon: "Una suite de inspiración literaria con cálidos tonos ámbar, paredes de yeso pintadas a mano y una cama con dosel vestida con textiles bereberes.",
+        mategot: "Paredes de tadelakt azul medianoche, faroles de latón y una zona de estar privada en el patio, inspirada en el diseño marroquí de mediados de siglo.",
+        chevrerie: "Inundada de luz natural, esta suite combina el encanto rústico con acceso a la azotea y una bañera de hammam tradicional.",
+        poupee: "Una obra maestra de mosaico — azulejos cortados a mano de suelo a techo y una cama king de cedro tallado en un entorno caprichoso.",
+        zagora: "Evocadora del sur desértico, con cálidos tonos de arenisca, patrones geométricos y una terraza privada.",
+      },
+      excursionsList: {
+        medinaWalkingTour: { name: "Tour a Pie por la Medina", desc: "Explora las antiguas calles laberínticas y zocos de Marrakech con un experto guía local.", duration: "3 horas" },
+        atlasMountainsDayTrip: { name: "Excursión de un Día a las Montañas del Atlas", desc: "Recorre pueblos bereberes y paisajes de gran altitud impresionantes, a solo 40 km de la ciudad.", duration: "Día completo" },
+        saharaDesertTour: { name: "Tour por el Desierto del Sahara", desc: "Una aventura de 3 días hacia las doradas dunas de Erg Chebbi — incluye trekking en camello y campamento nocturno.", duration: "3 días" },
+        moroccanCookingClass: { name: "Clase de Cocina Marroquí", desc: "Aprende a preparar tagines tradicionales, pastela y té de menta en nuestra auténtica cocina de riad.", duration: "4 horas" },
+        camelRide: { name: "Paseo en Camello", desc: "Un paseo al atardecer por los palmerales y olivares en las afueras de Marrakech.", duration: "2 horas" },
+      },
+      servicesList: {
+        breakfast: { name: "Desayuno", desc: "Desayuno marroquí tradicional servido a diario en el patio al aire libre." },
+        hammamSpa: { name: "Hammam & Spa", desc: "Rituales de hammam auténticos y tratamientos de spa revitalizantes en el lugar." },
+        airportTransfer: { name: "Traslado al Aeropuerto", desc: "Traslados privados con aire acondicionado disponibles 24/7 hasta tu puerta." },
+        rooftopTerrace: { name: "Terraza en la Azotea", desc: "Azotea exclusiva con vistas panorámicas sobre la medina de Marrakech." },
+        highSpeedWifi: { name: "WiFi de Alta Velocidad", desc: "Internet de alta velocidad gratuito en ambos riads." },
+        concierge: { name: "Conserjería", desc: "Un conserje dedicado para organizar cada detalle de tu estancia." },
+      },
+    },
+    completeProfile: {
+      heading: "Completa tu Perfil",
+      saving: "Guardando…",
+      continueToDashboard: "Continuar al Panel",
+      saveFailed: "Error al guardar el perfil. Por favor, inténtalo de nuevo.",
+    },
+    aboutPage: {
+      ourStory: "Nuestra Historia",
+      title: "Acerca de Dar D'Art",
+      heritageLabel: "Patrimonio",
+      heading: "Un Patrimonio Vivo de Marrakech",
+      intro: "Enclavado en los muros antiguos de la medina de Marrakech, Riad Dar D'Art es un santuario de arte marroquí, arquitectura y hospitalidad atemporal. El nombre significa «Casa del Arte» — y cada rincón de la propiedad refleja esa identidad.",
+      riad19Welcome: "Nos complace darte la bienvenida al Riad Dar D'Art 19, ubicado en 19 Derb Zemrane, Bab Doukkala. Un testimonio de siglos de artesanía andaluza — patios de mosaico, arcos de cedro tallados a mano y el aroma de azahar.",
+      riad141Welcome: "Nos complace darte la bienvenida al Riad Dar D'Art 141, ubicado en 141 Derb Arset Aouzal, Bab Doukkala. Un testimonio de siglos de artesanía andaluza — patios de mosaico, arcos de cedro tallados a mano y el aroma de azahar.",
+      bothWelcome: "Operamos dos propiedades bellamente restauradas: Riad 19 en 19 Derb Zemrane y Riad 141 en 141 Derb Arset Aouzal. Cada una es un testimonio de siglos de artesanía andaluza — patios de mosaico, arcos de cedro tallados a mano y el aroma de azahar.",
+      mission: "Nuestra misión es ofrecer a los huéspedes una experiencia marroquí auténtica sin sacrificar el confort moderno. Por eso hemos creado un conserje impulsado por IA que ofrece un servicio de lujo a cada huésped, a cualquier hora.",
+      whatWeStandFor: "Lo Que Defendemos",
+      ourValues: "Nuestros Valores",
+      values: {
+        hospitality: { title: "Hospitalidad", desc: "Cada huésped es recibido como un visitante apreciado. Nuestra filosofía de 'dar' — que significa hogar — guía cada interacción." },
+        authenticity: { title: "Autenticidad", desc: "Mosaicos zellige originales, cedro tallado a mano y recetas tradicionales conservadas a través de generaciones. Nada aquí es una réplica." },
+        innovation: { title: "Innovación", desc: "Combinamos siglos de tradición con comodidades modernas — incluido un conserje de IA que habla tu idioma y conoce tu estancia." },
+      },
+      theProperties: "Las Propiedades",
+      yourRiad: "Tu Riad",
+      twoRiads: "Dos Riads, Una Sola Alma",
+      riad19Desc: "La propiedad original, con cinco suites íntimas dispuestas alrededor de un patio con fuente de mosaico. Conocida por sus azulejos originales del siglo XVII y su terraza en la azotea con vistas panorámicas de la medina.",
+      riad141Desc: "Un riad bellamente restaurado con cinco habitaciones y suites distintivas, un hammam privado y un exuberante jardín interior con jazmín y naranjos. Perfecto para familias y grupos.",
+      experienceItYourself: "Vívelo Tú Mismo",
+      ctaDesc: "¿Listo para hospedarte con nosotros? Contáctanos o explora nuestras habitaciones.",
+      viewRooms: "Ver Habitaciones",
+    },
+    contactPage: {
+      reachOut: "Contáctanos",
+      ourLocations: "Nuestras Ubicaciones",
+      directContact: "Contacto Directo",
+      whatsappLabel: "WhatsApp: +212 600 000 000",
+      hours: "Horario",
+      deskHours: "Recepción disponible todos los días, de 08:00 a 22:00",
+      conciergeAvailable: "Conserje IA disponible 24/7 a través de",
+      yourDashboard: "tu panel",
+      messageSent: "Mensaje Enviado",
+      messageSentDesc: "Gracias — nuestro equipo se pondrá en contacto en breve.",
+      sendAMessage: "Enviar un Mensaje",
+      name: "Nombre",
+      namePlaceholder: "Tu nombre",
+      subject: "Asunto",
+      selectSubject: "Selecciona un asunto",
+      subjects: {
+        bookingEnquiry: "Consulta de Reserva",
+        guestSupport: "Soporte al Huésped",
+        partnership: "Colaboración",
+        other: "Otro",
+      },
+      message: "Mensaje",
+      messagePlaceholder: "¿Cómo podemos ayudarte?",
+      sendMessageBtn: "Enviar Mensaje",
+    },
+    faqPage: {
+      helpSupport: "Ayuda y Soporte",
+      title: "Preguntas Frecuentes",
+      stillHaveQuestions: "¿Aún Tienes Preguntas?",
+      chatWithConcierge: "Chatea con Nuestro Conserje IA",
+      ctaDesc: "Tu conserje personal está disponible 24/7 y habla tu idioma.",
+      openConcierge: "Abrir Conserje",
+      categories: [
+        {
+          category: "Entrada y Salida",
+          items: [
+            { q: "¿A qué hora son el check-in y el check-out?", a: "El check-in es a partir de las 14:00. El check-out es antes de las 11:00. Se puede organizar un check-in anticipado o un check-out tardío según disponibilidad — simplemente pregunta a tu conserje IA o contáctanos con antelación." },
+            { q: "¿Dónde recojo las llaves?", a: "Nuestro equipo te recibirá en la entrada del riad. Para llegadas tardías, indícanos tu hora estimada de llegada para asegurarnos de que alguien esté allí para darte la bienvenida." },
+            { q: "¿Puedo dejar el equipaje antes del check-in o después del check-out?", a: "Sí, con gusto guardamos tu equipaje el día de llegada antes de que tu habitación esté lista, o el día de salida después del check-out." },
+          ],
+        },
+        {
+          category: "Habitaciones y Comodidades",
+          items: [
+            { q: "¿Hay Wi-Fi disponible?", a: "Sí, el Wi-Fi de alta velocidad gratuito está disponible en ambos riads. Tu conserje puede proporcionarte la contraseña actual bajo petición." },
+            { q: "¿Hay aire acondicionado?", a: "Todas las habitaciones están equipadas con aire acondicionado y calefacción, garantizando confort durante todo el año en el clima variable de Marrakech." },
+            { q: "¿Ofrecen servicio de lavandería?", a: "Sí, están disponibles servicios de lavandería y tintorería. Habla con nuestro equipo o pregunta a tu conserje IA para más detalles y plazos." },
+          ],
+        },
+        {
+          category: "Servicios",
+          items: [
+            { q: "¿Qué incluye el desayuno?", a: "Servimos un desayuno marroquí tradicional a diario en el patio — msemen, beghrir, zumo de naranja recién exprimido, dátiles Medjool, miel, aceite de argán y té de menta marroquí. Servido de 7:30 a 10:30." },
+            { q: "¿Hay piscina?", a: "El Riad 141 cuenta con una pequeña piscina en el patio del jardín, disponible para todos los huéspedes alojados en cualquiera de las dos propiedades." },
+            { q: "¿Cómo reservo el hammam?", a: "El hammam está disponible para reservas privadas. Pregunta a tu conserje IA o habla con recepción para consultar disponibilidad y reservar una sesión." },
+          ],
+        },
+        {
+          category: "Excursiones",
+          items: [
+            { q: "¿Cómo reservo una excursión?", a: "Puedes solicitar cualquier excursión a través de tu conserje IA o directamente con nuestro equipo en recepción. Recomendamos reservar con al menos 24 horas de antelación para las excursiones de un día." },
+            { q: "¿Cuál es la política de cancelación de las excursiones?", a: "Las excursiones pueden cancelarse o reprogramarse hasta 24 horas antes de la salida programada. Las cancelaciones el mismo día pueden generar un cargo." },
+            { q: "¿Pueden organizar tours privados personalizados?", a: "Por supuesto. Trabajamos con guías locales expertos y conductores privados para crear experiencias a medida. Contáctanos con tus intereses y diseñaremos algo especial." },
+          ],
+        },
+        {
+          category: "Conserje IA",
+          items: [
+            { q: "¿En qué puede ayudarme el conserje IA?", a: "Tu conserje IA puede responder preguntas sobre tu habitación, las instalaciones del riad, los horarios de desayuno, recomendaciones locales, solicitudes de reserva de excursiones, horarios de check-in/check-out y mucho más. Está disponible 24/7." },
+            { q: "¿Qué idiomas habla el conserje?", a: "El conserje IA detecta automáticamente tu idioma y responde en él. Soporta inglés, francés, árabe, español, alemán, italiano y muchos más." },
+            { q: "¿Son privadas mis conversaciones?", a: "Sí. Tus mensajes de chat se procesan de forma segura y no se comparten con terceros. Consulta nuestra Política de Privacidad para más detalles." },
+            { q: "¿Puede el conserje IA realizar reservas reales?", a: "Actualmente el conserje proporciona información y puede transmitir solicitudes a nuestro equipo. Para reservas confirmadas (excursiones, hammam, traslados), nuestro personal te contactará para finalizar los detalles." },
+          ],
+        },
+      ],
+    },
+    howItWorksPage: {
+      gettingStarted: "Primeros Pasos",
+      subtitle: "Desde la reserva hasta chatear con tu conserje IA en cuatro sencillos pasos.",
+      whyItMatters: "Por Qué Importa",
+      aSmarterStay: "Una Estancia Más Inteligente",
+      ready: "¿Listo?",
+      startExperience: "Comienza Tu Experiencia",
+      ctaDesc: "Ten a mano tu confirmación de reserva y crea tu cuenta en menos de un minuto.",
+      steps: [
+        { title: "Reserva Tu Estancia", desc: "Reserva tu habitación en Riad Dar D'Art a través de nuestro sitio web, Booking.com o Airbnb. Cada reserva confirmada incluye un código de acceso personal." },
+        { title: "Recibe Tu Código", desc: "Tu código de acceso único se envía en tu correo de confirmación de reserva. Es tu llave personal a la plataforma del conserje IA." },
+        { title: "Crea Tu Cuenta", desc: "Regístrate en dardart.com usando tu código. Tarda menos de un minuto — solo tu nombre, correo electrónico y el código de tu confirmación." },
+        { title: "Chatea 24/7", desc: "Tu conserje IA está disponible a cualquier hora. Pregunta lo que sea — horarios de desayuno, reservas de excursiones, servicio a la habitación, consejos locales y más." },
+      ],
+      benefits: [
+        { title: "Disponible 24/7", desc: "Sin esperas en recepción. Obtén respuestas a tus preguntas a cualquier hora, de día o de noche." },
+        { title: "Multilingüe", desc: "El conserje responde automáticamente en tu idioma — inglés, francés, árabe, español y más." },
+        { title: "Personalizado", desc: "Conoce tu riad, tus habitaciones y tus servicios. Las respuestas son específicas de Dar D'Art, no genéricas." },
+      ],
+    },
+    privacyPage: {
+      legal: "Legal",
+      title: "Política de Privacidad",
+      intro: "Riad Dar D'Art (“nosotros”, “nos” o “nuestro”) opera la plataforma de conserjería para huéspedes dardart.com. Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos tu información personal cuando utilizas nuestro servicio.",
+      sections: [
+        {
+          title: "1. Información que Recopilamos",
+          body: `Cuando creas una cuenta y utilizas la plataforma de conserjería Dar D'Art, recopilamos la siguiente información:
+
+**Información de la cuenta:** tu nombre, dirección de correo electrónico y código de acceso de reserva proporcionado durante el registro.
+
+**Mensajes de chat:** el texto de tus conversaciones con el conserje IA. Se utilizan para generar respuestas y mejorar la calidad del servicio.
+
+**Datos de uso:** análisis básicos como páginas visitadas y duración de la sesión. Estos datos se agregan y anonimizan.`,
+        },
+        {
+          title: "2. Cómo Usamos Tu Información",
+          body: `Usamos la información que recopilamos para:
+
+- Proveer y operar el servicio de conserje IA
+- Autenticar tu cuenta y verificar tu condición de huésped
+- Procesar tus solicitudes al conserje y transmitir consultas de reserva a nuestro equipo
+- Mejorar la precisión y relevancia de las respuestas de la IA
+- Comunicarnos contigo sobre tu estancia o cuenta
+
+No vendemos tus datos personales a terceros.`,
+        },
+        {
+          title: "3. Retención de Datos",
+          body: `Los datos de la cuenta se conservan durante la duración de tu estancia más 90 días, tras lo cual se eliminan permanentemente a menos que solicites una eliminación anticipada.
+
+Los registros de chat se conservan durante 30 días para permitirnos revisar la calidad del servicio. Puedes solicitar la eliminación de tu historial de chat en cualquier momento contactándonos.`,
+        },
+        {
+          title: "4. Servicios de Terceros",
+          body: `El conserje IA está impulsado por Claude AI de Anthropic. Tus mensajes de chat se transmiten a la API de Anthropic únicamente para generar respuestas. Anthropic procesa estos datos de acuerdo con su propia política de privacidad. No compartimos tu nombre, correo electrónico o detalles de reserva con Anthropic.
+
+Nuestra plataforma está alojada en Vercel. Tus datos se almacenan y procesan de conformidad con los términos de procesamiento de datos de Vercel.`,
+        },
+        {
+          title: "5. Tus Derechos",
+          body: `Según el RGPD y las leyes de protección de datos aplicables, tienes derecho a:
+
+- **Acceder** a los datos personales que tenemos sobre ti
+- **Corregir** datos inexactos o incompletos
+- **Eliminar** tu cuenta y tus datos personales
+- **Oponerte** al procesamiento de tus datos
+- **Portabilidad** — solicitar una copia de tus datos en un formato legible por máquina
+
+Para ejercer cualquiera de estos derechos, contáctanos en contact@riaddartmarrakech.com. Responderemos en un plazo de 30 días.`,
+        },
+        {
+          title: "6. Cookies",
+          body: `Solo utilizamos cookies esenciales necesarias para mantenerte conectado y mantener tu sesión. No utilizamos cookies publicitarias ni cookies de seguimiento de terceros.`,
+        },
+        {
+          title: "7. Seguridad",
+          body: `Implementamos medidas de seguridad estándar de la industria para proteger tus datos, incluida la transmisión cifrada de datos (HTTPS) y el hash seguro de contraseñas. Sin embargo, ningún método de transmisión por Internet es 100% seguro.`,
+        },
+        {
+          title: "8. Contacto para Asuntos de Privacidad",
+          body: `Si tienes alguna pregunta sobre esta Política de Privacidad o cómo manejamos tus datos, contáctanos:
+
+**Correo electrónico:** contact@riaddartmarrakech.com
+**Dirección:** 19 Derb Zemrane, Medina de Marrakech 40000, Marruecos`,
+        },
+      ],
+    },
+    termsPage: {
+      legal: "Legal",
+      title: "Términos de Servicio",
+      intro: "Estos Términos de Servicio rigen tu uso de la plataforma de conserjería para huéspedes Dar D'Art, operada por Riad Dar D'Art, ubicado en 19 Derb Zemrane, Marrakech, Marruecos. Por favor, lee estos términos cuidadosamente antes de usar nuestro servicio.",
+      sections: [
+        {
+          title: "1. Aceptación de los Términos",
+          body: `Al crear una cuenta y usar la plataforma de conserjería para huéspedes Dar D'Art, aceptas quedar vinculado por estos Términos de Servicio. Si no estás de acuerdo con estos términos, no utilices el servicio.
+
+Estos términos pueden actualizarse de vez en cuando. El uso continuado del servicio después de los cambios constituye la aceptación de los términos revisados.`,
+        },
+        {
+          title: "2. Elegibilidad",
+          body: `El acceso a la plataforma de conserjería está restringido a huéspedes confirmados de Riad Dar D'Art. Se requiere un código de acceso de reserva válido — proporcionado en la confirmación de tu reserva — para crear una cuenta.
+
+Al registrarte, confirmas que eres un huésped actual o próximo y que el código de acceso que proporcionas es tuyo.`,
+        },
+        {
+          title: "3. Uso del Servicio",
+          body: `Aceptas utilizar la plataforma únicamente con fines lícitos y de manera coherente con estos términos. No debes:
+
+- Utilizar el servicio para transmitir contenido dañino, ofensivo o ilegal
+- Intentar realizar ingeniería inversa, hackear o interrumpir la plataforma
+- Compartir tus credenciales de cuenta o código de acceso con otros
+- Utilizar el servicio de cualquier forma que pueda dañar la reputación de Riad Dar D'Art`,
+        },
+        {
+          title: "4. Limitaciones del Conserje IA",
+          body: `El conserje IA proporciona respuestas informativas basadas en conocimiento general sobre Riad Dar D'Art y Marrakech. Sus respuestas:
+
+- Tienen fines meramente informativos y no constituyen un compromiso contractual
+- Pueden no ser siempre precisas o estar actualizadas
+- No deben utilizarse para decisiones médicas, legales o críticas para la seguridad
+
+Para reservas confirmadas o arreglos específicos, por favor contacta directamente a nuestro equipo.`,
+        },
+        {
+          title: "5. Cuentas de Usuario y Códigos de Acceso",
+          body: `Eres responsable de mantener la confidencialidad de tu cuenta y código de acceso. Debes notificarnos inmediatamente si sospechas de un acceso no autorizado a tu cuenta.
+
+Cada código de acceso es válido para un solo registro de cuenta. Los códigos de acceso caducan 30 días después de tu fecha de check-out.`,
+        },
+        {
+          title: "6. Propiedad Intelectual",
+          body: `Todo el contenido de la plataforma — incluidos textos, imágenes, diseño y el sistema de conserje IA — es propiedad de Riad Dar D'Art o de sus licenciantes y está protegido por las leyes de propiedad intelectual aplicables.
+
+No puedes reproducir, distribuir ni crear obras derivadas de ningún contenido de la plataforma sin nuestro consentimiento previo por escrito.`,
+        },
+        {
+          title: "7. Limitación de Responsabilidad",
+          body: `En la máxima medida permitida por la ley, Riad Dar D'Art no será responsable de ningún daño indirecto, incidental, especial o consecuente que surja del uso de la plataforma.
+
+El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garantizamos la exactitud, fiabilidad o disponibilidad del conserje IA en un momento dado.`,
+        },
+        {
+          title: "8. Cambios en los Términos",
+          body: `Nos reservamos el derecho de modificar estos Términos de Servicio en cualquier momento. Notificaremos a los usuarios sobre cambios importantes actualizando la fecha de "Última actualización" en la parte superior de esta página.`,
+        },
+        {
+          title: "9. Ley Aplicable",
+          body: `Estos términos se rigen por las leyes del Reino de Marruecos. Cualquier disputa que surja de estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Marrakech, Marruecos.`,
+        },
+        {
+          title: "10. Contacto",
+          body: `Para preguntas sobre estos Términos de Servicio, contáctanos:
+
+**Correo electrónico:** contact@riaddartmarrakech.com
+**Dirección:** 19 Derb Zemrane, Medina de Marrakech 40000, Marruecos`,
+        },
+      ],
     },
   },
 
@@ -780,6 +1731,8 @@ const t = {
       haveAccount: "لديك حساب بالفعل؟",
       signIn: "← تسجيل الدخول",
       backHome: "→ العودة إلى الرئيسية",
+      signUpFailedDefault: "فشل إنشاء الحساب. يرجى المحاولة مرة أخرى.",
+      profileSetupFailed: "تم إنشاء الحساب لكن فشل إعداد الملف الشخصي. يرجى التواصل مع الدعم.",
     },
     dashboard: {
       aiConcierge: "كونسيرج الذكاء الاصطناعي",
@@ -863,6 +1816,13 @@ const t = {
         dinner: { label: "العشاء في الرياض", value: "20€/شخص", sub: "4 أشخاص على الأقل · احجز عبر واتساب" },
         water: { label: "الماء", value: "20 درهماً", sub: "للزجاجة · المطبخ متاح" },
       },
+      excursionsList: {
+        agafay: { subtitle: "دراجات رباعية · جمال · عشاء", price: "30–55 يورو / شخص" },
+        "ourika-valley": { subtitle: "الأطلس · شلالات · قرى أمازيغية", price: "ابتداءً من 20 يورو / شخص" },
+        "atlas-mountains": { subtitle: "جبال · قرى أمازيغية · هواء نقي", price: "35 يورو / شخص" },
+        "hot-air-balloon": { subtitle: "شروق الشمس · إطلالات بانورامية", price: "97 يورو / شخص" },
+        "city-tour": { subtitle: "المدينة القديمة · الأسواق · أماكن خفية", price: "20 يورو / شخص" },
+      },
     },
     survey: {
       checkOut: "تسجيل المغادرة",
@@ -901,6 +1861,314 @@ const t = {
       error: "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
       success: "نجاح",
       askConcierge: "اسأل كونسيرجنا",
+      openChat: "فتح محادثة الكونسيرج",
+      closeChat: "إغلاق المحادثة",
+      toggleMenu: "إظهار/إخفاء القائمة",
+      logout: "تسجيل الخروج",
+      lastUpdated: "آخر تحديث: يونيو 2026",
+      cityLine: "المدينة القديمة، مراكش 40000، المغرب",
+    },
+    home: {
+      riad19Intro: "يقع رياض دار دار 19 في قلب مدينة مراكش القديمة، بشارع 19 درب زمران، باب دكالة. ملاذ للفن المغربي والعمارة والضيافة الخالدة.",
+      riad141Intro: "يقع رياض دار دار 141 في قلب مدينة مراكش القديمة، بشارع 141 درب عرصة أوزال، باب دكالة. ملاذ للفن المغربي والعمارة والضيافة الخالدة.",
+      signInForRooms: "سجّل الدخول لعرض غرف رياضك",
+      rooms19: {
+        terrasseLulu: "جناح ساحر بشرفة خاصة تطل على فناء النافورة، يمزج بين الزليج التقليدي والراحة العصرية.",
+        africa: "درجات دافئة من الألوان الترابية، وأسقف من خشب الأرز المنحوت، وديكور دافئ مستوحى من الطراز الأفريقي يخلق ملاذاً لا يُنسى.",
+        gazelle: "جناحنا العائلي الواسع بفسيفساء الزليج الأصلية، وأغطية فاخرة، ومساحة تكفي العائلة بأكملها.",
+        frida: "ملاذ نابض بالحياة والفن، مستوحى من الألوان الجريئة والروح الإبداعية، مع وصول مباشر إلى الحديقة.",
+        rosa: "ملاذ هادئ بدرجات وردية ناعمة، بأرضيات من الزليج وإطلالة على نافورة الفناء الداخلي.",
+      },
+      rooms141: {
+        lexicon: "جناح مستوحى من الأدب بدرجات كهرمانية دافئة، وجدران من الجص المرسومة يدوياً، وسرير بأربعة أعمدة مكسو بالمنسوجات الأمازيغية.",
+        mategot: "جدران تادلاكت بلون أزرق ليلي، وفوانيس نحاسية، وركن جلوس خاص في الفناء مستوحى من التصميم المغربي لمنتصف القرن.",
+        chevrerie: "مغمور بالضوء الطبيعي، يمزج هذا الجناح بين السحر الريفي والوصول إلى السطح وحوض حمام مغربي تقليدي.",
+        poupee: "تحفة من الفسيفساء — بلاط مقطوع يدوياً من الأرض إلى السقف وسرير كينغ من خشب الأرز المنحوت في أجواء خيالية.",
+        zagora: "يستحضر جنوب الصحراء، بدرجات دافئة من الحجر الرملي وأنماط هندسية وشرفة خاصة.",
+      },
+      excursionsList: {
+        medinaWalkingTour: { name: "جولة سيراً على الأقدام في المدينة القديمة", desc: "استكشف الأزقة المتاهية القديمة وأسواق مراكش برفقة مرشد محلي خبير.", duration: "3 ساعات" },
+        atlasMountainsDayTrip: { name: "رحلة يوم إلى جبال الأطلس", desc: "تجوّل عبر القرى الأمازيغية والمناظر الطبيعية المرتفعة الخلابة، على بعد 40 كم فقط من المدينة.", duration: "يوم كامل" },
+        saharaDesertTour: { name: "جولة في الصحراء الكبرى", desc: "مغامرة لمدة 3 أيام إلى الكثبان الذهبية في إرג شبي — تشمل رحلة على الجمال ومخيماً ليلياً.", duration: "3 أيام" },
+        moroccanCookingClass: { name: "درس في الطبخ المغربي", desc: "تعلّم تحضير الطاجين والبسطيلة وشاي النعناع التقليديين في مطبخ رياضنا الأصيل.", duration: "4 ساعات" },
+        camelRide: { name: "ركوب الجمال", desc: "جولة عند الغروب عبر بساتين النخيل والزيتون في ضواحي مراكش.", duration: "ساعتان" },
+      },
+      servicesList: {
+        breakfast: { name: "الإفطار", desc: "إفطار مغربي تقليدي يُقدَّم يومياً في الفناء المفتوح." },
+        hammamSpa: { name: "الحمام والسبا", desc: "طقوس حمام أصيلة وعلاجات سبا منعشة في الموقع." },
+        airportTransfer: { name: "نقل المطار", desc: "نقل خاص مكيف متاح على مدار الساعة حتى باب إقامتك." },
+        rooftopTerrace: { name: "شرفة السطح", desc: "سطح حصري بإطلالة بانورامية على مدينة مراكش القديمة." },
+        highSpeedWifi: { name: "واي فاي عالي السرعة", desc: "إنترنت مجاني عالي السرعة في كلا الرياضين." },
+        concierge: { name: "الكونسيرج", desc: "كونسيرج مخصص لتنظيم كل تفاصيل إقامتك." },
+      },
+    },
+    completeProfile: {
+      heading: "أكمل ملفك الشخصي",
+      saving: "جارٍ الحفظ…",
+      continueToDashboard: "المتابعة إلى لوحة التحكم",
+      saveFailed: "فشل حفظ الملف الشخصي. يرجى المحاولة مرة أخرى.",
+    },
+    aboutPage: {
+      ourStory: "قصتنا",
+      title: "عن دار دار",
+      heritageLabel: "الإرث",
+      heading: "إرث حي في قلب مراكش",
+      intro: "يقع رياض دار دار داخل الأسوار القديمة لمدينة مراكش العتيقة، وهو ملاذ للفن المغربي والعمارة والضيافة الخالدة. يعني الاسم «بيت الفن» — وكل ركن من العقار يعكس هذه الهوية.",
+      riad19Welcome: "يسعدنا أن نرحب بك في رياض دار دار 19، الواقع بشارع 19 درب زمران، باب دكالة. شاهد على قرون من الحرفية الأندلسية — أفنية بالفسيفساء، وأقواس من خشب الأرز منحوتة يدوياً، وعطر زهر البرتقال.",
+      riad141Welcome: "يسعدنا أن نرحب بك في رياض دار دار 141، الواقع بشارع 141 درب عرصة أوزال، باب دكالة. شاهد على قرون من الحرفية الأندلسية — أفنية بالفسيفساء، وأقواس من خشب الأرز منحوتة يدوياً، وعطر زهر البرتقال.",
+      bothWelcome: "ندير عقارين تم ترميمهما بشكل رائع: رياض 19 بشارع 19 درب زمران ورياض 141 بشارع 141 درب عرصة أوزال. كل منهما شاهد على قرون من الحرفية الأندلسية — أفنية بالفسيفساء، وأقواس من خشب الأرز منحوتة يدوياً، وعطر زهر البرتقال.",
+      mission: "مهمتنا هي تقديم تجربة مغربية أصيلة لضيوفنا دون التضحية بالراحة العصرية. لهذا السبب أنشأنا كونسيرجاً مدعوماً بالذكاء الاصطناعي يقدّم خدمة فاخرة لكل ضيف، في كل ساعة.",
+      whatWeStandFor: "ما نؤمن به",
+      ourValues: "قيمنا",
+      values: {
+        hospitality: { title: "الضيافة", desc: "يُستقبل كل ضيف كزائر عزيز. فلسفتنا القائمة على كلمة «دار» — أي المنزل — توجّه كل تفاعل." },
+        authenticity: { title: "الأصالة", desc: "فسيفساء زليج أصلية، وخشب أرز منحوت يدوياً، ووصفات تقليدية محفوظة عبر الأجيال. لا شيء هنا نسخة مقلدة." },
+        innovation: { title: "الابتكار", desc: "نمزج بين قرون من التقاليد ووسائل الراحة الحديثة — بما في ذلك كونسيرج ذكاء اصطناعي يتحدث لغتك ويعرف تفاصيل إقامتك." },
+      },
+      theProperties: "العقارات",
+      yourRiad: "رياضك",
+      twoRiads: "رياضان، روح واحدة",
+      riad19Desc: "العقار الأصلي، يضم خمسة أجنحة ضيافة حميمية مرتبة حول فناء نافورة من الفسيفساء. معروف بزخارفه الأصلية من القرن السابع عشر وتراسه العلوي بإطلالة بانورامية على المدينة القديمة.",
+      riad141Desc: "رياض تم ترميمه بشكل رائع يضم خمس غرف وأجنحة مميزة، وحماماً خاصاً، وحديقة داخلية غنّاء بأشجار الياسمين والبرتقال. مثالي للعائلات والمجموعات.",
+      experienceItYourself: "جرّب بنفسك",
+      ctaDesc: "هل أنت مستعد للإقامة معنا؟ تواصل معنا أو استكشف غرفنا.",
+      viewRooms: "عرض الغرف",
+    },
+    contactPage: {
+      reachOut: "تواصل معنا",
+      ourLocations: "مواقعنا",
+      directContact: "التواصل المباشر",
+      whatsappLabel: "واتساب: 000000 600 212+",
+      hours: "ساعات العمل",
+      deskHours: "الاستقبال متاح يومياً من 08:00 حتى 22:00",
+      conciergeAvailable: "الكونسيرج الذكي متاح على مدار الساعة عبر",
+      yourDashboard: "لوحة التحكم الخاصة بك",
+      messageSent: "تم إرسال الرسالة",
+      messageSentDesc: "شكراً لك — سيتواصل معك فريقنا قريباً.",
+      sendAMessage: "أرسل رسالة",
+      name: "الاسم",
+      namePlaceholder: "اسمك",
+      subject: "الموضوع",
+      selectSubject: "اختر موضوعاً",
+      subjects: {
+        bookingEnquiry: "استفسار عن حجز",
+        guestSupport: "دعم الضيوف",
+        partnership: "شراكة",
+        other: "أخرى",
+      },
+      message: "الرسالة",
+      messagePlaceholder: "كيف يمكننا مساعدتك؟",
+      sendMessageBtn: "إرسال الرسالة",
+    },
+    faqPage: {
+      helpSupport: "المساعدة والدعم",
+      title: "الأسئلة الشائعة",
+      stillHaveQuestions: "هل لا تزال لديك أسئلة؟",
+      chatWithConcierge: "تحدّث مع كونسيرجنا الذكي",
+      ctaDesc: "كونسيرجك الشخصي متاح على مدار الساعة ويتحدث لغتك.",
+      openConcierge: "فتح الكونسيرج",
+      categories: [
+        {
+          category: "تسجيل الوصول والمغادرة",
+          items: [
+            { q: "ما هو موعد تسجيل الوصول والمغادرة؟", a: "يبدأ تسجيل الوصول من الساعة 14:00. ويكون تسجيل المغادرة قبل الساعة 11:00 صباحاً. يمكن ترتيب تسجيل وصول مبكر أو مغادرة متأخرة حسب التوفر — فقط اسأل الكونسيرج الذكي أو تواصل معنا مسبقاً." },
+            { q: "أين أستلم المفاتيح؟", a: "سيستقبلك فريقنا عند مدخل الرياض. بالنسبة للوصول المتأخر، يرجى إخبارنا بوقت وصولك المتوقع حتى نضمن وجود من يستقبلك." },
+            { q: "هل يمكنني ترك الأمتعة قبل تسجيل الوصول أو بعد المغادرة؟", a: "نعم، يسعدنا تخزين أمتعتك يوم الوصول قبل جاهزية غرفتك، أو يوم المغادرة بعد تسجيل الخروج." },
+          ],
+        },
+        {
+          category: "الغرف والمرافق",
+          items: [
+            { q: "هل يتوفر واي فاي؟", a: "نعم، يتوفر واي فاي مجاني عالي السرعة في كلا الرياضين. يمكن لكونسيرجك تزويدك بكلمة المرور الحالية عند الطلب." },
+            { q: "هل توجد تكييف هواء؟", a: "جميع الغرف مجهزة بالتكييف والتدفئة، لضمان الراحة على مدار العام في ظل مناخ مراكش المتغير." },
+            { q: "هل تقدمون خدمة الغسيل؟", a: "نعم، تتوفر خدمات الغسيل والتنظيف الجاف. يرجى التحدث مع فريقنا أو سؤال الكونسيرج الذكي للحصول على التفاصيل والمدد الزمنية." },
+          ],
+        },
+        {
+          category: "الخدمات",
+          items: [
+            { q: "ماذا يتضمن الإفطار؟", a: "نقدّم إفطاراً مغربياً تقليدياً يومياً في الفناء — مسمن، بغرير، عصير برتقال طازج، تمر مجهول، عسل، زيت أرغان، وشاي أخضر بالنعناع. يُقدَّم من الساعة 7:30 حتى 10:30 صباحاً." },
+            { q: "هل توجد مسبح؟", a: "يضم رياض 141 مسبحاً صغيراً في فناء الحديقة، متاحاً لجميع الضيوف المقيمين في أي من العقارين." },
+            { q: "كيف أحجز الحمام؟", a: "الحمام متاح للحجوزات الخاصة. اسأل الكونسيرج الذكي أو تحدث مع الاستقبال للتحقق من التوفر وحجز جلسة." },
+          ],
+        },
+        {
+          category: "الرحلات",
+          items: [
+            { q: "كيف أحجز رحلة؟", a: "يمكنك طلب أي رحلة عبر الكونسيرج الذكي أو مباشرة مع فريقنا في الاستقبال. نوصي بالحجز قبل 24 ساعة على الأقل للرحلات النهارية." },
+            { q: "ما هي سياسة إلغاء الرحلات؟", a: "يمكن إلغاء الرحلات أو إعادة جدولتها حتى 24 ساعة قبل موعد المغادرة المقرر. قد يترتب على الإلغاء في نفس اليوم رسوم." },
+            { q: "هل يمكنكم تنظيم جولات خاصة مخصصة؟", a: "بالتأكيد. نعمل مع مرشدين محليين خبراء وسائقين خاصين لابتكار تجارب مصممة خصيصاً. تواصل معنا باهتماماتك وسنصمم لك شيئاً مميزاً." },
+          ],
+        },
+        {
+          category: "الكونسيرج الذكي",
+          items: [
+            { q: "بماذا يمكن للكونسيرج الذكي مساعدتي؟", a: "يمكن لكونسيرجك الذكي الإجابة عن أسئلة حول غرفتك، ومرافق الرياض، وأوقات الإفطار، والتوصيات المحلية، وطلبات حجز الرحلات، وأوقات تسجيل الوصول/المغادرة، وأكثر من ذلك بكثير. وهو متاح على مدار الساعة." },
+            { q: "ما هي اللغات التي يتحدثها الكونسيرج؟", a: "يكتشف الكونسيرج الذكي لغتك تلقائياً ويرد بها. يدعم الإنجليزية والفرنسية والعربية والإسبانية والألمانية والإيطالية والعديد من اللغات الأخرى." },
+            { q: "هل محادثاتي خاصة؟", a: "نعم. تتم معالجة رسائل الدردشة الخاصة بك بشكل آمن ولا تتم مشاركتها مع أطراف ثالثة. يرجى الاطلاع على سياسة الخصوصية لدينا لمزيد من التفاصيل." },
+            { q: "هل يمكن للكونسيرج الذكي إجراء حجوزات فعلية؟", a: "حالياً، يقدّم الكونسيرج معلومات ويمكنه نقل الطلبات إلى فريقنا. بالنسبة للحجوزات المؤكدة (الرحلات، الحمام، النقل)، سيتابع موظفونا لإنهاء التفاصيل." },
+          ],
+        },
+      ],
+    },
+    howItWorksPage: {
+      gettingStarted: "البدء",
+      subtitle: "من الحجز إلى الدردشة مع كونسيرجك الذكي في أربع خطوات بسيطة.",
+      whyItMatters: "لماذا يهم هذا",
+      aSmarterStay: "إقامة أكثر ذكاءً",
+      ready: "هل أنت مستعد؟",
+      startExperience: "ابدأ تجربتك",
+      ctaDesc: "جهّز تأكيد حجزك وأنشئ حسابك في أقل من دقيقة.",
+      steps: [
+        { title: "احجز إقامتك", desc: "احجز غرفتك في رياض دار دار عبر موقعنا الإلكتروني أو Booking.com أو Airbnb. كل حجز مؤكد يتضمن رمز وصول شخصي." },
+        { title: "استلم رمزك", desc: "يُرسَل رمز الوصول الفريد الخاص بك في بريد تأكيد الحجز. إنه مفتاحك الشخصي إلى منصة الكونسيرج الذكي." },
+        { title: "أنشئ حسابك", desc: "سجّل في dardart.com باستخدام رمزك. يستغرق أقل من دقيقة — فقط اسمك وبريدك الإلكتروني والرمز من تأكيدك." },
+        { title: "تحدّث على مدار الساعة", desc: "كونسيرجك الذكي متاح على مدار الساعة. اسأل عن أي شيء — أوقات الإفطار، حجوزات الرحلات، خدمة الغرف، النصائح المحلية، والمزيد." },
+      ],
+      benefits: [
+        { title: "متاح على مدار الساعة", desc: "لا داعي للانتظار في الاستقبال. احصل على إجابات لأسئلتك في أي ساعة، ليلاً أو نهاراً." },
+        { title: "متعدد اللغات", desc: "يرد الكونسيرج تلقائياً بلغتك — الإنجليزية والفرنسية والعربية والإسبانية والمزيد." },
+        { title: "مخصص لك", desc: "يعرف رياضك وغرفك وخدماتك. الإجابات خاصة بدار دار، وليست عامة." },
+      ],
+    },
+    privacyPage: {
+      legal: "قانوني",
+      title: "سياسة الخصوصية",
+      intro: "يقوم رياض دار دار («نحن» أو «لنا» أو «الخاصة بنا») بتشغيل منصة كونسيرج الضيوف dardart.com. تصف سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك الشخصية عند استخدامك لخدمتنا.",
+      sections: [
+        {
+          title: "1. المعلومات التي نجمعها",
+          body: `عند إنشاء حساب واستخدام منصة كونسيرج دار دار، نقوم بجمع المعلومات التالية:
+
+**معلومات الحساب:** اسمك وعنوان بريدك الإلكتروني ورمز وصول الحجز المُقدَّم أثناء التسجيل.
+
+**رسائل الدردشة:** نص محادثاتك مع الكونسيرج الذكي. تُستخدم لتوليد الردود ولتحسين جودة الخدمة.
+
+**بيانات الاستخدام:** تحليلات أساسية مثل الصفحات التي تمت زيارتها ومدة الجلسة. تُجمَّع هذه البيانات وتُخفى هويتها.`,
+        },
+        {
+          title: "2. كيف نستخدم معلوماتك",
+          body: `نستخدم المعلومات التي نجمعها من أجل:
+
+- تقديم وتشغيل خدمة الكونسيرج الذكي
+- المصادقة على حسابك والتحقق من صفتك كضيف
+- معالجة طلباتك للكونسيرج ونقل استفسارات الحجز إلى فريقنا
+- تحسين دقة وملاءمة ردود الذكاء الاصطناعي
+- التواصل معك بشأن إقامتك أو حسابك
+
+نحن لا نبيع بياناتك الشخصية لأطراف ثالثة.`,
+        },
+        {
+          title: "3. الاحتفاظ بالبيانات",
+          body: `يُحتفظ ببيانات الحساب طوال مدة إقامتك بالإضافة إلى 90 يوماً، وبعد ذلك تُحذف نهائياً ما لم تطلب حذفها مبكراً.
+
+تُحتفظ بسجلات الدردشة لمدة 30 يوماً لتمكيننا من مراجعة جودة الخدمة. يمكنك طلب حذف سجل محادثاتك في أي وقت من خلال التواصل معنا.`,
+        },
+        {
+          title: "4. خدمات الأطراف الثالثة",
+          body: `يعمل الكونسيرج الذكي بواسطة Claude AI من Anthropic. تُرسَل رسائل الدردشة الخاصة بك إلى واجهة برمجة تطبيقات Anthropic فقط لتوليد الردود. تعالج Anthropic هذه البيانات وفقاً لسياسة الخصوصية الخاصة بها. نحن لا نشارك اسمك أو بريدك الإلكتروني أو تفاصيل حجزك مع Anthropic.
+
+منصتنا مستضافة على Vercel. تُخزَّن بياناتك وتُعالَج وفقاً لشروط معالجة البيانات الخاصة بـ Vercel.`,
+        },
+        {
+          title: "5. حقوقك",
+          body: `بموجب اللائحة العامة لحماية البيانات (GDPR) وقوانين حماية البيانات المعمول بها، يحق لك:
+
+- **الوصول** إلى البيانات الشخصية التي نحتفظ بها عنك
+- **تصحيح** البيانات غير الدقيقة أو غير المكتملة
+- **حذف** حسابك وبياناتك الشخصية
+- **الاعتراض** على معالجة بياناتك
+- **قابلية النقل** — طلب نسخة من بياناتك بصيغة قابلة للقراءة آلياً
+
+لممارسة أي من هذه الحقوق، يرجى التواصل معنا على contact@riaddartmarrakech.com. سنرد خلال 30 يوماً.`,
+        },
+        {
+          title: "6. ملفات تعريف الارتباط (الكوكيز)",
+          body: `نستخدم فقط ملفات تعريف الارتباط الأساسية اللازمة لإبقائك مسجلاً للدخول والحفاظ على جلستك. نحن لا نستخدم ملفات تعريف ارتباط إعلانية أو ملفات تتبع من أطراف ثالثة.`,
+        },
+        {
+          title: "7. الأمان",
+          body: `نطبّق إجراءات أمنية معيارية في هذه الصناعة لحماية بياناتك، بما في ذلك نقل البيانات المشفر (HTTPS) وتجزئة كلمات المرور الآمنة. ومع ذلك، لا توجد طريقة نقل عبر الإنترنت آمنة بنسبة 100%.`,
+        },
+        {
+          title: "8. التواصل بخصوص مخاوف الخصوصية",
+          body: `إذا كانت لديك أي أسئلة حول سياسة الخصوصية هذه أو كيفية تعاملنا مع بياناتك، يرجى التواصل معنا:
+
+**البريد الإلكتروني:** contact@riaddartmarrakech.com
+**العنوان:** 19 درب زمران، المدينة القديمة، مراكش 40000، المغرب`,
+        },
+      ],
+    },
+    termsPage: {
+      legal: "قانوني",
+      title: "شروط الخدمة",
+      intro: "تحكم شروط الخدمة هذه استخدامك لمنصة كونسيرج الضيوف الخاصة بدار دار، التي يديرها رياض دار دار، الواقع في 19 درب زمران، مراكش، المغرب. يرجى قراءة هذه الشروط بعناية قبل استخدام خدمتنا.",
+      sections: [
+        {
+          title: "1. قبول الشروط",
+          body: `بإنشاء حساب واستخدام منصة كونسيرج الضيوف الخاصة بدار دار، فإنك توافق على الالتزام بشروط الخدمة هذه. إذا كنت لا توافق على هذه الشروط، يرجى عدم استخدام الخدمة.
+
+قد يتم تحديث هذه الشروط من وقت لآخر. يشكّل استمرار استخدام الخدمة بعد التغييرات قبولاً للشروط المعدَّلة.`,
+        },
+        {
+          title: "2. الأهلية",
+          body: `الوصول إلى منصة الكونسيرج مقتصر على الضيوف المؤكَّدين لدى رياض دار دار. يلزم رمز وصول حجز صالح — مُقدَّم في تأكيد حجزك — لإنشاء حساب.
+
+بالتسجيل، فإنك تؤكد أنك ضيف حالي أو قادم وأن رمز الوصول الذي تقدمه هو ملكك الخاص.`,
+        },
+        {
+          title: "3. استخدام الخدمة",
+          body: `توافق على استخدام المنصة فقط للأغراض المشروعة وبطريقة تتوافق مع هذه الشروط. يجب ألا:
+
+- تستخدم الخدمة لنقل محتوى ضار أو مسيء أو غير قانوني
+- تحاول الهندسة العكسية أو اختراق أو تعطيل المنصة
+- تشارك بيانات اعتماد حسابك أو رمز الوصول الخاص بك مع الآخرين
+- تستخدم الخدمة بأي طريقة قد تضر بسمعة رياض دار دار`,
+        },
+        {
+          title: "4. حدود الكونسيرج الذكي",
+          body: `يقدّم الكونسيرج الذكي ردوداً معلوماتية بناءً على معرفة عامة حول رياض دار دار ومراكش. ردوده:
+
+- لأغراض إعلامية فقط ولا تشكّل التزاماً تعاقدياً
+- قد لا تكون دائماً دقيقة أو محدَّثة
+- لا ينبغي الاعتماد عليها في القرارات الطبية أو القانونية أو الحرجة للسلامة
+
+بالنسبة للحجوزات المؤكدة أو الترتيبات المحددة، يرجى التواصل مباشرة مع فريقنا.`,
+        },
+        {
+          title: "5. حسابات المستخدمين ورموز الوصول",
+          body: `أنت مسؤول عن الحفاظ على سرية حسابك ورمز الوصول الخاص بك. يجب عليك إخطارنا فوراً إذا اشتبهت في وصول غير مصرح به إلى حسابك.
+
+كل رمز وصول صالح لتسجيل حساب واحد. تنتهي صلاحية رموز الوصول بعد 30 يوماً من تاريخ مغادرتك.`,
+        },
+        {
+          title: "6. الملكية الفكرية",
+          body: `جميع المحتويات الموجودة على المنصة — بما في ذلك النصوص والصور والتصميم ونظام الكونسيرج الذكي — هي ملك لرياض دار دار أو الجهات المرخِّصة له ومحمية بموجب قوانين الملكية الفكرية المعمول بها.
+
+لا يجوز لك نسخ أو توزيع أو إنشاء أعمال مشتقة من أي محتوى على المنصة دون موافقتنا الكتابية المسبقة.`,
+        },
+        {
+          title: "7. تحديد المسؤولية",
+          body: `إلى أقصى حد يسمح به القانون، لن يكون رياض دار دار مسؤولاً عن أي أضرار غير مباشرة أو عرضية أو خاصة أو تبعية ناشئة عن استخدامك للمنصة.
+
+تُقدَّم الخدمة «كما هي» دون أي ضمانات من أي نوع. نحن لا نضمن دقة أو موثوقية أو توفر الكونسيرج الذكي في أي وقت معين.`,
+        },
+        {
+          title: "8. التغييرات على الشروط",
+          body: `نحتفظ بالحق في تعديل شروط الخدمة هذه في أي وقت. سنُخطر المستخدمين بالتغييرات الجوهرية من خلال تحديث تاريخ «آخر تحديث» في أعلى هذه الصفحة.`,
+        },
+        {
+          title: "9. القانون الحاكم",
+          body: `تخضع هذه الشروط لقوانين المملكة المغربية. أي نزاعات تنشأ عن هذه الشروط تخضع للاختصاص القضائي الحصري لمحاكم مراكش، المغرب.`,
+        },
+        {
+          title: "10. التواصل",
+          body: `للأسئلة حول شروط الخدمة هذه، يرجى التواصل معنا:
+
+**البريد الإلكتروني:** contact@riaddartmarrakech.com
+**العنوان:** 19 درب زمران، المدينة القديمة، مراكش 40000، المغرب`,
+        },
+      ],
     },
   },
 
@@ -1001,6 +2269,8 @@ const t = {
       haveAccount: "Haben Sie bereits ein Konto?",
       signIn: "Anmelden →",
       backHome: "← Zurück zur Startseite",
+      signUpFailedDefault: "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      profileSetupFailed: "Konto erstellt, aber die Profileinrichtung ist fehlgeschlagen. Bitte kontaktieren Sie den Support.",
     },
     dashboard: {
       aiConcierge: "KI-Concierge",
@@ -1084,6 +2354,13 @@ const t = {
         dinner: { label: "Abendessen im Riad", value: "20€/Person", sub: "Min. 4 Personen · Per WhatsApp buchen" },
         water: { label: "Wasser", value: "20 Dirham", sub: "Pro Flasche · Küche verfügbar" },
       },
+      excursionsList: {
+        agafay: { subtitle: "Quad · Kamel · Abendessen", price: "30–55 € / Person" },
+        "ourika-valley": { subtitle: "Atlas · Wasserfälle · Berberdörfer", price: "Ab 20 € / Person" },
+        "atlas-mountains": { subtitle: "Berge · Berberdörfer · Frische Luft", price: "35 € / Person" },
+        "hot-air-balloon": { subtitle: "Sonnenaufgang · Panoramablick", price: "97 € / Person" },
+        "city-tour": { subtitle: "Medina · Souks · Versteckte Orte", price: "20 € / Person" },
+      },
     },
     survey: {
       checkOut: "Check-out",
@@ -1122,6 +2399,314 @@ const t = {
       error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
       success: "Erfolg",
       askConcierge: "Fragen Sie unseren Concierge",
+      openChat: "Concierge-Chat öffnen",
+      closeChat: "Chat schließen",
+      toggleMenu: "Menü ein-/ausblenden",
+      logout: "Abmelden",
+      lastUpdated: "Letzte Aktualisierung: Juni 2026",
+      cityLine: "Medina Marrakesch 40000, Marokko",
+    },
+    home: {
+      riad19Intro: "Im Herzen der Medina von Marrakesch gelegen, befindet sich das Riad Dar D'Art 19 in der 19 Derb Zemrane, Bab Doukkala. Ein Heiligtum marokkanischer Kunst, Architektur und zeitloser Gastfreundschaft.",
+      riad141Intro: "Im Herzen der Medina von Marrakesch gelegen, befindet sich das Riad Dar D'Art 141 in der 141 Derb Arset Aouzal, Bab Doukkala. Ein Heiligtum marokkanischer Kunst, Architektur und zeitloser Gastfreundschaft.",
+      signInForRooms: "Melden Sie sich an, um die Zimmer Ihres Riads zu sehen",
+      rooms19: {
+        terrasseLulu: "Eine charmante Suite mit privater Terrasse mit Blick auf den Brunnenhof, die traditionelles Zellige-Mosaik mit modernem Komfort verbindet.",
+        africa: "Warme, erdige Töne, geschnitzte Zedernholzdecken und eine warme, afrikanisch inspirierte Dekoration schaffen einen unvergesslichen Rückzugsort.",
+        gazelle: "Unsere geräumige Familiensuite mit originalen Zellige-Mosaiken, hochwertiger Bettwäsche und Platz für die ganze Familie.",
+        frida: "Ein lebendiger, kunstvoller Rückzugsort inspiriert von kräftigen Farben und kreativem Geist, mit direktem Gartenzugang.",
+        rosa: "Ein ruhiges Refugium in sanften Rosatönen mit Zellige-Böden und Blick auf den Brunnen des Innenhofs.",
+      },
+      rooms141: {
+        lexicon: "Eine literarisch inspirierte Suite in warmen Bernsteintönen, handbemalten Gipswänden und einem Himmelbett mit Berberstoffen.",
+        mategot: "Mitternachtsblaue Tadelakt-Wände, Messinglaternen und eine private Sitzecke im Innenhof, inspiriert vom marokkanischen Design der Jahrhundertmitte.",
+        chevrerie: "Durchflutet von natürlichem Licht, verbindet diese Suite rustikalen Charme mit Dachterrassenzugang und einer traditionellen Hammam-Wanne.",
+        poupee: "Ein Mosaikmeisterwerk — handgeschnittene Fliesen vom Boden bis zur Decke und ein Kingsize-Bett aus geschnitztem Zedernholz in verspielter Umgebung.",
+        zagora: "Erinnert an den Wüstensüden, mit warmen Sandsteintönen, geometrischen Mustern und einer privaten Terrasse.",
+      },
+      excursionsList: {
+        medinaWalkingTour: { name: "Rundgang durch die Medina", desc: "Erkunden Sie die alten labyrinthartigen Gassen und Souks von Marrakesch mit einem erfahrenen lokalen Führer.", duration: "3 Stunden" },
+        atlasMountainsDayTrip: { name: "Tagesausflug ins Atlasgebirge", desc: "Reisen Sie durch Berberdörfer und atemberaubende Hochgebirgslandschaften, nur 40 km von der Stadt entfernt.", duration: "Ganzer Tag" },
+        saharaDesertTour: { name: "Sahara-Wüstentour", desc: "Ein dreitägiges Abenteuer zu den goldenen Dünen von Erg Chebbi — inklusive Kamelritt und Übernachtung im Camp.", duration: "3 Tage" },
+        moroccanCookingClass: { name: "Marokkanischer Kochkurs", desc: "Lernen Sie, traditionelle Tajines, Bastilla und Minztee in unserer authentischen Riad-Küche zuzubereiten.", duration: "4 Stunden" },
+        camelRide: { name: "Kamelritt", desc: "Ein Sonnenuntergangsritt durch die Palmenhaine und Olivenhaine am Rande von Marrakesch.", duration: "2 Stunden" },
+      },
+      servicesList: {
+        breakfast: { name: "Frühstück", desc: "Traditionelles marokkanisches Frühstück, täglich im Freiluft-Innenhof serviert." },
+        hammamSpa: { name: "Hammam & Spa", desc: "Authentische Hammam-Rituale und erholsame Spa-Behandlungen vor Ort." },
+        airportTransfer: { name: "Flughafentransfer", desc: "Private, klimatisierte Transfers rund um die Uhr direkt vor Ihre Tür." },
+        rooftopTerrace: { name: "Dachterrasse", desc: "Exklusive Dachterrasse mit Panoramablick über die Medina von Marrakesch." },
+        highSpeedWifi: { name: "Highspeed-WLAN", desc: "Kostenloses Highspeed-Internet in beiden Riads." },
+        concierge: { name: "Concierge", desc: "Ein persönlicher Concierge, der jedes Detail Ihres Aufenthalts organisiert." },
+      },
+    },
+    completeProfile: {
+      heading: "Vervollständigen Sie Ihr Profil",
+      saving: "Wird gespeichert…",
+      continueToDashboard: "Weiter zum Dashboard",
+      saveFailed: "Profil konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+    },
+    aboutPage: {
+      ourStory: "Unsere Geschichte",
+      title: "Über Dar D'Art",
+      heritageLabel: "Erbe",
+      heading: "Ein lebendiges Stück Marrakesch",
+      intro: "Eingebettet in die alten Mauern der Medina von Marrakesch, ist Riad Dar D'Art ein Heiligtum marokkanischer Kunst, Architektur und zeitloser Gastfreundschaft. Der Name bedeutet „Haus der Kunst“ — und jeder Winkel des Anwesens spiegelt diese Identität wider.",
+      riad19Welcome: "Wir freuen uns, Sie im Riad Dar D'Art 19 willkommen zu heißen, in der 19 Derb Zemrane, Bab Doukkala. Ein Zeugnis jahrhundertealter andalusischer Handwerkskunst — Mosaikhöfe, handgeschnitzte Zedernbögen und der Duft von Orangenblüten.",
+      riad141Welcome: "Wir freuen uns, Sie im Riad Dar D'Art 141 willkommen zu heißen, in der 141 Derb Arset Aouzal, Bab Doukkala. Ein Zeugnis jahrhundertealter andalusischer Handwerkskunst — Mosaikhöfe, handgeschnitzte Zedernbögen und der Duft von Orangenblüten.",
+      bothWelcome: "Wir betreiben zwei wunderschön restaurierte Anwesen: Riad 19 in der 19 Derb Zemrane und Riad 141 in der 141 Derb Arset Aouzal. Jedes ist ein Zeugnis jahrhundertealter andalusischer Handwerkskunst — Mosaikhöfe, handgeschnitzte Zedernbögen und der Duft von Orangenblüten.",
+      mission: "Unsere Mission ist es, Gästen ein authentisches marokkanisches Erlebnis zu bieten, ohne auf modernen Komfort zu verzichten. Deshalb haben wir einen KI-gestützten Concierge geschaffen, der jedem Gast zu jeder Stunde luxuriösen Service bietet.",
+      whatWeStandFor: "Wofür wir stehen",
+      ourValues: "Unsere Werte",
+      values: {
+        hospitality: { title: "Gastfreundschaft", desc: "Jeder Gast wird als geschätzter Besucher willkommen geheißen. Unsere Philosophie des „dar“ — was Zuhause bedeutet — leitet jede Interaktion." },
+        authenticity: { title: "Authentizität", desc: "Originale Zellige-Mosaike, handgeschnitztes Zedernholz und traditionelle Rezepte, die über Generationen bewahrt wurden. Nichts hier ist eine Nachbildung." },
+        innovation: { title: "Innovation", desc: "Wir verbinden jahrhundertealte Tradition mit modernem Komfort — einschließlich eines KI-Concierge, der Ihre Sprache spricht und Ihren Aufenthalt kennt." },
+      },
+      theProperties: "Die Anwesen",
+      yourRiad: "Ihr Riad",
+      twoRiads: "Zwei Riads, eine Seele",
+      riad19Desc: "Das ursprüngliche Anwesen mit fünf intimen Gästesuiten, die um einen Mosaik-Brunnenhof angeordnet sind. Bekannt für seine originalen Fliesen aus dem 17. Jahrhundert und die Dachterrasse mit Panoramablick auf die Medina.",
+      riad141Desc: "Ein wunderschön restauriertes Riad mit fünf unverwechselbaren Zimmern und Suiten, einem privaten Hammam und einem üppigen Innengarten mit Jasmin und Orangenbäumen. Perfekt für Familien und Gruppen.",
+      experienceItYourself: "Erleben Sie es selbst",
+      ctaDesc: "Bereit, bei uns zu übernachten? Kontaktieren Sie uns oder entdecken Sie unsere Zimmer.",
+      viewRooms: "Zimmer ansehen",
+    },
+    contactPage: {
+      reachOut: "Kontaktieren Sie uns",
+      ourLocations: "Unsere Standorte",
+      directContact: "Direkter Kontakt",
+      whatsappLabel: "WhatsApp: +212 600 000 000",
+      hours: "Öffnungszeiten",
+      deskHours: "Rezeption täglich verfügbar, 08:00 – 22:00 Uhr",
+      conciergeAvailable: "KI-Concierge rund um die Uhr verfügbar über",
+      yourDashboard: "Ihr Dashboard",
+      messageSent: "Nachricht gesendet",
+      messageSentDesc: "Danke — unser Team wird sich in Kürze bei Ihnen melden.",
+      sendAMessage: "Nachricht senden",
+      name: "Name",
+      namePlaceholder: "Ihr Name",
+      subject: "Betreff",
+      selectSubject: "Betreff auswählen",
+      subjects: {
+        bookingEnquiry: "Buchungsanfrage",
+        guestSupport: "Gästesupport",
+        partnership: "Partnerschaft",
+        other: "Sonstiges",
+      },
+      message: "Nachricht",
+      messagePlaceholder: "Wie können wir Ihnen helfen?",
+      sendMessageBtn: "Nachricht senden",
+    },
+    faqPage: {
+      helpSupport: "Hilfe & Support",
+      title: "Häufig gestellte Fragen",
+      stillHaveQuestions: "Noch Fragen?",
+      chatWithConcierge: "Chatten Sie mit unserem KI-Concierge",
+      ctaDesc: "Ihr persönlicher Concierge ist rund um die Uhr verfügbar und spricht Ihre Sprache.",
+      openConcierge: "Concierge öffnen",
+      categories: [
+        {
+          category: "Check-in & Check-out",
+          items: [
+            { q: "Um wie viel Uhr sind Check-in und Check-out?", a: "Der Check-in ist ab 14:00 Uhr möglich. Der Check-out erfolgt bis 11:00 Uhr. Früher Check-in und später Check-out können je nach Verfügbarkeit arrangiert werden — fragen Sie einfach Ihren KI-Concierge oder kontaktieren Sie uns im Voraus." },
+            { q: "Wo hole ich die Schlüssel ab?", a: "Unser Team empfängt Sie am Eingang des Riads. Bei später Ankunft teilen Sie uns bitte Ihre voraussichtliche Ankunftszeit mit, damit jemand da ist, um Sie willkommen zu heißen." },
+            { q: "Kann ich Gepäck vor dem Check-in oder nach dem Check-out lassen?", a: "Ja, wir bewahren Ihr Gepäck gerne am Anreisetag auf, bevor Ihr Zimmer bereit ist, oder am Abreisetag nach dem Check-out." },
+          ],
+        },
+        {
+          category: "Zimmer & Ausstattung",
+          items: [
+            { q: "Ist WLAN verfügbar?", a: "Ja, kostenloses Highspeed-WLAN ist in beiden Riads verfügbar. Ihr Concierge kann Ihnen das aktuelle Passwort auf Anfrage mitteilen." },
+            { q: "Gibt es eine Klimaanlage?", a: "Alle Zimmer sind mit Klimaanlage und Heizung ausgestattet, um ganzjährigen Komfort im wechselhaften Klima Marrakeschs zu gewährleisten." },
+            { q: "Bieten Sie einen Wäscheservice an?", a: "Ja, Wäscherei- und Reinigungsservices sind verfügbar. Bitte sprechen Sie mit unserem Team oder fragen Sie Ihren KI-Concierge nach Details und Bearbeitungszeiten." },
+          ],
+        },
+        {
+          category: "Dienstleistungen",
+          items: [
+            { q: "Was ist im Frühstück enthalten?", a: "Wir servieren täglich ein traditionelles marokkanisches Frühstück im Innenhof — Msemen, Beghrir, frisch gepressten Orangensaft, Medjool-Datteln, Honig, Arganöl und marokkanischen Minztee. Serviert von 7:30 bis 10:30 Uhr." },
+            { q: "Gibt es einen Pool?", a: "Riad 141 verfügt über einen kleinen Tauchpool im Gartenhof, der allen Gästen beider Anwesen zur Verfügung steht." },
+            { q: "Wie buche ich den Hammam?", a: "Der Hammam ist für private Buchungen verfügbar. Fragen Sie Ihren KI-Concierge oder sprechen Sie mit der Rezeption, um die Verfügbarkeit zu prüfen und eine Sitzung zu buchen." },
+          ],
+        },
+        {
+          category: "Ausflüge",
+          items: [
+            { q: "Wie buche ich einen Ausflug?", a: "Sie können jeden Ausflug über Ihren KI-Concierge oder direkt bei unserem Team an der Rezeption anfragen. Wir empfehlen, Tagesausflüge mindestens 24 Stunden im Voraus zu buchen." },
+            { q: "Wie lautet die Stornierungsrichtlinie für Ausflüge?", a: "Ausflüge können bis zu 24 Stunden vor der geplanten Abfahrt storniert oder umgebucht werden. Bei Stornierungen am selben Tag kann eine Gebühr anfallen." },
+            { q: "Können Sie individuelle Privattouren organisieren?", a: "Absolut. Wir arbeiten mit erfahrenen lokalen Guides und privaten Fahrern zusammen, um maßgeschneiderte Erlebnisse zu schaffen. Kontaktieren Sie uns mit Ihren Interessen, und wir gestalten etwas Besonderes." },
+          ],
+        },
+        {
+          category: "KI-Concierge",
+          items: [
+            { q: "Wobei kann mir der KI-Concierge helfen?", a: "Ihr KI-Concierge kann Fragen zu Ihrem Zimmer, den Riad-Einrichtungen, Frühstückszeiten, lokalen Empfehlungen, Ausflugsbuchungsanfragen, Check-in-/Check-out-Zeiten und vielem mehr beantworten. Er ist rund um die Uhr verfügbar." },
+            { q: "Welche Sprachen spricht der Concierge?", a: "Der KI-Concierge erkennt automatisch Ihre Sprache und antwortet darin. Er unterstützt Englisch, Französisch, Arabisch, Spanisch, Deutsch, Italienisch und viele weitere." },
+            { q: "Sind meine Gespräche privat?", a: "Ja. Ihre Chatnachrichten werden sicher verarbeitet und nicht an Dritte weitergegeben. Weitere Einzelheiten finden Sie in unserer Datenschutzrichtlinie." },
+            { q: "Kann der KI-Concierge tatsächliche Buchungen vornehmen?", a: "Derzeit liefert der Concierge Informationen und kann Anfragen an unser Team weiterleiten. Für bestätigte Buchungen (Ausflüge, Hammam, Transfers) wird sich unser Personal melden, um die Details zu finalisieren." },
+          ],
+        },
+      ],
+    },
+    howItWorksPage: {
+      gettingStarted: "Erste Schritte",
+      subtitle: "Von der Buchung bis zum Chat mit Ihrem KI-Concierge in vier einfachen Schritten.",
+      whyItMatters: "Warum es wichtig ist",
+      aSmarterStay: "Ein intelligenterer Aufenthalt",
+      ready: "Bereit?",
+      startExperience: "Starten Sie Ihr Erlebnis",
+      ctaDesc: "Halten Sie Ihre Buchungsbestätigung bereit und erstellen Sie Ihr Konto in weniger als einer Minute.",
+      steps: [
+        { title: "Buchen Sie Ihren Aufenthalt", desc: "Reservieren Sie Ihr Zimmer im Riad Dar D'Art über unsere Website, Booking.com oder Airbnb. Jede bestätigte Buchung enthält einen persönlichen Zugangscode." },
+        { title: "Erhalten Sie Ihren Code", desc: "Ihr eindeutiger Zugangscode wird in Ihrer Buchungsbestätigungs-E-Mail gesendet. Er ist Ihr persönlicher Schlüssel zur KI-Concierge-Plattform." },
+        { title: "Erstellen Sie Ihr Konto", desc: "Registrieren Sie sich auf dardart.com mit Ihrem Code. Es dauert weniger als eine Minute — nur Ihr Name, Ihre E-Mail und der Code aus Ihrer Bestätigung." },
+        { title: "Chatten Sie rund um die Uhr", desc: "Ihr KI-Concierge ist rund um die Uhr verfügbar. Fragen Sie alles — Frühstückszeiten, Ausflugsbuchungen, Zimmerservice, lokale Tipps und mehr." },
+      ],
+      benefits: [
+        { title: "Rund um die Uhr verfügbar", desc: "Kein Warten an der Rezeption. Erhalten Sie zu jeder Stunde, Tag und Nacht, Antworten auf Ihre Fragen." },
+        { title: "Mehrsprachig", desc: "Der Concierge antwortet automatisch in Ihrer Sprache — Englisch, Französisch, Arabisch, Spanisch und mehr." },
+        { title: "Personalisiert", desc: "Kennt Ihr Riad, Ihre Zimmer und Ihre Dienstleistungen. Antworten sind spezifisch für Dar D'Art, nicht generisch." },
+      ],
+    },
+    privacyPage: {
+      legal: "Rechtliches",
+      title: "Datenschutzrichtlinie",
+      intro: "Riad Dar D'Art („wir“, „uns“ oder „unser“) betreibt die Gäste-Concierge-Plattform dardart.com. Diese Datenschutzrichtlinie beschreibt, wie wir Ihre persönlichen Daten erheben, verwenden und schützen, wenn Sie unseren Dienst nutzen.",
+      sections: [
+        {
+          title: "1. Informationen, die wir sammeln",
+          body: `Wenn Sie ein Konto erstellen und die Dar D'Art Concierge-Plattform nutzen, erheben wir folgende Informationen:
+
+**Kontoinformationen:** Ihren Namen, Ihre E-Mail-Adresse und den bei der Registrierung angegebenen Buchungszugangscode.
+
+**Chat-Nachrichten:** Der Text Ihrer Gespräche mit dem KI-Concierge. Diese werden verwendet, um Antworten zu generieren und die Servicequalität zu verbessern.
+
+**Nutzungsdaten:** Grundlegende Analysen wie besuchte Seiten und Sitzungsdauer. Diese Daten werden aggregiert und anonymisiert.`,
+        },
+        {
+          title: "2. Wie wir Ihre Informationen verwenden",
+          body: `Wir verwenden die von uns erhobenen Informationen, um:
+
+- den KI-Concierge-Service bereitzustellen und zu betreiben
+- Ihr Konto zu authentifizieren und Ihren Gaststatus zu überprüfen
+- Ihre Concierge-Anfragen zu bearbeiten und Buchungsanfragen an unser Team weiterzuleiten
+- die Genauigkeit und Relevanz der KI-Antworten zu verbessern
+- mit Ihnen über Ihren Aufenthalt oder Ihr Konto zu kommunizieren
+
+Wir verkaufen Ihre persönlichen Daten nicht an Dritte.`,
+        },
+        {
+          title: "3. Datenspeicherung",
+          body: `Kontodaten werden für die Dauer Ihres Aufenthalts plus 90 Tage gespeichert, danach werden sie dauerhaft gelöscht, sofern Sie keine frühere Löschung beantragen.
+
+Chat-Protokolle werden 30 Tage lang aufbewahrt, damit wir die Servicequalität überprüfen können. Sie können jederzeit die Löschung Ihres Chatverlaufs beantragen, indem Sie uns kontaktieren.`,
+        },
+        {
+          title: "4. Dienste Dritter",
+          body: `Der KI-Concierge wird von Anthropics Claude AI angetrieben. Ihre Chat-Nachrichten werden ausschließlich zur Generierung von Antworten an die API von Anthropic übermittelt. Anthropic verarbeitet diese Daten gemäß seiner eigenen Datenschutzrichtlinie. Wir geben Ihren Namen, Ihre E-Mail-Adresse oder Buchungsdetails nicht an Anthropic weiter.
+
+Unsere Plattform wird auf Vercel gehostet. Ihre Daten werden gemäß den Datenverarbeitungsbedingungen von Vercel gespeichert und verarbeitet.`,
+        },
+        {
+          title: "5. Ihre Rechte",
+          body: `Gemäß der DSGVO und den geltenden Datenschutzgesetzen haben Sie das Recht:
+
+- **Zugriff** auf die personenbezogenen Daten zu erhalten, die wir über Sie speichern
+- **Berichtigung** ungenauer oder unvollständiger Daten
+- **Löschung** Ihres Kontos und Ihrer persönlichen Daten
+- **Widerspruch** gegen die Verarbeitung Ihrer Daten einzulegen
+- **Datenübertragbarkeit** — eine Kopie Ihrer Daten in einem maschinenlesbaren Format anzufordern
+
+Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter contact@riaddartmarrakech.com. Wir antworten innerhalb von 30 Tagen.`,
+        },
+        {
+          title: "6. Cookies",
+          body: `Wir verwenden nur essenzielle Cookies, die erforderlich sind, um Sie angemeldet zu halten und Ihre Sitzung aufrechtzuerhalten. Wir verwenden keine Werbe-Cookies oder Tracking-Cookies von Drittanbietern.`,
+        },
+        {
+          title: "7. Sicherheit",
+          body: `Wir setzen branchenübliche Sicherheitsmaßnahmen zum Schutz Ihrer Daten ein, einschließlich verschlüsselter Datenübertragung (HTTPS) und sicherer Passwort-Hashing-Verfahren. Allerdings ist keine Übertragungsmethode über das Internet zu 100 % sicher.`,
+        },
+        {
+          title: "8. Kontakt bei Datenschutzfragen",
+          body: `Wenn Sie Fragen zu dieser Datenschutzrichtlinie oder zum Umgang mit Ihren Daten haben, kontaktieren Sie uns bitte:
+
+**E-Mail:** contact@riaddartmarrakech.com
+**Adresse:** 19 Derb Zemrane, Medina Marrakesch 40000, Marokko`,
+        },
+      ],
+    },
+    termsPage: {
+      legal: "Rechtliches",
+      title: "Nutzungsbedingungen",
+      intro: "Diese Nutzungsbedingungen regeln Ihre Nutzung der Dar D'Art Gäste-Concierge-Plattform, betrieben von Riad Dar D'Art, mit Sitz in 19 Derb Zemrane, Marrakesch, Marokko. Bitte lesen Sie diese Bedingungen sorgfältig durch, bevor Sie unseren Dienst nutzen.",
+      sections: [
+        {
+          title: "1. Annahme der Bedingungen",
+          body: `Durch die Erstellung eines Kontos und die Nutzung der Dar D'Art Gäste-Concierge-Plattform erklären Sie sich damit einverstanden, an diese Nutzungsbedingungen gebunden zu sein. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie den Dienst bitte nicht.
+
+Diese Bedingungen können von Zeit zu Zeit aktualisiert werden. Die fortgesetzte Nutzung des Dienstes nach Änderungen stellt die Annahme der überarbeiteten Bedingungen dar.`,
+        },
+        {
+          title: "2. Berechtigung",
+          body: `Der Zugang zur Concierge-Plattform ist bestätigten Gästen von Riad Dar D'Art vorbehalten. Ein gültiger Buchungszugangscode — in Ihrer Reservierungsbestätigung angegeben — ist zur Kontoerstellung erforderlich.
+
+Mit der Registrierung bestätigen Sie, dass Sie ein aktueller oder zukünftiger Gast sind und dass der von Ihnen angegebene Zugangscode Ihr eigener ist.`,
+        },
+        {
+          title: "3. Nutzung des Dienstes",
+          body: `Sie erklären sich damit einverstanden, die Plattform nur für rechtmäßige Zwecke und in einer mit diesen Bedingungen übereinstimmenden Weise zu nutzen. Sie dürfen nicht:
+
+- den Dienst nutzen, um schädliche, beleidigende oder illegale Inhalte zu übermitteln
+- versuchen, die Plattform zurückzuentwickeln, zu hacken oder zu stören
+- Ihre Kontodaten oder Ihren Zugangscode mit anderen teilen
+- den Dienst auf eine Weise nutzen, die dem Ruf von Riad Dar D'Art schaden könnte`,
+        },
+        {
+          title: "4. Einschränkungen des KI-Concierge",
+          body: `Der KI-Concierge liefert informative Antworten basierend auf allgemeinem Wissen über Riad Dar D'Art und Marrakesch. Seine Antworten:
+
+- dienen nur zu Informationszwecken und stellen keine vertragliche Verpflichtung dar
+- sind möglicherweise nicht immer genau oder aktuell
+- sollten nicht für medizinische, rechtliche oder sicherheitskritische Entscheidungen herangezogen werden
+
+Für bestätigte Reservierungen, Buchungen oder spezifische Vereinbarungen kontaktieren Sie bitte direkt unser Team.`,
+        },
+        {
+          title: "5. Benutzerkonten & Zugangscodes",
+          body: `Sie sind für die Wahrung der Vertraulichkeit Ihres Kontos und Zugangscodes verantwortlich. Sie müssen uns unverzüglich benachrichtigen, wenn Sie einen unbefugten Zugriff auf Ihr Konto vermuten.
+
+Jeder Zugangscode ist für eine Kontoregistrierung gültig. Zugangscodes laufen 30 Tage nach Ihrem Check-out-Datum ab.`,
+        },
+        {
+          title: "6. Geistiges Eigentum",
+          body: `Alle Inhalte auf der Plattform — einschließlich Texte, Bilder, Design und das KI-Concierge-System — sind Eigentum von Riad Dar D'Art oder seinen Lizenzgebern und durch geltendes Recht zum Schutz geistigen Eigentums geschützt.
+
+Sie dürfen keine Inhalte der Plattform ohne unsere vorherige schriftliche Zustimmung vervielfältigen, verbreiten oder abgeleitete Werke daraus erstellen.`,
+        },
+        {
+          title: "7. Haftungsbeschränkung",
+          body: `Im gesetzlich zulässigen Umfang haftet Riad Dar D'Art nicht für indirekte, zufällige, besondere oder Folgeschäden, die aus Ihrer Nutzung der Plattform entstehen.
+
+Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wir garantieren nicht die Genauigkeit, Zuverlässigkeit oder Verfügbarkeit des KI-Concierge zu einem bestimmten Zeitpunkt.`,
+        },
+        {
+          title: "8. Änderungen der Bedingungen",
+          body: `Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern. Wir werden Nutzer über wesentliche Änderungen informieren, indem wir das Datum „Letzte Aktualisierung" oben auf dieser Seite aktualisieren.`,
+        },
+        {
+          title: "9. Anwendbares Recht",
+          body: `Diese Bedingungen unterliegen den Gesetzen des Königreichs Marokko. Etwaige Streitigkeiten aus diesen Bedingungen unterliegen der ausschließlichen Zuständigkeit der Gerichte von Marrakesch, Marokko.`,
+        },
+        {
+          title: "10. Kontakt",
+          body: `Bei Fragen zu diesen Nutzungsbedingungen kontaktieren Sie uns bitte:
+
+**E-Mail:** contact@riaddartmarrakech.com
+**Adresse:** 19 Derb Zemrane, Medina Marrakesch 40000, Marokko`,
+        },
+      ],
     },
   },
 
@@ -1305,6 +2890,13 @@ const t = {
         dinner: { label: "Cena al Riad", value: "€20/persona", sub: "Min 4 persone · Prenota via WhatsApp" },
         water: { label: "Acqua", value: "20 dirham", sub: "A bottiglia · Cucina disponibile" },
       },
+      excursionsList: {
+        agafay: { subtitle: "Quad · Cammello · Cena", price: "30–55 € / persona" },
+        "ourika-valley": { subtitle: "Atlante · Cascate · Villaggi berberi", price: "Da 20 € / persona" },
+        "atlas-mountains": { subtitle: "Montagne · Villaggi berberi · Aria fresca", price: "35 € / persona" },
+        "hot-air-balloon": { subtitle: "Alba · Viste panoramiche", price: "97 € / persona" },
+        "city-tour": { subtitle: "Medina · Souk · Luoghi nascosti", price: "20 € / persona" },
+      },
     },
     survey: {
       checkOut: "Check-out",
@@ -1343,6 +2935,314 @@ const t = {
       error: "Qualcosa è andato storto. Riprova.",
       success: "Successo",
       askConcierge: "Chiedi al nostro Concierge",
+      openChat: "Apri la chat del concierge",
+      closeChat: "Chiudi la chat",
+      toggleMenu: "Apri/chiudi il menu",
+      logout: "Esci",
+      lastUpdated: "Ultimo aggiornamento: giugno 2026",
+      cityLine: "Medina di Marrakech 40000, Marocco",
+    },
+    home: {
+      riad19Intro: "Immerso nel cuore della medina di Marrakech, il Riad Dar D'Art 19 si trova al 19 Derb Zemrane, Bab Doukkala. Un santuario di arte marocchina, architettura e ospitalità senza tempo.",
+      riad141Intro: "Immerso nel cuore della medina di Marrakech, il Riad Dar D'Art 141 si trova al 141 Derb Arset Aouzal, Bab Doukkala. Un santuario di arte marocchina, architettura e ospitalità senza tempo.",
+      signInForRooms: "Accedi per vedere le camere del tuo riad",
+      rooms19: {
+        terrasseLulu: "Una suite affascinante con terrazza privata affacciata sul cortile della fontana, che unisce il tradizionale zellige a un comfort moderno.",
+        africa: "Toni caldi e terrosi, soffitti in cedro intagliato e un caldo arredamento di ispirazione africana creano un rifugio indimenticabile.",
+        gazelle: "La nostra ampia suite familiare con mosaici zellige originali, biancheria di pregio e spazio per tutta la famiglia.",
+        frida: "Un rifugio vibrante e artistico ispirato a colori audaci e spirito creativo, con accesso diretto al giardino.",
+        rosa: "Un santuario sereno in tenui tonalità rosa con pavimenti in zellige e vista sulla fontana del cortile interno.",
+      },
+      rooms141: {
+        lexicon: "Una suite di ispirazione letteraria dai caldi toni ambrati, pareti in gesso dipinte a mano e un letto a baldacchino drappeggiato con tessuti berberi.",
+        mategot: "Pareti in tadelakt blu notte, lanterne in ottone e un'area salotto privata nel cortile ispirata al design marocchino della metà del secolo.",
+        chevrerie: "Inondata di luce naturale, questa suite unisce il fascino rustico all'accesso al tetto e una vasca hammam tradizionale.",
+        poupee: "Un capolavoro di mosaico — piastrelle tagliate a mano dal pavimento al soffitto e un letto king in cedro intagliato in un'ambientazione fantasiosa.",
+        zagora: "Evocativa del sud desertico, con calde tonalità di arenaria, motivi geometrici e una terrazza privata.",
+      },
+      excursionsList: {
+        medinaWalkingTour: { name: "Tour a Piedi della Medina", desc: "Esplora le antiche strade labirintiche e i souk di Marrakech con una guida locale esperta.", duration: "3 ore" },
+        atlasMountainsDayTrip: { name: "Gita di un Giorno sulle Montagne dell'Atlante", desc: "Attraversa villaggi berberi e straordinari paesaggi d'alta quota, a soli 40 km dalla città.", duration: "Giornata intera" },
+        saharaDesertTour: { name: "Tour nel Deserto del Sahara", desc: "Un'avventura di 3 giorni verso le dune dorate di Erg Chebbi — trekking in cammello e campo notturno inclusi.", duration: "3 giorni" },
+        moroccanCookingClass: { name: "Corso di Cucina Marocchina", desc: "Impara a preparare tagine, pastilla e tè alla menta tradizionali nella nostra autentica cucina del riad.", duration: "4 ore" },
+        camelRide: { name: "Giro in Cammello", desc: "Un giro al tramonto tra palmeti e uliveti alla periferia di Marrakech.", duration: "2 ore" },
+      },
+      servicesList: {
+        breakfast: { name: "Colazione", desc: "Colazione marocchina tradizionale servita ogni giorno nel cortile all'aperto." },
+        hammamSpa: { name: "Hammam & Spa", desc: "Autentici rituali hammam e rigeneranti trattamenti spa in loco." },
+        airportTransfer: { name: "Trasferimento Aeroporto", desc: "Trasferimenti privati con aria condizionata disponibili 24/7 fino alla tua porta." },
+        rooftopTerrace: { name: "Terrazza sul Tetto", desc: "Terrazza esclusiva con vista panoramica sulla medina di Marrakech." },
+        highSpeedWifi: { name: "WiFi ad Alta Velocità", desc: "Internet gratuito ad alta velocità in entrambi i riad." },
+        concierge: { name: "Concierge", desc: "Un concierge dedicato per organizzare ogni dettaglio del tuo soggiorno." },
+      },
+    },
+    completeProfile: {
+      heading: "Completa il tuo Profilo",
+      saving: "Salvataggio…",
+      continueToDashboard: "Continua alla Dashboard",
+      saveFailed: "Impossibile salvare il profilo. Riprova.",
+    },
+    aboutPage: {
+      ourStory: "La Nostra Storia",
+      title: "Chi Siamo — Dar D'Art",
+      heritageLabel: "Eredità",
+      heading: "Un Pezzo di Marrakech Ancora Vivo",
+      intro: "Immerso nelle antiche mura della medina di Marrakech, il Riad Dar D'Art è un santuario di arte marocchina, architettura e ospitalità senza tempo. Il nome significa “Casa dell'Arte” — e ogni angolo della proprietà riflette questa identità.",
+      riad19Welcome: "Siamo lieti di darti il benvenuto al Riad Dar D'Art 19, situato al 19 Derb Zemrane, Bab Doukkala. Una testimonianza di secoli di artigianato andaluso — cortili a mosaico, archi di cedro scolpiti a mano e il profumo dei fiori d'arancio.",
+      riad141Welcome: "Siamo lieti di darti il benvenuto al Riad Dar D'Art 141, situato al 141 Derb Arset Aouzal, Bab Doukkala. Una testimonianza di secoli di artigianato andaluso — cortili a mosaico, archi di cedro scolpiti a mano e il profumo dei fiori d'arancio.",
+      bothWelcome: "Gestiamo due proprietà splendidamente restaurate: Riad 19 al 19 Derb Zemrane e Riad 141 al 141 Derb Arset Aouzal. Ciascuna è testimonianza di secoli di artigianato andaluso — cortili a mosaico, archi di cedro scolpiti a mano e il profumo dei fiori d'arancio.",
+      mission: "La nostra missione è offrire agli ospiti un'esperienza marocchina autentica senza rinunciare al comfort moderno. Per questo abbiamo creato un concierge basato sull'IA che offre un servizio di lusso a ogni ospite, a qualsiasi ora.",
+      whatWeStandFor: "In Cosa Crediamo",
+      ourValues: "I Nostri Valori",
+      values: {
+        hospitality: { title: "Ospitalità", desc: "Ogni ospite viene accolto come un visitatore prezioso. La nostra filosofia del 'dar' — che significa casa — guida ogni interazione." },
+        authenticity: { title: "Autenticità", desc: "Mosaici zellige originali, cedro intagliato a mano e ricette tradizionali tramandate nelle generazioni. Qui nulla è una replica." },
+        innovation: { title: "Innovazione", desc: "Uniamo secoli di tradizione ai comfort moderni — incluso un concierge IA che parla la tua lingua e conosce il tuo soggiorno." },
+      },
+      theProperties: "Le Proprietà",
+      yourRiad: "Il Tuo Riad",
+      twoRiads: "Due Riad, Un'Unica Anima",
+      riad19Desc: "La proprietà originale, con cinque intime suite per gli ospiti disposte attorno a un cortile con fontana a mosaico. Nota per le sue piastrelle originali del XVII secolo e la terrazza sul tetto con vista panoramica sulla medina.",
+      riad141Desc: "Un riad splendidamente restaurato con cinque camere e suite uniche, un hammam privato e un lussureggiante giardino interno con gelsomino e alberi d'arancio. Perfetto per famiglie e gruppi.",
+      experienceItYourself: "Vivilo di Persona",
+      ctaDesc: "Pronto a soggiornare da noi? Contattaci o esplora le nostre camere.",
+      viewRooms: "Vedi le Camere",
+    },
+    contactPage: {
+      reachOut: "Contattaci",
+      ourLocations: "Le Nostre Sedi",
+      directContact: "Contatto Diretto",
+      whatsappLabel: "WhatsApp: +212 600 000 000",
+      hours: "Orari",
+      deskHours: "Reception disponibile tutti i giorni, dalle 08:00 alle 22:00",
+      conciergeAvailable: "Concierge IA disponibile 24/7 tramite",
+      yourDashboard: "la tua dashboard",
+      messageSent: "Messaggio Inviato",
+      messageSentDesc: "Grazie — il nostro team ti contatterà a breve.",
+      sendAMessage: "Invia un Messaggio",
+      name: "Nome",
+      namePlaceholder: "Il tuo nome",
+      subject: "Oggetto",
+      selectSubject: "Seleziona un oggetto",
+      subjects: {
+        bookingEnquiry: "Richiesta di Prenotazione",
+        guestSupport: "Assistenza Ospiti",
+        partnership: "Collaborazione",
+        other: "Altro",
+      },
+      message: "Messaggio",
+      messagePlaceholder: "Come possiamo aiutarti?",
+      sendMessageBtn: "Invia Messaggio",
+    },
+    faqPage: {
+      helpSupport: "Assistenza & Supporto",
+      title: "Domande Frequenti",
+      stillHaveQuestions: "Hai Ancora Domande?",
+      chatWithConcierge: "Chatta con il Nostro Concierge IA",
+      ctaDesc: "Il tuo concierge personale è disponibile 24/7 e parla la tua lingua.",
+      openConcierge: "Apri il Concierge",
+      categories: [
+        {
+          category: "Check-in & Check-out",
+          items: [
+            { q: "A che ora sono il check-in e il check-out?", a: "Il check-in è a partire dalle 14:00. Il check-out è entro le 11:00. Check-in anticipato e check-out posticipato possono essere organizzati in base alla disponibilità — chiedi semplicemente al tuo concierge IA o contattaci in anticipo." },
+            { q: "Dove ritiro le chiavi?", a: "Il nostro team ti accoglierà all'ingresso del riad. Per arrivi tardivi, comunicaci l'orario di arrivo previsto in modo da assicurarci che qualcuno sia presente per accoglierti." },
+            { q: "Posso lasciare i bagagli prima del check-in o dopo il check-out?", a: "Sì, siamo lieti di custodire i tuoi bagagli il giorno dell'arrivo prima che la camera sia pronta, o il giorno della partenza dopo il check-out." },
+          ],
+        },
+        {
+          category: "Camere & Comfort",
+          items: [
+            { q: "È disponibile il Wi-Fi?", a: "Sì, il Wi-Fi gratuito ad alta velocità è disponibile in entrambi i riad. Il tuo concierge può fornirti la password attuale su richiesta." },
+            { q: "C'è l'aria condizionata?", a: "Tutte le camere sono dotate di aria condizionata e riscaldamento, garantendo comfort tutto l'anno nel clima variabile di Marrakech." },
+            { q: "Offrite un servizio di lavanderia?", a: "Sì, sono disponibili servizi di lavanderia e lavaggio a secco. Parla con il nostro team o chiedi al tuo concierge IA per dettagli e tempi di consegna." },
+          ],
+        },
+        {
+          category: "Servizi",
+          items: [
+            { q: "Cosa include la colazione?", a: "Serviamo una colazione marocchina tradizionale ogni giorno nel cortile — msemen, beghrir, succo d'arancia appena spremuto, datteri Medjool, miele, olio d'argan e tè alla menta marocchino. Servita dalle 7:30 alle 10:30." },
+            { q: "C'è una piscina?", a: "Il Riad 141 dispone di una piccola piscina nel cortile del giardino, disponibile per tutti gli ospiti alloggiati in entrambe le proprietà." },
+            { q: "Come prenoto l'hammam?", a: "L'hammam è disponibile su prenotazione privata. Chiedi al tuo concierge IA o parla con la reception per verificare la disponibilità e prenotare una sessione." },
+          ],
+        },
+        {
+          category: "Escursioni",
+          items: [
+            { q: "Come prenoto un'escursione?", a: "Puoi richiedere qualsiasi escursione tramite il tuo concierge IA o direttamente con il nostro team alla reception. Consigliamo di prenotare almeno 24 ore in anticipo per le gite di un giorno." },
+            { q: "Qual è la politica di cancellazione per le escursioni?", a: "Le escursioni possono essere cancellate o riprogrammate fino a 24 ore prima della partenza prevista. Le cancellazioni in giornata potrebbero comportare un costo." },
+            { q: "Potete organizzare tour privati personalizzati?", a: "Assolutamente sì. Collaboriamo con guide locali esperte e autisti privati per creare esperienze su misura. Contattaci con i tuoi interessi e progetteremo qualcosa di speciale." },
+          ],
+        },
+        {
+          category: "Concierge IA",
+          items: [
+            { q: "Con cosa può aiutarmi il concierge IA?", a: "Il tuo concierge IA può rispondere a domande sulla tua camera, sulle strutture del riad, sugli orari della colazione, su consigli locali, su richieste di prenotazione escursioni, sugli orari di check-in/check-out e molto altro. È disponibile 24/7." },
+            { q: "Quali lingue parla il concierge?", a: "Il concierge IA rileva automaticamente la tua lingua e risponde in essa. Supporta inglese, francese, arabo, spagnolo, tedesco, italiano e molte altre." },
+            { q: "Le mie conversazioni sono private?", a: "Sì. I tuoi messaggi di chat vengono elaborati in modo sicuro e non vengono condivisi con terze parti. Consulta la nostra Informativa sulla Privacy per tutti i dettagli." },
+            { q: "Il concierge IA può effettuare prenotazioni reali?", a: "Attualmente il concierge fornisce informazioni e può inoltrare richieste al nostro team. Per le prenotazioni confermate (escursioni, hammam, trasferimenti), il nostro personale ti ricontatterà per finalizzare i dettagli." },
+          ],
+        },
+      ],
+    },
+    howItWorksPage: {
+      gettingStarted: "Per Iniziare",
+      subtitle: "Dalla prenotazione alla chat con il tuo concierge IA in quattro semplici passaggi.",
+      whyItMatters: "Perché è Importante",
+      aSmarterStay: "Un Soggiorno Più Intelligente",
+      ready: "Pronto?",
+      startExperience: "Inizia la Tua Esperienza",
+      ctaDesc: "Tieni pronta la conferma della prenotazione e crea il tuo account in meno di un minuto.",
+      steps: [
+        { title: "Prenota il Tuo Soggiorno", desc: "Prenota la tua camera al Riad Dar D'Art tramite il nostro sito web, Booking.com o Airbnb. Ogni prenotazione confermata include un codice di accesso personale." },
+        { title: "Ricevi il Tuo Codice", desc: "Il tuo codice di accesso univoco viene inviato nell'email di conferma della prenotazione. È la tua chiave personale per la piattaforma del concierge IA." },
+        { title: "Crea il Tuo Account", desc: "Registrati su dardart.com utilizzando il tuo codice. Richiede meno di un minuto — solo il tuo nome, la tua email e il codice dalla tua conferma." },
+        { title: "Chatta 24/7", desc: "Il tuo concierge IA è disponibile a qualsiasi ora. Chiedi qualsiasi cosa — orari della colazione, prenotazioni di escursioni, servizio in camera, consigli locali e altro ancora." },
+      ],
+      benefits: [
+        { title: "Disponibile 24/7", desc: "Niente più attese alla reception. Ricevi risposte alle tue domande a qualsiasi ora, giorno e notte." },
+        { title: "Multilingue", desc: "Il concierge risponde automaticamente nella tua lingua — inglese, francese, arabo, spagnolo e altro ancora." },
+        { title: "Personalizzato", desc: "Conosce il tuo riad, le tue camere e i tuoi servizi. Le risposte sono specifiche per Dar D'Art, non generiche." },
+      ],
+    },
+    privacyPage: {
+      legal: "Legale",
+      title: "Informativa sulla Privacy",
+      intro: "Riad Dar D'Art (“noi”, “ci” o “nostro”) gestisce la piattaforma di concierge per ospiti dardart.com. Questa Informativa sulla Privacy descrive come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali quando utilizzi il nostro servizio.",
+      sections: [
+        {
+          title: "1. Informazioni che Raccogliamo",
+          body: `Quando crei un account e utilizzi la piattaforma concierge Dar D'Art, raccogliamo le seguenti informazioni:
+
+**Informazioni sull'account:** il tuo nome, indirizzo email e codice di accesso alla prenotazione fornito durante la registrazione.
+
+**Messaggi di chat:** il testo delle tue conversazioni con il concierge IA. Vengono utilizzati per generare risposte e migliorare la qualità del servizio.
+
+**Dati di utilizzo:** analisi di base come le pagine visitate e la durata della sessione. Questi dati sono aggregati e resi anonimi.`,
+        },
+        {
+          title: "2. Come Utilizziamo le Tue Informazioni",
+          body: `Utilizziamo le informazioni raccolte per:
+
+- Fornire e gestire il servizio di concierge IA
+- Autenticare il tuo account e verificare il tuo status di ospite
+- Elaborare le tue richieste al concierge e inoltrare le richieste di prenotazione al nostro team
+- Migliorare l'accuratezza e la pertinenza delle risposte dell'IA
+- Comunicare con te riguardo al tuo soggiorno o account
+
+Non vendiamo i tuoi dati personali a terzi.`,
+        },
+        {
+          title: "3. Conservazione dei Dati",
+          body: `I dati dell'account vengono conservati per la durata del tuo soggiorno più 90 giorni, dopodiché vengono eliminati definitivamente a meno che tu non richieda una cancellazione anticipata.
+
+I log delle chat vengono conservati per 30 giorni per permetterci di verificare la qualità del servizio. Puoi richiedere la cancellazione della cronologia chat in qualsiasi momento contattandoci.`,
+        },
+        {
+          title: "4. Servizi di Terze Parti",
+          body: `Il concierge IA è basato su Claude AI di Anthropic. I tuoi messaggi di chat vengono trasmessi all'API di Anthropic esclusivamente per generare risposte. Anthropic elabora questi dati in conformità con la propria informativa sulla privacy. Non condividiamo il tuo nome, la tua email o i dettagli della prenotazione con Anthropic.
+
+La nostra piattaforma è ospitata su Vercel. I tuoi dati sono conservati ed elaborati in conformità con i termini di elaborazione dei dati di Vercel.`,
+        },
+        {
+          title: "5. I Tuoi Diritti",
+          body: `Ai sensi del GDPR e delle leggi applicabili sulla protezione dei dati, hai il diritto di:
+
+- **Accedere** ai dati personali che deteniamo su di te
+- **Correggere** dati inesatti o incompleti
+- **Eliminare** il tuo account e i tuoi dati personali
+- **Opporti** al trattamento dei tuoi dati
+- **Portabilità** — richiedere una copia dei tuoi dati in un formato leggibile da macchina
+
+Per esercitare uno di questi diritti, contattaci a contact@riaddartmarrakech.com. Risponderemo entro 30 giorni.`,
+        },
+        {
+          title: "6. Cookie",
+          body: `Utilizziamo solo cookie essenziali necessari per mantenerti connesso e mantenere la tua sessione. Non utilizziamo cookie pubblicitari o cookie di tracciamento di terze parti.`,
+        },
+        {
+          title: "7. Sicurezza",
+          body: `Implementiamo misure di sicurezza standard del settore per proteggere i tuoi dati, tra cui la trasmissione dei dati crittografata (HTTPS) e l'hashing sicuro delle password. Tuttavia, nessun metodo di trasmissione su Internet è sicuro al 100%.`,
+        },
+        {
+          title: "8. Contatti per Questioni di Privacy",
+          body: `Se hai domande su questa Informativa sulla Privacy o su come trattiamo i tuoi dati, contattaci:
+
+**Email:** contact@riaddartmarrakech.com
+**Indirizzo:** 19 Derb Zemrane, Medina di Marrakech 40000, Marocco`,
+        },
+      ],
+    },
+    termsPage: {
+      legal: "Legale",
+      title: "Termini di Servizio",
+      intro: "Questi Termini di Servizio regolano il tuo utilizzo della piattaforma di concierge per ospiti Dar D'Art gestita da Riad Dar D'Art, situato al 19 Derb Zemrane, Marrakech, Marocco. Ti preghiamo di leggere attentamente questi termini prima di utilizzare il nostro servizio.",
+      sections: [
+        {
+          title: "1. Accettazione dei Termini",
+          body: `Creando un account e utilizzando la piattaforma di concierge per ospiti Dar D'Art, accetti di essere vincolato da questi Termini di Servizio. Se non accetti questi termini, ti preghiamo di non utilizzare il servizio.
+
+Questi termini possono essere aggiornati di volta in volta. L'uso continuato del servizio dopo le modifiche costituisce accettazione dei termini revisionati.`,
+        },
+        {
+          title: "2. Idoneità",
+          body: `L'accesso alla piattaforma di concierge è riservato agli ospiti confermati del Riad Dar D'Art. È richiesto un codice di accesso alla prenotazione valido — fornito nella conferma della tua prenotazione — per creare un account.
+
+Registrandoti, confermi di essere un ospite attuale o futuro e che il codice di accesso fornito è tuo.`,
+        },
+        {
+          title: "3. Utilizzo del Servizio",
+          body: `Accetti di utilizzare la piattaforma solo per scopi legali e in un modo coerente con questi termini. Non devi:
+
+- Utilizzare il servizio per trasmettere contenuti dannosi, offensivi o illegali
+- Tentare di decompilare, violare o interrompere la piattaforma
+- Condividere le credenziali del tuo account o il codice di accesso con altri
+- Utilizzare il servizio in un modo che possa danneggiare la reputazione di Riad Dar D'Art`,
+        },
+        {
+          title: "4. Limitazioni del Concierge IA",
+          body: `Il concierge IA fornisce risposte informative basate su conoscenze generali su Riad Dar D'Art e Marrakech. Le sue risposte:
+
+- Sono fornite solo a scopo informativo e non costituiscono un impegno contrattuale
+- Potrebbero non essere sempre accurate o aggiornate
+- Non devono essere utilizzate per decisioni mediche, legali o critiche per la sicurezza
+
+Per prenotazioni confermate o accordi specifici, contatta direttamente il nostro team.`,
+        },
+        {
+          title: "5. Account Utente e Codici di Accesso",
+          body: `Sei responsabile del mantenimento della riservatezza del tuo account e del codice di accesso. Devi informarci immediatamente se sospetti un accesso non autorizzato al tuo account.
+
+Ogni codice di accesso è valido per una singola registrazione di account. I codici di accesso scadono 30 giorni dopo la data del tuo check-out.`,
+        },
+        {
+          title: "6. Proprietà Intellettuale",
+          body: `Tutti i contenuti della piattaforma — inclusi testi, immagini, design e il sistema di concierge IA — sono di proprietà di Riad Dar D'Art o dei suoi licenzianti e sono protetti dalle leggi applicabili sulla proprietà intellettuale.
+
+Non puoi riprodurre, distribuire o creare opere derivate da qualsiasi contenuto della piattaforma senza il nostro previo consenso scritto.`,
+        },
+        {
+          title: "7. Limitazione di Responsabilità",
+          body: `Nella misura massima consentita dalla legge, Riad Dar D'Art non sarà responsabile per eventuali danni indiretti, incidentali, speciali o consequenziali derivanti dall'uso della piattaforma.
+
+Il servizio è fornito "così com'è" senza garanzie di alcun tipo. Non garantiamo l'accuratezza, l'affidabilità o la disponibilità del concierge IA in un dato momento.`,
+        },
+        {
+          title: "8. Modifiche ai Termini",
+          body: `Ci riserviamo il diritto di modificare questi Termini di Servizio in qualsiasi momento. Informeremo gli utenti di modifiche sostanziali aggiornando la data "Ultimo aggiornamento" in cima a questa pagina.`,
+        },
+        {
+          title: "9. Legge Applicabile",
+          body: `Questi termini sono regolati dalle leggi del Regno del Marocco. Eventuali controversie derivanti da questi termini saranno soggette alla giurisdizione esclusiva dei tribunali di Marrakech, Marocco.`,
+        },
+        {
+          title: "10. Contatti",
+          body: `Per domande su questi Termini di Servizio, contattaci:
+
+**Email:** contact@riaddartmarrakech.com
+**Indirizzo:** 19 Derb Zemrane, Medina di Marrakech 40000, Marocco`,
+        },
+      ],
     },
   },
 } as const;

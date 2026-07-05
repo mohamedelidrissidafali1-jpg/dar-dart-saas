@@ -67,7 +67,7 @@ export default function SignUp() {
     });
 
     if (signUpError || !data.user) {
-      setError(signUpError?.message ?? "Sign up failed. Please try again.");
+      setError(signUpError?.message ?? tr.signUp.signUpFailedDefault);
       setLoading(false);
       return;
     }
@@ -81,7 +81,7 @@ export default function SignUp() {
     });
 
     if (profileError) {
-      setError("Account created but profile setup failed. Please contact support.");
+      setError(tr.signUp.profileSetupFailed);
       setLoading(false);
       return;
     }
