@@ -10,6 +10,7 @@ export default function CompleteProfile() {
   const router = useRouter();
   const [lang, setLang] = useState<Lang>("en");
   const [reservationName, setReservationName] = useState("");
+  const [phone, setPhone] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [selectedRiad, setSelectedRiad] = useState("");
   const [riadError, setRiadError] = useState(false);
@@ -58,6 +59,7 @@ export default function CompleteProfile() {
       first_name: reservationName,
       language: selectedLanguage,
       riad: selectedRiad,
+      phone,
       checked_out: false,
     });
 
@@ -137,6 +139,35 @@ export default function CompleteProfile() {
                 onFocus={(e) => (e.target.style.borderColor = "#0075de")}
                 onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
                 placeholder={tr.signUp.namePlaceholder}
+              />
+            </div>
+
+            {/* Phone */}
+            <div className="flex flex-col gap-1.5">
+              <label
+                htmlFor="phone"
+                className="text-[14px] font-medium"
+                style={{ color: "var(--ink-secondary)" }}
+              >
+                {tr.completeProfile.phone}
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+                autoComplete="tel"
+                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
+                style={{
+                  border: "1px solid var(--hairline)",
+                  color: "var(--ink)",
+                  background: "var(--surface)",
+                  caretColor: "#0075de",
+                }}
+                onFocus={(e) => (e.target.style.borderColor = "#0075de")}
+                onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
+                placeholder={tr.completeProfile.phonePlaceholder}
               />
             </div>
 

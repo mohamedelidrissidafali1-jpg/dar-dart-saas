@@ -22,6 +22,7 @@ export default function SignUp() {
     lastName: "",
     email: "",
     password: "",
+    phone: "",
     agreed: false,
     selectedRiad: "",
     selectedLanguage: "",
@@ -77,6 +78,7 @@ export default function SignUp() {
       first_name: form.firstName,
       language: form.selectedLanguage,
       riad: form.selectedRiad,
+      phone: form.phone,
       checked_out: false,
     });
 
@@ -246,6 +248,30 @@ export default function SignUp() {
                 onFocus={focusOn}
                 onBlur={focusOff}
                 placeholder="you@example.com"
+              />
+            </div>
+
+            {/* Phone */}
+            <div className="flex flex-col gap-1.5">
+              <label
+                htmlFor="phone"
+                className="text-[14px] font-medium"
+                style={{ color: "var(--ink-secondary)" }}
+              >
+                {tr.signUp.phone}
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                value={form.phone}
+                onChange={(e) => set("phone", e.target.value)}
+                required
+                autoComplete="tel"
+                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
+                style={inputBase}
+                onFocus={focusOn}
+                onBlur={focusOff}
+                placeholder={tr.signUp.phonePlaceholder}
               />
             </div>
 

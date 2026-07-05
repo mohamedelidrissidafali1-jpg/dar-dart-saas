@@ -158,6 +158,7 @@ interface Profile {
   first_name: string;
   language: string;
   riad: string;
+  phone: string;
   checked_out: boolean;
 }
 
@@ -201,7 +202,7 @@ export default function Dashboard() {
       }
       supabase
         .from("profiles")
-        .select("first_name, language, riad, checked_out")
+        .select("first_name, language, riad, phone, checked_out")
         .eq("id", user.id)
         .single()
         .then(({ data }) => {
@@ -686,6 +687,8 @@ export default function Dashboard() {
       {showSurvey && profile && (
         <CheckoutSurveyModal
           firstName={firstName}
+          riadLabel={riadLabel}
+          phone={profile.phone}
           lang={lang}
           onClose={() => setShowSurvey(false)}
           onCheckedOut={() => {

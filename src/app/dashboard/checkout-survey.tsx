@@ -7,10 +7,14 @@ import { createClient } from "@/lib/supabase/client";
 
 interface Props {
   firstName: string;
+  riadLabel: string;
+  phone: string;
   lang: Lang;
   onClose: () => void;
   onCheckedOut: () => void;
 }
+
+const WHATSAPP_NUMBER = "212709086496";
 
 const RATING_KEYS = [
   { key: "overall_rating", labelKey: "overallRating" },
@@ -23,7 +27,7 @@ const RATING_KEYS = [
 
 type RatingKey = (typeof RATING_KEYS)[number]["key"];
 
-export default function CheckoutSurveyModal({ firstName, lang, onClose, onCheckedOut }: Props) {
+export default function CheckoutSurveyModal({ firstName, riadLabel, phone, lang, onClose, onCheckedOut }: Props) {
   const router = useRouter();
   const tr = getT(lang);
 
@@ -86,6 +90,26 @@ export default function CheckoutSurveyModal({ firstName, lang, onClose, onChecke
       setLoading(false);
       return;
     }
+
+    await supabase.from("checked_out_guests").insert({
+      guest_phone: phone,
+      guest_name: firstName,
+      riad: riadLabel,
+      checked_out_at: new Date().toISOString(),
+    });
+
+    const message = [
+      "CHECKOUT_SUBMITTED",
+      `Guest name: ${firstName}`,
+      `Riad: ${riadLabel}`,
+      `Room rating: ${ratings.rooms_rating}`,
+      `Food rating: ${ratings.food_rating}`,
+      `Staff rating: ${ratings.staff_rating}`,
+      `Cleanliness rating: ${ratings.cleanliness_rating}`,
+      `Comment: ${comment.trim() || "None"}`,
+    ].join("\n");
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
     setDone(true);
     setTimeout(async () => {
@@ -235,7 +259,7 @@ export default function CheckoutSurveyModal({ firstName, lang, onClose, onChecke
                 className="flex-1 py-2.5 text-[15px] font-medium rounded-full transition-opacity hover:opacity-85 disabled:opacity-50"
                 style={{ background: "#C1440E", color: "#ffffff" }}
               >
-                {loading ? tr.survey.submitting : tr.survey.complete}
+                {loading ? tr.survey.submitting : tr.survey.submitAndWhatsapp}
               </button>
             </div>
           </form>
