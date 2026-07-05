@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { LANGUAGES, getLang, getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
+import { getURL } from "@/lib/get-url";
 
 export default function SignUp() {
   const router = useRouter();
@@ -43,7 +44,7 @@ export default function SignUp() {
     const supabase = createClient();
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: window.location.origin + "/auth/callback" },
+      options: { redirectTo: `${getURL()}/auth/callback` },
     });
   }
 
