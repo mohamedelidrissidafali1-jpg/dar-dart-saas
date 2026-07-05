@@ -37,23 +37,23 @@ const ROOMS_19 = [
 const ROOMS_141 = [
   {
     name: "Lexicon",
-    img: "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
+    img: "/rooms/riad141/lexicon-1.webp",
   },
   {
     name: "Mategot",
-    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+    img: "/rooms/riad141/mategot-1.webp",
   },
   {
     name: "Chevrerie",
-    img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+    img: "/rooms/riad141/chevrerie-1.webp",
   },
   {
     name: "Poupée",
-    img: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
+    img: "/rooms/riad141/poupee-1.webp",
   },
   {
     name: "Zagora",
-    img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+    img: "/rooms/riad141/zagora-1.webp",
   },
 ];
 
