@@ -97,6 +97,21 @@ const EXCURSIONS = [
   },
 ];
 
+// ─── WhatsApp booking ──────────────────────────────────────────────────────────
+
+const WHATSAPP_NUMBER = "212709086496";
+
+const SLUG_TO_MESSAGE_KEY: Record<string, string> = {
+  hammam: "hammam",
+  "airport-transfer": "airportTransfer",
+  dinner: "dinner",
+  agafay: "agafay",
+  "ourika-valley": "ourikaValley",
+  "atlas-mountains": "atlasMountains",
+  "hot-air-balloon": "hotAirBalloon",
+  "city-tour": "cityTour",
+};
+
 // ─── Icons ─────────────────────────────────────────────────────────────────────
 
 function BreakfastIcon() {
@@ -211,6 +226,12 @@ export default function Dashboard() {
   const lang = (profile?.language as Lang) ?? "en";
   const tr = getT(lang);
   const dir = isRtl(lang) ? "rtl" : "ltr";
+
+  const whatsappUrl = (slug: string) => {
+    const messageKey = SLUG_TO_MESSAGE_KEY[slug];
+    const message: string = tr.dashboard.whatsappMessages[messageKey];
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  };
 
   // ── Explicit color tokens ──
   const bg       = isDark ? "#0D1B2A" : "#faf8f5";
@@ -455,13 +476,15 @@ export default function Dashboard() {
                       {desc}
                     </p>
                     {bookSlug && (
-                      <Link
-                        href={`/booking?service=${bookSlug}`}
+                      <a
+                        href={whatsappUrl(bookSlug)}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
                         style={{ background: "#C1440E", color: "#ffffff" }}
                       >
-                        {tr.dashboard.bookNow}
-                      </Link>
+                        {tr.dashboard.bookViaWhatsApp}
+                      </a>
                     )}
                   </div>
                 </div>
@@ -519,21 +542,14 @@ export default function Dashboard() {
                     {ex.price}
                   </p>
                   <div className="flex-1 mb-4" />
-                  <Link
-                    href={`/booking?service=${ex.slug}`}
-                    className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-85 text-center block mb-2"
-                    style={{ background: "#C1440E", color: "#ffffff" }}
-                  >
-                    {tr.dashboard.bookNow}
-                  </Link>
                   <a
-                    href={`https://wa.me/212699814919?text=I would like to book the ${encodeURIComponent(ex.name)} excursion`}
+                    href={whatsappUrl(ex.slug)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-75 text-center block"
-                    style={{ border: "1px solid #C1440E", color: "#C1440E" }}
+                    className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-85 text-center block"
+                    style={{ background: "#C1440E", color: "#ffffff" }}
                   >
-                    {tr.dashboard.inquireWhatsApp}
+                    {tr.dashboard.bookViaWhatsApp}
                   </a>
                 </div>
               </article>
@@ -585,13 +601,15 @@ export default function Dashboard() {
                     {info.sub}
                   </p>
                   {bookSlug && (
-                    <Link
-                      href={`/booking?service=${bookSlug}`}
+                    <a
+                      href={whatsappUrl(bookSlug)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
                       style={{ background: "#C1440E", color: "#ffffff" }}
                     >
-                      {tr.dashboard.bookNow}
-                    </Link>
+                      {tr.dashboard.bookViaWhatsApp}
+                    </a>
                   )}
                 </div>
               );
