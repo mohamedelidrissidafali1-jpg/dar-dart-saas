@@ -42,9 +42,11 @@ export default function SignUp() {
 
   async function handleGoogleSignUp() {
     const supabase = createClient();
+    const redirectTo = `${getURL()}/auth/callback`;
+    console.log("[OAuth] redirectTo:", redirectTo);
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${getURL()}/auth/callback` },
+      options: { redirectTo },
     });
   }
 
