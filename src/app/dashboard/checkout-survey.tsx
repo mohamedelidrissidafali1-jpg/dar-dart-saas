@@ -91,12 +91,20 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, phone, lang,
       return;
     }
 
-    await supabase.from("checked_out_guests").insert({
-      guest_phone: phone,
+    const strippedPhone = phone ? phone.replace(/\D/g, "") : "";
+    const guestPhone = strippedPhone || user.email || "";
+
+    const { error: checkedOutGuestError } = await supabase.from("checked_out_guests").insert({
+      guest_phone: guestPhone,
       guest_name: firstName,
       riad: riadLabel,
       checked_out_at: new Date().toISOString(),
+      goodbye_sent: false,
     });
+
+    if (checkedOutGuestError) {
+      console.error("Failed to insert checked_out_guests row:", checkedOutGuestError);
+    }
 
     const message = [
       "CHECKOUT_SUBMITTED",
