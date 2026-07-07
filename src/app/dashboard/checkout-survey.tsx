@@ -94,12 +94,27 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, phone, lang,
     const strippedPhone = phone ? phone.replace(/\D/g, "") : "";
     const guestPhone = strippedPhone || user.email || "";
 
-    const { error: checkedOutGuestError } = await supabase.from("checked_out_guests").insert({
+    console.log("Inserting into checked_out_guests:", {
       guest_phone: guestPhone,
       guest_name: firstName,
       riad: riadLabel,
-      checked_out_at: new Date().toISOString(),
       goodbye_sent: false,
+    });
+
+    const { data: checkedOutGuestData, error: checkedOutGuestError } = await supabase
+      .from("checked_out_guests")
+      .insert({
+        guest_phone: guestPhone,
+        guest_name: firstName,
+        riad: riadLabel,
+        checked_out_at: new Date().toISOString(),
+        goodbye_sent: false,
+      })
+      .select();
+
+    console.log("checked_out_guests insert result:", {
+      data: checkedOutGuestData,
+      error: checkedOutGuestError,
     });
 
     if (checkedOutGuestError) {
