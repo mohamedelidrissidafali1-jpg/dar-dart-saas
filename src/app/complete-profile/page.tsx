@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { LANGUAGES, getLang, getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
+import { normalizePhone } from "@/lib/phone";
 
 export default function CompleteProfile() {
   const router = useRouter();
@@ -43,6 +44,13 @@ export default function CompleteProfile() {
     if (!selectedLanguage) { setLangError(true); valid = false; }
     if (!valid) return;
 
+    // Same normalization as sign-up: profiles only ever hold bare E.164 digits.
+    const normalizedPhone = normalizePhone(phone);
+    if (!normalizedPhone) {
+      setError(tr.signUp.phoneInvalid);
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -59,7 +67,7 @@ export default function CompleteProfile() {
       first_name: reservationName,
       language: selectedLanguage,
       riad: selectedRiad,
-      phone,
+      phone: normalizedPhone,
       checked_out: false,
     });
 

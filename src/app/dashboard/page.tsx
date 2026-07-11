@@ -71,9 +71,9 @@ const EXCURSIONS = [
     img: "/excursions/ourika-valley.webp",
   },
   {
-    name: "Atlas Mountains",
-    slug: "atlas-mountains",
-    img: "/excursions/atlas-mountains.webp",
+    name: "Essaouira",
+    slug: "essaouira",
+    img: "/excursions/essaouira.webp",
   },
   {
     name: "Hot Air Balloon",
@@ -97,7 +97,7 @@ const SLUG_TO_MESSAGE_KEY: Record<string, string> = {
   dinner: "dinner",
   agafay: "agafay",
   "ourika-valley": "ourikaValley",
-  "atlas-mountains": "atlasMountains",
+  essaouira: "essaouira",
   "hot-air-balloon": "hotAirBalloon",
   "city-tour": "cityTour",
 };
@@ -237,24 +237,18 @@ export default function Dashboard() {
   const riadLabel =
     riad === "riad141" ? "Riad 141" : riad === "riad19" ? "Riad 19" : "Riad Dar D'Art";
   const rooms = riad === "riad141" ? ROOMS_141 : riad === "riad19" ? ROOMS_19 : [];
-  const wifiName = riad === "riad141" ? "DarDArt_Guest" : "DarDArt_Guest_19";
 
   // ── Services list (icons + booking slugs, text from translations) ──
   const SERVICE_LIST: Array<{
     key: string;
     Icon: () => JSX.Element;
     bookSlug?: string;
-    customDetail?: string;
   }> = [
     { key: "breakfast", Icon: BreakfastIcon },
     { key: "hammam", Icon: HammamIcon, bookSlug: "hammam" },
     { key: "pool", Icon: PoolIcon },
     { key: "airportTransfer", Icon: CarIcon, bookSlug: "airport-transfer" },
-    {
-      key: "wifi",
-      Icon: WifiIcon,
-      customDetail: `${wifiName} · ${tr.dashboard.services.wifi.noPassword}`,
-    },
+    { key: "wifi", Icon: WifiIcon },
     { key: "concierge", Icon: ConciergeIcon },
   ];
 
@@ -442,10 +436,10 @@ export default function Dashboard() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {SERVICE_LIST.map(({ key, Icon, bookSlug, customDetail }) => {
+            {SERVICE_LIST.map(({ key, Icon, bookSlug }) => {
               const svc = tr.dashboard.services[key];
               const name: string = svc.name;
-              const detail: string = customDetail ?? svc.detail;
+              const detail: string = svc.detail;
               const desc: string = svc.desc;
               return (
                 <div
@@ -688,7 +682,6 @@ export default function Dashboard() {
         <CheckoutSurveyModal
           firstName={firstName}
           riadLabel={riadLabel}
-          phone={profile.phone}
           lang={lang}
           onClose={() => setShowSurvey(false)}
           onCheckedOut={() => {

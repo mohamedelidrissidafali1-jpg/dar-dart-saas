@@ -12,7 +12,6 @@ export default function SignIn() {
   const [lang, setLang] = useState<Lang>("en");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,7 +25,6 @@ export default function SignIn() {
   async function handleGoogleSignIn() {
     const supabase = createClient();
     const redirectTo = `${getURL()}/auth/callback`;
-    console.log("[OAuth] redirectTo:", redirectTo);
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: { redirectTo },
@@ -126,7 +124,7 @@ export default function SignIn() {
                   {tr.signIn.password}
                 </label>
                 <Link
-                  href="#"
+                  href="/reset-password"
                   className="text-[14px] transition-opacity duration-200 hover:opacity-70"
                   style={{ color: "var(--primary)" }}
                 >
@@ -147,19 +145,6 @@ export default function SignIn() {
                 placeholder="••••••••"
               />
             </div>
-
-            {/* Remember me */}
-            <label className="flex items-center gap-3 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                checked={remember}
-                onChange={(e) => setRemember(e.target.checked)}
-                className="w-4 h-4 accent-[#0075de]"
-              />
-              <span className="text-[14px]" style={{ color: "var(--ink-muted)" }}>
-                {tr.signIn.rememberMe}
-              </span>
-            </label>
 
             {/* Error */}
             {error && (

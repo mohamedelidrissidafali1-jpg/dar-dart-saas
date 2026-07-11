@@ -13,27 +13,27 @@ const ROOMS_19 = [
   {
     name: "Suite Terrasse Lulu",
     descKey: "terrasseLulu",
-    img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+    img: "/rooms/terrasse-lulu/image-7.webp",
   },
   {
     name: "Suite Africa",
     descKey: "africa",
-    img: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
+    img: "/rooms/africa/image-14.webp",
   },
   {
     name: "Suite Familiar Gazelle",
     descKey: "gazelle",
-    img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+    img: "/rooms/gazelle/image-20.webp",
   },
   {
     name: "Suite Frida",
     descKey: "frida",
-    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+    img: "/rooms/frida/image-27.webp",
   },
   {
     name: "Suite Rosa",
     descKey: "rosa",
-    img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=80",
+    img: "/rooms/rosa/image-33.webp",
   },
 ];
 
@@ -41,50 +41,54 @@ const ROOMS_141 = [
   {
     name: "Lexicon",
     descKey: "lexicon",
-    img: "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
+    img: "/rooms/riad141/lexicon-1.webp",
   },
   {
     name: "Mategot",
     descKey: "mategot",
-    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+    img: "/rooms/riad141/mategot-1.webp",
   },
   {
     name: "Chevrerie",
     descKey: "chevrerie",
-    img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+    img: "/rooms/riad141/chevrerie-1.webp",
   },
   {
     name: "Poupée",
     descKey: "poupee",
-    img: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
+    img: "/rooms/riad141/poupee-1.webp",
   },
   {
     name: "Zagora",
     descKey: "zagora",
-    img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+    img: "/rooms/riad141/zagora-1.webp",
   },
 ];
 
 const EXCURSIONS = [
   {
-    key: "medinaWalkingTour",
-    img: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=800",
+    key: "agafayExpress",
+    img: "/excursions/agafay.webp",
   },
   {
-    key: "atlasMountainsDayTrip",
-    img: "https://images.unsplash.com/photo-1489493887464-892be6d1daae?w=800",
+    key: "agafayFull",
+    img: "/excursions/agafay.webp",
   },
   {
-    key: "saharaDesertTour",
-    img: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800",
+    key: "essaouira",
+    img: "/excursions/essaouira.webp",
   },
   {
-    key: "moroccanCookingClass",
-    img: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=800",
+    key: "ourika",
+    img: "/excursions/ourika-valley.webp",
   },
   {
-    key: "camelRide",
-    img: "https://images.unsplash.com/photo-1452022582947-b521d8779ab6?w=800",
+    key: "hotAirBalloon",
+    img: "/excursions/hot-air-balloon.webp",
+  },
+  {
+    key: "cityDay",
+    img: "/excursions/city-tour.webp",
   },
 ];
 
@@ -493,7 +497,7 @@ export default function Home() {
                           border: "1px solid var(--hairline)",
                         }}
                       >
-                        {item.duration}
+                        {item.price}
                       </span>
                     </div>
                     <p className="text-[15px] leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
@@ -594,7 +598,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {/* WhatsApp */}
             <a
-              href="https://wa.me/212600000000"
+              href={`https://wa.me/212709086496?text=${encodeURIComponent(tr.contactPage.whatsappPrefill)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 px-8 py-4 text-[16px] font-medium rounded-full transition-opacity duration-200 hover:opacity-90"
@@ -605,19 +609,10 @@ export default function Home() {
               </svg>
               {tr.contact.whatsapp}
             </a>
-
-            {/* Email */}
-            <a
-              href="mailto:contact@riaddartmarrakech.com"
-              className="flex items-center justify-center gap-3 px-8 py-4 text-[16px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
-              style={{ background: "#C1440E", color: "#ffffff" }}
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
-              </svg>
-              {tr.contact.emailUs}
-            </a>
           </div>
+          <p className="text-center text-[14px] mt-4" style={{ color: "var(--ink-faint)" }} dir="ltr">
+            {tr.contactPage.whatsappLabel}
+          </p>
         </div>
       </section>
 

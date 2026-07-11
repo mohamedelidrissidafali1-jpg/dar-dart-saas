@@ -83,7 +83,6 @@ const t = {
       email: "Email",
       password: "Password",
       forgotPassword: "Forgot password?",
-      rememberMe: "Remember me",
       submit: "Sign In",
       signingIn: "Signing in…",
       continueWithGoogle: "Continue with Google",
@@ -91,11 +90,22 @@ const t = {
       noAccount: "New guest?",
       createAccount: "Create an account →",
       backHome: "← Back to home",
+      resetHeading: "Reset Your Password",
+      resetDesc: "Enter your email address and we'll send you a link to reset your password.",
+      sendResetLink: "Send Reset Link",
+      resetEmailSent: "Check your inbox — we've sent you a password reset link.",
+      newPassword: "New Password",
+      confirmPassword: "Confirm Password",
+      updatePassword: "Update Password",
+      passwordUpdated: "Password updated. Taking you to your dashboard…",
+      passwordMismatch: "Passwords do not match.",
+      passwordTooShort: "Password must be at least 6 characters.",
+      backToSignIn: "← Back to sign in",
     },
     signUp: {
       conciergeAwaits: "Your personal concierge awaits",
       heading: "Create Your Account",
-      subheading: "Your unique access code is included in your booking confirmation email.",
+      subheading: "Create your free guest account to access your personal concierge.",
       firstName: "First Name",
       lastName: "Last Name",
       nameOnReservation: "Name on Reservation",
@@ -103,7 +113,7 @@ const t = {
       email: "Email",
       password: "Password",
       phone: "Phone Number",
-      phonePlaceholder: "+1 234 567 8900",
+      phonePlaceholder: "With country code, e.g. +1 234 567 8900",
       phoneRequired: "Please enter your phone number.",
       whichRiad: "Which riad are you staying at?",
       language: "Preferred Language",
@@ -122,6 +132,8 @@ const t = {
       backHome: "← Back to home",
       signUpFailedDefault: "Sign up failed. Please try again.",
       profileSetupFailed: "Account created but profile setup failed. Please contact support.",
+      phoneInvalid: "Please enter your full phone number with country code (e.g. +212 6XX XXX XXX or +33 6 XX XX XX XX).",
+      confirmEmail: "Almost there! Check your inbox and confirm your email address to activate your account.",
     },
     dashboard: {
       aiConcierge: "AI Concierge",
@@ -135,7 +147,7 @@ const t = {
         "What time is breakfast?",
         "Book an excursion",
         "Request room service",
-        "What's the Wi-Fi password?",
+        "What excursions do you offer?",
         "What time is check-out?",
       ],
       guestPortal: "Your Personalized Guest Portal",
@@ -163,20 +175,20 @@ const t = {
         dinner: "Hello, I would like to book Dinner at the Riad",
         agafay: "Hello, I would like to book the Agafay Desert Excursion",
         ourikaValley: "Hello, I would like to book the Ourika Valley Excursion",
-        atlasMountains: "Hello, I would like to book the Atlas Mountains Excursion",
+        essaouira: "Hello, I would like to book the Essaouira Day Trip",
         hotAirBalloon: "Hello, I would like to book the Hot Air Balloon experience",
-        cityTour: "Hello, I would like to book a City Tour Guide",
+        cityTour: "Hello, I would like to book a Guided City Day",
       },
       services: {
         breakfast: {
           name: "Breakfast",
           detail: "8:00 AM – 10:30 AM · Included",
-          desc: "Traditional Moroccan breakfast in the open-air courtyard. Tea, coffee, crêpes, fresh juice, cheese, honey, and eggs on request.",
+          desc: "Traditional Moroccan breakfast in the open-air courtyard. Tea, coffee, Moroccan pancakes, fresh orange juice, cheese, honey, and eggs to order. Express breakfast available for early departures.",
         },
         hammam: {
           name: "Hammam & Spa",
           detail: "€20/person · Min 2 people",
-          desc: "Authentic hammam ritual with exfoliation and argan soap. Massage: 30 min €30 · 60 min €40. Available 10:00 AM – 9:00 PM. Book via WhatsApp.",
+          desc: "Authentic hammam ritual with exfoliation and argan soap. Massage: 30 min €30 · 60 min €40. Open 9:00 AM – 9:00 PM — reserve at least 2 hours in advance via WhatsApp.",
         },
         pool: {
           name: "Pool",
@@ -185,32 +197,32 @@ const t = {
         },
         airportTransfer: {
           name: "Airport Transfer",
-          detail: "€20 (1–4 pax) · €30 (5+)",
-          desc: "Private, air-conditioned transfers available 24/7. Book via WhatsApp at least 2h30 before your flight.",
+          detail: "€20 (1–4, 07:00–22:00) · €25 (1–4, 23:00–06:00) · €30 (5–7)",
+          desc: "Private, air-conditioned transfers. Book via WhatsApp at least 2h30 before your flight.",
         },
         wifi: {
           name: "WiFi",
-          noPassword: "No password",
-          desc: "High-speed complimentary WiFi throughout the riad. Just connect — no password required.",
+          detail: "Included",
+          desc: "High-speed complimentary WiFi throughout the riad. Connection details are provided at check-in.",
         },
         concierge: {
           name: "Concierge",
-          detail: "WhatsApp 0699814919 · 24h",
-          desc: "Our team is available around the clock to arrange anything you need — from restaurant bookings to excursions.",
+          detail: "WhatsApp +212 709 086 496 · 08:00–22:00",
+          desc: "Our front desk team is available daily from 08:00 to 22:00 to arrange anything you need — from restaurant bookings to excursions. The AI concierge in the app is available 24/7.",
         },
       },
       info: {
-        checkIn: { label: "Check-in", value: "2:00 PM", sub: "Early if room ready" },
+        checkIn: { label: "Check-in", value: "2:00 PM", sub: "Arrival possible from 10:30 AM" },
         checkOut: { label: "Check-out", value: "12:00 PM", sub: "Late possible on request" },
-        dinner: { label: "Dinner at Riad", value: "€20/person", sub: "Min 4 people · Book via WhatsApp" },
+        dinner: { label: "Dinner at Riad", value: "€20/person", sub: "Min 4 people · Children <12 €12, <4 free · Reserve 1 day ahead" },
         water: { label: "Water", value: "20 dirhams", sub: "Per bottle · Kitchen available" },
       },
       excursionsList: {
-        agafay: { subtitle: "Quad · Camel · Dinner", price: "€30–55 / person" },
-        "ourika-valley": { subtitle: "Atlas · Waterfalls · Berber villages", price: "From €20 / person" },
-        "atlas-mountains": { subtitle: "Mountains · Berber villages · Fresh air", price: "€35 / person" },
-        "hot-air-balloon": { subtitle: "Sunrise · Panoramic views", price: "€97 / person" },
-        "city-tour": { subtitle: "Medina · Souks · Hidden places", price: "€20 / person" },
+        agafay: { subtitle: "Quad · Camel · Dinner · Fire show", price: "Pack A €30 · Pack B €55" },
+        "ourika-valley": { subtitle: "Atlas · Waterfalls · Berber villages · 09:00–17:00", price: "€20 · €27 with meal" },
+        essaouira: { subtitle: "UNESCO medina · Atlantic coast · 08:00–20:00", price: "€25 / person" },
+        "hot-air-balloon": { subtitle: "Sunrise · Panoramic views · Reserve in advance", price: "€97 / person" },
+        "city-tour": { subtitle: "Medina · Souks · Hidden places", price: "€65 / group (1–4 people)" },
       },
     },
     survey: {
@@ -236,7 +248,9 @@ const t = {
       beforeSubmitting: "before submitting.",
       sessionExpired: "Session expired. Please sign in again.",
       failedToSubmit: "Failed to submit survey. Please try again.",
-      checkoutFailed: "Survey saved but checkout failed. Please try again.",
+      checkoutFailed: "Something went wrong during checkout. You have not been signed out — please try again.",
+      phoneInvalid: "Please enter your full phone number with country code in your profile (e.g. +212 6XX XXX XXX or +33 6 XX XX XX XX), then try again.",
+      retry: "Retry",
     },
     chat: {
       greeting: "Marhaba! How can I help you today?",
@@ -277,11 +291,12 @@ const t = {
         zagora: "Evocative of the desert south, featuring warm sandstone hues, geometric patterns, and a private terrace.",
       },
       excursionsList: {
-        medinaWalkingTour: { name: "Medina Walking Tour", desc: "Explore the ancient labyrinthine streets and souks of Marrakech with an expert local guide.", duration: "3 hours" },
-        atlasMountainsDayTrip: { name: "Atlas Mountains Day Trip", desc: "Journey through Berber villages and stunning high-altitude landscapes, just 40 km from the city.", duration: "Full day" },
-        saharaDesertTour: { name: "Sahara Desert Tour", desc: "A 3-day adventure to the golden dunes of Erg Chebbi — camel trek and overnight camp included.", duration: "3 days" },
-        moroccanCookingClass: { name: "Moroccan Cooking Class", desc: "Learn to prepare traditional tagines, bastilla, and mint tea in our authentic riad kitchen.", duration: "4 hours" },
-        camelRide: { name: "Camel Ride", desc: "A sunset ride through the palm groves and olive orchards on the outskirts of Marrakech.", duration: "2 hours" },
+        agafayExpress: { name: "Agafay Desert — Pack A Express", desc: "Quad biking (40 min), camel ride (10 min), dinner, fire show, pool and transport included.", price: "€30 / person" },
+        agafayFull: { name: "Agafay Desert — Pack B Full Experience", desc: "Quad biking (1 h), camel ride (20 min), dinner, fire show, pool and transport included.", price: "€55 / person" },
+        essaouira: { name: "Essaouira Day Trip", desc: "A full day on the Atlantic coast — UNESCO-listed medina, port, and ramparts. Departure 08:00, return 20:00.", price: "€25 / person" },
+        ourika: { name: "Ourika Valley", desc: "Atlas mountains, waterfalls, and Berber villages. Departure 09:00, return 17:00. €27 with meal included.", price: "From €20 / person" },
+        hotAirBalloon: { name: "Hot Air Balloon", desc: "Sunrise flight with panoramic views over the Atlas and palm groves. Advance reservation required.", price: "€97 / person" },
+        cityDay: { name: "Guided City Day", desc: "A full day in Marrakech with an expert local guide — medina, souks, and hidden places.", price: "€65 / group (1–4)" },
       },
       servicesList: {
         breakfast: { name: "Breakfast", desc: "Traditional Moroccan breakfast served daily in the open-air courtyard." },
@@ -298,7 +313,7 @@ const t = {
       continueToDashboard: "Continue to Dashboard",
       saveFailed: "Failed to save profile. Please try again.",
       phone: "Phone Number",
-      phonePlaceholder: "+1 234 567 8900",
+      phonePlaceholder: "With country code, e.g. +1 234 567 8900",
       phoneRequired: "Please enter your phone number.",
     },
     aboutPage: {
@@ -331,27 +346,14 @@ const t = {
       reachOut: "Reach Out",
       ourLocations: "Our Locations",
       directContact: "Direct Contact",
-      whatsappLabel: "WhatsApp: +212 600 000 000",
+      whatsappLabel: "WhatsApp: +212 709 086 496",
       hours: "Hours",
       deskHours: "Front desk available daily, 08:00 – 22:00",
       conciergeAvailable: "AI Concierge available 24/7 via",
       yourDashboard: "your dashboard",
-      messageSent: "Message Sent",
-      messageSentDesc: "Thank you — our team will be in touch shortly.",
-      sendAMessage: "Send a Message",
-      name: "Name",
-      namePlaceholder: "Your name",
-      subject: "Subject",
-      selectSubject: "Select a subject",
-      subjects: {
-        bookingEnquiry: "Booking Enquiry",
-        guestSupport: "Guest Support",
-        partnership: "Partnership",
-        other: "Other",
-      },
-      message: "Message",
-      messagePlaceholder: "How can we help you?",
-      sendMessageBtn: "Send Message",
+      chatOnWhatsApp: "Chat on WhatsApp",
+      whatsappDesc: "The fastest way to reach us — questions, bookings, and anything about your stay.",
+      whatsappPrefill: "Hello! I have a question about Riad Dar D'Art",
     },
     faqPage: {
       helpSupport: "Help & Support",
@@ -364,7 +366,7 @@ const t = {
         {
           category: "Check-in & Check-out",
           items: [
-            { q: "What time is check-in and check-out?", a: "Check-in is from 14:00 (2:00 PM). Check-out is by 11:00 AM. Early check-in and late check-out can be arranged subject to availability — just ask your AI concierge or contact us in advance." },
+            { q: "What time is check-in and check-out?", a: "Arrival is possible from 10:30 AM (we'll store your luggage); rooms are ready from 14:00 (2:00 PM). Check-out is by 12:00 (noon). Early check-in and late check-out can be arranged subject to availability — just ask your AI concierge or contact us in advance." },
             { q: "Where do I pick up the keys?", a: "Our team will greet you at the riad entrance. For late arrivals, please let us know your estimated arrival time so we can ensure someone is there to welcome you." },
             { q: "Can I leave luggage before check-in or after check-out?", a: "Yes, we're happy to store your luggage on the day of arrival before your room is ready, or on the day of departure after check-out." },
           ],
@@ -372,24 +374,23 @@ const t = {
         {
           category: "Rooms & Amenities",
           items: [
-            { q: "Is Wi-Fi available?", a: "Yes, complimentary high-speed Wi-Fi is available throughout both riads. Your concierge can provide the current password on request." },
+            { q: "Is Wi-Fi available?", a: "Yes, complimentary high-speed Wi-Fi is included throughout both riads. Connection details are provided at check-in." },
             { q: "Is there air conditioning?", a: "All rooms are equipped with air conditioning and heating, ensuring comfort year-round in Marrakech's varying climate." },
-            { q: "Do you offer laundry service?", a: "Yes, laundry and dry-cleaning services are available. Please speak to our team or ask your AI concierge for details and turnaround times." },
           ],
         },
         {
           category: "Services",
           items: [
-            { q: "What does breakfast include?", a: "We serve a traditional Moroccan breakfast daily in the courtyard — msemen, beghrir, fresh-pressed orange juice, Medjool dates, honey, argan oil, and Moroccan mint tea. Served from 7:30 AM to 10:30 AM." },
+            { q: "What does breakfast include?", a: "We serve a traditional Moroccan breakfast daily in the courtyard from 8:00 AM to 10:30 AM — tea, coffee, Moroccan pancakes, cheese, jam, honey, butter, fruit salad, fresh orange juice, bread, cake, cherry tomatoes, cucumber, black olives, and eggs to order. The menu varies daily. An express breakfast is available for early departures (request it the night before). Gluten-free cannot be guaranteed — we recommend bringing your own gluten-free products." },
             { q: "Is there a pool?", a: "Riad 141 has a small plunge pool in the garden courtyard, available to all guests staying at either property." },
-            { q: "How do I book the hammam?", a: "The hammam is available for private bookings. Ask your AI concierge or speak to the front desk to check availability and book a session." },
+            { q: "How do I book the hammam?", a: "The spa is open 9:00 AM – 9:00 PM. The hammam is €20/person with a minimum of 2 people; massages are 30 min €30 or 60 min €40. Reserve at least 2 hours in advance via WhatsApp or your AI concierge." },
           ],
         },
         {
           category: "Excursions",
           items: [
-            { q: "How do I book an excursion?", a: "You can request any excursion through your AI concierge or directly with our team at the front desk. We recommend booking at least 24 hours in advance for day trips." },
-            { q: "What is the cancellation policy for excursions?", a: "Excursions can be cancelled or rescheduled up to 24 hours before the scheduled departure. Same-day cancellations may incur a fee." },
+            { q: "How do I book an excursion?", a: "You can request any excursion through your AI concierge or via WhatsApp. We recommend booking at least 24 hours in advance for day trips." },
+            { q: "What is the cancellation policy?", a: "Cancellation is free up to 14 days before your arrival. For any changes after that, please contact our team via WhatsApp." },
             { q: "Can you arrange custom private tours?", a: "Absolutely. We work with expert local guides and private drivers to create bespoke experiences. Contact us with your interests and we'll design something special." },
           ],
         },
@@ -411,12 +412,12 @@ const t = {
       aSmarterStay: "A Smarter Stay",
       ready: "Ready?",
       startExperience: "Start Your Experience",
-      ctaDesc: "Have your booking confirmation ready and create your account in under a minute.",
+      ctaDesc: "Create your free account in under a minute.",
       steps: [
-        { title: "Book Your Stay", desc: "Reserve your room at Riad Dar D'Art through our website, Booking.com, or Airbnb. Every confirmed booking includes a personal access code." },
-        { title: "Receive Your Code", desc: "Your unique access code is sent in your booking confirmation email. It's your personal key to the AI concierge platform." },
-        { title: "Create Your Account", desc: "Sign up at dardart.com using your code. Takes less than a minute — just your name, email, and the code from your confirmation." },
-        { title: "Chat 24/7", desc: "Your AI concierge is available around the clock. Ask anything — breakfast times, excursion bookings, room service, local tips, and more." },
+        { title: "Book Your Stay", desc: "Reserve your room at Riad Dar D'Art through our website, Booking.com, or Airbnb." },
+        { title: "Create Your Account", desc: "Sign up for free in under a minute — just your name, email, phone number, and the riad you're staying at." },
+        { title: "Explore Your Guest Portal", desc: "Find everything about your stay in one place — your rooms, services, excursions, and practical information." },
+        { title: "Chat 24/7", desc: "Your AI concierge is available around the clock. Ask anything — breakfast times, excursion bookings, local tips, and more." },
       ],
       benefits: [
         { title: "Available 24/7", desc: "No waiting for the front desk. Get answers to your questions at any hour, day or night." },
@@ -427,13 +428,13 @@ const t = {
     privacyPage: {
       legal: "Legal",
       title: "Privacy Policy",
-      intro: "Riad Dar D'Art (“we”, “us”, or “our”) operates the dardart.com guest concierge platform. This Privacy Policy describes how we collect, use, and protect your personal information when you use our service.",
+      intro: "Riad Dar D'Art (“we”, “us”, or “our”) operates this guest concierge platform (dar-dart-saas.vercel.app). This Privacy Policy describes how we collect, use, and protect your personal information when you use our service.",
       sections: [
         {
           title: "1. Information We Collect",
           body: `When you create an account and use the Dar D'Art concierge platform, we collect the following information:
 
-**Account information:** Your name, email address, and booking access code provided during registration.
+**Account information:** Your name, email address, phone number, chosen riad, and preferred language, provided during registration.
 
 **Chat messages:** The text of your conversations with the AI concierge. These are used to generate responses and to improve the quality of the service.
 
@@ -504,10 +505,10 @@ To exercise any of these rights, please contact us at contact@riaddartmarrakech.
 These terms may be updated from time to time. Continued use of the service after changes constitutes acceptance of the revised terms.`,
         },
         {
-          title: "2. Eligibility",
-          body: `Access to the concierge platform is restricted to confirmed guests of Riad Dar D'Art. A valid booking access code — provided in your reservation confirmation — is required to create an account.
+          title: "2. The Service",
+          body: `The platform is a free information and concierge companion for guests of Riad Dar D'Art. Registration is open — anyone planning or enjoying a stay with us can create an account.
 
-By registering, you confirm that you are a current or upcoming guest and that the access code you provide is your own.`,
+By registering, you confirm that the information you provide (name, email, phone number) is accurate and your own.`,
         },
         {
           title: "3. Use of the Service",
@@ -515,7 +516,7 @@ By registering, you confirm that you are a current or upcoming guest and that th
 
 - Use the service to transmit harmful, offensive, or illegal content
 - Attempt to reverse-engineer, hack, or disrupt the platform
-- Share your account credentials or access code with others
+- Share your account credentials with others
 - Use the service in any way that could damage the reputation of Riad Dar D'Art`,
         },
         {
@@ -529,10 +530,10 @@ By registering, you confirm that you are a current or upcoming guest and that th
 For confirmed reservations, bookings, or specific arrangements, please contact our team directly.`,
         },
         {
-          title: "5. User Accounts & Access Codes",
-          body: `You are responsible for maintaining the confidentiality of your account and access code. You must notify us immediately if you suspect unauthorised access to your account.
+          title: "5. User Accounts",
+          body: `You are responsible for maintaining the confidentiality of your account credentials. You must notify us immediately if you suspect unauthorised access to your account.
 
-Each access code is valid for one account registration. Access codes expire 30 days after your check-out date.`,
+Accounts are personal and may not be shared. We may deactivate accounts after the end of your stay in line with our data retention policy.`,
         },
         {
           title: "6. Intellectual Property",
@@ -628,7 +629,6 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       email: "E-mail",
       password: "Mot de passe",
       forgotPassword: "Mot de passe oublié ?",
-      rememberMe: "Se souvenir de moi",
       submit: "Connexion",
       signingIn: "Connexion en cours…",
       continueWithGoogle: "Continuer avec Google",
@@ -636,11 +636,22 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       noAccount: "Nouveau client ?",
       createAccount: "Créer un compte →",
       backHome: "← Retour à l'accueil",
+      resetHeading: "Réinitialiser votre mot de passe",
+      resetDesc: "Saisissez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+      sendResetLink: "Envoyer le lien",
+      resetEmailSent: "Vérifiez votre boîte de réception — nous vous avons envoyé un lien de réinitialisation.",
+      newPassword: "Nouveau mot de passe",
+      confirmPassword: "Confirmer le mot de passe",
+      updatePassword: "Mettre à jour le mot de passe",
+      passwordUpdated: "Mot de passe mis à jour. Redirection vers votre tableau de bord…",
+      passwordMismatch: "Les mots de passe ne correspondent pas.",
+      passwordTooShort: "Le mot de passe doit contenir au moins 6 caractères.",
+      backToSignIn: "← Retour à la connexion",
     },
     signUp: {
       conciergeAwaits: "Votre concierge personnel vous attend",
       heading: "Créer votre compte",
-      subheading: "Votre code d'accès unique est inclus dans votre e-mail de confirmation de réservation.",
+      subheading: "Créez votre compte invité gratuit pour accéder à votre concierge personnel.",
       firstName: "Prénom",
       lastName: "Nom",
       nameOnReservation: "Nom de la réservation",
@@ -648,7 +659,7 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       email: "E-mail",
       password: "Mot de passe",
       phone: "Numéro de téléphone",
-      phonePlaceholder: "+33 6 12 34 56 78",
+      phonePlaceholder: "Avec l'indicatif du pays, ex. +33 6 12 34 56 78",
       phoneRequired: "Veuillez saisir votre numéro de téléphone.",
       whichRiad: "Dans quel riad séjournez-vous ?",
       language: "Langue préférée",
@@ -667,6 +678,8 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       backHome: "← Retour à l'accueil",
       signUpFailedDefault: "Échec de l'inscription. Veuillez réessayer.",
       profileSetupFailed: "Compte créé mais la configuration du profil a échoué. Veuillez contacter le support.",
+      phoneInvalid: "Veuillez saisir votre numéro de téléphone complet avec l'indicatif du pays (ex. +212 6XX XXX XXX ou +33 6 XX XX XX XX).",
+      confirmEmail: "Presque terminé ! Vérifiez votre boîte de réception et confirmez votre adresse e-mail pour activer votre compte.",
     },
     dashboard: {
       aiConcierge: "Concierge IA",
@@ -680,7 +693,7 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         "À quelle heure est le petit-déjeuner ?",
         "Réserver une excursion",
         "Service en chambre",
-        "Quel est le mot de passe Wi-Fi ?",
+        "Quelles excursions proposez-vous ?",
         "À quelle heure est le départ ?",
       ],
       guestPortal: "Votre portail d'accueil personnalisé",
@@ -708,20 +721,20 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         dinner: "Bonjour, je souhaite réserver un dîner au riad",
         agafay: "Bonjour, je souhaite réserver l'excursion désert d'Agafay",
         ourikaValley: "Bonjour, je souhaite réserver l'excursion vallée de l'Ourika",
-        atlasMountains: "Bonjour, je souhaite réserver l'excursion montagnes de l'Atlas",
+        essaouira: "Bonjour, je souhaite réserver l'excursion d'une journée à Essaouira",
         hotAirBalloon: "Bonjour, je souhaite réserver l'expérience montgolfière",
-        cityTour: "Bonjour, je souhaite réserver une visite guidée de la ville",
+        cityTour: "Bonjour, je souhaite réserver une journée guidée en ville",
       },
       services: {
         breakfast: {
           name: "Petit-déjeuner",
           detail: "8h00 – 10h30 · Inclus",
-          desc: "Petit-déjeuner marocain traditionnel dans la cour en plein air. Thé, café, crêpes, jus frais, fromage, miel et œufs sur demande.",
+          desc: "Petit-déjeuner marocain traditionnel dans la cour en plein air. Thé, café, crêpes marocaines, jus d'orange frais, fromage, miel et œufs sur demande. Petit-déjeuner express disponible pour les départs matinaux.",
         },
         hammam: {
           name: "Hammam & Spa",
           detail: "20€/personne · Min 2 personnes",
-          desc: "Rituel hammam authentique avec gommage et savon à l'argan. Massage : 30 min 30€ · 60 min 40€. Disponible de 10h00 à 21h00. Réservez via WhatsApp.",
+          desc: "Rituel hammam authentique avec gommage et savon à l'argan. Massage : 30 min 30€ · 60 min 40€. Ouvert de 9h00 à 21h00 — réservez au moins 2 heures à l'avance via WhatsApp.",
         },
         pool: {
           name: "Piscine",
@@ -730,32 +743,32 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         },
         airportTransfer: {
           name: "Transfert aéroport",
-          detail: "20€ (1–4 pers.) · 30€ (5+)",
-          desc: "Transferts privés climatisés disponibles 24h/24. Réservez via WhatsApp au moins 2h30 avant votre vol.",
+          detail: "20€ (1–4, 7h–22h) · 25€ (1–4, 23h–6h) · 30€ (5–7)",
+          desc: "Transferts privés climatisés. Réservez via WhatsApp au moins 2h30 avant votre vol.",
         },
         wifi: {
           name: "WiFi",
-          noPassword: "Sans mot de passe",
-          desc: "WiFi haut débit gratuit dans tout le riad. Connectez-vous simplement — aucun mot de passe requis.",
+          detail: "Inclus",
+          desc: "WiFi haut débit gratuit dans tout le riad. Les informations de connexion sont fournies à l'arrivée.",
         },
         concierge: {
           name: "Conciergerie",
-          detail: "WhatsApp 0699814919 · 24h",
-          desc: "Notre équipe est disponible 24h/24 pour organiser tout ce dont vous avez besoin — des réservations de restaurants aux excursions.",
+          detail: "WhatsApp +212 709 086 496 · 8h00–22h00",
+          desc: "Notre équipe de réception est disponible tous les jours de 8h00 à 22h00 pour organiser tout ce dont vous avez besoin — des réservations de restaurants aux excursions. Le concierge IA de l'application est disponible 24h/24.",
         },
       },
       info: {
-        checkIn: { label: "Arrivée", value: "14h00", sub: "Plus tôt si la chambre est disponible" },
+        checkIn: { label: "Arrivée", value: "14h00", sub: "Arrivée possible dès 10h30" },
         checkOut: { label: "Départ", value: "12h00", sub: "Tardif possible sur demande" },
-        dinner: { label: "Dîner au Riad", value: "20€/personne", sub: "Min 4 personnes · Réservez via WhatsApp" },
+        dinner: { label: "Dîner au Riad", value: "20€/personne", sub: "Min 4 personnes · Enfants <12 ans 12€, <4 ans gratuit · Réservez 1 jour à l'avance" },
         water: { label: "Eau", value: "20 dirhams", sub: "Par bouteille · Cuisine disponible" },
       },
       excursionsList: {
-        agafay: { subtitle: "Quad · Chameau · Dîner", price: "30–55 € / personne" },
-        "ourika-valley": { subtitle: "Atlas · Cascades · Villages berbères", price: "À partir de 20 € / personne" },
-        "atlas-mountains": { subtitle: "Montagnes · Villages berbères · Air pur", price: "35 € / personne" },
-        "hot-air-balloon": { subtitle: "Lever du soleil · Vues panoramiques", price: "97 € / personne" },
-        "city-tour": { subtitle: "Médina · Souks · Lieux cachés", price: "20 € / personne" },
+        agafay: { subtitle: "Quad · Chameau · Dîner · Spectacle de feu", price: "Pack A 30 € · Pack B 55 €" },
+        "ourika-valley": { subtitle: "Atlas · Cascades · Villages berbères · 9h00–17h00", price: "20 € · 27 € avec repas" },
+        essaouira: { subtitle: "Médina UNESCO · Côte atlantique · 8h00–20h00", price: "25 € / personne" },
+        "hot-air-balloon": { subtitle: "Lever du soleil · Vues panoramiques · Réservation à l'avance", price: "97 € / personne" },
+        "city-tour": { subtitle: "Médina · Souks · Lieux cachés", price: "65 € / groupe (1–4 personnes)" },
       },
     },
     survey: {
@@ -781,7 +794,9 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       beforeSubmitting: "avant de soumettre.",
       sessionExpired: "Session expirée. Veuillez vous reconnecter.",
       failedToSubmit: "Échec de l'envoi du questionnaire. Veuillez réessayer.",
-      checkoutFailed: "Questionnaire enregistré mais le départ a échoué. Veuillez réessayer.",
+      checkoutFailed: "Une erreur s'est produite lors du départ. Vous n'avez pas été déconnecté — veuillez réessayer.",
+      phoneInvalid: "Veuillez saisir dans votre profil votre numéro de téléphone complet avec l'indicatif du pays (ex. +212 6XX XXX XXX ou +33 6 XX XX XX XX), puis réessayez.",
+      retry: "Réessayer",
     },
     chat: {
       greeting: "Bienvenue ! Comment puis-je vous aider aujourd'hui ?",
@@ -822,11 +837,12 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         zagora: "Évocatrice du sud désertique, avec des teintes chaudes de grès, des motifs géométriques et une terrasse privée.",
       },
       excursionsList: {
-        medinaWalkingTour: { name: "Visite guidée de la médina", desc: "Explorez les rues labyrinthiques et les souks ancestraux de Marrakech avec un guide local expert.", duration: "3 heures" },
-        atlasMountainsDayTrip: { name: "Excursion d'une journée dans l'Atlas", desc: "Traversez des villages berbères et des paysages d'altitude à couper le souffle, à seulement 40 km de la ville.", duration: "Journée complète" },
-        saharaDesertTour: { name: "Excursion dans le désert du Sahara", desc: "Une aventure de 3 jours vers les dunes dorées de l'Erg Chebbi — trek à dos de chameau et bivouac inclus.", duration: "3 jours" },
-        moroccanCookingClass: { name: "Cours de cuisine marocaine", desc: "Apprenez à préparer tagines, pastilla et thé à la menthe traditionnels dans notre authentique cuisine de riad.", duration: "4 heures" },
-        camelRide: { name: "Balade à dos de chameau", desc: "Une balade au coucher du soleil à travers les palmeraies et oliveraies aux abords de Marrakech.", duration: "2 heures" },
+        agafayExpress: { name: "Désert d'Agafay — Pack A Express", desc: "Quad (40 min), balade à dos de chameau (10 min), dîner, spectacle de feu, piscine et transport inclus.", price: "30 € / personne" },
+        agafayFull: { name: "Désert d'Agafay — Pack B Expérience Complète", desc: "Quad (1 h), balade à dos de chameau (20 min), dîner, spectacle de feu, piscine et transport inclus.", price: "55 € / personne" },
+        essaouira: { name: "Journée à Essaouira", desc: "Une journée complète sur la côte atlantique — médina classée UNESCO, port et remparts. Départ 8h00, retour 20h00.", price: "25 € / personne" },
+        ourika: { name: "Vallée de l'Ourika", desc: "Montagnes de l'Atlas, cascades et villages berbères. Départ 9h00, retour 17h00. 27 € avec repas inclus.", price: "À partir de 20 € / personne" },
+        hotAirBalloon: { name: "Montgolfière", desc: "Vol au lever du soleil avec vues panoramiques sur l'Atlas et les palmeraies. Réservation à l'avance obligatoire.", price: "97 € / personne" },
+        cityDay: { name: "Journée guidée en ville", desc: "Une journée complète à Marrakech avec un guide local expert — médina, souks et lieux cachés.", price: "65 € / groupe (1–4)" },
       },
       servicesList: {
         breakfast: { name: "Petit-déjeuner", desc: "Petit-déjeuner marocain traditionnel servi chaque jour dans la cour en plein air." },
@@ -843,7 +859,7 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       continueToDashboard: "Continuer vers le tableau de bord",
       saveFailed: "Échec de l'enregistrement du profil. Veuillez réessayer.",
       phone: "Numéro de téléphone",
-      phonePlaceholder: "+33 6 12 34 56 78",
+      phonePlaceholder: "Avec l'indicatif du pays, ex. +33 6 12 34 56 78",
       phoneRequired: "Veuillez saisir votre numéro de téléphone.",
     },
     aboutPage: {
@@ -876,27 +892,14 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       reachOut: "Contactez-nous",
       ourLocations: "Nos Adresses",
       directContact: "Contact Direct",
-      whatsappLabel: "WhatsApp : +212 600 000 000",
+      whatsappLabel: "WhatsApp : +212 709 086 496",
       hours: "Horaires",
       deskHours: "Réception ouverte tous les jours, 08h00 – 22h00",
       conciergeAvailable: "Concierge IA disponible 24h/24 via",
       yourDashboard: "votre tableau de bord",
-      messageSent: "Message Envoyé",
-      messageSentDesc: "Merci — notre équipe vous contactera sous peu.",
-      sendAMessage: "Envoyer un Message",
-      name: "Nom",
-      namePlaceholder: "Votre nom",
-      subject: "Sujet",
-      selectSubject: "Sélectionnez un sujet",
-      subjects: {
-        bookingEnquiry: "Demande de réservation",
-        guestSupport: "Assistance client",
-        partnership: "Partenariat",
-        other: "Autre",
-      },
-      message: "Message",
-      messagePlaceholder: "Comment pouvons-nous vous aider ?",
-      sendMessageBtn: "Envoyer le Message",
+      chatOnWhatsApp: "Discuter sur WhatsApp",
+      whatsappDesc: "Le moyen le plus rapide de nous joindre — questions, réservations et tout ce qui concerne votre séjour.",
+      whatsappPrefill: "Bonjour ! J'ai une question à propos du Riad Dar D'Art",
     },
     faqPage: {
       helpSupport: "Aide & Assistance",
@@ -909,7 +912,7 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         {
           category: "Arrivée & Départ",
           items: [
-            { q: "À quelle heure sont l'arrivée et le départ ?", a: "L'arrivée se fait à partir de 14h00. Le départ se fait avant 11h00. Une arrivée anticipée ou un départ tardif peuvent être organisés selon disponibilité — demandez simplement à votre concierge IA ou contactez-nous à l'avance." },
+            { q: "À quelle heure sont l'arrivée et le départ ?", a: "L'arrivée est possible dès 10h30 (nous gardons vos bagages) ; les chambres sont prêtes à partir de 14h00. Le départ se fait avant 12h00. Une arrivée anticipée ou un départ tardif peuvent être organisés selon disponibilité — demandez simplement à votre concierge IA ou contactez-nous à l'avance." },
             { q: "Où puis-je récupérer les clés ?", a: "Notre équipe vous accueillera à l'entrée du riad. Pour les arrivées tardives, merci de nous indiquer votre heure d'arrivée estimée afin que quelqu'un soit présent pour vous accueillir." },
             { q: "Puis-je laisser mes bagages avant l'arrivée ou après le départ ?", a: "Oui, nous sommes heureux de conserver vos bagages le jour de votre arrivée avant que votre chambre soit prête, ou le jour de votre départ après le check-out." },
           ],
@@ -917,24 +920,23 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         {
           category: "Chambres & Équipements",
           items: [
-            { q: "Le Wi-Fi est-il disponible ?", a: "Oui, le Wi-Fi haut débit gratuit est disponible dans les deux riads. Votre concierge peut vous communiquer le mot de passe actuel sur demande." },
+            { q: "Le Wi-Fi est-il disponible ?", a: "Oui, le Wi-Fi haut débit gratuit est inclus dans les deux riads. Les informations de connexion sont fournies à l'arrivée." },
             { q: "Y a-t-il la climatisation ?", a: "Toutes les chambres sont équipées de climatisation et de chauffage, garantissant un confort toute l'année malgré le climat variable de Marrakech." },
-            { q: "Proposez-vous un service de blanchisserie ?", a: "Oui, des services de blanchisserie et de nettoyage à sec sont disponibles. Merci de vous adresser à notre équipe ou de demander à votre concierge IA pour les détails et délais." },
           ],
         },
         {
           category: "Services",
           items: [
-            { q: "Que comprend le petit-déjeuner ?", a: "Nous servons un petit-déjeuner marocain traditionnel chaque jour dans la cour — msemen, beghrir, jus d'orange fraîchement pressé, dattes Medjool, miel, huile d'argan et thé à la menthe marocain. Servi de 7h30 à 10h30." },
+            { q: "Que comprend le petit-déjeuner ?", a: "Nous servons un petit-déjeuner marocain traditionnel chaque jour dans la cour, de 8h00 à 10h30 — thé, café, crêpes marocaines, fromage, confiture, miel, beurre, salade de fruits, jus d'orange frais, pain, cake, tomates cerises, concombre, olives noires et œufs à la demande. Le menu varie chaque jour. Un petit-déjeuner express est disponible pour les départs matinaux (à demander la veille). Le sans-gluten ne peut pas être garanti — nous vous recommandons d'apporter vos propres produits." },
             { q: "Y a-t-il une piscine ?", a: "Le Riad 141 dispose d'une petite piscine dans la cour du jardin, accessible à tous les hôtes séjournant dans l'une ou l'autre des propriétés." },
-            { q: "Comment réserver le hammam ?", a: "Le hammam est disponible sur réservation privée. Demandez à votre concierge IA ou adressez-vous à la réception pour vérifier les disponibilités et réserver une séance." },
+            { q: "Comment réserver le hammam ?", a: "Le spa est ouvert de 9h00 à 21h00. Le hammam est à 20 €/personne avec un minimum de 2 personnes ; les massages sont à 30 € (30 min) ou 40 € (60 min). Réservez au moins 2 heures à l'avance via WhatsApp ou votre concierge IA." },
           ],
         },
         {
           category: "Excursions",
           items: [
-            { q: "Comment réserver une excursion ?", a: "Vous pouvez demander n'importe quelle excursion via votre concierge IA ou directement auprès de notre équipe à la réception. Nous recommandons de réserver au moins 24 heures à l'avance pour les excursions d'une journée." },
-            { q: "Quelle est la politique d'annulation pour les excursions ?", a: "Les excursions peuvent être annulées ou reprogrammées jusqu'à 24 heures avant le départ prévu. Les annulations le jour même peuvent entraîner des frais." },
+            { q: "Comment réserver une excursion ?", a: "Vous pouvez demander n'importe quelle excursion via votre concierge IA ou via WhatsApp. Nous recommandons de réserver au moins 24 heures à l'avance pour les excursions d'une journée." },
+            { q: "Quelle est la politique d'annulation ?", a: "L'annulation est gratuite jusqu'à 14 jours avant votre arrivée. Pour toute modification après ce délai, veuillez contacter notre équipe via WhatsApp." },
             { q: "Pouvez-vous organiser des visites privées sur mesure ?", a: "Absolument. Nous travaillons avec des guides locaux experts et des chauffeurs privés pour créer des expériences sur mesure. Contactez-nous avec vos envies et nous concevrons quelque chose de spécial." },
           ],
         },
@@ -956,12 +958,12 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       aSmarterStay: "Un Séjour Plus Intelligent",
       ready: "Prêt ?",
       startExperience: "Démarrez Votre Expérience",
-      ctaDesc: "Ayez votre confirmation de réservation à portée de main et créez votre compte en moins d'une minute.",
+      ctaDesc: "Créez votre compte gratuit en moins d'une minute.",
       steps: [
-        { title: "Réservez Votre Séjour", desc: "Réservez votre chambre au Riad Dar D'Art via notre site web, Booking.com ou Airbnb. Chaque réservation confirmée inclut un code d'accès personnel." },
-        { title: "Recevez Votre Code", desc: "Votre code d'accès unique est envoyé dans votre e-mail de confirmation de réservation. C'est votre clé personnelle vers la plateforme du concierge IA." },
-        { title: "Créez Votre Compte", desc: "Inscrivez-vous sur dardart.com avec votre code. Cela prend moins d'une minute — juste votre nom, votre e-mail et le code de votre confirmation." },
-        { title: "Discutez 24h/24", desc: "Votre concierge IA est disponible à toute heure. Demandez tout — horaires du petit-déjeuner, réservations d'excursions, service en chambre, conseils locaux, et plus encore." },
+        { title: "Réservez Votre Séjour", desc: "Réservez votre chambre au Riad Dar D'Art via notre site web, Booking.com ou Airbnb." },
+        { title: "Créez Votre Compte", desc: "Inscrivez-vous gratuitement en moins d'une minute — juste votre nom, votre e-mail, votre numéro de téléphone et le riad où vous séjournez." },
+        { title: "Explorez Votre Portail Invité", desc: "Retrouvez tout votre séjour au même endroit — vos chambres, les services, les excursions et les informations pratiques." },
+        { title: "Discutez 24h/24", desc: "Votre concierge IA est disponible à toute heure. Demandez tout — horaires du petit-déjeuner, réservations d'excursions, conseils locaux, et plus encore." },
       ],
       benefits: [
         { title: "Disponible 24h/24", desc: "Plus besoin d'attendre à la réception. Obtenez des réponses à vos questions à toute heure, jour et nuit." },
@@ -972,13 +974,13 @@ The service is provided "as is" without warranties of any kind. We do not guaran
     privacyPage: {
       legal: "Mentions légales",
       title: "Politique de Confidentialité",
-      intro: "Riad Dar D'Art (« nous », « notre » ou « nos ») exploite la plateforme de conciergerie invité dardart.com. Cette Politique de Confidentialité décrit comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez notre service.",
+      intro: "Riad Dar D'Art (« nous », « notre » ou « nos ») exploite cette plateforme de conciergerie invité (dar-dart-saas.vercel.app). Cette Politique de Confidentialité décrit comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez notre service.",
       sections: [
         {
           title: "1. Informations que nous collectons",
           body: `Lorsque vous créez un compte et utilisez la plateforme de conciergerie Dar D'Art, nous collectons les informations suivantes :
 
-**Informations du compte :** votre nom, votre adresse e-mail et le code d'accès de réservation fourni lors de l'inscription.
+**Informations du compte :** votre nom, votre adresse e-mail, votre numéro de téléphone, le riad choisi et votre langue préférée, fournis lors de l'inscription.
 
 **Messages de chat :** le texte de vos conversations avec le concierge IA. Ils sont utilisés pour générer des réponses et améliorer la qualité du service.
 
@@ -1049,10 +1051,10 @@ Pour exercer l'un de ces droits, veuillez nous contacter à contact@riaddartmarr
 Ces conditions peuvent être mises à jour de temps à autre. L'utilisation continue du service après modification constitue une acceptation des conditions révisées.`,
         },
         {
-          title: "2. Éligibilité",
-          body: `L'accès à la plateforme de conciergerie est réservé aux hôtes confirmés du Riad Dar D'Art. Un code d'accès de réservation valide — fourni dans votre confirmation de réservation — est requis pour créer un compte.
+          title: "2. Le Service",
+          body: `La plateforme est un compagnon d'information et de conciergerie gratuit pour les hôtes du Riad Dar D'Art. L'inscription est ouverte — toute personne préparant ou effectuant un séjour chez nous peut créer un compte.
 
-En vous inscrivant, vous confirmez que vous êtes un hôte actuel ou à venir et que le code d'accès que vous fournissez est le vôtre.`,
+En vous inscrivant, vous confirmez que les informations que vous fournissez (nom, e-mail, numéro de téléphone) sont exactes et vous appartiennent.`,
         },
         {
           title: "3. Utilisation du Service",
@@ -1060,7 +1062,7 @@ En vous inscrivant, vous confirmez que vous êtes un hôte actuel ou à venir et
 
 - Utiliser le service pour transmettre du contenu nuisible, offensant ou illégal
 - Tenter de désassembler, pirater ou perturber la plateforme
-- Partager vos identifiants de compte ou votre code d'accès avec d'autres personnes
+- Partager vos identifiants de compte avec d'autres personnes
 - Utiliser le service d'une manière susceptible de nuire à la réputation de Riad Dar D'Art`,
         },
         {
@@ -1074,10 +1076,10 @@ En vous inscrivant, vous confirmez que vous êtes un hôte actuel ou à venir et
 Pour les réservations confirmées ou les arrangements spécifiques, veuillez contacter directement notre équipe.`,
         },
         {
-          title: "5. Comptes Utilisateurs et Codes d'Accès",
-          body: `Vous êtes responsable du maintien de la confidentialité de votre compte et de votre code d'accès. Vous devez nous informer immédiatement si vous soupçonnez un accès non autorisé à votre compte.
+          title: "5. Comptes Utilisateurs",
+          body: `Vous êtes responsable du maintien de la confidentialité de vos identifiants de compte. Vous devez nous informer immédiatement si vous soupçonnez un accès non autorisé à votre compte.
 
-Chaque code d'accès est valable pour une seule inscription de compte. Les codes d'accès expirent 30 jours après votre date de départ.`,
+Les comptes sont personnels et ne peuvent pas être partagés. Nous pouvons désactiver les comptes après la fin de votre séjour, conformément à notre politique de conservation des données.`,
         },
         {
           title: "6. Propriété Intellectuelle",
@@ -1173,7 +1175,6 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       email: "Correo electrónico",
       password: "Contraseña",
       forgotPassword: "¿Olvidaste tu contraseña?",
-      rememberMe: "Recuérdame",
       submit: "Iniciar sesión",
       signingIn: "Iniciando sesión…",
       continueWithGoogle: "Continuar con Google",
@@ -1181,11 +1182,22 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       noAccount: "¿Nuevo huésped?",
       createAccount: "Crear una cuenta →",
       backHome: "← Volver al inicio",
+      resetHeading: "Restablecer tu contraseña",
+      resetDesc: "Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.",
+      sendResetLink: "Enviar enlace",
+      resetEmailSent: "Revisa tu bandeja de entrada — te hemos enviado un enlace para restablecer la contraseña.",
+      newPassword: "Nueva contraseña",
+      confirmPassword: "Confirmar contraseña",
+      updatePassword: "Actualizar contraseña",
+      passwordUpdated: "Contraseña actualizada. Redirigiendo a tu panel…",
+      passwordMismatch: "Las contraseñas no coinciden.",
+      passwordTooShort: "La contraseña debe tener al menos 6 caracteres.",
+      backToSignIn: "← Volver a iniciar sesión",
     },
     signUp: {
       conciergeAwaits: "Tu conserje personal te espera",
       heading: "Crear tu cuenta",
-      subheading: "Tu código de acceso único está incluido en tu correo de confirmación de reserva.",
+      subheading: "Crea tu cuenta de huésped gratuita para acceder a tu conserje personal.",
       firstName: "Nombre",
       lastName: "Apellido",
       nameOnReservation: "Nombre de la reserva",
@@ -1193,7 +1205,7 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       email: "Correo electrónico",
       password: "Contraseña",
       phone: "Número de teléfono",
-      phonePlaceholder: "+34 612 34 56 78",
+      phonePlaceholder: "Con código de país, p. ej. +34 612 34 56 78",
       phoneRequired: "Por favor ingrese su número de teléfono.",
       whichRiad: "¿En qué riad te hospedas?",
       language: "Idioma preferido",
@@ -1212,6 +1224,8 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       backHome: "← Volver al inicio",
       signUpFailedDefault: "Error al registrarse. Por favor, inténtalo de nuevo.",
       profileSetupFailed: "Cuenta creada, pero la configuración del perfil falló. Por favor, contacta con soporte.",
+      phoneInvalid: "Por favor ingrese su número de teléfono completo con el código de país (p. ej. +212 6XX XXX XXX o +33 6 XX XX XX XX).",
+      confirmEmail: "¡Ya casi está! Revisa tu bandeja de entrada y confirma tu correo electrónico para activar tu cuenta.",
     },
     dashboard: {
       aiConcierge: "Conserje IA",
@@ -1225,7 +1239,7 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         "¿A qué hora es el desayuno?",
         "Reservar una excursión",
         "Solicitar servicio a la habitación",
-        "¿Cuál es la contraseña Wi-Fi?",
+        "¿Qué excursiones ofrecéis?",
         "¿A qué hora es el check-out?",
       ],
       guestPortal: "Su portal de huésped personalizado",
@@ -1253,20 +1267,20 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         dinner: "Hola, me gustaría reservar una cena en el riad",
         agafay: "Hola, me gustaría reservar la excursión al desierto de Agafay",
         ourikaValley: "Hola, me gustaría reservar la excursión al valle de Ourika",
-        atlasMountains: "Hola, me gustaría reservar la excursión a las montañas del Atlas",
+        essaouira: "Hola, me gustaría reservar la excursión de un día a Esauira",
         hotAirBalloon: "Hola, me gustaría reservar la experiencia en globo aerostático",
-        cityTour: "Hola, me gustaría reservar un tour guiado por la ciudad",
+        cityTour: "Hola, me gustaría reservar un día guiado por la ciudad",
       },
       services: {
         breakfast: {
           name: "Desayuno",
           detail: "8:00 AM – 10:30 AM · Incluido",
-          desc: "Desayuno marroquí tradicional en el patio al aire libre. Té, café, crêpes, zumo fresco, queso, miel y huevos a petición.",
+          desc: "Desayuno marroquí tradicional en el patio al aire libre. Té, café, crêpes marroquíes, zumo de naranja fresco, queso, miel y huevos a petición. Desayuno exprés disponible para salidas tempranas.",
         },
         hammam: {
           name: "Hammam & Spa",
           detail: "€20/persona · Mín 2 personas",
-          desc: "Ritual de hammam auténtico con exfoliación y jabón de argán. Masaje: 30 min €30 · 60 min €40. Disponible de 10:00 a 21:00. Reserve por WhatsApp.",
+          desc: "Ritual de hammam auténtico con exfoliación y jabón de argán. Masaje: 30 min €30 · 60 min €40. Abierto de 9:00 a 21:00 — reserve con al menos 2 horas de antelación por WhatsApp.",
         },
         pool: {
           name: "Piscina",
@@ -1275,32 +1289,32 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         },
         airportTransfer: {
           name: "Traslado al aeropuerto",
-          detail: "€20 (1–4 pax) · €30 (5+)",
-          desc: "Traslados privados con aire acondicionado disponibles 24/7. Reserve por WhatsApp al menos 2h30 antes de su vuelo.",
+          detail: "€20 (1–4, 07:00–22:00) · €25 (1–4, 23:00–06:00) · €30 (5–7)",
+          desc: "Traslados privados con aire acondicionado. Reserve por WhatsApp al menos 2h30 antes de su vuelo.",
         },
         wifi: {
           name: "WiFi",
-          noPassword: "Sin contraseña",
-          desc: "WiFi de alta velocidad gratuito en todo el riad. Solo conéctese — no se requiere contraseña.",
+          detail: "Incluido",
+          desc: "WiFi de alta velocidad gratuito en todo el riad. Los datos de conexión se facilitan a la llegada.",
         },
         concierge: {
           name: "Conserjería",
-          detail: "WhatsApp 0699814919 · 24h",
-          desc: "Nuestro equipo está disponible las 24 horas para organizar todo lo que necesite — desde reservas de restaurantes hasta excursiones.",
+          detail: "WhatsApp +212 709 086 496 · 08:00–22:00",
+          desc: "Nuestro equipo de recepción está disponible todos los días de 08:00 a 22:00 para organizar todo lo que necesite — desde reservas de restaurantes hasta excursiones. El conserje IA de la aplicación está disponible 24/7.",
         },
       },
       info: {
-        checkIn: { label: "Check-in", value: "2:00 PM", sub: "Antes si la habitación está lista" },
+        checkIn: { label: "Check-in", value: "2:00 PM", sub: "Llegada posible desde las 10:30" },
         checkOut: { label: "Check-out", value: "12:00 PM", sub: "Tardío posible bajo petición" },
-        dinner: { label: "Cena en el Riad", value: "€20/persona", sub: "Mín 4 personas · Reserve por WhatsApp" },
+        dinner: { label: "Cena en el Riad", value: "€20/persona", sub: "Mín 4 personas · Niños <12 €12, <4 gratis · Reserve con 1 día de antelación" },
         water: { label: "Agua", value: "20 dírhams", sub: "Por botella · Cocina disponible" },
       },
       excursionsList: {
-        agafay: { subtitle: "Quad · Camello · Cena", price: "30–55 € / persona" },
-        "ourika-valley": { subtitle: "Atlas · Cascadas · Pueblos bereberes", price: "Desde 20 € / persona" },
-        "atlas-mountains": { subtitle: "Montañas · Pueblos bereberes · Aire puro", price: "35 € / persona" },
-        "hot-air-balloon": { subtitle: "Amanecer · Vistas panorámicas", price: "97 € / persona" },
-        "city-tour": { subtitle: "Medina · Zocos · Lugares ocultos", price: "20 € / persona" },
+        agafay: { subtitle: "Quad · Camello · Cena · Espectáculo de fuego", price: "Pack A 30 € · Pack B 55 €" },
+        "ourika-valley": { subtitle: "Atlas · Cascadas · Pueblos bereberes · 9:00–17:00", price: "20 € · 27 € con comida" },
+        essaouira: { subtitle: "Medina UNESCO · Costa atlántica · 8:00–20:00", price: "25 € / persona" },
+        "hot-air-balloon": { subtitle: "Amanecer · Vistas panorámicas · Reserva anticipada", price: "97 € / persona" },
+        "city-tour": { subtitle: "Medina · Zocos · Lugares ocultos", price: "65 € / grupo (1–4 personas)" },
       },
     },
     survey: {
@@ -1326,7 +1340,9 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       beforeSubmitting: "antes de enviar.",
       sessionExpired: "Sesión expirada. Por favor inicie sesión nuevamente.",
       failedToSubmit: "No se pudo enviar la encuesta. Por favor intente de nuevo.",
-      checkoutFailed: "Encuesta guardada pero el check-out falló. Por favor intente de nuevo.",
+      checkoutFailed: "Algo salió mal durante el check-out. No se ha cerrado su sesión — por favor intente de nuevo.",
+      phoneInvalid: "Por favor ingrese en su perfil su número de teléfono completo con el código de país (p. ej. +212 6XX XXX XXX o +33 6 XX XX XX XX) e intente de nuevo.",
+      retry: "Reintentar",
     },
     chat: {
       greeting: "¡Bienvenido! ¿En qué puedo ayudarle hoy?",
@@ -1367,11 +1383,12 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         zagora: "Evocadora del sur desértico, con cálidos tonos de arenisca, patrones geométricos y una terraza privada.",
       },
       excursionsList: {
-        medinaWalkingTour: { name: "Tour a Pie por la Medina", desc: "Explora las antiguas calles laberínticas y zocos de Marrakech con un experto guía local.", duration: "3 horas" },
-        atlasMountainsDayTrip: { name: "Excursión de un Día a las Montañas del Atlas", desc: "Recorre pueblos bereberes y paisajes de gran altitud impresionantes, a solo 40 km de la ciudad.", duration: "Día completo" },
-        saharaDesertTour: { name: "Tour por el Desierto del Sahara", desc: "Una aventura de 3 días hacia las doradas dunas de Erg Chebbi — incluye trekking en camello y campamento nocturno.", duration: "3 días" },
-        moroccanCookingClass: { name: "Clase de Cocina Marroquí", desc: "Aprende a preparar tagines tradicionales, pastela y té de menta en nuestra auténtica cocina de riad.", duration: "4 horas" },
-        camelRide: { name: "Paseo en Camello", desc: "Un paseo al atardecer por los palmerales y olivares en las afueras de Marrakech.", duration: "2 horas" },
+        agafayExpress: { name: "Desierto de Agafay — Pack A Exprés", desc: "Quad (40 min), paseo en camello (10 min), cena, espectáculo de fuego, piscina y transporte incluidos.", price: "30 € / persona" },
+        agafayFull: { name: "Desierto de Agafay — Pack B Experiencia Completa", desc: "Quad (1 h), paseo en camello (20 min), cena, espectáculo de fuego, piscina y transporte incluidos.", price: "55 € / persona" },
+        essaouira: { name: "Excursión de un Día a Esauira", desc: "Un día completo en la costa atlántica — medina declarada Patrimonio de la UNESCO, puerto y murallas. Salida 8:00, regreso 20:00.", price: "25 € / persona" },
+        ourika: { name: "Valle de Ourika", desc: "Montañas del Atlas, cascadas y pueblos bereberes. Salida 9:00, regreso 17:00. 27 € con comida incluida.", price: "Desde 20 € / persona" },
+        hotAirBalloon: { name: "Globo Aerostático", desc: "Vuelo al amanecer con vistas panorámicas del Atlas y los palmerales. Reserva anticipada obligatoria.", price: "97 € / persona" },
+        cityDay: { name: "Día Guiado por la Ciudad", desc: "Un día completo en Marrakech con un experto guía local — medina, zocos y lugares ocultos.", price: "65 € / grupo (1–4)" },
       },
       servicesList: {
         breakfast: { name: "Desayuno", desc: "Desayuno marroquí tradicional servido a diario en el patio al aire libre." },
@@ -1388,7 +1405,7 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       continueToDashboard: "Continuar al Panel",
       saveFailed: "Error al guardar el perfil. Por favor, inténtalo de nuevo.",
       phone: "Número de teléfono",
-      phonePlaceholder: "+34 612 34 56 78",
+      phonePlaceholder: "Con código de país, p. ej. +34 612 34 56 78",
       phoneRequired: "Por favor ingrese su número de teléfono.",
     },
     aboutPage: {
@@ -1421,27 +1438,14 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       reachOut: "Contáctanos",
       ourLocations: "Nuestras Ubicaciones",
       directContact: "Contacto Directo",
-      whatsappLabel: "WhatsApp: +212 600 000 000",
+      whatsappLabel: "WhatsApp: +212 709 086 496",
       hours: "Horario",
       deskHours: "Recepción disponible todos los días, de 08:00 a 22:00",
       conciergeAvailable: "Conserje IA disponible 24/7 a través de",
       yourDashboard: "tu panel",
-      messageSent: "Mensaje Enviado",
-      messageSentDesc: "Gracias — nuestro equipo se pondrá en contacto en breve.",
-      sendAMessage: "Enviar un Mensaje",
-      name: "Nombre",
-      namePlaceholder: "Tu nombre",
-      subject: "Asunto",
-      selectSubject: "Selecciona un asunto",
-      subjects: {
-        bookingEnquiry: "Consulta de Reserva",
-        guestSupport: "Soporte al Huésped",
-        partnership: "Colaboración",
-        other: "Otro",
-      },
-      message: "Mensaje",
-      messagePlaceholder: "¿Cómo podemos ayudarte?",
-      sendMessageBtn: "Enviar Mensaje",
+      chatOnWhatsApp: "Chatear por WhatsApp",
+      whatsappDesc: "La forma más rápida de contactarnos — preguntas, reservas y todo lo relacionado con tu estancia.",
+      whatsappPrefill: "¡Hola! Tengo una pregunta sobre el Riad Dar D'Art",
     },
     faqPage: {
       helpSupport: "Ayuda y Soporte",
@@ -1454,7 +1458,7 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         {
           category: "Entrada y Salida",
           items: [
-            { q: "¿A qué hora son el check-in y el check-out?", a: "El check-in es a partir de las 14:00. El check-out es antes de las 11:00. Se puede organizar un check-in anticipado o un check-out tardío según disponibilidad — simplemente pregunta a tu conserje IA o contáctanos con antelación." },
+            { q: "¿A qué hora son el check-in y el check-out?", a: "La llegada es posible desde las 10:30 (guardamos tu equipaje); las habitaciones están listas a partir de las 14:00. El check-out es antes de las 12:00. Se puede organizar un check-in anticipado o un check-out tardío según disponibilidad — simplemente pregunta a tu conserje IA o contáctanos con antelación." },
             { q: "¿Dónde recojo las llaves?", a: "Nuestro equipo te recibirá en la entrada del riad. Para llegadas tardías, indícanos tu hora estimada de llegada para asegurarnos de que alguien esté allí para darte la bienvenida." },
             { q: "¿Puedo dejar el equipaje antes del check-in o después del check-out?", a: "Sí, con gusto guardamos tu equipaje el día de llegada antes de que tu habitación esté lista, o el día de salida después del check-out." },
           ],
@@ -1462,24 +1466,23 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         {
           category: "Habitaciones y Comodidades",
           items: [
-            { q: "¿Hay Wi-Fi disponible?", a: "Sí, el Wi-Fi de alta velocidad gratuito está disponible en ambos riads. Tu conserje puede proporcionarte la contraseña actual bajo petición." },
+            { q: "¿Hay Wi-Fi disponible?", a: "Sí, el Wi-Fi de alta velocidad gratuito está incluido en ambos riads. Los datos de conexión se facilitan a la llegada." },
             { q: "¿Hay aire acondicionado?", a: "Todas las habitaciones están equipadas con aire acondicionado y calefacción, garantizando confort durante todo el año en el clima variable de Marrakech." },
-            { q: "¿Ofrecen servicio de lavandería?", a: "Sí, están disponibles servicios de lavandería y tintorería. Habla con nuestro equipo o pregunta a tu conserje IA para más detalles y plazos." },
           ],
         },
         {
           category: "Servicios",
           items: [
-            { q: "¿Qué incluye el desayuno?", a: "Servimos un desayuno marroquí tradicional a diario en el patio — msemen, beghrir, zumo de naranja recién exprimido, dátiles Medjool, miel, aceite de argán y té de menta marroquí. Servido de 7:30 a 10:30." },
+            { q: "¿Qué incluye el desayuno?", a: "Servimos un desayuno marroquí tradicional a diario en el patio, de 8:00 a 10:30 — té, café, crêpes marroquíes, queso, mermelada, miel, mantequilla, ensalada de frutas, zumo de naranja fresco, pan, bizcocho, tomates cherry, pepino, aceitunas negras y huevos al gusto. El menú varía cada día. Hay desayuno exprés para salidas tempranas (solicítalo la noche anterior). No podemos garantizar opciones sin gluten — recomendamos traer tus propios productos." },
             { q: "¿Hay piscina?", a: "El Riad 141 cuenta con una pequeña piscina en el patio del jardín, disponible para todos los huéspedes alojados en cualquiera de las dos propiedades." },
-            { q: "¿Cómo reservo el hammam?", a: "El hammam está disponible para reservas privadas. Pregunta a tu conserje IA o habla con recepción para consultar disponibilidad y reservar una sesión." },
+            { q: "¿Cómo reservo el hammam?", a: "El spa abre de 9:00 a 21:00. El hammam cuesta 20 €/persona con un mínimo de 2 personas; los masajes cuestan 30 € (30 min) o 40 € (60 min). Reserva con al menos 2 horas de antelación por WhatsApp o con tu conserje IA." },
           ],
         },
         {
           category: "Excursiones",
           items: [
-            { q: "¿Cómo reservo una excursión?", a: "Puedes solicitar cualquier excursión a través de tu conserje IA o directamente con nuestro equipo en recepción. Recomendamos reservar con al menos 24 horas de antelación para las excursiones de un día." },
-            { q: "¿Cuál es la política de cancelación de las excursiones?", a: "Las excursiones pueden cancelarse o reprogramarse hasta 24 horas antes de la salida programada. Las cancelaciones el mismo día pueden generar un cargo." },
+            { q: "¿Cómo reservo una excursión?", a: "Puedes solicitar cualquier excursión a través de tu conserje IA o por WhatsApp. Recomendamos reservar con al menos 24 horas de antelación para las excursiones de un día." },
+            { q: "¿Cuál es la política de cancelación?", a: "La cancelación es gratuita hasta 14 días antes de tu llegada. Para cualquier cambio posterior, contacta con nuestro equipo por WhatsApp." },
             { q: "¿Pueden organizar tours privados personalizados?", a: "Por supuesto. Trabajamos con guías locales expertos y conductores privados para crear experiencias a medida. Contáctanos con tus intereses y diseñaremos algo especial." },
           ],
         },
@@ -1501,12 +1504,12 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       aSmarterStay: "Una Estancia Más Inteligente",
       ready: "¿Listo?",
       startExperience: "Comienza Tu Experiencia",
-      ctaDesc: "Ten a mano tu confirmación de reserva y crea tu cuenta en menos de un minuto.",
+      ctaDesc: "Crea tu cuenta gratuita en menos de un minuto.",
       steps: [
-        { title: "Reserva Tu Estancia", desc: "Reserva tu habitación en Riad Dar D'Art a través de nuestro sitio web, Booking.com o Airbnb. Cada reserva confirmada incluye un código de acceso personal." },
-        { title: "Recibe Tu Código", desc: "Tu código de acceso único se envía en tu correo de confirmación de reserva. Es tu llave personal a la plataforma del conserje IA." },
-        { title: "Crea Tu Cuenta", desc: "Regístrate en dardart.com usando tu código. Tarda menos de un minuto — solo tu nombre, correo electrónico y el código de tu confirmación." },
-        { title: "Chatea 24/7", desc: "Tu conserje IA está disponible a cualquier hora. Pregunta lo que sea — horarios de desayuno, reservas de excursiones, servicio a la habitación, consejos locales y más." },
+        { title: "Reserva Tu Estancia", desc: "Reserva tu habitación en Riad Dar D'Art a través de nuestro sitio web, Booking.com o Airbnb." },
+        { title: "Crea Tu Cuenta", desc: "Regístrate gratis en menos de un minuto — solo tu nombre, correo electrónico, número de teléfono y el riad donde te alojas." },
+        { title: "Explora Tu Portal de Huésped", desc: "Encuentra todo sobre tu estancia en un solo lugar — tus habitaciones, servicios, excursiones e información práctica." },
+        { title: "Chatea 24/7", desc: "Tu conserje IA está disponible a cualquier hora. Pregunta lo que sea — horarios de desayuno, reservas de excursiones, consejos locales y más." },
       ],
       benefits: [
         { title: "Disponible 24/7", desc: "Sin esperas en recepción. Obtén respuestas a tus preguntas a cualquier hora, de día o de noche." },
@@ -1517,13 +1520,13 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
     privacyPage: {
       legal: "Legal",
       title: "Política de Privacidad",
-      intro: "Riad Dar D'Art (“nosotros”, “nos” o “nuestro”) opera la plataforma de conserjería para huéspedes dardart.com. Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos tu información personal cuando utilizas nuestro servicio.",
+      intro: "Riad Dar D'Art (“nosotros”, “nos” o “nuestro”) opera esta plataforma de conserjería para huéspedes (dar-dart-saas.vercel.app). Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos tu información personal cuando utilizas nuestro servicio.",
       sections: [
         {
           title: "1. Información que Recopilamos",
           body: `Cuando creas una cuenta y utilizas la plataforma de conserjería Dar D'Art, recopilamos la siguiente información:
 
-**Información de la cuenta:** tu nombre, dirección de correo electrónico y código de acceso de reserva proporcionado durante el registro.
+**Información de la cuenta:** tu nombre, dirección de correo electrónico, número de teléfono, riad elegido e idioma preferido, proporcionados durante el registro.
 
 **Mensajes de chat:** el texto de tus conversaciones con el conserje IA. Se utilizan para generar respuestas y mejorar la calidad del servicio.
 
@@ -1594,10 +1597,10 @@ Para ejercer cualquiera de estos derechos, contáctanos en contact@riaddartmarra
 Estos términos pueden actualizarse de vez en cuando. El uso continuado del servicio después de los cambios constituye la aceptación de los términos revisados.`,
         },
         {
-          title: "2. Elegibilidad",
-          body: `El acceso a la plataforma de conserjería está restringido a huéspedes confirmados de Riad Dar D'Art. Se requiere un código de acceso de reserva válido — proporcionado en la confirmación de tu reserva — para crear una cuenta.
+          title: "2. El Servicio",
+          body: `La plataforma es un acompañante gratuito de información y conserjería para los huéspedes de Riad Dar D'Art. El registro es abierto — cualquier persona que planee o disfrute una estancia con nosotros puede crear una cuenta.
 
-Al registrarte, confirmas que eres un huésped actual o próximo y que el código de acceso que proporcionas es tuyo.`,
+Al registrarte, confirmas que la información que proporcionas (nombre, correo electrónico, número de teléfono) es exacta y te pertenece.`,
         },
         {
           title: "3. Uso del Servicio",
@@ -1605,7 +1608,7 @@ Al registrarte, confirmas que eres un huésped actual o próximo y que el códig
 
 - Utilizar el servicio para transmitir contenido dañino, ofensivo o ilegal
 - Intentar realizar ingeniería inversa, hackear o interrumpir la plataforma
-- Compartir tus credenciales de cuenta o código de acceso con otros
+- Compartir tus credenciales de cuenta con otros
 - Utilizar el servicio de cualquier forma que pueda dañar la reputación de Riad Dar D'Art`,
         },
         {
@@ -1619,10 +1622,10 @@ Al registrarte, confirmas que eres un huésped actual o próximo y que el códig
 Para reservas confirmadas o arreglos específicos, por favor contacta directamente a nuestro equipo.`,
         },
         {
-          title: "5. Cuentas de Usuario y Códigos de Acceso",
-          body: `Eres responsable de mantener la confidencialidad de tu cuenta y código de acceso. Debes notificarnos inmediatamente si sospechas de un acceso no autorizado a tu cuenta.
+          title: "5. Cuentas de Usuario",
+          body: `Eres responsable de mantener la confidencialidad de tus credenciales de cuenta. Debes notificarnos inmediatamente si sospechas de un acceso no autorizado a tu cuenta.
 
-Cada código de acceso es válido para un solo registro de cuenta. Los códigos de acceso caducan 30 días después de tu fecha de check-out.`,
+Las cuentas son personales y no pueden compartirse. Podemos desactivar las cuentas tras el final de tu estancia, de acuerdo con nuestra política de retención de datos.`,
         },
         {
           title: "6. Propiedad Intelectual",
@@ -1718,7 +1721,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       email: "البريد الإلكتروني",
       password: "كلمة المرور",
       forgotPassword: "نسيت كلمة المرور؟",
-      rememberMe: "تذكرني",
       submit: "تسجيل الدخول",
       signingIn: "جارٍ تسجيل الدخول…",
       continueWithGoogle: "المتابعة مع Google",
@@ -1726,11 +1728,22 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       noAccount: "ضيف جديد؟",
       createAccount: "إنشاء حساب ←",
       backHome: "→ العودة إلى الرئيسية",
+      resetHeading: "إعادة تعيين كلمة المرور",
+      resetDesc: "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لإعادة تعيين كلمة المرور.",
+      sendResetLink: "إرسال الرابط",
+      resetEmailSent: "تحقق من بريدك الوارد — أرسلنا لك رابط إعادة تعيين كلمة المرور.",
+      newPassword: "كلمة المرور الجديدة",
+      confirmPassword: "تأكيد كلمة المرور",
+      updatePassword: "تحديث كلمة المرور",
+      passwordUpdated: "تم تحديث كلمة المرور. جارٍ نقلك إلى لوحة التحكم…",
+      passwordMismatch: "كلمتا المرور غير متطابقتين.",
+      passwordTooShort: "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
+      backToSignIn: "→ العودة إلى تسجيل الدخول",
     },
     signUp: {
       conciergeAwaits: "الكونسيرج الشخصي في انتظارك",
       heading: "إنشاء حسابك",
-      subheading: "رمز الوصول الفريد الخاص بك مضمّن في بريد تأكيد الحجز.",
+      subheading: "أنشئ حساب الضيف المجاني الخاص بك للوصول إلى الكونسيرج الشخصي.",
       firstName: "الاسم الأول",
       lastName: "اسم العائلة",
       nameOnReservation: "الاسم في الحجز",
@@ -1738,7 +1751,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       email: "البريد الإلكتروني",
       password: "كلمة المرور",
       phone: "رقم الهاتف",
-      phonePlaceholder: "+212 6 00 00 00 00",
+      phonePlaceholder: "مع رمز البلد، مثال: +212 6 00 00 00 00",
       phoneRequired: "يرجى إدخال رقم هاتفك.",
       whichRiad: "في أي رياض تقيم؟",
       language: "اللغة المفضلة",
@@ -1757,6 +1770,8 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       backHome: "→ العودة إلى الرئيسية",
       signUpFailedDefault: "فشل إنشاء الحساب. يرجى المحاولة مرة أخرى.",
       profileSetupFailed: "تم إنشاء الحساب لكن فشل إعداد الملف الشخصي. يرجى التواصل مع الدعم.",
+      phoneInvalid: "يرجى إدخال رقم هاتفك الكامل مع رمز البلد (مثال: +212 6XX XXX XXX أو +33 6 XX XX XX XX).",
+      confirmEmail: "خطوة أخيرة! تحقق من بريدك الوارد وأكّد عنوان بريدك الإلكتروني لتفعيل حسابك.",
     },
     dashboard: {
       aiConcierge: "كونسيرج الذكاء الاصطناعي",
@@ -1770,7 +1785,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         "متى يُقدَّم الإفطار؟",
         "حجز رحلة",
         "طلب خدمة الغرف",
-        "ما هي كلمة مرور الواي فاي؟",
+        "ما هي الرحلات التي تقدمونها؟",
         "متى موعد تسجيل المغادرة؟",
       ],
       guestPortal: "بوابة ضيفك الشخصية",
@@ -1798,20 +1813,20 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         dinner: "مرحباً، أود حجز العشاء في الرياض",
         agafay: "مرحباً، أود حجز رحلة صحراء أكافاي",
         ourikaValley: "مرحباً، أود حجز رحلة وادي أوريكا",
-        atlasMountains: "مرحباً، أود حجز رحلة جبال الأطلس",
+        essaouira: "مرحباً، أود حجز رحلة يوم إلى الصويرة",
         hotAirBalloon: "مرحباً، أود حجز تجربة المنطاد",
-        cityTour: "مرحباً، أود حجز جولة مرشد سياحي في المدينة",
+        cityTour: "مرحباً، أود حجز يوم بمرشد سياحي في المدينة",
       },
       services: {
         breakfast: {
           name: "الإفطار",
           detail: "8:00 ص – 10:30 ص · مشمول",
-          desc: "إفطار مغربي تقليدي في الفناء المفتوح. شاي، قهوة، كريب، عصير طازج، جبن، عسل، وبيض عند الطلب.",
+          desc: "إفطار مغربي تقليدي في الفناء المفتوح. شاي، قهوة، فطائر مغربية، عصير برتقال طازج، جبن، عسل، وبيض عند الطلب. إفطار سريع متاح للمغادرات المبكرة.",
         },
         hammam: {
           name: "الحمام والسبا",
-          detail: "20€/شخص · 2 أشخاص على الأقل",
-          desc: "طقوس الحمام الأصيلة مع التقشير وصابون الأرغان. مساج: 30 دقيقة 30€ · 60 دقيقة 40€. متاح من 10:00 ص حتى 9:00 م. احجز عبر واتساب.",
+          detail: "20€/شخص · شخصان على الأقل",
+          desc: "طقوس الحمام الأصيلة مع التقشير وصابون الأرغان. مساج: 30 دقيقة 30€ · 60 دقيقة 40€. مفتوح من 9:00 ص حتى 9:00 م — احجز قبل ساعتين على الأقل عبر واتساب.",
         },
         pool: {
           name: "المسبح",
@@ -1820,32 +1835,32 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         },
         airportTransfer: {
           name: "نقل المطار",
-          detail: "20€ (1–4 أشخاص) · 30€ (5+)",
-          desc: "نقل خاص مكيف متاح على مدار الساعة. احجز عبر واتساب قبل 2.5 ساعة على الأقل من رحلتك.",
+          detail: "20€ (1–4، 07:00–22:00) · 25€ (1–4، 23:00–06:00) · 30€ (5–7)",
+          desc: "نقل خاص مكيف. احجز عبر واتساب قبل 2.5 ساعة على الأقل من رحلتك.",
         },
         wifi: {
           name: "واي فاي",
-          noPassword: "بدون كلمة مرور",
-          desc: "واي فاي مجاني عالي السرعة في جميع أنحاء الرياض. ما عليك سوى الاتصال — لا يلزم أي كلمة مرور.",
+          detail: "مشمول",
+          desc: "واي فاي مجاني عالي السرعة في جميع أنحاء الرياض. تُقدَّم تفاصيل الاتصال عند تسجيل الوصول.",
         },
         concierge: {
           name: "الكونسيرج",
-          detail: "واتساب 0699814919 · 24 ساعة",
-          desc: "فريقنا متاح على مدار الساعة لترتيب كل ما تحتاجه — من حجوزات المطاعم إلى الرحلات.",
+          detail: "واتساب ‎+212 709 086 496 · 08:00–22:00",
+          desc: "فريق الاستقبال متاح يومياً من 08:00 حتى 22:00 لترتيب كل ما تحتاجه — من حجوزات المطاعم إلى الرحلات. كونسيرج الذكاء الاصطناعي في التطبيق متاح على مدار الساعة.",
         },
       },
       info: {
-        checkIn: { label: "تسجيل الوصول", value: "2:00 م", sub: "مبكراً إذا كانت الغرفة جاهزة" },
+        checkIn: { label: "تسجيل الوصول", value: "2:00 م", sub: "الوصول ممكن من الساعة 10:30 صباحاً" },
         checkOut: { label: "تسجيل المغادرة", value: "12:00 ظ", sub: "متأخر ممكن بالطلب" },
-        dinner: { label: "العشاء في الرياض", value: "20€/شخص", sub: "4 أشخاص على الأقل · احجز عبر واتساب" },
+        dinner: { label: "العشاء في الرياض", value: "20€/شخص", sub: "4 أشخاص على الأقل · الأطفال دون 12: 12€، دون 4: مجاناً · احجز قبل يوم واحد" },
         water: { label: "الماء", value: "20 درهماً", sub: "للزجاجة · المطبخ متاح" },
       },
       excursionsList: {
-        agafay: { subtitle: "دراجات رباعية · جمال · عشاء", price: "30–55 يورو / شخص" },
-        "ourika-valley": { subtitle: "الأطلس · شلالات · قرى أمازيغية", price: "ابتداءً من 20 يورو / شخص" },
-        "atlas-mountains": { subtitle: "جبال · قرى أمازيغية · هواء نقي", price: "35 يورو / شخص" },
-        "hot-air-balloon": { subtitle: "شروق الشمس · إطلالات بانورامية", price: "97 يورو / شخص" },
-        "city-tour": { subtitle: "المدينة القديمة · الأسواق · أماكن خفية", price: "20 يورو / شخص" },
+        agafay: { subtitle: "دراجات رباعية · جمال · عشاء · عرض ناري", price: "الباقة A ‏30€ · الباقة B ‏55€" },
+        "ourika-valley": { subtitle: "الأطلس · شلالات · قرى أمازيغية · 9:00–17:00", price: "20€ · 27€ مع وجبة" },
+        essaouira: { subtitle: "مدينة اليونسكو القديمة · الساحل الأطلسي · 8:00–20:00", price: "25€ / شخص" },
+        "hot-air-balloon": { subtitle: "شروق الشمس · إطلالات بانورامية · حجز مسبق", price: "97€ / شخص" },
+        "city-tour": { subtitle: "المدينة القديمة · الأسواق · أماكن خفية", price: "65€ / مجموعة (1–4 أشخاص)" },
       },
     },
     survey: {
@@ -1871,7 +1886,9 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       beforeSubmitting: "قبل الإرسال.",
       sessionExpired: "انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.",
       failedToSubmit: "فشل إرسال الاستبيان. يرجى المحاولة مرة أخرى.",
-      checkoutFailed: "تم حفظ الاستبيان لكن تسجيل المغادرة فشل. يرجى المحاولة مرة أخرى.",
+      checkoutFailed: "حدث خطأ أثناء تسجيل المغادرة. لم يتم تسجيل خروجك — يرجى المحاولة مرة أخرى.",
+      phoneInvalid: "يرجى إدخال رقم هاتفك الكامل مع رمز البلد في ملفك الشخصي (مثال: +212 6XX XXX XXX أو +33 6 XX XX XX XX) ثم المحاولة مرة أخرى.",
+      retry: "إعادة المحاولة",
     },
     chat: {
       greeting: "مرحباً! كيف يمكنني مساعدتك اليوم؟",
@@ -1912,11 +1929,12 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         zagora: "يستحضر جنوب الصحراء، بدرجات دافئة من الحجر الرملي وأنماط هندسية وشرفة خاصة.",
       },
       excursionsList: {
-        medinaWalkingTour: { name: "جولة سيراً على الأقدام في المدينة القديمة", desc: "استكشف الأزقة المتاهية القديمة وأسواق مراكش برفقة مرشد محلي خبير.", duration: "3 ساعات" },
-        atlasMountainsDayTrip: { name: "رحلة يوم إلى جبال الأطلس", desc: "تجوّل عبر القرى الأمازيغية والمناظر الطبيعية المرتفعة الخلابة، على بعد 40 كم فقط من المدينة.", duration: "يوم كامل" },
-        saharaDesertTour: { name: "جولة في الصحراء الكبرى", desc: "مغامرة لمدة 3 أيام إلى الكثبان الذهبية في إرג شبي — تشمل رحلة على الجمال ومخيماً ليلياً.", duration: "3 أيام" },
-        moroccanCookingClass: { name: "درس في الطبخ المغربي", desc: "تعلّم تحضير الطاجين والبسطيلة وشاي النعناع التقليديين في مطبخ رياضنا الأصيل.", duration: "4 ساعات" },
-        camelRide: { name: "ركوب الجمال", desc: "جولة عند الغروب عبر بساتين النخيل والزيتون في ضواحي مراكش.", duration: "ساعتان" },
+        agafayExpress: { name: "صحراء أكافاي — الباقة A السريعة", desc: "دراجة رباعية (40 دقيقة)، ركوب الجمال (10 دقائق)، عشاء، عرض ناري، مسبح والنقل مشمول.", price: "30€ / شخص" },
+        agafayFull: { name: "صحراء أكافاي — الباقة B التجربة الكاملة", desc: "دراجة رباعية (ساعة)، ركوب الجمال (20 دقيقة)، عشاء، عرض ناري، مسبح والنقل مشمول.", price: "55€ / شخص" },
+        essaouira: { name: "رحلة يوم إلى الصويرة", desc: "يوم كامل على الساحل الأطلسي — مدينة قديمة مدرجة لدى اليونسكو، الميناء والأسوار. الانطلاق 8:00، العودة 20:00.", price: "25€ / شخص" },
+        ourika: { name: "وادي أوريكا", desc: "جبال الأطلس، شلالات وقرى أمازيغية. الانطلاق 9:00، العودة 17:00. ‏27€ مع وجبة.", price: "ابتداءً من 20€ / شخص" },
+        hotAirBalloon: { name: "المنطاد", desc: "تحليق عند شروق الشمس بإطلالات بانورامية على الأطلس وبساتين النخيل. الحجز المسبق إلزامي.", price: "97€ / شخص" },
+        cityDay: { name: "يوم بمرشد في المدينة", desc: "يوم كامل في مراكش برفقة مرشد محلي خبير — المدينة القديمة، الأسواق والأماكن الخفية.", price: "65€ / مجموعة (1–4)" },
       },
       servicesList: {
         breakfast: { name: "الإفطار", desc: "إفطار مغربي تقليدي يُقدَّم يومياً في الفناء المفتوح." },
@@ -1933,7 +1951,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       continueToDashboard: "المتابعة إلى لوحة التحكم",
       saveFailed: "فشل حفظ الملف الشخصي. يرجى المحاولة مرة أخرى.",
       phone: "رقم الهاتف",
-      phonePlaceholder: "+212 6 00 00 00 00",
+      phonePlaceholder: "مع رمز البلد، مثال: +212 6 00 00 00 00",
       phoneRequired: "يرجى إدخال رقم هاتفك.",
     },
     aboutPage: {
@@ -1966,27 +1984,14 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       reachOut: "تواصل معنا",
       ourLocations: "مواقعنا",
       directContact: "التواصل المباشر",
-      whatsappLabel: "واتساب: 000000 600 212+",
+      whatsappLabel: "واتساب: ‎+212 709 086 496",
       hours: "ساعات العمل",
       deskHours: "الاستقبال متاح يومياً من 08:00 حتى 22:00",
       conciergeAvailable: "الكونسيرج الذكي متاح على مدار الساعة عبر",
       yourDashboard: "لوحة التحكم الخاصة بك",
-      messageSent: "تم إرسال الرسالة",
-      messageSentDesc: "شكراً لك — سيتواصل معك فريقنا قريباً.",
-      sendAMessage: "أرسل رسالة",
-      name: "الاسم",
-      namePlaceholder: "اسمك",
-      subject: "الموضوع",
-      selectSubject: "اختر موضوعاً",
-      subjects: {
-        bookingEnquiry: "استفسار عن حجز",
-        guestSupport: "دعم الضيوف",
-        partnership: "شراكة",
-        other: "أخرى",
-      },
-      message: "الرسالة",
-      messagePlaceholder: "كيف يمكننا مساعدتك؟",
-      sendMessageBtn: "إرسال الرسالة",
+      chatOnWhatsApp: "تواصل عبر واتساب",
+      whatsappDesc: "أسرع طريقة للتواصل معنا — أسئلة وحجوزات وكل ما يخص إقامتك.",
+      whatsappPrefill: "مرحباً! لدي سؤال حول رياض دار دار",
     },
     faqPage: {
       helpSupport: "المساعدة والدعم",
@@ -1999,7 +2004,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         {
           category: "تسجيل الوصول والمغادرة",
           items: [
-            { q: "ما هو موعد تسجيل الوصول والمغادرة؟", a: "يبدأ تسجيل الوصول من الساعة 14:00. ويكون تسجيل المغادرة قبل الساعة 11:00 صباحاً. يمكن ترتيب تسجيل وصول مبكر أو مغادرة متأخرة حسب التوفر — فقط اسأل الكونسيرج الذكي أو تواصل معنا مسبقاً." },
+            { q: "ما هو موعد تسجيل الوصول والمغادرة؟", a: "الوصول ممكن من الساعة 10:30 صباحاً (نحتفظ بأمتعتك)؛ وتكون الغرف جاهزة من الساعة 14:00. وتكون المغادرة قبل الساعة 12:00 ظهراً. يمكن ترتيب تسجيل وصول مبكر أو مغادرة متأخرة حسب التوفر — فقط اسأل الكونسيرج الذكي أو تواصل معنا مسبقاً." },
             { q: "أين أستلم المفاتيح؟", a: "سيستقبلك فريقنا عند مدخل الرياض. بالنسبة للوصول المتأخر، يرجى إخبارنا بوقت وصولك المتوقع حتى نضمن وجود من يستقبلك." },
             { q: "هل يمكنني ترك الأمتعة قبل تسجيل الوصول أو بعد المغادرة؟", a: "نعم، يسعدنا تخزين أمتعتك يوم الوصول قبل جاهزية غرفتك، أو يوم المغادرة بعد تسجيل الخروج." },
           ],
@@ -2007,24 +2012,23 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         {
           category: "الغرف والمرافق",
           items: [
-            { q: "هل يتوفر واي فاي؟", a: "نعم، يتوفر واي فاي مجاني عالي السرعة في كلا الرياضين. يمكن لكونسيرجك تزويدك بكلمة المرور الحالية عند الطلب." },
+            { q: "هل يتوفر واي فاي؟", a: "نعم، الواي فاي المجاني عالي السرعة مشمول في كلا الرياضين. تُقدَّم تفاصيل الاتصال عند تسجيل الوصول." },
             { q: "هل توجد تكييف هواء؟", a: "جميع الغرف مجهزة بالتكييف والتدفئة، لضمان الراحة على مدار العام في ظل مناخ مراكش المتغير." },
-            { q: "هل تقدمون خدمة الغسيل؟", a: "نعم، تتوفر خدمات الغسيل والتنظيف الجاف. يرجى التحدث مع فريقنا أو سؤال الكونسيرج الذكي للحصول على التفاصيل والمدد الزمنية." },
           ],
         },
         {
           category: "الخدمات",
           items: [
-            { q: "ماذا يتضمن الإفطار؟", a: "نقدّم إفطاراً مغربياً تقليدياً يومياً في الفناء — مسمن، بغرير، عصير برتقال طازج، تمر مجهول، عسل، زيت أرغان، وشاي أخضر بالنعناع. يُقدَّم من الساعة 7:30 حتى 10:30 صباحاً." },
+            { q: "ماذا يتضمن الإفطار؟", a: "نقدّم إفطاراً مغربياً تقليدياً يومياً في الفناء من 8:00 حتى 10:30 صباحاً — شاي، قهوة، فطائر مغربية، جبن، مربى، عسل، زبدة، سلطة فواكه، عصير برتقال طازج، خبز، كيك، طماطم كرزية، خيار، زيتون أسود وبيض حسب الطلب. تتغير القائمة يومياً. يتوفر إفطار سريع للمغادرات المبكرة (اطلبه في الليلة السابقة). لا يمكن ضمان الخلو من الغلوتين — ننصح بإحضار منتجاتك الخاصة." },
             { q: "هل توجد مسبح؟", a: "يضم رياض 141 مسبحاً صغيراً في فناء الحديقة، متاحاً لجميع الضيوف المقيمين في أي من العقارين." },
-            { q: "كيف أحجز الحمام؟", a: "الحمام متاح للحجوزات الخاصة. اسأل الكونسيرج الذكي أو تحدث مع الاستقبال للتحقق من التوفر وحجز جلسة." },
+            { q: "كيف أحجز الحمام؟", a: "السبا مفتوح من 9:00 صباحاً حتى 9:00 مساءً. الحمام بسعر 20€ للشخص بحد أدنى شخصين؛ والمساج 30€ (30 دقيقة) أو 40€ (60 دقيقة). احجز قبل ساعتين على الأقل عبر واتساب أو الكونسيرج الذكي." },
           ],
         },
         {
           category: "الرحلات",
           items: [
-            { q: "كيف أحجز رحلة؟", a: "يمكنك طلب أي رحلة عبر الكونسيرج الذكي أو مباشرة مع فريقنا في الاستقبال. نوصي بالحجز قبل 24 ساعة على الأقل للرحلات النهارية." },
-            { q: "ما هي سياسة إلغاء الرحلات؟", a: "يمكن إلغاء الرحلات أو إعادة جدولتها حتى 24 ساعة قبل موعد المغادرة المقرر. قد يترتب على الإلغاء في نفس اليوم رسوم." },
+            { q: "كيف أحجز رحلة؟", a: "يمكنك طلب أي رحلة عبر الكونسيرج الذكي أو عبر واتساب. نوصي بالحجز قبل 24 ساعة على الأقل للرحلات النهارية." },
+            { q: "ما هي سياسة الإلغاء؟", a: "الإلغاء مجاني حتى 14 يوماً قبل وصولك. لأي تغيير بعد ذلك، يرجى التواصل مع فريقنا عبر واتساب." },
             { q: "هل يمكنكم تنظيم جولات خاصة مخصصة؟", a: "بالتأكيد. نعمل مع مرشدين محليين خبراء وسائقين خاصين لابتكار تجارب مصممة خصيصاً. تواصل معنا باهتماماتك وسنصمم لك شيئاً مميزاً." },
           ],
         },
@@ -2046,12 +2050,12 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       aSmarterStay: "إقامة أكثر ذكاءً",
       ready: "هل أنت مستعد؟",
       startExperience: "ابدأ تجربتك",
-      ctaDesc: "جهّز تأكيد حجزك وأنشئ حسابك في أقل من دقيقة.",
+      ctaDesc: "أنشئ حسابك المجاني في أقل من دقيقة.",
       steps: [
-        { title: "احجز إقامتك", desc: "احجز غرفتك في رياض دار دار عبر موقعنا الإلكتروني أو Booking.com أو Airbnb. كل حجز مؤكد يتضمن رمز وصول شخصي." },
-        { title: "استلم رمزك", desc: "يُرسَل رمز الوصول الفريد الخاص بك في بريد تأكيد الحجز. إنه مفتاحك الشخصي إلى منصة الكونسيرج الذكي." },
-        { title: "أنشئ حسابك", desc: "سجّل في dardart.com باستخدام رمزك. يستغرق أقل من دقيقة — فقط اسمك وبريدك الإلكتروني والرمز من تأكيدك." },
-        { title: "تحدّث على مدار الساعة", desc: "كونسيرجك الذكي متاح على مدار الساعة. اسأل عن أي شيء — أوقات الإفطار، حجوزات الرحلات، خدمة الغرف، النصائح المحلية، والمزيد." },
+        { title: "احجز إقامتك", desc: "احجز غرفتك في رياض دار دار عبر موقعنا الإلكتروني أو Booking.com أو Airbnb." },
+        { title: "أنشئ حسابك", desc: "سجّل مجاناً في أقل من دقيقة — فقط اسمك وبريدك الإلكتروني ورقم هاتفك والرياض الذي تقيم فيه." },
+        { title: "استكشف بوابة الضيف", desc: "اعثر على كل ما يخص إقامتك في مكان واحد — غرفك والخدمات والرحلات والمعلومات العملية." },
+        { title: "تحدّث على مدار الساعة", desc: "كونسيرجك الذكي متاح على مدار الساعة. اسأل عن أي شيء — أوقات الإفطار، حجوزات الرحلات، النصائح المحلية، والمزيد." },
       ],
       benefits: [
         { title: "متاح على مدار الساعة", desc: "لا داعي للانتظار في الاستقبال. احصل على إجابات لأسئلتك في أي ساعة، ليلاً أو نهاراً." },
@@ -2062,13 +2066,13 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
     privacyPage: {
       legal: "قانوني",
       title: "سياسة الخصوصية",
-      intro: "يقوم رياض دار دار («نحن» أو «لنا» أو «الخاصة بنا») بتشغيل منصة كونسيرج الضيوف dardart.com. تصف سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك الشخصية عند استخدامك لخدمتنا.",
+      intro: "يقوم رياض دار دار («نحن» أو «لنا» أو «الخاصة بنا») بتشغيل منصة كونسيرج الضيوف هذه (dar-dart-saas.vercel.app). تصف سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك الشخصية عند استخدامك لخدمتنا.",
       sections: [
         {
           title: "1. المعلومات التي نجمعها",
           body: `عند إنشاء حساب واستخدام منصة كونسيرج دار دار، نقوم بجمع المعلومات التالية:
 
-**معلومات الحساب:** اسمك وعنوان بريدك الإلكتروني ورمز وصول الحجز المُقدَّم أثناء التسجيل.
+**معلومات الحساب:** اسمك وعنوان بريدك الإلكتروني ورقم هاتفك والرياض الذي اخترته ولغتك المفضلة، المُقدَّمة أثناء التسجيل.
 
 **رسائل الدردشة:** نص محادثاتك مع الكونسيرج الذكي. تُستخدم لتوليد الردود ولتحسين جودة الخدمة.
 
@@ -2139,10 +2143,10 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
 قد يتم تحديث هذه الشروط من وقت لآخر. يشكّل استمرار استخدام الخدمة بعد التغييرات قبولاً للشروط المعدَّلة.`,
         },
         {
-          title: "2. الأهلية",
-          body: `الوصول إلى منصة الكونسيرج مقتصر على الضيوف المؤكَّدين لدى رياض دار دار. يلزم رمز وصول حجز صالح — مُقدَّم في تأكيد حجزك — لإنشاء حساب.
+          title: "2. الخدمة",
+          body: `المنصة هي رفيق معلومات وكونسيرج مجاني لضيوف رياض دار دار. التسجيل مفتوح — يمكن لأي شخص يخطط لإقامة لدينا أو يستمتع بها إنشاء حساب.
 
-بالتسجيل، فإنك تؤكد أنك ضيف حالي أو قادم وأن رمز الوصول الذي تقدمه هو ملكك الخاص.`,
+بالتسجيل، فإنك تؤكد أن المعلومات التي تقدمها (الاسم والبريد الإلكتروني ورقم الهاتف) صحيحة وتخصك.`,
         },
         {
           title: "3. استخدام الخدمة",
@@ -2150,7 +2154,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
 
 - تستخدم الخدمة لنقل محتوى ضار أو مسيء أو غير قانوني
 - تحاول الهندسة العكسية أو اختراق أو تعطيل المنصة
-- تشارك بيانات اعتماد حسابك أو رمز الوصول الخاص بك مع الآخرين
+- تشارك بيانات اعتماد حسابك مع الآخرين
 - تستخدم الخدمة بأي طريقة قد تضر بسمعة رياض دار دار`,
         },
         {
@@ -2164,10 +2168,10 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
 بالنسبة للحجوزات المؤكدة أو الترتيبات المحددة، يرجى التواصل مباشرة مع فريقنا.`,
         },
         {
-          title: "5. حسابات المستخدمين ورموز الوصول",
-          body: `أنت مسؤول عن الحفاظ على سرية حسابك ورمز الوصول الخاص بك. يجب عليك إخطارنا فوراً إذا اشتبهت في وصول غير مصرح به إلى حسابك.
+          title: "5. حسابات المستخدمين",
+          body: `أنت مسؤول عن الحفاظ على سرية بيانات اعتماد حسابك. يجب عليك إخطارنا فوراً إذا اشتبهت في وصول غير مصرح به إلى حسابك.
 
-كل رمز وصول صالح لتسجيل حساب واحد. تنتهي صلاحية رموز الوصول بعد 30 يوماً من تاريخ مغادرتك.`,
+الحسابات شخصية ولا يجوز مشاركتها. يجوز لنا إلغاء تفعيل الحسابات بعد نهاية إقامتك وفقاً لسياسة الاحتفاظ بالبيانات لدينا.`,
         },
         {
           title: "6. الملكية الفكرية",
@@ -2263,7 +2267,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       email: "E-Mail",
       password: "Passwort",
       forgotPassword: "Passwort vergessen?",
-      rememberMe: "Angemeldet bleiben",
       submit: "Anmelden",
       signingIn: "Anmeldung läuft…",
       continueWithGoogle: "Mit Google fortfahren",
@@ -2271,11 +2274,22 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       noAccount: "Neuer Gast?",
       createAccount: "Konto erstellen →",
       backHome: "← Zurück zur Startseite",
+      resetHeading: "Passwort zurücksetzen",
+      resetDesc: "Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts.",
+      sendResetLink: "Link senden",
+      resetEmailSent: "Prüfen Sie Ihren Posteingang — wir haben Ihnen einen Link zum Zurücksetzen des Passworts gesendet.",
+      newPassword: "Neues Passwort",
+      confirmPassword: "Passwort bestätigen",
+      updatePassword: "Passwort aktualisieren",
+      passwordUpdated: "Passwort aktualisiert. Sie werden zu Ihrem Dashboard weitergeleitet…",
+      passwordMismatch: "Die Passwörter stimmen nicht überein.",
+      passwordTooShort: "Das Passwort muss mindestens 6 Zeichen lang sein.",
+      backToSignIn: "← Zurück zur Anmeldung",
     },
     signUp: {
       conciergeAwaits: "Ihr persönlicher Concierge erwartet Sie",
       heading: "Konto erstellen",
-      subheading: "Ihr einzigartiger Zugangscode ist in Ihrer Buchungsbestätigungs-E-Mail enthalten.",
+      subheading: "Erstellen Sie Ihr kostenloses Gästekonto, um auf Ihren persönlichen Concierge zuzugreifen.",
       firstName: "Vorname",
       lastName: "Nachname",
       nameOnReservation: "Name auf der Reservierung",
@@ -2283,7 +2297,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       email: "E-Mail",
       password: "Passwort",
       phone: "Telefonnummer",
-      phonePlaceholder: "+49 151 23456789",
+      phonePlaceholder: "Mit Ländervorwahl, z. B. +49 151 23456789",
       phoneRequired: "Bitte geben Sie Ihre Telefonnummer ein.",
       whichRiad: "In welchem Riad übernachten Sie?",
       language: "Bevorzugte Sprache",
@@ -2302,6 +2316,8 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       backHome: "← Zurück zur Startseite",
       signUpFailedDefault: "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
       profileSetupFailed: "Konto erstellt, aber die Profileinrichtung ist fehlgeschlagen. Bitte kontaktieren Sie den Support.",
+      phoneInvalid: "Bitte geben Sie Ihre vollständige Telefonnummer mit Ländervorwahl ein (z. B. +212 6XX XXX XXX oder +33 6 XX XX XX XX).",
+      confirmEmail: "Fast geschafft! Prüfen Sie Ihren Posteingang und bestätigen Sie Ihre E-Mail-Adresse, um Ihr Konto zu aktivieren.",
     },
     dashboard: {
       aiConcierge: "KI-Concierge",
@@ -2315,7 +2331,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         "Wann gibt es Frühstück?",
         "Ausflug buchen",
         "Zimmerservice anfordern",
-        "Wie lautet das WLAN-Passwort?",
+        "Welche Ausflüge bieten Sie an?",
         "Wann ist der Check-out?",
       ],
       guestPortal: "Ihr persönliches Gästeportal",
@@ -2343,20 +2359,20 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         dinner: "Hallo, ich möchte ein Abendessen im Riad buchen",
         agafay: "Hallo, ich möchte die Agafay-Wüsten-Exkursion buchen",
         ourikaValley: "Hallo, ich möchte die Ourika-Tal-Exkursion buchen",
-        atlasMountains: "Hallo, ich möchte die Atlas-Gebirge-Exkursion buchen",
+        essaouira: "Hallo, ich möchte den Tagesausflug nach Essaouira buchen",
         hotAirBalloon: "Hallo, ich möchte die Heißluftballon-Erfahrung buchen",
-        cityTour: "Hallo, ich möchte eine Stadtführung buchen",
+        cityTour: "Hallo, ich möchte einen geführten Stadttag buchen",
       },
       services: {
         breakfast: {
           name: "Frühstück",
           detail: "8:00 – 10:30 Uhr · Inbegriffen",
-          desc: "Traditionelles marokkanisches Frühstück im offenen Innenhof. Tee, Kaffee, Crêpes, frischer Saft, Käse, Honig und Eier auf Wunsch.",
+          desc: "Traditionelles marokkanisches Frühstück im offenen Innenhof. Tee, Kaffee, marokkanische Pfannkuchen, frischer Orangensaft, Käse, Honig und Eier auf Wunsch. Express-Frühstück für frühe Abreisen verfügbar.",
         },
         hammam: {
           name: "Hammam & Spa",
           detail: "20€/Person · Min. 2 Personen",
-          desc: "Authentisches Hammam-Ritual mit Peeling und Arganseife. Massage: 30 Min. 30€ · 60 Min. 40€. Verfügbar 10:00–21:00 Uhr. Per WhatsApp buchen.",
+          desc: "Authentisches Hammam-Ritual mit Peeling und Arganseife. Massage: 30 Min. 30€ · 60 Min. 40€. Geöffnet 9:00–21:00 Uhr — mindestens 2 Stunden im Voraus per WhatsApp reservieren.",
         },
         pool: {
           name: "Pool",
@@ -2365,32 +2381,32 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         },
         airportTransfer: {
           name: "Flughafentransfer",
-          detail: "20€ (1–4 Pers.) · 30€ (5+)",
-          desc: "Private klimatisierte Transfers rund um die Uhr verfügbar. Per WhatsApp mindestens 2,5 Stunden vor Ihrem Flug buchen.",
+          detail: "20€ (1–4, 07:00–22:00) · 25€ (1–4, 23:00–06:00) · 30€ (5–7)",
+          desc: "Private, klimatisierte Transfers. Per WhatsApp mindestens 2,5 Stunden vor Ihrem Flug buchen.",
         },
         wifi: {
           name: "WLAN",
-          noPassword: "Kein Passwort",
-          desc: "Kostenloses Hochgeschwindigkeits-WLAN im gesamten Riad. Einfach verbinden — kein Passwort erforderlich.",
+          detail: "Inbegriffen",
+          desc: "Kostenloses Hochgeschwindigkeits-WLAN im gesamten Riad. Die Zugangsdaten erhalten Sie beim Check-in.",
         },
         concierge: {
           name: "Concierge",
-          detail: "WhatsApp 0699814919 · 24h",
-          desc: "Unser Team ist rund um die Uhr erreichbar, um alles zu arrangieren, was Sie benötigen — von Restaurantreservierungen bis hin zu Ausflügen.",
+          detail: "WhatsApp +212 709 086 496 · 08:00–22:00",
+          desc: "Unser Rezeptionsteam ist täglich von 08:00 bis 22:00 Uhr erreichbar, um alles zu arrangieren, was Sie benötigen — von Restaurantreservierungen bis hin zu Ausflügen. Der KI-Concierge in der App ist rund um die Uhr verfügbar.",
         },
       },
       info: {
-        checkIn: { label: "Check-in", value: "14:00 Uhr", sub: "Früher wenn Zimmer frei" },
+        checkIn: { label: "Check-in", value: "14:00 Uhr", sub: "Ankunft ab 10:30 Uhr möglich" },
         checkOut: { label: "Check-out", value: "12:00 Uhr", sub: "Spätes Auschecken auf Anfrage" },
-        dinner: { label: "Abendessen im Riad", value: "20€/Person", sub: "Min. 4 Personen · Per WhatsApp buchen" },
+        dinner: { label: "Abendessen im Riad", value: "20€/Person", sub: "Min. 4 Personen · Kinder <12 12€, <4 gratis · 1 Tag im Voraus reservieren" },
         water: { label: "Wasser", value: "20 Dirham", sub: "Pro Flasche · Küche verfügbar" },
       },
       excursionsList: {
-        agafay: { subtitle: "Quad · Kamel · Abendessen", price: "30–55 € / Person" },
-        "ourika-valley": { subtitle: "Atlas · Wasserfälle · Berberdörfer", price: "Ab 20 € / Person" },
-        "atlas-mountains": { subtitle: "Berge · Berberdörfer · Frische Luft", price: "35 € / Person" },
-        "hot-air-balloon": { subtitle: "Sonnenaufgang · Panoramablick", price: "97 € / Person" },
-        "city-tour": { subtitle: "Medina · Souks · Versteckte Orte", price: "20 € / Person" },
+        agafay: { subtitle: "Quad · Kamel · Abendessen · Feuershow", price: "Pack A 30 € · Pack B 55 €" },
+        "ourika-valley": { subtitle: "Atlas · Wasserfälle · Berberdörfer · 9:00–17:00", price: "20 € · 27 € mit Mahlzeit" },
+        essaouira: { subtitle: "UNESCO-Medina · Atlantikküste · 8:00–20:00", price: "25 € / Person" },
+        "hot-air-balloon": { subtitle: "Sonnenaufgang · Panoramablick · Vorreservierung", price: "97 € / Person" },
+        "city-tour": { subtitle: "Medina · Souks · Versteckte Orte", price: "65 € / Gruppe (1–4 Personen)" },
       },
     },
     survey: {
@@ -2416,7 +2432,9 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       beforeSubmitting: "vor dem Absenden.",
       sessionExpired: "Sitzung abgelaufen. Bitte melden Sie sich erneut an.",
       failedToSubmit: "Umfrage konnte nicht übermittelt werden. Bitte versuchen Sie es erneut.",
-      checkoutFailed: "Umfrage gespeichert, aber Check-out fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      checkoutFailed: "Beim Check-out ist etwas schiefgelaufen. Sie wurden nicht abgemeldet — bitte versuchen Sie es erneut.",
+      phoneInvalid: "Bitte geben Sie in Ihrem Profil Ihre vollständige Telefonnummer mit Ländervorwahl ein (z. B. +212 6XX XXX XXX oder +33 6 XX XX XX XX) und versuchen Sie es erneut.",
+      retry: "Erneut versuchen",
     },
     chat: {
       greeting: "Herzlich willkommen! Wie kann ich Ihnen heute helfen?",
@@ -2457,11 +2475,12 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         zagora: "Erinnert an den Wüstensüden, mit warmen Sandsteintönen, geometrischen Mustern und einer privaten Terrasse.",
       },
       excursionsList: {
-        medinaWalkingTour: { name: "Rundgang durch die Medina", desc: "Erkunden Sie die alten labyrinthartigen Gassen und Souks von Marrakesch mit einem erfahrenen lokalen Führer.", duration: "3 Stunden" },
-        atlasMountainsDayTrip: { name: "Tagesausflug ins Atlasgebirge", desc: "Reisen Sie durch Berberdörfer und atemberaubende Hochgebirgslandschaften, nur 40 km von der Stadt entfernt.", duration: "Ganzer Tag" },
-        saharaDesertTour: { name: "Sahara-Wüstentour", desc: "Ein dreitägiges Abenteuer zu den goldenen Dünen von Erg Chebbi — inklusive Kamelritt und Übernachtung im Camp.", duration: "3 Tage" },
-        moroccanCookingClass: { name: "Marokkanischer Kochkurs", desc: "Lernen Sie, traditionelle Tajines, Bastilla und Minztee in unserer authentischen Riad-Küche zuzubereiten.", duration: "4 Stunden" },
-        camelRide: { name: "Kamelritt", desc: "Ein Sonnenuntergangsritt durch die Palmenhaine und Olivenhaine am Rande von Marrakesch.", duration: "2 Stunden" },
+        agafayExpress: { name: "Agafay-Wüste — Pack A Express", desc: "Quad (40 Min.), Kamelritt (10 Min.), Abendessen, Feuershow, Pool und Transport inklusive.", price: "30 € / Person" },
+        agafayFull: { name: "Agafay-Wüste — Pack B Full Experience", desc: "Quad (1 Std.), Kamelritt (20 Min.), Abendessen, Feuershow, Pool und Transport inklusive.", price: "55 € / Person" },
+        essaouira: { name: "Tagesausflug nach Essaouira", desc: "Ein ganzer Tag an der Atlantikküste — UNESCO-Medina, Hafen und Stadtmauern. Abfahrt 8:00, Rückkehr 20:00 Uhr.", price: "25 € / Person" },
+        ourika: { name: "Ourika-Tal", desc: "Atlasgebirge, Wasserfälle und Berberdörfer. Abfahrt 9:00, Rückkehr 17:00 Uhr. 27 € inkl. Mahlzeit.", price: "Ab 20 € / Person" },
+        hotAirBalloon: { name: "Heißluftballon", desc: "Flug bei Sonnenaufgang mit Panoramablick über den Atlas und die Palmenhaine. Vorreservierung erforderlich.", price: "97 € / Person" },
+        cityDay: { name: "Geführter Stadttag", desc: "Ein ganzer Tag in Marrakesch mit einem erfahrenen lokalen Guide — Medina, Souks und versteckte Orte.", price: "65 € / Gruppe (1–4)" },
       },
       servicesList: {
         breakfast: { name: "Frühstück", desc: "Traditionelles marokkanisches Frühstück, täglich im Freiluft-Innenhof serviert." },
@@ -2478,7 +2497,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       continueToDashboard: "Weiter zum Dashboard",
       saveFailed: "Profil konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
       phone: "Telefonnummer",
-      phonePlaceholder: "+49 151 23456789",
+      phonePlaceholder: "Mit Ländervorwahl, z. B. +49 151 23456789",
       phoneRequired: "Bitte geben Sie Ihre Telefonnummer ein.",
     },
     aboutPage: {
@@ -2511,27 +2530,14 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       reachOut: "Kontaktieren Sie uns",
       ourLocations: "Unsere Standorte",
       directContact: "Direkter Kontakt",
-      whatsappLabel: "WhatsApp: +212 600 000 000",
+      whatsappLabel: "WhatsApp: +212 709 086 496",
       hours: "Öffnungszeiten",
       deskHours: "Rezeption täglich verfügbar, 08:00 – 22:00 Uhr",
       conciergeAvailable: "KI-Concierge rund um die Uhr verfügbar über",
       yourDashboard: "Ihr Dashboard",
-      messageSent: "Nachricht gesendet",
-      messageSentDesc: "Danke — unser Team wird sich in Kürze bei Ihnen melden.",
-      sendAMessage: "Nachricht senden",
-      name: "Name",
-      namePlaceholder: "Ihr Name",
-      subject: "Betreff",
-      selectSubject: "Betreff auswählen",
-      subjects: {
-        bookingEnquiry: "Buchungsanfrage",
-        guestSupport: "Gästesupport",
-        partnership: "Partnerschaft",
-        other: "Sonstiges",
-      },
-      message: "Nachricht",
-      messagePlaceholder: "Wie können wir Ihnen helfen?",
-      sendMessageBtn: "Nachricht senden",
+      chatOnWhatsApp: "Auf WhatsApp chatten",
+      whatsappDesc: "Der schnellste Weg, uns zu erreichen — Fragen, Buchungen und alles rund um Ihren Aufenthalt.",
+      whatsappPrefill: "Hallo! Ich habe eine Frage zum Riad Dar D'Art",
     },
     faqPage: {
       helpSupport: "Hilfe & Support",
@@ -2544,7 +2550,7 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         {
           category: "Check-in & Check-out",
           items: [
-            { q: "Um wie viel Uhr sind Check-in und Check-out?", a: "Der Check-in ist ab 14:00 Uhr möglich. Der Check-out erfolgt bis 11:00 Uhr. Früher Check-in und später Check-out können je nach Verfügbarkeit arrangiert werden — fragen Sie einfach Ihren KI-Concierge oder kontaktieren Sie uns im Voraus." },
+            { q: "Um wie viel Uhr sind Check-in und Check-out?", a: "Die Ankunft ist ab 10:30 Uhr möglich (wir bewahren Ihr Gepäck auf); die Zimmer sind ab 14:00 Uhr bezugsfertig. Der Check-out erfolgt bis 12:00 Uhr. Früher Check-in und später Check-out können je nach Verfügbarkeit arrangiert werden — fragen Sie einfach Ihren KI-Concierge oder kontaktieren Sie uns im Voraus." },
             { q: "Wo hole ich die Schlüssel ab?", a: "Unser Team empfängt Sie am Eingang des Riads. Bei später Ankunft teilen Sie uns bitte Ihre voraussichtliche Ankunftszeit mit, damit jemand da ist, um Sie willkommen zu heißen." },
             { q: "Kann ich Gepäck vor dem Check-in oder nach dem Check-out lassen?", a: "Ja, wir bewahren Ihr Gepäck gerne am Anreisetag auf, bevor Ihr Zimmer bereit ist, oder am Abreisetag nach dem Check-out." },
           ],
@@ -2552,24 +2558,23 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         {
           category: "Zimmer & Ausstattung",
           items: [
-            { q: "Ist WLAN verfügbar?", a: "Ja, kostenloses Highspeed-WLAN ist in beiden Riads verfügbar. Ihr Concierge kann Ihnen das aktuelle Passwort auf Anfrage mitteilen." },
+            { q: "Ist WLAN verfügbar?", a: "Ja, kostenloses Highspeed-WLAN ist in beiden Riads inbegriffen. Die Zugangsdaten erhalten Sie beim Check-in." },
             { q: "Gibt es eine Klimaanlage?", a: "Alle Zimmer sind mit Klimaanlage und Heizung ausgestattet, um ganzjährigen Komfort im wechselhaften Klima Marrakeschs zu gewährleisten." },
-            { q: "Bieten Sie einen Wäscheservice an?", a: "Ja, Wäscherei- und Reinigungsservices sind verfügbar. Bitte sprechen Sie mit unserem Team oder fragen Sie Ihren KI-Concierge nach Details und Bearbeitungszeiten." },
           ],
         },
         {
           category: "Dienstleistungen",
           items: [
-            { q: "Was ist im Frühstück enthalten?", a: "Wir servieren täglich ein traditionelles marokkanisches Frühstück im Innenhof — Msemen, Beghrir, frisch gepressten Orangensaft, Medjool-Datteln, Honig, Arganöl und marokkanischen Minztee. Serviert von 7:30 bis 10:30 Uhr." },
+            { q: "Was ist im Frühstück enthalten?", a: "Wir servieren täglich von 8:00 bis 10:30 Uhr ein traditionelles marokkanisches Frühstück im Innenhof — Tee, Kaffee, marokkanische Pfannkuchen, Käse, Marmelade, Honig, Butter, Obstsalat, frischer Orangensaft, Brot, Kuchen, Kirschtomaten, Gurke, schwarze Oliven und Eier nach Wunsch. Das Menü variiert täglich. Für frühe Abreisen gibt es ein Express-Frühstück (am Vorabend anfragen). Glutenfrei kann nicht garantiert werden — wir empfehlen, eigene glutenfreie Produkte mitzubringen." },
             { q: "Gibt es einen Pool?", a: "Riad 141 verfügt über einen kleinen Tauchpool im Gartenhof, der allen Gästen beider Anwesen zur Verfügung steht." },
-            { q: "Wie buche ich den Hammam?", a: "Der Hammam ist für private Buchungen verfügbar. Fragen Sie Ihren KI-Concierge oder sprechen Sie mit der Rezeption, um die Verfügbarkeit zu prüfen und eine Sitzung zu buchen." },
+            { q: "Wie buche ich den Hammam?", a: "Das Spa ist von 9:00 bis 21:00 Uhr geöffnet. Der Hammam kostet 20 €/Person bei mindestens 2 Personen; Massagen kosten 30 € (30 Min.) oder 40 € (60 Min.). Reservieren Sie mindestens 2 Stunden im Voraus per WhatsApp oder über Ihren KI-Concierge." },
           ],
         },
         {
           category: "Ausflüge",
           items: [
-            { q: "Wie buche ich einen Ausflug?", a: "Sie können jeden Ausflug über Ihren KI-Concierge oder direkt bei unserem Team an der Rezeption anfragen. Wir empfehlen, Tagesausflüge mindestens 24 Stunden im Voraus zu buchen." },
-            { q: "Wie lautet die Stornierungsrichtlinie für Ausflüge?", a: "Ausflüge können bis zu 24 Stunden vor der geplanten Abfahrt storniert oder umgebucht werden. Bei Stornierungen am selben Tag kann eine Gebühr anfallen." },
+            { q: "Wie buche ich einen Ausflug?", a: "Sie können jeden Ausflug über Ihren KI-Concierge oder per WhatsApp anfragen. Wir empfehlen, Tagesausflüge mindestens 24 Stunden im Voraus zu buchen." },
+            { q: "Wie lautet die Stornierungsrichtlinie?", a: "Die Stornierung ist bis 14 Tage vor Ihrer Ankunft kostenlos. Für Änderungen danach kontaktieren Sie bitte unser Team per WhatsApp." },
             { q: "Können Sie individuelle Privattouren organisieren?", a: "Absolut. Wir arbeiten mit erfahrenen lokalen Guides und privaten Fahrern zusammen, um maßgeschneiderte Erlebnisse zu schaffen. Kontaktieren Sie uns mit Ihren Interessen, und wir gestalten etwas Besonderes." },
           ],
         },
@@ -2591,12 +2596,12 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       aSmarterStay: "Ein intelligenterer Aufenthalt",
       ready: "Bereit?",
       startExperience: "Starten Sie Ihr Erlebnis",
-      ctaDesc: "Halten Sie Ihre Buchungsbestätigung bereit und erstellen Sie Ihr Konto in weniger als einer Minute.",
+      ctaDesc: "Erstellen Sie Ihr kostenloses Konto in weniger als einer Minute.",
       steps: [
-        { title: "Buchen Sie Ihren Aufenthalt", desc: "Reservieren Sie Ihr Zimmer im Riad Dar D'Art über unsere Website, Booking.com oder Airbnb. Jede bestätigte Buchung enthält einen persönlichen Zugangscode." },
-        { title: "Erhalten Sie Ihren Code", desc: "Ihr eindeutiger Zugangscode wird in Ihrer Buchungsbestätigungs-E-Mail gesendet. Er ist Ihr persönlicher Schlüssel zur KI-Concierge-Plattform." },
-        { title: "Erstellen Sie Ihr Konto", desc: "Registrieren Sie sich auf dardart.com mit Ihrem Code. Es dauert weniger als eine Minute — nur Ihr Name, Ihre E-Mail und der Code aus Ihrer Bestätigung." },
-        { title: "Chatten Sie rund um die Uhr", desc: "Ihr KI-Concierge ist rund um die Uhr verfügbar. Fragen Sie alles — Frühstückszeiten, Ausflugsbuchungen, Zimmerservice, lokale Tipps und mehr." },
+        { title: "Buchen Sie Ihren Aufenthalt", desc: "Reservieren Sie Ihr Zimmer im Riad Dar D'Art über unsere Website, Booking.com oder Airbnb." },
+        { title: "Erstellen Sie Ihr Konto", desc: "Registrieren Sie sich kostenlos in weniger als einer Minute — nur Ihr Name, Ihre E-Mail, Ihre Telefonnummer und das Riad, in dem Sie übernachten." },
+        { title: "Entdecken Sie Ihr Gästeportal", desc: "Alles zu Ihrem Aufenthalt an einem Ort — Ihre Zimmer, Dienstleistungen, Ausflüge und praktische Informationen." },
+        { title: "Chatten Sie rund um die Uhr", desc: "Ihr KI-Concierge ist rund um die Uhr verfügbar. Fragen Sie alles — Frühstückszeiten, Ausflugsbuchungen, lokale Tipps und mehr." },
       ],
       benefits: [
         { title: "Rund um die Uhr verfügbar", desc: "Kein Warten an der Rezeption. Erhalten Sie zu jeder Stunde, Tag und Nacht, Antworten auf Ihre Fragen." },
@@ -2607,13 +2612,13 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
     privacyPage: {
       legal: "Rechtliches",
       title: "Datenschutzrichtlinie",
-      intro: "Riad Dar D'Art („wir“, „uns“ oder „unser“) betreibt die Gäste-Concierge-Plattform dardart.com. Diese Datenschutzrichtlinie beschreibt, wie wir Ihre persönlichen Daten erheben, verwenden und schützen, wenn Sie unseren Dienst nutzen.",
+      intro: "Riad Dar D'Art („wir“, „uns“ oder „unser“) betreibt diese Gäste-Concierge-Plattform (dar-dart-saas.vercel.app). Diese Datenschutzrichtlinie beschreibt, wie wir Ihre persönlichen Daten erheben, verwenden und schützen, wenn Sie unseren Dienst nutzen.",
       sections: [
         {
           title: "1. Informationen, die wir sammeln",
           body: `Wenn Sie ein Konto erstellen und die Dar D'Art Concierge-Plattform nutzen, erheben wir folgende Informationen:
 
-**Kontoinformationen:** Ihren Namen, Ihre E-Mail-Adresse und den bei der Registrierung angegebenen Buchungszugangscode.
+**Kontoinformationen:** Ihren Namen, Ihre E-Mail-Adresse, Ihre Telefonnummer, das gewählte Riad und Ihre bevorzugte Sprache, angegeben bei der Registrierung.
 
 **Chat-Nachrichten:** Der Text Ihrer Gespräche mit dem KI-Concierge. Diese werden verwendet, um Antworten zu generieren und die Servicequalität zu verbessern.
 
@@ -2684,10 +2689,10 @@ Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter contact@riad
 Diese Bedingungen können von Zeit zu Zeit aktualisiert werden. Die fortgesetzte Nutzung des Dienstes nach Änderungen stellt die Annahme der überarbeiteten Bedingungen dar.`,
         },
         {
-          title: "2. Berechtigung",
-          body: `Der Zugang zur Concierge-Plattform ist bestätigten Gästen von Riad Dar D'Art vorbehalten. Ein gültiger Buchungszugangscode — in Ihrer Reservierungsbestätigung angegeben — ist zur Kontoerstellung erforderlich.
+          title: "2. Der Dienst",
+          body: `Die Plattform ist ein kostenloser Informations- und Concierge-Begleiter für Gäste von Riad Dar D'Art. Die Registrierung ist offen — jeder, der einen Aufenthalt bei uns plant oder genießt, kann ein Konto erstellen.
 
-Mit der Registrierung bestätigen Sie, dass Sie ein aktueller oder zukünftiger Gast sind und dass der von Ihnen angegebene Zugangscode Ihr eigener ist.`,
+Mit der Registrierung bestätigen Sie, dass die von Ihnen angegebenen Informationen (Name, E-Mail, Telefonnummer) korrekt sind und Ihnen gehören.`,
         },
         {
           title: "3. Nutzung des Dienstes",
@@ -2695,7 +2700,7 @@ Mit der Registrierung bestätigen Sie, dass Sie ein aktueller oder zukünftiger 
 
 - den Dienst nutzen, um schädliche, beleidigende oder illegale Inhalte zu übermitteln
 - versuchen, die Plattform zurückzuentwickeln, zu hacken oder zu stören
-- Ihre Kontodaten oder Ihren Zugangscode mit anderen teilen
+- Ihre Kontodaten mit anderen teilen
 - den Dienst auf eine Weise nutzen, die dem Ruf von Riad Dar D'Art schaden könnte`,
         },
         {
@@ -2709,10 +2714,10 @@ Mit der Registrierung bestätigen Sie, dass Sie ein aktueller oder zukünftiger 
 Für bestätigte Reservierungen, Buchungen oder spezifische Vereinbarungen kontaktieren Sie bitte direkt unser Team.`,
         },
         {
-          title: "5. Benutzerkonten & Zugangscodes",
-          body: `Sie sind für die Wahrung der Vertraulichkeit Ihres Kontos und Zugangscodes verantwortlich. Sie müssen uns unverzüglich benachrichtigen, wenn Sie einen unbefugten Zugriff auf Ihr Konto vermuten.
+          title: "5. Benutzerkonten",
+          body: `Sie sind für die Wahrung der Vertraulichkeit Ihrer Kontodaten verantwortlich. Sie müssen uns unverzüglich benachrichtigen, wenn Sie einen unbefugten Zugriff auf Ihr Konto vermuten.
 
-Jeder Zugangscode ist für eine Kontoregistrierung gültig. Zugangscodes laufen 30 Tage nach Ihrem Check-out-Datum ab.`,
+Konten sind persönlich und dürfen nicht geteilt werden. Wir können Konten nach dem Ende Ihres Aufenthalts im Einklang mit unserer Datenaufbewahrungsrichtlinie deaktivieren.`,
         },
         {
           title: "6. Geistiges Eigentum",
@@ -2808,7 +2813,6 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       email: "Email",
       password: "Password",
       forgotPassword: "Password dimenticata?",
-      rememberMe: "Ricordami",
       submit: "Accedi",
       signingIn: "Accesso in corso…",
       continueWithGoogle: "Continua con Google",
@@ -2816,11 +2820,22 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       noAccount: "Nuovo ospite?",
       createAccount: "Crea un account →",
       backHome: "← Torna alla home",
+      resetHeading: "Reimposta la tua password",
+      resetDesc: "Inserisci la tua email e ti invieremo un link per reimpostare la password.",
+      sendResetLink: "Invia il link",
+      resetEmailSent: "Controlla la tua casella di posta — ti abbiamo inviato un link per reimpostare la password.",
+      newPassword: "Nuova password",
+      confirmPassword: "Conferma password",
+      updatePassword: "Aggiorna password",
+      passwordUpdated: "Password aggiornata. Ti stiamo portando alla tua dashboard…",
+      passwordMismatch: "Le password non coincidono.",
+      passwordTooShort: "La password deve contenere almeno 6 caratteri.",
+      backToSignIn: "← Torna all'accesso",
     },
     signUp: {
       conciergeAwaits: "Il tuo concierge personale ti aspetta",
       heading: "Crea il tuo account",
-      subheading: "Il tuo codice di accesso univoco è incluso nell'email di conferma della prenotazione.",
+      subheading: "Crea il tuo account ospite gratuito per accedere al tuo concierge personale.",
       firstName: "Nome",
       lastName: "Cognome",
       nameOnReservation: "Nome sulla prenotazione",
@@ -2828,7 +2843,7 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       email: "Email",
       password: "Password",
       phone: "Numero di telefono",
-      phonePlaceholder: "+39 312 345 6789",
+      phonePlaceholder: "Con prefisso internazionale, es. +39 312 345 6789",
       phoneRequired: "Inserisci il tuo numero di telefono.",
       whichRiad: "In quale riad alloggi?",
       language: "Lingua preferita",
@@ -2845,6 +2860,10 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       haveAccount: "Hai già un account?",
       signIn: "Accedi →",
       backHome: "← Torna alla home",
+      signUpFailedDefault: "Registrazione fallita. Riprova.",
+      profileSetupFailed: "Account creato ma la configurazione del profilo è fallita. Contatta l'assistenza.",
+      phoneInvalid: "Inserisci il tuo numero di telefono completo con il prefisso internazionale (es. +212 6XX XXX XXX o +33 6 XX XX XX XX).",
+      confirmEmail: "Ci siamo quasi! Controlla la tua casella di posta e conferma il tuo indirizzo email per attivare l'account.",
     },
     dashboard: {
       aiConcierge: "Concierge AI",
@@ -2858,7 +2877,7 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         "A che ora è la colazione?",
         "Prenota un'escursione",
         "Richiedi il servizio in camera",
-        "Qual è la password del Wi-Fi?",
+        "Quali escursioni offrite?",
         "A che ora è il check-out?",
       ],
       guestPortal: "Il tuo portale ospite personalizzato",
@@ -2886,20 +2905,20 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         dinner: "Ciao, vorrei prenotare una cena al riad",
         agafay: "Ciao, vorrei prenotare l'escursione nel deserto di Agafay",
         ourikaValley: "Ciao, vorrei prenotare l'escursione nella valle di Ourika",
-        atlasMountains: "Ciao, vorrei prenotare l'escursione sulle montagne dell'Atlante",
+        essaouira: "Ciao, vorrei prenotare la gita di un giorno a Essaouira",
         hotAirBalloon: "Ciao, vorrei prenotare l'esperienza in mongolfiera",
-        cityTour: "Ciao, vorrei prenotare un tour guidato della città",
+        cityTour: "Ciao, vorrei prenotare una giornata guidata in città",
       },
       services: {
         breakfast: {
           name: "Colazione",
           detail: "8:00 – 10:30 · Inclusa",
-          desc: "Colazione marocchina tradizionale nel cortile all'aperto. Tè, caffè, crêpes, succo fresco, formaggio, miele e uova su richiesta.",
+          desc: "Colazione marocchina tradizionale nel cortile all'aperto. Tè, caffè, crêpes marocchine, succo d'arancia fresco, formaggio, miele e uova su richiesta. Colazione express disponibile per le partenze anticipate.",
         },
         hammam: {
           name: "Hammam & Spa",
           detail: "€20/persona · Min 2 persone",
-          desc: "Rituale hammam autentico con esfoliazione e sapone all'argan. Massaggio: 30 min €30 · 60 min €40. Disponibile 10:00–21:00. Prenota via WhatsApp.",
+          desc: "Rituale hammam autentico con esfoliazione e sapone all'argan. Massaggio: 30 min €30 · 60 min €40. Aperto 9:00–21:00 — prenota con almeno 2 ore di anticipo via WhatsApp.",
         },
         pool: {
           name: "Piscina",
@@ -2908,32 +2927,32 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         },
         airportTransfer: {
           name: "Trasferimento aeroporto",
-          detail: "€20 (1–4 pers.) · €30 (5+)",
-          desc: "Trasferimenti privati con aria condizionata disponibili 24/7. Prenota via WhatsApp almeno 2h30 prima del volo.",
+          detail: "€20 (1–4, 07:00–22:00) · €25 (1–4, 23:00–06:00) · €30 (5–7)",
+          desc: "Trasferimenti privati con aria condizionata. Prenota via WhatsApp almeno 2h30 prima del volo.",
         },
         wifi: {
           name: "WiFi",
-          noPassword: "Nessuna password",
-          desc: "WiFi gratuito ad alta velocità in tutto il riad. Connettiti semplicemente — non è richiesta alcuna password.",
+          detail: "Incluso",
+          desc: "WiFi gratuito ad alta velocità in tutto il riad. I dettagli di connessione vengono forniti al check-in.",
         },
         concierge: {
           name: "Concierge",
-          detail: "WhatsApp 0699814919 · 24h",
-          desc: "Il nostro team è disponibile 24 ore su 24 per organizzare qualsiasi cosa tu abbia bisogno — dalle prenotazioni al ristorante alle escursioni.",
+          detail: "WhatsApp +212 709 086 496 · 08:00–22:00",
+          desc: "Il nostro team di reception è disponibile tutti i giorni dalle 08:00 alle 22:00 per organizzare qualsiasi cosa — dalle prenotazioni al ristorante alle escursioni. Il concierge IA dell'app è disponibile 24/7.",
         },
       },
       info: {
-        checkIn: { label: "Check-in", value: "14:00", sub: "Prima se la camera è pronta" },
+        checkIn: { label: "Check-in", value: "14:00", sub: "Arrivo possibile dalle 10:30" },
         checkOut: { label: "Check-out", value: "12:00", sub: "Tardivo possibile su richiesta" },
-        dinner: { label: "Cena al Riad", value: "€20/persona", sub: "Min 4 persone · Prenota via WhatsApp" },
+        dinner: { label: "Cena al Riad", value: "€20/persona", sub: "Min 4 persone · Bambini <12 €12, <4 gratis · Prenota 1 giorno prima" },
         water: { label: "Acqua", value: "20 dirham", sub: "A bottiglia · Cucina disponibile" },
       },
       excursionsList: {
-        agafay: { subtitle: "Quad · Cammello · Cena", price: "30–55 € / persona" },
-        "ourika-valley": { subtitle: "Atlante · Cascate · Villaggi berberi", price: "Da 20 € / persona" },
-        "atlas-mountains": { subtitle: "Montagne · Villaggi berberi · Aria fresca", price: "35 € / persona" },
-        "hot-air-balloon": { subtitle: "Alba · Viste panoramiche", price: "97 € / persona" },
-        "city-tour": { subtitle: "Medina · Souk · Luoghi nascosti", price: "20 € / persona" },
+        agafay: { subtitle: "Quad · Cammello · Cena · Spettacolo di fuoco", price: "Pack A 30 € · Pack B 55 €" },
+        "ourika-valley": { subtitle: "Atlante · Cascate · Villaggi berberi · 9:00–17:00", price: "20 € · 27 € con pasto" },
+        essaouira: { subtitle: "Medina UNESCO · Costa atlantica · 8:00–20:00", price: "25 € / persona" },
+        "hot-air-balloon": { subtitle: "Alba · Viste panoramiche · Prenotazione anticipata", price: "97 € / persona" },
+        "city-tour": { subtitle: "Medina · Souk · Luoghi nascosti", price: "65 € / gruppo (1–4 persone)" },
       },
     },
     survey: {
@@ -2959,7 +2978,9 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       beforeSubmitting: "prima di inviare.",
       sessionExpired: "Sessione scaduta. Per favore accedi di nuovo.",
       failedToSubmit: "Invio del sondaggio fallito. Riprova.",
-      checkoutFailed: "Sondaggio salvato ma check-out fallito. Riprova.",
+      checkoutFailed: "Qualcosa è andato storto durante il check-out. La tua sessione non è stata chiusa — riprova.",
+      phoneInvalid: "Inserisci nel tuo profilo il tuo numero di telefono completo con il prefisso internazionale (es. +212 6XX XXX XXX o +33 6 XX XX XX XX) e riprova.",
+      retry: "Riprova",
     },
     chat: {
       greeting: "Benvenuto! Come posso aiutarti oggi?",
@@ -3000,11 +3021,12 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         zagora: "Evocativa del sud desertico, con calde tonalità di arenaria, motivi geometrici e una terrazza privata.",
       },
       excursionsList: {
-        medinaWalkingTour: { name: "Tour a Piedi della Medina", desc: "Esplora le antiche strade labirintiche e i souk di Marrakech con una guida locale esperta.", duration: "3 ore" },
-        atlasMountainsDayTrip: { name: "Gita di un Giorno sulle Montagne dell'Atlante", desc: "Attraversa villaggi berberi e straordinari paesaggi d'alta quota, a soli 40 km dalla città.", duration: "Giornata intera" },
-        saharaDesertTour: { name: "Tour nel Deserto del Sahara", desc: "Un'avventura di 3 giorni verso le dune dorate di Erg Chebbi — trekking in cammello e campo notturno inclusi.", duration: "3 giorni" },
-        moroccanCookingClass: { name: "Corso di Cucina Marocchina", desc: "Impara a preparare tagine, pastilla e tè alla menta tradizionali nella nostra autentica cucina del riad.", duration: "4 ore" },
-        camelRide: { name: "Giro in Cammello", desc: "Un giro al tramonto tra palmeti e uliveti alla periferia di Marrakech.", duration: "2 ore" },
+        agafayExpress: { name: "Deserto di Agafay — Pack A Express", desc: "Quad (40 min), giro in cammello (10 min), cena, spettacolo di fuoco, piscina e trasporto inclusi.", price: "30 € / persona" },
+        agafayFull: { name: "Deserto di Agafay — Pack B Esperienza Completa", desc: "Quad (1 h), giro in cammello (20 min), cena, spettacolo di fuoco, piscina e trasporto inclusi.", price: "55 € / persona" },
+        essaouira: { name: "Gita di un Giorno a Essaouira", desc: "Una giornata intera sulla costa atlantica — medina patrimonio UNESCO, porto e bastioni. Partenza 8:00, rientro 20:00.", price: "25 € / persona" },
+        ourika: { name: "Valle dell'Ourika", desc: "Montagne dell'Atlante, cascate e villaggi berberi. Partenza 9:00, rientro 17:00. 27 € con pasto incluso.", price: "Da 20 € / persona" },
+        hotAirBalloon: { name: "Mongolfiera", desc: "Volo all'alba con viste panoramiche sull'Atlante e sui palmeti. Prenotazione anticipata obbligatoria.", price: "97 € / persona" },
+        cityDay: { name: "Giornata Guidata in Città", desc: "Una giornata intera a Marrakech con una guida locale esperta — medina, souk e luoghi nascosti.", price: "65 € / gruppo (1–4)" },
       },
       servicesList: {
         breakfast: { name: "Colazione", desc: "Colazione marocchina tradizionale servita ogni giorno nel cortile all'aperto." },
@@ -3021,7 +3043,7 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       continueToDashboard: "Continua alla Dashboard",
       saveFailed: "Impossibile salvare il profilo. Riprova.",
       phone: "Numero di telefono",
-      phonePlaceholder: "+39 312 345 6789",
+      phonePlaceholder: "Con prefisso internazionale, es. +39 312 345 6789",
       phoneRequired: "Inserisci il tuo numero di telefono.",
     },
     aboutPage: {
@@ -3054,27 +3076,14 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       reachOut: "Contattaci",
       ourLocations: "Le Nostre Sedi",
       directContact: "Contatto Diretto",
-      whatsappLabel: "WhatsApp: +212 600 000 000",
+      whatsappLabel: "WhatsApp: +212 709 086 496",
       hours: "Orari",
       deskHours: "Reception disponibile tutti i giorni, dalle 08:00 alle 22:00",
       conciergeAvailable: "Concierge IA disponibile 24/7 tramite",
       yourDashboard: "la tua dashboard",
-      messageSent: "Messaggio Inviato",
-      messageSentDesc: "Grazie — il nostro team ti contatterà a breve.",
-      sendAMessage: "Invia un Messaggio",
-      name: "Nome",
-      namePlaceholder: "Il tuo nome",
-      subject: "Oggetto",
-      selectSubject: "Seleziona un oggetto",
-      subjects: {
-        bookingEnquiry: "Richiesta di Prenotazione",
-        guestSupport: "Assistenza Ospiti",
-        partnership: "Collaborazione",
-        other: "Altro",
-      },
-      message: "Messaggio",
-      messagePlaceholder: "Come possiamo aiutarti?",
-      sendMessageBtn: "Invia Messaggio",
+      chatOnWhatsApp: "Chatta su WhatsApp",
+      whatsappDesc: "Il modo più veloce per raggiungerci — domande, prenotazioni e tutto ciò che riguarda il tuo soggiorno.",
+      whatsappPrefill: "Ciao! Ho una domanda sul Riad Dar D'Art",
     },
     faqPage: {
       helpSupport: "Assistenza & Supporto",
@@ -3087,7 +3096,7 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         {
           category: "Check-in & Check-out",
           items: [
-            { q: "A che ora sono il check-in e il check-out?", a: "Il check-in è a partire dalle 14:00. Il check-out è entro le 11:00. Check-in anticipato e check-out posticipato possono essere organizzati in base alla disponibilità — chiedi semplicemente al tuo concierge IA o contattaci in anticipo." },
+            { q: "A che ora sono il check-in e il check-out?", a: "L'arrivo è possibile dalle 10:30 (custodiamo i tuoi bagagli); le camere sono pronte dalle 14:00. Il check-out è entro le 12:00. Check-in anticipato e check-out posticipato possono essere organizzati in base alla disponibilità — chiedi semplicemente al tuo concierge IA o contattaci in anticipo." },
             { q: "Dove ritiro le chiavi?", a: "Il nostro team ti accoglierà all'ingresso del riad. Per arrivi tardivi, comunicaci l'orario di arrivo previsto in modo da assicurarci che qualcuno sia presente per accoglierti." },
             { q: "Posso lasciare i bagagli prima del check-in o dopo il check-out?", a: "Sì, siamo lieti di custodire i tuoi bagagli il giorno dell'arrivo prima che la camera sia pronta, o il giorno della partenza dopo il check-out." },
           ],
@@ -3095,24 +3104,23 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         {
           category: "Camere & Comfort",
           items: [
-            { q: "È disponibile il Wi-Fi?", a: "Sì, il Wi-Fi gratuito ad alta velocità è disponibile in entrambi i riad. Il tuo concierge può fornirti la password attuale su richiesta." },
+            { q: "È disponibile il Wi-Fi?", a: "Sì, il Wi-Fi gratuito ad alta velocità è incluso in entrambi i riad. I dettagli di connessione vengono forniti al check-in." },
             { q: "C'è l'aria condizionata?", a: "Tutte le camere sono dotate di aria condizionata e riscaldamento, garantendo comfort tutto l'anno nel clima variabile di Marrakech." },
-            { q: "Offrite un servizio di lavanderia?", a: "Sì, sono disponibili servizi di lavanderia e lavaggio a secco. Parla con il nostro team o chiedi al tuo concierge IA per dettagli e tempi di consegna." },
           ],
         },
         {
           category: "Servizi",
           items: [
-            { q: "Cosa include la colazione?", a: "Serviamo una colazione marocchina tradizionale ogni giorno nel cortile — msemen, beghrir, succo d'arancia appena spremuto, datteri Medjool, miele, olio d'argan e tè alla menta marocchino. Servita dalle 7:30 alle 10:30." },
+            { q: "Cosa include la colazione?", a: "Serviamo una colazione marocchina tradizionale ogni giorno nel cortile, dalle 8:00 alle 10:30 — tè, caffè, crêpes marocchine, formaggio, marmellata, miele, burro, macedonia, succo d'arancia fresco, pane, torta, pomodorini, cetriolo, olive nere e uova a richiesta. Il menù varia ogni giorno. È disponibile una colazione express per le partenze anticipate (richiedila la sera prima). Il senza glutine non può essere garantito — consigliamo di portare i propri prodotti." },
             { q: "C'è una piscina?", a: "Il Riad 141 dispone di una piccola piscina nel cortile del giardino, disponibile per tutti gli ospiti alloggiati in entrambe le proprietà." },
-            { q: "Come prenoto l'hammam?", a: "L'hammam è disponibile su prenotazione privata. Chiedi al tuo concierge IA o parla con la reception per verificare la disponibilità e prenotare una sessione." },
+            { q: "Come prenoto l'hammam?", a: "La spa è aperta dalle 9:00 alle 21:00. L'hammam costa 20 €/persona con un minimo di 2 persone; i massaggi costano 30 € (30 min) o 40 € (60 min). Prenota con almeno 2 ore di anticipo via WhatsApp o con il tuo concierge IA." },
           ],
         },
         {
           category: "Escursioni",
           items: [
-            { q: "Come prenoto un'escursione?", a: "Puoi richiedere qualsiasi escursione tramite il tuo concierge IA o direttamente con il nostro team alla reception. Consigliamo di prenotare almeno 24 ore in anticipo per le gite di un giorno." },
-            { q: "Qual è la politica di cancellazione per le escursioni?", a: "Le escursioni possono essere cancellate o riprogrammate fino a 24 ore prima della partenza prevista. Le cancellazioni in giornata potrebbero comportare un costo." },
+            { q: "Come prenoto un'escursione?", a: "Puoi richiedere qualsiasi escursione tramite il tuo concierge IA o via WhatsApp. Consigliamo di prenotare almeno 24 ore in anticipo per le gite di un giorno." },
+            { q: "Qual è la politica di cancellazione?", a: "La cancellazione è gratuita fino a 14 giorni prima del tuo arrivo. Per qualsiasi modifica successiva, contatta il nostro team via WhatsApp." },
             { q: "Potete organizzare tour privati personalizzati?", a: "Assolutamente sì. Collaboriamo con guide locali esperte e autisti privati per creare esperienze su misura. Contattaci con i tuoi interessi e progetteremo qualcosa di speciale." },
           ],
         },
@@ -3134,12 +3142,12 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       aSmarterStay: "Un Soggiorno Più Intelligente",
       ready: "Pronto?",
       startExperience: "Inizia la Tua Esperienza",
-      ctaDesc: "Tieni pronta la conferma della prenotazione e crea il tuo account in meno di un minuto.",
+      ctaDesc: "Crea il tuo account gratuito in meno di un minuto.",
       steps: [
-        { title: "Prenota il Tuo Soggiorno", desc: "Prenota la tua camera al Riad Dar D'Art tramite il nostro sito web, Booking.com o Airbnb. Ogni prenotazione confermata include un codice di accesso personale." },
-        { title: "Ricevi il Tuo Codice", desc: "Il tuo codice di accesso univoco viene inviato nell'email di conferma della prenotazione. È la tua chiave personale per la piattaforma del concierge IA." },
-        { title: "Crea il Tuo Account", desc: "Registrati su dardart.com utilizzando il tuo codice. Richiede meno di un minuto — solo il tuo nome, la tua email e il codice dalla tua conferma." },
-        { title: "Chatta 24/7", desc: "Il tuo concierge IA è disponibile a qualsiasi ora. Chiedi qualsiasi cosa — orari della colazione, prenotazioni di escursioni, servizio in camera, consigli locali e altro ancora." },
+        { title: "Prenota il Tuo Soggiorno", desc: "Prenota la tua camera al Riad Dar D'Art tramite il nostro sito web, Booking.com o Airbnb." },
+        { title: "Crea il Tuo Account", desc: "Registrati gratis in meno di un minuto — solo il tuo nome, la tua email, il numero di telefono e il riad in cui soggiorni." },
+        { title: "Esplora il Tuo Portale Ospite", desc: "Trova tutto il tuo soggiorno in un unico posto — le tue camere, i servizi, le escursioni e le informazioni pratiche." },
+        { title: "Chatta 24/7", desc: "Il tuo concierge IA è disponibile a qualsiasi ora. Chiedi qualsiasi cosa — orari della colazione, prenotazioni di escursioni, consigli locali e altro ancora." },
       ],
       benefits: [
         { title: "Disponibile 24/7", desc: "Niente più attese alla reception. Ricevi risposte alle tue domande a qualsiasi ora, giorno e notte." },
@@ -3150,13 +3158,13 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
     privacyPage: {
       legal: "Legale",
       title: "Informativa sulla Privacy",
-      intro: "Riad Dar D'Art (“noi”, “ci” o “nostro”) gestisce la piattaforma di concierge per ospiti dardart.com. Questa Informativa sulla Privacy descrive come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali quando utilizzi il nostro servizio.",
+      intro: "Riad Dar D'Art (“noi”, “ci” o “nostro”) gestisce questa piattaforma di concierge per ospiti (dar-dart-saas.vercel.app). Questa Informativa sulla Privacy descrive come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali quando utilizzi il nostro servizio.",
       sections: [
         {
           title: "1. Informazioni che Raccogliamo",
           body: `Quando crei un account e utilizzi la piattaforma concierge Dar D'Art, raccogliamo le seguenti informazioni:
 
-**Informazioni sull'account:** il tuo nome, indirizzo email e codice di accesso alla prenotazione fornito durante la registrazione.
+**Informazioni sull'account:** il tuo nome, indirizzo email, numero di telefono, riad scelto e lingua preferita, forniti durante la registrazione.
 
 **Messaggi di chat:** il testo delle tue conversazioni con il concierge IA. Vengono utilizzati per generare risposte e migliorare la qualità del servizio.
 
@@ -3227,10 +3235,10 @@ Per esercitare uno di questi diritti, contattaci a contact@riaddartmarrakech.com
 Questi termini possono essere aggiornati di volta in volta. L'uso continuato del servizio dopo le modifiche costituisce accettazione dei termini revisionati.`,
         },
         {
-          title: "2. Idoneità",
-          body: `L'accesso alla piattaforma di concierge è riservato agli ospiti confermati del Riad Dar D'Art. È richiesto un codice di accesso alla prenotazione valido — fornito nella conferma della tua prenotazione — per creare un account.
+          title: "2. Il Servizio",
+          body: `La piattaforma è un compagno gratuito di informazioni e concierge per gli ospiti del Riad Dar D'Art. La registrazione è aperta — chiunque stia pianificando o vivendo un soggiorno da noi può creare un account.
 
-Registrandoti, confermi di essere un ospite attuale o futuro e che il codice di accesso fornito è tuo.`,
+Registrandoti, confermi che le informazioni che fornisci (nome, email, numero di telefono) sono accurate e ti appartengono.`,
         },
         {
           title: "3. Utilizzo del Servizio",
@@ -3238,7 +3246,7 @@ Registrandoti, confermi di essere un ospite attuale o futuro e che il codice di 
 
 - Utilizzare il servizio per trasmettere contenuti dannosi, offensivi o illegali
 - Tentare di decompilare, violare o interrompere la piattaforma
-- Condividere le credenziali del tuo account o il codice di accesso con altri
+- Condividere le credenziali del tuo account con altri
 - Utilizzare il servizio in un modo che possa danneggiare la reputazione di Riad Dar D'Art`,
         },
         {
@@ -3252,10 +3260,10 @@ Registrandoti, confermi di essere un ospite attuale o futuro e che il codice di 
 Per prenotazioni confermate o accordi specifici, contatta direttamente il nostro team.`,
         },
         {
-          title: "5. Account Utente e Codici di Accesso",
-          body: `Sei responsabile del mantenimento della riservatezza del tuo account e del codice di accesso. Devi informarci immediatamente se sospetti un accesso non autorizzato al tuo account.
+          title: "5. Account Utente",
+          body: `Sei responsabile del mantenimento della riservatezza delle credenziali del tuo account. Devi informarci immediatamente se sospetti un accesso non autorizzato al tuo account.
 
-Ogni codice di accesso è valido per una singola registrazione di account. I codici di accesso scadono 30 giorni dopo la data del tuo check-out.`,
+Gli account sono personali e non possono essere condivisi. Potremmo disattivare gli account dopo la fine del tuo soggiorno, in linea con la nostra politica di conservazione dei dati.`,
         },
         {
           title: "6. Proprietà Intellettuale",

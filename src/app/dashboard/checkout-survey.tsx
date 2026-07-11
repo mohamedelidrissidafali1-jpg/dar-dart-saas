@@ -8,7 +8,6 @@ import { createClient } from "@/lib/supabase/client";
 interface Props {
   firstName: string;
   riadLabel: string;
-  phone: string;
   lang: Lang;
   onClose: () => void;
   onCheckedOut: () => void;
@@ -27,7 +26,7 @@ const RATING_KEYS = [
 
 type RatingKey = (typeof RATING_KEYS)[number]["key"];
 
-export default function CheckoutSurveyModal({ firstName, riadLabel, phone, lang, onClose, onCheckedOut }: Props) {
+export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClose, onCheckedOut }: Props) {
   const router = useRouter();
   const tr = getT(lang);
 
@@ -59,67 +58,37 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, phone, lang,
     setLoading(true);
     setError(null);
 
-    const supabase = createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-
-    if (!user) {
-      setError(tr.survey.sessionExpired);
-      setLoading(false);
-      return;
-    }
-
-    const { error: surveyError } = await supabase.from("checkout_surveys").insert({
-      user_id: user.id,
-      ...ratings,
-      comment: comment.trim() || null,
-    });
-
-    if (surveyError) {
-      setError(tr.survey.failedToSubmit);
-      setLoading(false);
-      return;
-    }
-
-    const { error: profileError } = await supabase
-      .from("profiles")
-      .update({ checked_out: true })
-      .eq("id", user.id);
-
-    if (profileError) {
+    // All writes happen server-side (service role) so nothing can fail silently.
+    let res: Response;
+    try {
+      res = await fetch("/api/submit-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...ratings, comment: comment.trim() || null }),
+      });
+    } catch {
       setError(tr.survey.checkoutFailed);
       setLoading(false);
       return;
     }
 
-    const strippedPhone = phone ? phone.replace(/\D/g, "") : "";
-    const guestPhone = strippedPhone || user.email || "";
-
-    console.log("Inserting into checked_out_guests:", {
-      guest_phone: guestPhone,
-      guest_name: firstName,
-      riad: riadLabel,
-      goodbye_sent: false,
-    });
-
-    const { data: checkedOutGuestData, error: checkedOutGuestError } = await supabase
-      .from("checked_out_guests")
-      .insert({
-        guest_phone: guestPhone,
-        guest_name: firstName,
-        riad: riadLabel,
-        checked_out_at: new Date().toISOString(),
-        goodbye_sent: false,
-      })
-      .select();
-
-    console.log("checked_out_guests insert result:", {
-      data: checkedOutGuestData,
-      error: checkedOutGuestError,
-    });
-
-    if (checkedOutGuestError) {
-      console.error("Failed to insert checked_out_guests row:", checkedOutGuestError);
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      const code = data?.error;
+      setError(
+        code === "not_authenticated"
+          ? tr.survey.sessionExpired
+          : code === "invalid_phone"
+          ? tr.survey.phoneInvalid
+          : code === "survey_failed"
+          ? tr.survey.failedToSubmit
+          : tr.survey.checkoutFailed
+      );
+      setLoading(false);
+      return;
     }
+
+    const supabase = createClient();
 
     const message = [
       "CHECKOUT_SUBMITTED",
@@ -282,7 +251,7 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, phone, lang,
                 className="flex-1 py-2.5 text-[15px] font-medium rounded-full transition-opacity hover:opacity-85 disabled:opacity-50"
                 style={{ background: "#C1440E", color: "#ffffff" }}
               >
-                {loading ? tr.survey.submitting : tr.survey.submitAndWhatsapp}
+                {loading ? tr.survey.submitting : error ? tr.survey.retry : tr.survey.submitAndWhatsapp}
               </button>
             </div>
           </form>

@@ -22,10 +22,6 @@ export default function ChatBox({ initialMessage, riad, language: langProp, gues
   const [lang, setLang] = useState<Lang>((langProp as Lang) ?? "en");
 
   useEffect(() => {
-    console.log("[ChatBox] riad prop on mount:", riad);
-  }, [riad]);
-
-  useEffect(() => {
     if (!langProp) setLang(getLang());
   }, [langProp]);
 
@@ -62,15 +58,26 @@ export default function ChatBox({ initialMessage, riad, language: langProp, gues
     if (!text || loading) return;
 
     const guestMsg: Message = { id: nextId.current++, role: "guest", text };
-    setMessages((prev) => [...prev, guestMsg]);
+    const nextMessages = [...messages, guestMsg];
+    setMessages(nextMessages);
     setInput("");
     setLoading(true);
+
+    // Send the bounded conversation history so the assistant has context.
+    // Drop the locally-injected greeting (id 0) so the history starts with a user turn.
+    const history = nextMessages
+      .filter((m) => m.id !== 0)
+      .slice(-12)
+      .map((m) => ({
+        role: m.role === "guest" ? "user" : "assistant",
+        content: m.text,
+      }));
 
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, riad, language: lang, guestName }),
+        body: JSON.stringify({ messages: history, riad, language: lang, guestName }),
       });
 
       const data = await res.json();

@@ -64,8 +64,8 @@ export default function About() {
       <section className="relative w-full h-72 sm:h-96 flex items-end overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=80"
-          alt="Riad courtyard"
+          src="/rooms/photo1.webp"
+          alt="Riad Dar D'Art entrance in the Marrakech medina"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -114,8 +114,8 @@ export default function About() {
           <div className="overflow-hidden h-80 md:h-full min-h-64">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80"
-              alt="Riad interior"
+              src="/rooms/photo5.webp"
+              alt="Riad Dar D'Art suite interior"
               className="w-full h-full object-cover"
             />
           </div>

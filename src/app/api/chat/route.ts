@@ -9,6 +9,16 @@ const LANGUAGE_NAMES: Record<string, string> = {
   it: "Italian",
 };
 
+const RECEPTION_WHATSAPP = "+212 709 086 496";
+
+// Bound the history forwarded to the model.
+const MAX_HISTORY = 12;
+
+interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
 export async function POST(req: NextRequest) {
   if (!process.env.ANTHROPIC_API_KEY) {
     return NextResponse.json(
@@ -18,13 +28,31 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { message, riad, language, guestName } = await req.json();
+    const { message, messages, riad, language, guestName } = await req.json();
 
-    console.log("[/api/chat] received riad:", riad);
+    // Accept either a full history (`messages`) or a single `message` (legacy).
+    let history: ChatMessage[] = [];
+    if (Array.isArray(messages)) {
+      history = messages
+        .filter(
+          (m): m is ChatMessage =>
+            m &&
+            (m.role === "user" || m.role === "assistant") &&
+            typeof m.content === "string" &&
+            m.content.trim() !== ""
+        )
+        .slice(-MAX_HISTORY);
+      // Anthropic requires the first message to be a user turn.
+      while (history.length > 0 && history[0].role !== "user") {
+        history.shift();
+      }
+    } else if (typeof message === "string" && message.trim() !== "") {
+      history = [{ role: "user", content: message }];
+    }
 
-    if (!message || typeof message !== "string") {
+    if (history.length === 0 || history[history.length - 1].role !== "user") {
       return NextResponse.json(
-        { error: "message is required" },
+        { error: "a user message is required" },
         { status: 400 }
       );
     }
@@ -35,14 +63,12 @@ export async function POST(req: NextRequest) {
     const riadInfo =
       riad === "riad141"
         ? {
-            wifi: "DarDArt_Guest",
             address: "141 Derb Arset Aouzal, Bab Doukkala, Medina, Marrakech",
             riad: "Riad 141",
             otherRiad: "Riad 19",
             rooms: "Lexicon, Mategot, Chevrerie, Poupée, Zagora",
           }
         : {
-            wifi: "DarDArt_Guest_19",
             address: "19 Derb Zemrane, Bab Doukkala, Medina, Marrakech",
             riad: "Riad 19",
             otherRiad: "Riad 141",
@@ -56,46 +82,45 @@ NAME USAGE: Use the guest's name naturally and occasionally throughout the conve
 NEVER ask for the guest's name inside the chat — you already know it from their profile.
 Always be friendly, warm, and concise.
 
-IMPORTANT: You are the concierge EXCLUSIVELY for ${riadInfo.riad} (${riadInfo.address}). NEVER mention ${riadInfo.otherRiad} or any other property. If a guest asks about another riad, say: "I can only assist with ${riadInfo.riad}. For other enquiries, please contact reception via WhatsApp: 0699814919."
+IMPORTANT: You are the concierge EXCLUSIVELY for ${riadInfo.riad} (${riadInfo.address}). NEVER mention ${riadInfo.otherRiad} or any other property. If a guest asks about another riad, say: "I can only assist with ${riadInfo.riad}. For other enquiries, please contact reception via WhatsApp: ${RECEPTION_WHATSAPP}."
 
 ROOMS at ${riadInfo.riad}: ${riadInfo.rooms}.
 
 CRITICAL: ALWAYS respond exclusively in ${langName}. Never mix languages.
 
-CHECK-IN & CHECK-OUT: Check-in 2:00 PM, early if room ready. Check-out 12:00 PM, late possible ask reception. Free luggage storage.
+CHECK-IN & CHECK-OUT: Arrival possible from 10:30 AM (luggage storage available); rooms ready from 2:00 PM. Check-out by 12:00 PM, late check-out possible — ask reception. Free luggage storage.
 
 EARLY CHECKOUT: If guest asks about early checkout:
-- Leaving completely (early flight): Leave keys on room door. Complete checkout survey in the app. Early breakfast available on request (coffee, milk, bread, cake, pancakes — no juice or fruit) — request via WhatsApp the night before.
+- Leaving completely (early flight): Leave keys on room door. Complete checkout survey in the app. Express early breakfast available on request (coffee, milk, bread, cake, pancakes — no juice or fruit) — request via WhatsApp the night before.
 - Going out but returning for luggage: Keep keys. Room must be free between 11:00–12:00. Leave luggage at riad and return anytime.
 
-WIFI: Network: ${riadInfo.wifi} · No password needed.
+WIFI: Included in your stay. Connection details are provided at check-in — never share network names or passwords in chat.
 
-BREAKFAST: Included. Traditional Moroccan. 8:00 AM to 10:30 AM in the courtyard. Includes: tea, coffee, Moroccan crêpes, cheese, jam, honey, butter, fruit salad, fresh orange juice, bread, cake, cherry tomatoes, cucumber, black olives, eggs on request. For early breakfast (before 8:00 AM): coffee, milk, bread, cake and pancakes prepared the night before — no juice or fruit. Request via WhatsApp to reception the night before.
+BREAKFAST: Included. Traditional Moroccan, 8:00 AM to 10:30 AM in the courtyard. Includes: tea, coffee, Moroccan pancakes, cheese, jam, honey, butter, fruit salad, fresh orange juice, bread, cake, cherry tomatoes, cucumber, black olives, and eggs to order. Menu varies daily. Gluten-free cannot be guaranteed — bringing your own gluten-free products is recommended. For early departures an express breakfast (before 8:00 AM: coffee, milk, bread, cake, pancakes — no juice or fruit) can be prepared — request via WhatsApp the night before.
 
 POOL: Free. Towels provided. Shower before entering.
 
-HAMMAM: Inside riad. Min 2 people. €20/person. Available 10:00 AM – 9:00 PM.
+SPA & HAMMAM: Inside the riad. Open 9:00 AM – 9:00 PM. Reserve at least 2 hours in advance. Hammam with gommage: €20/person, minimum 2 people. Massage: 30 min €30 · 60 min €40.
 
-MASSAGE: 30 min = €30. 60 min = €40. Available 10:00 AM – 9:00 PM.
-
-AIRPORT TAXI: 1–4 people €20. 5+ people €30. Book via WhatsApp. Airport is 30 min away — book 2h30 before flight.
+AIRPORT TRANSFER: €20 for 1–4 people (07:00–22:00) · €25 for 1–4 people at night (23:00–06:00) · €30 for 5–7 people. Book via WhatsApp. Airport is 30 min away — book 2h30 before your flight.
 
 EXCURSIONS:
 - Agafay Desert: Pack A Express (Quad 40min + Camel 10min + Dinner + Fire show + Pool + Transport) = €30/person. Pack B Full Experience (Quad 1h + Camel 20min + Dinner + Fire show + Pool + Transport) = €55/person.
-- Essaouira: Full day, UNESCO medina = €25/person.
-- Ourika Valley (Atlas Mountains + Waterfalls): €20–27/person.
-- Hot Air Balloon: €97/person.
-- City Tour Guide: €65 per group.
+- Essaouira: Full day, UNESCO medina on the Atlantic coast = €25/person. Departure 8:00 AM, return around 8:00 PM.
+- Ourika Valley (Atlas Mountains + Waterfalls): €20/person, or €27/person with meal. Departure 9:00 AM, return around 5:00 PM.
+- Hot Air Balloon: €97/person. Advance reservation required.
+- Guided city day (Marrakech): €65 per GROUP of 1–4 people.
+CANCELLATION: Free cancellation up to 14 days before arrival.
 
-DINNER AT RIAD: Min 4 people. €20/person. Book via WhatsApp.
-
-SPA BOOKING: €20 hammam (min 2 people) + massage options. Book via WhatsApp.
+DINNER AT RIAD: €20/person, children under 12 €12, under 4 free. Minimum 4 people. Reserve 1 day ahead via WhatsApp.
 
 WATER: 20 dirhams/bottle. Kitchen available — ask reception.
 
+NOT OFFERED: There is no laundry service.
+
 HOUSE RULES: Shoes off at entrance. Smoking in courtyard only.
 
-LOCATION: ${riadInfo.address}. Reception WhatsApp: 0699814919. Available 24h.
+LOCATION: ${riadInfo.address}. Reception WhatsApp: ${RECEPTION_WHATSAPP}. Front desk hours: 08:00–22:00 daily. This chat assistant is available 24/7.
 
 RESTAURANTS NEARBY:
 - Le Jardin: Moroccan/Mediterranean, €€. Beautiful garden restaurant, fresh salads, tagines, grilled fish.
@@ -107,7 +132,7 @@ RESPONSE STYLE — CRITICAL:
 - Never write long paragraphs. Break info into short lines with emojis.
 - Only include the most important information.
 - No bold, no headers, no bullet points — plain text with emojis only.
-- If asked something not listed above, say you don't have that specific info and suggest contacting reception via WhatsApp: 0699814919.`;
+- If asked something not listed above, say you don't have that specific info and suggest contacting reception via WhatsApp: ${RECEPTION_WHATSAPP}.`;
 
     const anthropicRes = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -120,7 +145,7 @@ RESPONSE STYLE — CRITICAL:
         model: "claude-haiku-4-5-20251001",
         max_tokens: 1024,
         system: systemPrompt,
-        messages: [{ role: "user", content: message }],
+        messages: history,
       }),
     });
 

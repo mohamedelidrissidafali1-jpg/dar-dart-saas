@@ -6,6 +6,7 @@ import Link from "next/link";
 import { LANGUAGES, getLang, getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
 import { getURL } from "@/lib/get-url";
+import { normalizePhone } from "@/lib/phone";
 
 export default function SignUp() {
   const router = useRouter();
@@ -31,6 +32,7 @@ export default function SignUp() {
   const [langError, setLangError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [confirmEmail, setConfirmEmail] = useState(false);
 
   function set(field: string, value: string | boolean) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -44,7 +46,6 @@ export default function SignUp() {
   async function handleGoogleSignUp() {
     const supabase = createClient();
     const redirectTo = `${getURL()}/auth/callback`;
-    console.log("[OAuth] redirectTo:", redirectTo);
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: { redirectTo },
@@ -57,6 +58,13 @@ export default function SignUp() {
     if (!form.selectedRiad) { setRiadError(true); valid = false; }
     if (!form.selectedLanguage) { setLangError(true); valid = false; }
     if (!valid) return;
+
+    // Normalize the phone up-front so profiles only ever hold bare E.164 digits.
+    const normalizedPhone = normalizePhone(form.phone);
+    if (!normalizedPhone) {
+      setError(tr.signUp.phoneInvalid);
+      return;
+    }
 
     setLoading(true);
     setError(null);
@@ -73,12 +81,22 @@ export default function SignUp() {
       return;
     }
 
-    const { error: profileError } = await supabase.from("profiles").insert({
+    // Email confirmation enabled → no session yet. The DB trigger creates the
+    // profile row; details are completed at /complete-profile after confirmation.
+    if (!data.session) {
+      setError(null);
+      setConfirmEmail(true);
+      setLoading(false);
+      return;
+    }
+
+    // Upsert (not insert): a DB trigger on auth.users may have already created the row.
+    const { error: profileError } = await supabase.from("profiles").upsert({
       id: data.user.id,
       first_name: form.firstName,
       language: form.selectedLanguage,
       riad: form.selectedRiad,
-      phone: form.phone,
+      phone: normalizedPhone,
       checked_out: false,
     });
 
@@ -379,10 +397,17 @@ export default function SignUp() {
               <p className="text-[14px] text-center" style={{ color: "#ef4444" }}>{error}</p>
             )}
 
+            {/* Email confirmation notice */}
+            {confirmEmail && (
+              <p className="text-[14px] text-center" style={{ color: "var(--ink-secondary)" }}>
+                {tr.signUp.confirmEmail}
+              </p>
+            )}
+
             {/* Submit */}
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || confirmEmail}
               className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
               style={{ background: "#0075de", color: "#ffffff" }}
             >
