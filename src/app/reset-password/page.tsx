@@ -173,8 +173,8 @@ export default function ResetPassword() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-                    style={{ background: "#0075de", color: "#ffffff" }}
+                    className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
+                    style={{ background: "var(--accent)", color: "#ffffff" }}
                   >
                     {loading ? tr.common.loading : tr.signIn.sendResetLink}
                   </button>
@@ -240,8 +240,8 @@ export default function ResetPassword() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-                style={{ background: "#0075de", color: "#ffffff" }}
+                className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
+                style={{ background: "var(--accent)", color: "#ffffff" }}
               >
                 {loading ? tr.common.loading : tr.signIn.updatePassword}
               </button>

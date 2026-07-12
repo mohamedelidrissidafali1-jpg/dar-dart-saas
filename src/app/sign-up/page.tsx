@@ -115,11 +115,11 @@ export default function SignUp() {
     border: "1px solid var(--hairline)",
     color: "var(--ink)",
     background: "var(--surface)",
-    caretColor: "#0075de",
+    caretColor: "var(--accent)",
   };
 
   const focusOn = (e: React.FocusEvent<HTMLInputElement>) =>
-    (e.target.style.borderColor = "#0075de");
+    (e.target.style.borderColor = "var(--accent)");
   const focusOff = (e: React.FocusEvent<HTMLInputElement>) =>
     (e.target.style.borderColor = "var(--hairline)");
 
@@ -167,7 +167,7 @@ export default function SignUp() {
           <button
             type="button"
             onClick={handleGoogleSignUp}
-            className="w-full flex items-center justify-center gap-3 py-3 text-[15px] font-medium rounded-full mb-6 transition-opacity duration-200 hover:opacity-85"
+            className="w-full flex items-center justify-center gap-3 py-3 text-[15px] font-medium rounded-[2px] mb-6 transition-opacity duration-200 hover:opacity-85"
             style={{ background: "#ffffff", border: "1px solid #dadce0", color: "#3c4043" }}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -196,7 +196,7 @@ export default function SignUp() {
                       className="flex items-center gap-2.5 px-3 py-2.5 text-left transition-all duration-200 rounded-lg"
                       style={{
                         border: selected
-                          ? "1px solid #0075de"
+                          ? "1px solid var(--accent)"
                           : langError
                           ? "1px solid #ef4444"
                           : "1px solid var(--hairline)",
@@ -206,7 +206,7 @@ export default function SignUp() {
                       <span className="text-lg leading-none">{flag}</span>
                       <span
                         className="text-[15px]"
-                        style={{ color: selected ? "#0075de" : "var(--ink-secondary)" }}
+                        style={{ color: selected ? "var(--accent)" : "var(--ink-secondary)" }}
                       >
                         {label}
                       </span>
@@ -336,7 +336,7 @@ export default function SignUp() {
                       className="text-left px-4 py-3.5 transition-all duration-200 rounded-lg"
                       style={{
                         border: selected
-                          ? "1px solid #0075de"
+                          ? "1px solid var(--accent)"
                           : riadError
                           ? "1px solid #ef4444"
                           : "1px solid var(--hairline)",
@@ -345,7 +345,7 @@ export default function SignUp() {
                     >
                       <div
                         className="text-[15px] font-semibold"
-                        style={{ color: selected ? "#0075de" : "var(--ink)" }}
+                        style={{ color: selected ? "var(--accent)" : "var(--ink)" }}
                       >
                         {label}
                       </div>
@@ -370,14 +370,14 @@ export default function SignUp() {
                 checked={form.agreed}
                 onChange={(e) => set("agreed", e.target.checked)}
                 required
-                className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#0075de]"
+                className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[var(--accent)]"
               />
               <span className="text-[14px] leading-relaxed" style={{ color: "var(--ink-muted)" }}>
                 {tr.signUp.terms}{" "}
                 <Link
                   href="/terms-of-service"
                   className="font-medium hover:opacity-70 transition-opacity"
-                  style={{ color: "#0075de" }}
+                  style={{ color: "var(--accent)" }}
                 >
                   {tr.signUp.termsLink}
                 </Link>{" "}
@@ -385,7 +385,7 @@ export default function SignUp() {
                 <Link
                   href="/privacy-policy"
                   className="font-medium hover:opacity-70 transition-opacity"
-                  style={{ color: "#0075de" }}
+                  style={{ color: "var(--accent)" }}
                 >
                   {tr.signUp.privacyLink}
                 </Link>
@@ -408,8 +408,8 @@ export default function SignUp() {
             <button
               type="submit"
               disabled={loading || confirmEmail}
-              className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-              style={{ background: "#0075de", color: "#ffffff" }}
+              className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
+              style={{ background: "var(--accent)", color: "#ffffff" }}
             >
               {loading ? tr.signUp.creatingAccount : tr.signUp.submit}
             </button>
@@ -426,7 +426,7 @@ export default function SignUp() {
             <Link
               href="/sign-in"
               className="font-medium transition-opacity duration-200 hover:opacity-70"
-              style={{ color: "#0075de" }}
+              style={{ color: "var(--accent)" }}
             >
               {tr.signUp.signIn}
             </Link>

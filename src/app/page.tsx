@@ -187,7 +187,7 @@ export default function Home() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%)",
+            background: "linear-gradient(180deg, rgba(28,18,12,0.28) 0%, rgba(28,18,12,0.55) 55%, rgba(28,18,12,0.78) 100%)",
           }}
         />
 
@@ -196,7 +196,7 @@ export default function Home() {
           {/* Eyebrow */}
           <p
             className="text-[11px] font-light tracking-[0.45em] uppercase mb-8"
-            style={{ color: "#C1440E" }}
+            style={{ color: "var(--accent)" }}
           >
             {tr.hero.location}
           </p>
@@ -206,14 +206,14 @@ export default function Home() {
             className="text-5xl sm:text-6xl md:text-7xl font-light mb-7 leading-none tracking-wide"
             style={{
               color: "#ffffff",
-              fontFamily: "Georgia, 'Garamond', 'Times New Roman', serif",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
             }}
           >
             {tr.hero.title}
           </h1>
 
           {/* Gold divider */}
-          <div className="w-16 h-px mx-auto mb-7" style={{ background: "#C9A84C" }} />
+          <div className="w-16 h-px mx-auto mb-7" style={{ background: "var(--gold)" }} />
 
           {/* Tagline */}
           <p
@@ -227,14 +227,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/sign-up"
-              className="px-10 py-4 text-[14px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85 active:scale-95 text-center"
-              style={{ background: "#C1440E", color: "#ffffff" }}
+              className="px-10 py-4 text-[14px] font-medium tracking-[0.08em] uppercase rounded-[2px] transition-all duration-200 hover:opacity-85 active:scale-95 text-center"
+              style={{ background: "var(--accent)", color: "#ffffff" }}
             >
               {tr.nav.signUp}
             </Link>
             <Link
               href="/sign-in"
-              className="px-10 py-4 text-[14px] font-light tracking-[0.08em] uppercase rounded-full transition-colors duration-200 hover:bg-white/10 text-center"
+              className="px-10 py-4 text-[14px] font-light tracking-[0.08em] uppercase rounded-[2px] transition-colors duration-200 hover:bg-white/10 text-center"
               style={{ border: "1px solid rgba(255,255,255,0.65)", color: "#ffffff" }}
             >
               {tr.nav.signIn}
@@ -259,13 +259,13 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <span
             className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-            style={{ background: "var(--surface)", color: "#C1440E", border: "1px solid var(--hairline)" }}
+            style={{ background: "var(--surface)", color: "var(--accent)", border: "1px solid var(--hairline)" }}
           >
             {tr.about.label}
           </span>
           <h2
             className="text-3xl md:text-[40px] font-bold mb-8"
-            style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
+            style={{ color: "var(--ink)", letterSpacing: "normal", lineHeight: 1.1 }}
           >
             {tr.about.heading}
           </h2>
@@ -301,7 +301,7 @@ export default function Home() {
                   >
                     <span
                       className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-3 px-2.5 py-1 rounded-full"
-                      style={{ background: "var(--background)", color: "#C1440E" }}
+                      style={{ background: "var(--background)", color: "var(--accent)" }}
                     >
                       {p.label}
                     </span>
@@ -320,18 +320,18 @@ export default function Home() {
       </section>
 
       {/* ── ROOMS ── */}
-      <section id="rooms" className="py-28 px-6 bg-[#faf8f5] dark:bg-[#0D1B2A]">
+      <section id="rooms" className="py-28 px-6 bg-[#EFE7D9] dark:bg-[#12212F]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: "var(--background)", color: "#C1440E", border: "1px solid var(--hairline)" }}
+              style={{ background: "var(--background)", color: "var(--accent)", border: "1px solid var(--hairline)" }}
             >
               {tr.rooms.label}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold mb-10"
-              style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: "var(--ink)", letterSpacing: "normal", lineHeight: 1.1 }}
             >
               {tr.rooms.heading}
             </h2>
@@ -364,7 +364,7 @@ export default function Home() {
                   <div className="flex flex-col flex-1 p-6">
                     <span
                       className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-2 px-2 py-0.5 rounded-full self-start"
-                      style={{ background: "var(--background)", color: "#C1440E" }}
+                      style={{ background: "var(--background)", color: "var(--accent)" }}
                     >
                       {tr.rooms.suite}
                     </span>
@@ -377,7 +377,7 @@ export default function Home() {
                     <button
                       onClick={() => scrollTo("contact")}
                       className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
-                      style={{ border: "1px solid #C1440E", color: "#C1440E" }}
+                      style={{ border: "1px solid var(--accent)", color: "var(--accent)" }}
                     >
                       {tr.rooms.viewRoom}
                     </button>
@@ -401,13 +401,13 @@ export default function Home() {
           <div className="text-center mb-16">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: "var(--surface)", color: "#C1440E", border: "1px solid var(--hairline)" }}
+              style={{ background: "var(--surface)", color: "var(--accent)", border: "1px solid var(--hairline)" }}
             >
               {tr.services.label}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: "var(--ink)", letterSpacing: "normal", lineHeight: 1.1 }}
             >
               {tr.services.heading}
             </h2>
@@ -425,7 +425,7 @@ export default function Home() {
                     border: "1px solid var(--hairline)",
                   }}
                 >
-                  <div className="flex-shrink-0" style={{ color: "#C1440E" }}>
+                  <div className="flex-shrink-0" style={{ color: "var(--accent)" }}>
                     <Icon />
                   </div>
                   <div>
@@ -444,18 +444,18 @@ export default function Home() {
       </section>
 
       {/* ── EXCURSIONS ── */}
-      <section id="excursions" className="py-28 px-6 bg-[#faf8f5] dark:bg-[#0D1B2A]">
+      <section id="excursions" className="py-28 px-6 bg-[#EFE7D9] dark:bg-[#12212F]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: "var(--background)", color: "#C1440E", border: "1px solid var(--hairline)" }}
+              style={{ background: "var(--background)", color: "var(--accent)", border: "1px solid var(--hairline)" }}
             >
               {tr.excursions.label}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: "var(--ink)", letterSpacing: "normal", lineHeight: 1.1 }}
             >
               {tr.excursions.heading}
             </h2>
@@ -491,7 +491,7 @@ export default function Home() {
                         className="text-[12px] font-semibold px-2.5 py-1 flex-shrink-0 rounded-full"
                         style={{
                           background: "var(--surface)",
-                          color: "#C1440E",
+                          color: "var(--accent)",
                           border: "1px solid var(--hairline)",
                         }}
                       >
@@ -504,7 +504,7 @@ export default function Home() {
                     <button
                       onClick={() => scrollTo("contact")}
                       className="mt-5 w-full py-2.5 text-[15px] font-medium rounded-lg transition-colors duration-200 hover:bg-[var(--background)]"
-                      style={{ border: "1px solid #C1440E", color: "#C1440E" }}
+                      style={{ border: "1px solid var(--accent)", color: "var(--accent)" }}
                     >
                       {tr.excursions.inquire}
                     </button>
@@ -522,13 +522,13 @@ export default function Home() {
           <div className="text-center mb-16">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: "var(--surface)", color: "#C1440E", border: "1px solid var(--hairline)" }}
+              style={{ background: "var(--surface)", color: "var(--accent)", border: "1px solid var(--hairline)" }}
             >
               {tr.contact.label}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: "var(--ink)", letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: "var(--ink)", letterSpacing: "normal", lineHeight: 1.1 }}
             >
               {tr.contact.heading}
             </h2>
@@ -557,7 +557,7 @@ export default function Home() {
               >
                 <span
                   className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-4 px-2.5 py-1 rounded-full"
-                  style={{ background: "var(--background)", color: "#C1440E" }}
+                  style={{ background: "var(--background)", color: "var(--accent)" }}
                 >
                   {p.label}
                 </span>
@@ -566,7 +566,7 @@ export default function Home() {
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     className="w-4 h-4 flex-shrink-0 mt-0.5"
-                    style={{ color: "#C1440E" }}
+                    style={{ color: "var(--accent)" }}
                   >
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
@@ -584,7 +584,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[14px] font-medium transition-opacity duration-200 hover:opacity-70"
-                  style={{ color: "#C1440E" }}
+                  style={{ color: "var(--accent)" }}
                 >
                   {tr.contact.viewOnMap}
                 </a>
@@ -599,7 +599,7 @@ export default function Home() {
               href={`https://wa.me/212709086496?text=${encodeURIComponent(tr.contactPage.whatsappPrefill)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-8 py-4 text-[16px] font-medium rounded-full transition-opacity duration-200 hover:opacity-90"
+              className="flex items-center justify-center gap-3 px-8 py-4 text-[16px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-90"
               style={{ background: "#25D366", color: "#ffffff" }}
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">

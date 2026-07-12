@@ -142,9 +142,9 @@ export default function CompleteProfile() {
                   border: "1px solid var(--hairline)",
                   color: "var(--ink)",
                   background: "var(--surface)",
-                  caretColor: "#0075de",
+                  caretColor: "var(--accent)",
                 }}
-                onFocus={(e) => (e.target.style.borderColor = "#0075de")}
+                onFocus={(e) => (e.target.style.borderColor = "var(--accent)")}
                 onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
                 placeholder={tr.signUp.namePlaceholder}
               />
@@ -171,9 +171,9 @@ export default function CompleteProfile() {
                   border: "1px solid var(--hairline)",
                   color: "var(--ink)",
                   background: "var(--surface)",
-                  caretColor: "#0075de",
+                  caretColor: "var(--accent)",
                 }}
-                onFocus={(e) => (e.target.style.borderColor = "#0075de")}
+                onFocus={(e) => (e.target.style.borderColor = "var(--accent)")}
                 onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
                 placeholder={tr.completeProfile.phonePlaceholder}
               />
@@ -195,7 +195,7 @@ export default function CompleteProfile() {
                       className="flex items-center gap-2.5 px-3 py-2.5 text-left transition-all duration-200 rounded-lg"
                       style={{
                         border: selected
-                          ? "1px solid #0075de"
+                          ? "1px solid var(--accent)"
                           : langError
                           ? "1px solid #ef4444"
                           : "1px solid var(--hairline)",
@@ -205,7 +205,7 @@ export default function CompleteProfile() {
                       <span className="text-lg leading-none">{flag}</span>
                       <span
                         className="text-[15px]"
-                        style={{ color: selected ? "#0075de" : "var(--ink-secondary)" }}
+                        style={{ color: selected ? "var(--accent)" : "var(--ink-secondary)" }}
                       >
                         {label}
                       </span>
@@ -239,7 +239,7 @@ export default function CompleteProfile() {
                       className="text-left px-4 py-3.5 transition-all duration-200 rounded-lg"
                       style={{
                         border: selected
-                          ? "1px solid #0075de"
+                          ? "1px solid var(--accent)"
                           : riadError
                           ? "1px solid #ef4444"
                           : "1px solid var(--hairline)",
@@ -248,7 +248,7 @@ export default function CompleteProfile() {
                     >
                       <div
                         className="text-[15px] font-semibold"
-                        style={{ color: selected ? "#0075de" : "var(--ink)" }}
+                        style={{ color: selected ? "var(--accent)" : "var(--ink)" }}
                       >
                         {label}
                       </div>
@@ -275,8 +275,8 @@ export default function CompleteProfile() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-              style={{ background: "#0075de", color: "#ffffff" }}
+              className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
+              style={{ background: "var(--accent)", color: "#ffffff" }}
             >
               {loading ? tr.completeProfile.saving : tr.completeProfile.continueToDashboard}
             </button>

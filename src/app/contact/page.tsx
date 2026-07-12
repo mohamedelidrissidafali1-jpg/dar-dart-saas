@@ -36,7 +36,7 @@ export default function Contact() {
 
       {/* Page header */}
       <section className="pt-40 pb-16 px-6 text-center">
-        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
+        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "var(--gold)" }}>
           {tr.contactPage.reachOut}
         </p>
         <h1
@@ -46,9 +46,9 @@ export default function Contact() {
           {tr.contact.label}
         </h1>
         <div className="flex items-center justify-center gap-3 mt-6">
-          <div className="h-px w-12" style={{ background: "#B8973A" }} />
-          <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-          <div className="h-px w-12" style={{ background: "#B8973A" }} />
+          <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+          <div className="w-1 h-1 rotate-45" style={{ background: "var(--gold)" }} />
+          <div className="h-px w-12" style={{ background: "var(--gold)" }} />
         </div>
       </section>
 
@@ -61,7 +61,7 @@ export default function Contact() {
             <div>
               <p
                 className="text-xs tracking-[0.35em] uppercase mb-5 font-semibold"
-                style={{ color: "#B8973A" }}
+                style={{ color: "var(--gold)" }}
               >
                 {tr.contactPage.ourLocations}
               </p>
@@ -87,7 +87,7 @@ export default function Contact() {
                 >
                   <p
                     className="text-xs tracking-[0.3em] uppercase mb-3 font-semibold"
-                    style={{ color: "#B8973A" }}
+                    style={{ color: "var(--gold)" }}
                   >
                     {p.name}
                   </p>
@@ -96,7 +96,7 @@ export default function Contact() {
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-60"
-                      style={{ color: "#B8973A" }}
+                      style={{ color: "var(--gold)" }}
                     >
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
@@ -110,7 +110,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs tracking-[0.2em] uppercase opacity-70 hover:opacity-100 transition-opacity"
-                    style={{ color: "#B8973A" }}
+                    style={{ color: "var(--gold)" }}
                   >
                     {tr.contact.viewOnMap}
                   </a>
@@ -121,7 +121,7 @@ export default function Contact() {
             <div>
               <p
                 className="text-xs tracking-[0.35em] uppercase mb-3 font-semibold"
-                style={{ color: "#B8973A" }}
+                style={{ color: "var(--gold)" }}
               >
                 {tr.contactPage.hours}
               </p>
@@ -135,7 +135,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-opacity hover:opacity-80"
-                  style={{ color: "#B8973A" }}
+                  style={{ color: "var(--gold)" }}
                 >
                   {tr.contact.whatsapp}
                 </a>
@@ -150,7 +150,7 @@ export default function Contact() {
           >
             <p
               className="text-xs tracking-[0.35em] uppercase mb-5 font-semibold"
-              style={{ color: "#B8973A" }}
+              style={{ color: "var(--gold)" }}
             >
               {tr.contactPage.directContact}
             </p>
@@ -173,7 +173,7 @@ export default function Contact() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-3 py-4 text-[15px] font-medium rounded-full transition-opacity duration-200 hover:opacity-90"
+              className="w-full flex items-center justify-center gap-3 py-4 text-[15px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-90"
               style={{ background: "#25D366", color: "#ffffff" }}
             >
               <WhatsAppIcon className="w-5 h-5" />

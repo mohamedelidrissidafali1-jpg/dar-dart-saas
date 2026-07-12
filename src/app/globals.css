@@ -1,41 +1,83 @@
 @import "tailwindcss";
 
+/* ─── Design tokens — "Understated Moroccan Luxury" ─────────────────────────── */
 :root {
-  --background: #f6f5f4;
-  --foreground: #000000;
-  --surface: #ffffff;
-  --ink: #000000;
-  --ink-secondary: #31302e;
-  --ink-muted: #615d59;
-  --ink-faint: #a39e98;
-  --primary: #0075de;
-  --primary-active: #005bab;
-  --secondary: #213183;
-  --hairline: #e6e6e6;
+  /* Warm neutrals */
+  --background: #F4EFE7;   /* sand — warm page background */
+  --surface: #FBF8F2;      /* cards — barely-warmer white, never pure #fff */
+  --surface-alt: #FFFFFF;  /* elevated / modals */
+  --foreground: #2B2B2B;
+  --ink: #2B2B2B;          /* charcoal text — never pure black */
+  --ink-secondary: #4A443C;
+  --ink-muted: #6E655A;    /* warm gray body */
+  --ink-faint: #A89E8F;    /* captions */
+  --hairline: #E6DECF;     /* warm borders */
+
+  /* One deep accent — zellige teal */
+  --accent: #1E4D45;
+  --accent-deep: #163A34;  /* hover / active */
+  --primary: #1E4D45;      /* legacy alias → accent */
+  --primary-active: #163A34;
+  --secondary: #1E4D45;
+
+  /* Gold — HAIRLINE / thin accent only, never fills */
+  --gold: #B8973A;
+
+  /* Radius */
+  --radius-sm: 6px;        /* inputs, badges */
+  --radius: 12px;          /* cards, images, modals */
+
+  /* Shadow — restrained */
+  --shadow-card: 0 1px 3px rgba(43,43,43,0.04), 0 8px 24px rgba(43,43,43,0.05);
 }
 
 .dark {
-  --background: #0D1B2A;
+  --background: #12212F;
+  --surface: #17293B;
+  --surface-alt: #1C3145;
   --foreground: #E8DFC8;
-  --surface: #162436;
   --ink: #E8DFC8;
   --ink-secondary: #C5BAA6;
-  --ink-muted: #8a7e70;
-  --ink-faint: #56504a;
-  --primary: #3d9eff;
-  --primary-active: #66b2ff;
-  --secondary: #7b8fd4;
-  --hairline: rgba(184,151,58,0.2);
+  --ink-muted: #B7AB93;
+  --ink-faint: #8A7E70;
+  --hairline: rgba(184,151,58,0.18);
+
+  --accent: #5AA697;       /* lightened teal for contrast on navy */
+  --accent-deep: #78BEB0;
+  --primary: #5AA697;
+  --primary-active: #78BEB0;
+  --secondary: #5AA697;
+
+  --gold: #C9A84C;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+  --color-gold: var(--gold);
+  --color-hairline: var(--hairline);
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: var(--font-inter), Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Elegant serif for all headings — the single biggest premium lever */
+h1, h2, h3 {
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  letter-spacing: normal;
+}
+
+/* Arabic headings fall back to an Arabic-capable face (Cormorant has no Arabic glyphs) */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+  font-family: var(--font-noto-kufi), var(--font-inter), sans-serif;
 }

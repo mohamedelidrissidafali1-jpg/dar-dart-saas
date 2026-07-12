@@ -29,9 +29,9 @@ const BENEFIT_ICONS = [
 function Divider() {
   return (
     <div className="flex items-center justify-center gap-3 mt-6 mb-0">
-      <div className="h-px w-12" style={{ background: "#B8973A" }} />
-      <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-      <div className="h-px w-12" style={{ background: "#B8973A" }} />
+      <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+      <div className="w-1 h-1 rotate-45" style={{ background: "var(--gold)" }} />
+      <div className="h-px w-12" style={{ background: "var(--gold)" }} />
     </div>
   );
 }
@@ -55,7 +55,7 @@ export default function HowItWorks() {
 
       {/* Page header */}
       <section className="pt-40 pb-20 px-6 text-center">
-        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
+        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "var(--gold)" }}>
           {tr.howItWorksPage.gettingStarted}
         </p>
         <h1
@@ -85,7 +85,7 @@ export default function HowItWorks() {
                   className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-xs font-semibold tracking-widest"
                   style={{
                     border: "1px solid rgba(184,151,58,0.5)",
-                    color: "#B8973A",
+                    color: "var(--gold)",
                   }}
                 >
                   {STEP_ICONS[i]}
@@ -111,7 +111,7 @@ export default function HowItWorks() {
       <section className="py-24 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
+            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "var(--gold)" }}>
               {tr.howItWorksPage.whyItMatters}
             </p>
             <h2
@@ -130,7 +130,7 @@ export default function HowItWorks() {
                 className="p-8 text-center rounded-xl"
                 style={{ background: "var(--surface)", border: "1px solid rgba(184,151,58,0.15)" }}
               >
-                <div className="flex justify-center mb-5" style={{ color: "#B8973A" }}>
+                <div className="flex justify-center mb-5" style={{ color: "var(--gold)" }}>
                   {BENEFIT_ICONS[i]}
                 </div>
                 <h3
@@ -153,7 +153,7 @@ export default function HowItWorks() {
         className="py-24 px-6 text-center"
         style={{ background: "var(--surface)" }}
       >
-        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
+        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "var(--gold)" }}>
           {tr.howItWorksPage.ready}
         </p>
         <h2
@@ -168,7 +168,7 @@ export default function HowItWorks() {
         <Link
           href="/sign-up"
           className="inline-block px-10 py-3.5 text-xs tracking-[0.3em] uppercase font-semibold transition-opacity duration-200 hover:opacity-85"
-          style={{ background: "#B8973A", color: "#ffffff" }}
+          style={{ background: "var(--gold)", color: "#ffffff" }}
         >
           {tr.signUp.submit}
         </Link>

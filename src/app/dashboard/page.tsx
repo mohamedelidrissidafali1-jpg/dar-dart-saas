@@ -224,12 +224,12 @@ export default function Dashboard() {
   };
 
   // ── Explicit color tokens ──
-  const bg       = isDark ? "#0D1B2A" : "#faf8f5";
-  const surface  = isDark ? "#162436" : "#ffffff";
-  const ink      = isDark ? "#E8DFC8" : "#2C1810";
-  const inkMuted = isDark ? "rgba(232,223,200,0.6)" : "#6b4c35";
-  const inkFaint = isDark ? "rgba(232,223,200,0.4)" : "#9b8272";
-  const border   = isDark ? "rgba(232,223,200,0.1)" : "#e0d5c8";
+  const bg       = isDark ? "#12212F" : "#F4EFE7";
+  const surface  = isDark ? "#17293B" : "#FBF8F2";
+  const ink      = isDark ? "#E8DFC8" : "#2B2B2B";
+  const inkMuted = isDark ? "#B7AB93" : "#6E655A";
+  const inkFaint = isDark ? "#8A7E70" : "#A89E8F";
+  const border   = isDark ? "rgba(184,151,58,0.18)" : "#E6DECF";
 
   const firstName = profile?.first_name ?? "";
   const riad = profile?.riad ?? "";
@@ -267,7 +267,7 @@ export default function Dashboard() {
         <div className="flex flex-col items-center justify-center min-h-screen text-center gap-4 px-6">
           <div
             className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-            style={{ color: "#C1440E" }}
+            style={{ color: "var(--accent)" }}
           >
             {tr.hero.title}
           </div>
@@ -282,8 +282,8 @@ export default function Dashboard() {
           </p>
           <Link
             href="/"
-            className="mt-4 px-6 py-3 text-[15px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
-            style={{ background: "#C1440E", color: "#ffffff" }}
+            className="mt-4 px-6 py-3 text-[15px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-85"
+            style={{ background: "var(--accent)", color: "#ffffff" }}
           >
             {tr.dashboard.backToHome}
           </Link>
@@ -308,14 +308,14 @@ export default function Dashboard() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.7) 100%)",
+              "linear-gradient(180deg, rgba(28,18,12,0.30) 0%, rgba(28,18,12,0.58) 55%, rgba(28,18,12,0.80) 100%)",
           }}
         />
 
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
           <p
             className="text-[11px] font-light tracking-[0.45em] uppercase mb-6"
-            style={{ color: "#C1440E" }}
+            style={{ color: "var(--accent)" }}
           >
             {tr.dashboard.guestPortal}
           </p>
@@ -323,14 +323,14 @@ export default function Dashboard() {
             className="text-5xl sm:text-6xl md:text-7xl font-light mb-5 leading-none tracking-wide"
             style={{
               color: "#ffffff",
-              fontFamily: "Georgia, 'Garamond', 'Times New Roman', serif",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
             }}
           >
             {firstName
               ? `${tr.dashboard.welcomeBack}, ${firstName}`
               : tr.dashboard.welcomeBack}
           </h1>
-          <div className="w-16 h-px mx-auto mb-5" style={{ background: "#C9A84C" }} />
+          <div className="w-16 h-px mx-auto mb-5" style={{ background: "var(--gold)" }} />
           <p className="text-lg font-light mb-8" style={{ color: "rgba(255,255,255,0.85)" }}>
             {tr.dashboard.yourStay} {riadLabel}
           </p>
@@ -364,7 +364,7 @@ export default function Dashboard() {
               href={conciergeWhatsAppUrl(tr.concierge.prefill)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2.5 py-3.5 text-[16px] font-semibold rounded-full transition-all duration-200 hover:opacity-90 active:scale-95"
+              className="flex w-full items-center justify-center gap-2.5 py-3.5 text-[16px] font-semibold rounded-[2px] transition-all duration-200 hover:opacity-90 active:scale-95"
               style={{
                 background: "#25D366",
                 color: "#ffffff",
@@ -378,7 +378,7 @@ export default function Dashboard() {
 
           <button
             onClick={() => setShowSurvey(true)}
-            className="px-8 py-3 text-[14px] font-light tracking-[0.08em] uppercase rounded-full transition-colors duration-200 hover:bg-white/10"
+            className="px-8 py-3 text-[14px] font-light tracking-[0.08em] uppercase rounded-[2px] transition-colors duration-200 hover:bg-white/10"
             style={{ border: "1px solid rgba(255,255,255,0.65)", color: "#ffffff" }}
           >
             {tr.dashboard.checkOut}
@@ -392,13 +392,13 @@ export default function Dashboard() {
           <div className="text-center mb-14">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: surface, color: "#C1440E", border: `1px solid ${border}` }}
+              style={{ background: surface, color: "var(--accent)", border: `1px solid ${border}` }}
             >
               {riadLabel}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: ink, letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: ink, letterSpacing: "normal", lineHeight: 1.1 }}
             >
               {tr.dashboard.accommodation}
             </h2>
@@ -427,7 +427,7 @@ export default function Dashboard() {
                   <div className="flex flex-col flex-1 p-5">
                     <span
                       className="inline-block text-[11px] font-semibold tracking-[0.1em] uppercase mb-2 px-2 py-0.5 rounded-full self-start"
-                      style={{ background: bg, color: "#C1440E" }}
+                      style={{ background: bg, color: "var(--accent)" }}
                     >
                       {tr.rooms.suite}
                     </span>
@@ -443,7 +443,7 @@ export default function Dashboard() {
             </div>
           ) : (
             <div className="flex items-center justify-center py-16">
-              <div className="w-8 h-8 rounded-full border-2 border-[#C1440E] border-t-transparent animate-spin" />
+              <div className="w-8 h-8 rounded-full border-2 border-[var(--accent)] border-t-transparent animate-spin" />
             </div>
           )}
         </div>
@@ -455,13 +455,13 @@ export default function Dashboard() {
           <div className="text-center mb-14">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: bg, color: "#C1440E", border: `1px solid ${border}` }}
+              style={{ background: bg, color: "var(--accent)", border: `1px solid ${border}` }}
             >
               {tr.dashboard.includedInStay}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: ink, letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: ink, letterSpacing: "normal", lineHeight: 1.1 }}
             >
               {tr.dashboard.servicesAmenities}
             </h2>
@@ -479,14 +479,14 @@ export default function Dashboard() {
                   className="p-7 flex gap-5 items-start rounded-xl transition-shadow duration-200 hover:shadow-md"
                   style={{ background: bg, border: `1px solid ${border}` }}
                 >
-                  <div className="flex-shrink-0 mt-0.5" style={{ color: "#C1440E" }}>
+                  <div className="flex-shrink-0 mt-0.5" style={{ color: "var(--accent)" }}>
                     <Icon />
                   </div>
                   <div>
                     <h3 className="text-[16px] font-semibold mb-0.5" style={{ color: ink }}>
                       {name}
                     </h3>
-                    <p className="text-[12px] font-semibold mb-2" style={{ color: "#C1440E" }}>
+                    <p className="text-[12px] font-semibold mb-2" style={{ color: "var(--accent)" }}>
                       {detail}
                     </p>
                     <p className="text-[14px] leading-relaxed" style={{ color: inkMuted }}>
@@ -497,8 +497,8 @@ export default function Dashboard() {
                         href={whatsappUrl(bookSlug)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
-                        style={{ background: "#C1440E", color: "#ffffff" }}
+                        className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-85"
+                        style={{ background: "var(--accent)", color: "#ffffff" }}
                       >
                         {tr.dashboard.bookViaWhatsApp}
                       </a>
@@ -517,13 +517,13 @@ export default function Dashboard() {
           <div className="text-center mb-14">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: surface, color: "#C1440E", border: `1px solid ${border}` }}
+              style={{ background: surface, color: "var(--accent)", border: `1px solid ${border}` }}
             >
               {tr.dashboard.marrakechBeyond}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: ink, letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: ink, letterSpacing: "normal", lineHeight: 1.1 }}
             >
               {tr.dashboard.excursionsHeading}
             </h2>
@@ -557,7 +557,7 @@ export default function Dashboard() {
                     <p className="text-[12px] mb-2" style={{ color: inkFaint }}>
                       {info.subtitle}
                     </p>
-                    <p className="text-[14px] font-semibold mb-3" style={{ color: "#B8973A" }}>
+                    <p className="text-[14px] font-semibold mb-3" style={{ color: "var(--gold)" }}>
                       {info.price}
                     </p>
                     <div className="flex-1 mb-4" />
@@ -566,7 +566,7 @@ export default function Dashboard() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-85 text-center block"
-                      style={{ background: "#C1440E", color: "#ffffff" }}
+                      style={{ background: "var(--accent)", color: "#ffffff" }}
                     >
                       {tr.dashboard.bookViaWhatsApp}
                     </a>
@@ -584,13 +584,13 @@ export default function Dashboard() {
           <div className="text-center mb-14">
             <span
               className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: bg, color: "#C1440E", border: `1px solid ${border}` }}
+              style={{ background: bg, color: "var(--accent)", border: `1px solid ${border}` }}
             >
               {tr.dashboard.goodToKnow}
             </span>
             <h2
               className="text-3xl md:text-[40px] font-bold"
-              style={{ color: ink, letterSpacing: "-1px", lineHeight: 1.1 }}
+              style={{ color: ink, letterSpacing: "normal", lineHeight: 1.1 }}
             >
               {tr.dashboard.importantInfo}
             </h2>
@@ -607,7 +607,7 @@ export default function Dashboard() {
                 >
                   <p
                     className="text-[12px] font-semibold tracking-[0.1em] uppercase mb-2"
-                    style={{ color: "#C1440E" }}
+                    style={{ color: "var(--accent)" }}
                   >
                     {info.label}
                   </p>
@@ -625,8 +625,8 @@ export default function Dashboard() {
                       href={whatsappUrl(bookSlug)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-full transition-opacity duration-200 hover:opacity-85"
-                      style={{ background: "#C1440E", color: "#ffffff" }}
+                      className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-85"
+                      style={{ background: "var(--accent)", color: "#ffffff" }}
                     >
                       {tr.dashboard.bookViaWhatsApp}
                     </a>
@@ -643,13 +643,13 @@ export default function Dashboard() {
         <div className="max-w-xl mx-auto text-center">
           <span
             className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-            style={{ background: surface, color: "#C1440E", border: `1px solid ${border}` }}
+            style={{ background: surface, color: "var(--accent)", border: `1px solid ${border}` }}
           >
             {tr.dashboard.endOfStay}
           </span>
           <h2
             className="text-3xl md:text-[36px] font-bold mb-4"
-            style={{ color: ink, letterSpacing: "-1px", lineHeight: 1.15 }}
+            style={{ color: ink, letterSpacing: "normal", lineHeight: 1.15 }}
           >
             {tr.dashboard.enjoyedStay}
           </h2>
@@ -658,8 +658,8 @@ export default function Dashboard() {
           </p>
           <button
             onClick={() => setShowSurvey(true)}
-            className="px-10 py-4 text-[16px] font-medium tracking-[0.04em] rounded-full transition-all duration-200 hover:opacity-85 active:scale-95"
-            style={{ background: "#C1440E", color: "#ffffff" }}
+            className="px-10 py-4 text-[16px] font-medium tracking-[0.04em] rounded-[2px] transition-all duration-200 hover:opacity-85 active:scale-95"
+            style={{ background: "var(--accent)", color: "#ffffff" }}
           >
             {tr.dashboard.checkoutReview}
           </button>

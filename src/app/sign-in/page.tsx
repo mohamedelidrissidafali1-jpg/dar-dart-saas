@@ -155,8 +155,8 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 text-[16px] font-medium rounded-full mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-              style={{ background: "#0075de", color: "#ffffff" }}
+              className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
+              style={{ background: "var(--accent)", color: "#ffffff" }}
             >
               {loading ? tr.signIn.signingIn : tr.signIn.submit}
             </button>
@@ -166,7 +166,7 @@ export default function SignIn() {
           <button
             type="button"
             onClick={handleGoogleSignIn}
-            className="w-full flex items-center justify-center gap-3 py-3 text-[15px] font-medium rounded-full mt-4 transition-opacity duration-200 hover:opacity-85"
+            className="w-full flex items-center justify-center gap-3 py-3 text-[15px] font-medium rounded-[2px] mt-4 transition-opacity duration-200 hover:opacity-85"
             style={{ background: "#ffffff", border: "1px solid #dadce0", color: "#3c4043" }}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">

@@ -33,7 +33,7 @@ export default function FAQ() {
 
       {/* Page header */}
       <section className="pt-40 pb-16 px-6 text-center">
-        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
+        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "var(--gold)" }}>
           {tr.faqPage.helpSupport}
         </p>
         <h1
@@ -43,9 +43,9 @@ export default function FAQ() {
           {tr.faqPage.title}
         </h1>
         <div className="flex items-center justify-center gap-3 mt-6">
-          <div className="h-px w-12" style={{ background: "#B8973A" }} />
-          <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-          <div className="h-px w-12" style={{ background: "#B8973A" }} />
+          <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+          <div className="w-1 h-1 rotate-45" style={{ background: "var(--gold)" }} />
+          <div className="h-px w-12" style={{ background: "var(--gold)" }} />
         </div>
       </section>
 
@@ -56,7 +56,7 @@ export default function FAQ() {
             <div key={cat.category}>
               <h2
                 className="text-xs tracking-[0.4em] uppercase mb-6 pb-4 font-semibold"
-                style={{ color: "#B8973A", borderBottom: "1px solid rgba(184,151,58,0.2)" }}
+                style={{ color: "var(--gold)", borderBottom: "1px solid rgba(184,151,58,0.2)" }}
               >
                 {cat.category}
               </h2>
@@ -74,7 +74,7 @@ export default function FAQ() {
                       <span className="text-sm font-light leading-relaxed">{item.q}</span>
                       <span
                         className="flex-shrink-0 w-5 h-5 flex items-center justify-center text-base transition-transform duration-200 group-open:rotate-45"
-                        style={{ color: "#B8973A" }}
+                        style={{ color: "var(--gold)" }}
                         aria-hidden="true"
                       >
                         +
@@ -99,7 +99,7 @@ export default function FAQ() {
         className="py-20 px-6 text-center"
         style={{ background: "var(--surface)" }}
       >
-        <p className="text-xs tracking-[0.4em] uppercase mb-4" style={{ color: "#B8973A" }}>
+        <p className="text-xs tracking-[0.4em] uppercase mb-4" style={{ color: "var(--gold)" }}>
           {tr.faqPage.stillHaveQuestions}
         </p>
         <h2

@@ -84,7 +84,7 @@ export default function Navbar() {
         <Link href="/" className="text-left leading-tight">
           <div
             className="text-[10px] font-light tracking-[0.38em] uppercase mb-0.5"
-            style={{ color: transparent ? "rgba(255,255,255,0.65)" : "#C1440E" }}
+            style={{ color: transparent ? "rgba(255,255,255,0.65)" : "var(--accent)" }}
           >
             Riad
           </div>
@@ -92,7 +92,7 @@ export default function Navbar() {
             className="text-[19px] font-light tracking-widest"
             style={{
               color: logoColor,
-              fontFamily: "Georgia, 'Garamond', 'Times New Roman', serif",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
             }}
           >
             Dar D&apos;Art
@@ -105,7 +105,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="relative pb-0.5 text-[12px] font-light tracking-[0.18em] uppercase transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[#C1440E] after:transition-all after:duration-300 hover:after:w-full"
+              className="relative pb-0.5 text-[12px] font-light tracking-[0.18em] uppercase transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[var(--accent)] after:transition-all after:duration-300 hover:after:w-full"
               style={{ color: linkColor }}
             >
               {link.label}
@@ -119,7 +119,7 @@ export default function Navbar() {
               </span>
               <button
                 onClick={handleLogout}
-                className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
+                className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-[2px] transition-all duration-200 hover:bg-white/10"
                 style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
               >
                 {tr.common.logout}
@@ -129,7 +129,7 @@ export default function Navbar() {
             <>
               <Link
                 href="/sign-in"
-                className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
+                className="px-5 py-2 text-[12px] font-light tracking-[0.12em] uppercase rounded-[2px] transition-all duration-200 hover:bg-white/10"
                 style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
               >
                 {tr.nav.signIn}
@@ -137,8 +137,8 @@ export default function Navbar() {
 
               <Link
                 href="/sign-up"
-                className="px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85"
-                style={{ background: "#C1440E", color: "#ffffff" }}
+                className="px-5 py-2.5 text-[12px] font-medium tracking-[0.08em] uppercase rounded-[2px] transition-all duration-200 hover:opacity-85"
+                style={{ background: "var(--accent)", color: "#ffffff" }}
               >
                 {tr.nav.signUp}
               </Link>
@@ -155,15 +155,15 @@ export default function Navbar() {
             <>
               <Link
                 href="/sign-in"
-                className="px-3 py-1.5 text-[11px] font-light tracking-[0.1em] uppercase rounded-full transition-all duration-200 hover:bg-white/10"
+                className="px-3 py-1.5 text-[11px] font-light tracking-[0.1em] uppercase rounded-[2px] transition-all duration-200 hover:bg-white/10"
                 style={{ border: `1px solid ${signInBorderColor}`, color: linkColor }}
               >
                 {tr.nav.signIn}
               </Link>
               <Link
                 href="/sign-up"
-                className="px-3 py-1.5 text-[11px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85"
-                style={{ background: "#C1440E", color: "#ffffff" }}
+                className="px-3 py-1.5 text-[11px] font-medium tracking-[0.08em] uppercase rounded-[2px] transition-all duration-200 hover:opacity-85"
+                style={{ background: "var(--accent)", color: "#ffffff" }}
               >
                 {tr.nav.signUp}
               </Link>
@@ -220,7 +220,7 @@ export default function Navbar() {
               </span>
               <button
                 onClick={() => { setMenuOpen(false); handleLogout(); }}
-                className="mt-2 py-3 text-[13px] font-light tracking-[0.1em] uppercase text-center rounded-full transition-colors"
+                className="mt-2 py-3 text-[13px] font-light tracking-[0.1em] uppercase text-center rounded-[2px] transition-colors"
                 style={{ border: `1px solid ${isDark ? "#E8DFC8" : "#1a1a1a"}`, color: isDark ? "#E8DFC8" : "#1a1a1a" }}
               >
                 {tr.common.logout}

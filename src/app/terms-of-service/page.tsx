@@ -27,7 +27,7 @@ export default function TermsOfService() {
 
       {/* Page header */}
       <section className="pt-40 pb-16 px-6 text-center">
-        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
+        <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "var(--gold)" }}>
           {tr.termsPage.legal}
         </p>
         <h1
@@ -37,9 +37,9 @@ export default function TermsOfService() {
           {tr.termsPage.title}
         </h1>
         <div className="flex items-center justify-center gap-3 mt-6">
-          <div className="h-px w-12" style={{ background: "#B8973A" }} />
-          <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-          <div className="h-px w-12" style={{ background: "#B8973A" }} />
+          <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+          <div className="w-1 h-1 rotate-45" style={{ background: "var(--gold)" }} />
+          <div className="h-px w-12" style={{ background: "var(--gold)" }} />
         </div>
         <p className="mt-6 text-xs opacity-40 tracking-wide" style={{ color: "#E8DFC8" }}>
           {tr.common.lastUpdated}

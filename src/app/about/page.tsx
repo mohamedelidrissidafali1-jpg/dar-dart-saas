@@ -9,9 +9,9 @@ import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 function SectionDivider() {
   return (
     <div className="flex items-center justify-center gap-3 mt-6">
-      <div className="h-px w-12" style={{ background: "#B8973A" }} />
-      <div className="w-1 h-1 rotate-45" style={{ background: "#B8973A" }} />
-      <div className="h-px w-12" style={{ background: "#B8973A" }} />
+      <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+      <div className="w-1 h-1 rotate-45" style={{ background: "var(--gold)" }} />
+      <div className="h-px w-12" style={{ background: "var(--gold)" }} />
     </div>
   );
 }
@@ -73,7 +73,7 @@ export default function About() {
           style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%)" }}
         />
         <div className="relative z-10 px-6 pb-12 max-w-6xl mx-auto w-full">
-          <p className="text-xs tracking-[0.45em] uppercase mb-3" style={{ color: "#B8973A" }}>
+          <p className="text-xs tracking-[0.45em] uppercase mb-3" style={{ color: "var(--gold)" }}>
             {tr.aboutPage.ourStory}
           </p>
           <h1
@@ -89,7 +89,7 @@ export default function About() {
       <section className="py-24 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs tracking-[0.35em] uppercase mb-5" style={{ color: "#B8973A" }}>
+            <p className="text-xs tracking-[0.35em] uppercase mb-5" style={{ color: "var(--gold)" }}>
               {tr.aboutPage.heritageLabel}
             </p>
             <h2
@@ -126,7 +126,7 @@ export default function About() {
       <section className="py-24 px-6" style={{ background: "var(--surface)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
+            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "var(--gold)" }}>
               {tr.aboutPage.whatWeStandFor}
             </p>
             <h2
@@ -145,7 +145,7 @@ export default function About() {
                 className="p-8 rounded-xl"
                 style={{ background: "var(--background)", border: "1px solid rgba(184,151,58,0.2)" }}
               >
-                <div className="w-8 h-px mb-6" style={{ background: "#B8973A" }} />
+                <div className="w-8 h-px mb-6" style={{ background: "var(--gold)" }} />
                 <h3
                   className="text-base font-semibold mb-3 tracking-wide"
                   style={{ color: "var(--ink)" }}
@@ -165,7 +165,7 @@ export default function About() {
       <section className="py-24 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "#B8973A" }}>
+            <p className="text-xs tracking-[0.45em] uppercase mb-5" style={{ color: "var(--gold)" }}>
               {tr.aboutPage.theProperties}
             </p>
             <h2
@@ -186,7 +186,7 @@ export default function About() {
               >
                 <p
                   className="text-xs tracking-[0.35em] uppercase mb-3 font-semibold"
-                  style={{ color: "#B8973A" }}
+                  style={{ color: "var(--gold)" }}
                 >
                   {p.name}
                 </p>
@@ -204,7 +204,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs tracking-[0.2em] uppercase opacity-70 hover:opacity-100 transition-opacity duration-200"
-                  style={{ color: "#B8973A" }}
+                  style={{ color: "var(--gold)" }}
                 >
                   {tr.contact.viewOnMap}
                 </a>
@@ -229,7 +229,7 @@ export default function About() {
           <Link
             href="/contact"
             className="inline-block px-8 py-3.5 text-xs tracking-[0.3em] uppercase font-semibold transition-opacity duration-200 hover:opacity-85"
-            style={{ background: "#B8973A", color: "#ffffff" }}
+            style={{ background: "var(--gold)", color: "#ffffff" }}
           >
             {tr.hero.contactUs}
           </Link>

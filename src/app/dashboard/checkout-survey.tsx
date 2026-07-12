@@ -125,7 +125,7 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
           <div className="flex flex-col items-center justify-center gap-4 px-8 py-16 text-center">
             <div
               className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-              style={{ color: "#C1440E" }}
+              style={{ color: "var(--accent)" }}
             >
               Riad Dar D&apos;Art
             </div>
@@ -152,7 +152,7 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
               <div>
                 <div
                   className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-0.5"
-                  style={{ color: "#C1440E" }}
+                  style={{ color: "var(--accent)" }}
                 >
                   {tr.survey.checkOut}
                 </div>
@@ -192,7 +192,7 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
                         className="transition-transform hover:scale-110"
                         aria-label={`${star} star`}
                       >
-                        <svg viewBox="0 0 24 24" className="w-6 h-6" fill={ratings[key] >= star ? "#C1440E" : "none"} stroke={ratings[key] >= star ? "#C1440E" : "var(--hairline)"} strokeWidth={1.5}>
+                        <svg viewBox="0 0 24 24" className="w-6 h-6" fill={ratings[key] >= star ? "var(--accent)" : "none"} stroke={ratings[key] >= star ? "var(--accent)" : "var(--hairline)"} strokeWidth={1.5}>
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                         </svg>
                       </button>
@@ -220,9 +220,9 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
                     border: "1px solid var(--hairline)",
                     color: "var(--ink)",
                     background: "var(--background)",
-                    caretColor: "#C1440E",
+                    caretColor: "var(--accent)",
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = "#C1440E")}
+                  onFocus={(e) => (e.target.style.borderColor = "var(--accent)")}
                   onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
                 />
               </div>
@@ -240,7 +240,7 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 py-2.5 text-[15px] font-medium rounded-full transition-opacity hover:opacity-70"
+                className="flex-1 py-2.5 text-[15px] font-medium rounded-[2px] transition-opacity hover:opacity-70"
                 style={{ border: "1px solid var(--hairline)", color: "var(--ink-secondary)" }}
               >
                 {tr.survey.cancel}
@@ -248,8 +248,8 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 py-2.5 text-[15px] font-medium rounded-full transition-opacity hover:opacity-85 disabled:opacity-50"
-                style={{ background: "#C1440E", color: "#ffffff" }}
+                className="flex-1 py-2.5 text-[15px] font-medium rounded-[2px] transition-opacity hover:opacity-85 disabled:opacity-50"
+                style={{ background: "var(--accent)", color: "#ffffff" }}
               >
                 {loading ? tr.survey.submitting : error ? tr.survey.retry : tr.survey.submitAndWhatsapp}
               </button>
