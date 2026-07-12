@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Link from "next/link";
 import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
+import { conciergeWhatsAppUrl } from "@/components/WhatsAppFab";
 
 const WHATSAPP_NUMBER = "212709086496";
 
@@ -130,9 +130,15 @@ export default function Contact() {
               </p>
               <p className="text-sm mt-1" style={{ color: "var(--ink-muted)" }}>
                 {tr.contactPage.conciergeAvailable}{" "}
-                <Link href="/dashboard" className="transition-opacity hover:opacity-80" style={{ color: "#B8973A" }}>
-                  {tr.contactPage.yourDashboard}
-                </Link>
+                <a
+                  href={conciergeWhatsAppUrl(tr.concierge.prefill)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-opacity hover:opacity-80"
+                  style={{ color: "#B8973A" }}
+                >
+                  {tr.contact.whatsapp}
+                </a>
               </p>
             </div>
           </div>

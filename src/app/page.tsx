@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import ChatBox from "@/components/ChatBox";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
@@ -156,7 +155,6 @@ const SERVICES: { key: string; Icon: ServiceIcon }[] = [
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  const [chatOpen, setChatOpen] = useState(false);
   const [selectedRiad, setSelectedRiad] = useState<"riad19" | "riad141" | null>(null);
   const [lang, setLang] = useState<Lang>("en");
 
@@ -617,48 +615,6 @@ export default function Home() {
       </section>
 
       <Footer />
-
-      {/* ── FLOATING CHAT BUTTON ── */}
-      <button
-        onClick={() => setChatOpen((o) => !o)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3 transition-all duration-200 hover:opacity-90 active:scale-95"
-        style={{
-          background: "#0075de",
-          color: "#ffffff",
-          borderRadius: "9999px",
-          boxShadow: "0 4px 14px rgba(0,117,222,0.35), 0 2px 6px rgba(0,0,0,0.1)",
-        }}
-        aria-label={tr.common.openChat}
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
-        </svg>
-        <span className="text-[15px] font-medium whitespace-nowrap">
-          {tr.common.askConcierge}
-        </span>
-      </button>
-
-      {/* ── CHAT POPUP ── */}
-      <div
-        className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 transition-all duration-300 origin-bottom-right"
-        style={{
-          height: "480px",
-          opacity: chatOpen ? 1 : 0,
-          transform: chatOpen ? "scale(1) translateY(0)" : "scale(0.95) translateY(8px)",
-          pointerEvents: chatOpen ? "auto" : "none",
-        }}
-      >
-        {/* Close button */}
-        <button
-          onClick={() => setChatOpen(false)}
-          className="absolute -top-3.5 -right-3.5 z-10 w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold shadow-lg transition-opacity duration-200 hover:opacity-80"
-          style={{ background: "#0075de", color: "#ffffff" }}
-          aria-label={tr.common.closeChat}
-        >
-          ✕
-        </button>
-        <ChatBox />
-      </div>
     </div>
   );
 }

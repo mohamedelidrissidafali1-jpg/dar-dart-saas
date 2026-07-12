@@ -3,8 +3,8 @@
 import { useState, useEffect, type JSX } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import ChatBox from "@/components/ChatBox";
 import Navbar from "@/components/Navbar";
+import { WhatsAppIcon, conciergeWhatsAppUrl } from "@/components/WhatsAppFab";
 import CheckoutSurveyModal from "./checkout-survey";
 import { getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
@@ -169,7 +169,6 @@ export default function Dashboard() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [checkedOut, setCheckedOut] = useState(false);
   const [showSurvey, setShowSurvey] = useState(false);
-  const [chatOpen, setChatOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -298,7 +297,7 @@ export default function Dashboard() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-28">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/hero.jpg"
@@ -332,25 +331,58 @@ export default function Dashboard() {
               : tr.dashboard.welcomeBack}
           </h1>
           <div className="w-16 h-px mx-auto mb-5" style={{ background: "#C9A84C" }} />
-          <p className="text-lg font-light mb-10" style={{ color: "rgba(255,255,255,0.85)" }}>
+          <p className="text-lg font-light mb-8" style={{ color: "rgba(255,255,255,0.85)" }}>
             {tr.dashboard.yourStay} {riadLabel}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => setChatOpen(true)}
-              className="px-8 py-3 text-[14px] font-medium tracking-[0.08em] uppercase rounded-full transition-all duration-200 hover:opacity-85 active:scale-95"
-              style={{ background: "#C1440E", color: "#ffffff" }}
+
+          {/* ── WHATSAPP CONCIERGE CARD ── */}
+          <div
+            className="mx-auto max-w-lg rounded-2xl p-6 sm:p-7 mb-6 text-center"
+            style={{
+              background: "rgba(255,255,255,0.08)",
+              border: "1px solid rgba(255,255,255,0.22)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+            }}
+          >
+            <div
+              className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full"
+              style={{ background: "rgba(37,211,102,0.18)", color: "#25D366" }}
             >
-              {tr.common.askConcierge}
-            </button>
-            <button
-              onClick={() => setShowSurvey(true)}
-              className="px-8 py-3 text-[14px] font-light tracking-[0.08em] uppercase rounded-full transition-colors duration-200 hover:bg-white/10"
-              style={{ border: "1px solid rgba(255,255,255,0.65)", color: "#ffffff" }}
+              <WhatsAppIcon className="w-6 h-6" />
+            </div>
+            <h2 className="text-xl sm:text-2xl font-semibold mb-2" style={{ color: "#ffffff" }}>
+              {tr.concierge.title}
+            </h2>
+            <p
+              className="text-[14px] sm:text-[15px] leading-relaxed mb-5"
+              style={{ color: "rgba(255,255,255,0.85)" }}
             >
-              {tr.dashboard.checkOut}
-            </button>
+              {tr.concierge.subtitle}
+            </p>
+            <a
+              href={conciergeWhatsAppUrl(tr.concierge.prefill)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2.5 py-3.5 text-[16px] font-semibold rounded-full transition-all duration-200 hover:opacity-90 active:scale-95"
+              style={{
+                background: "#25D366",
+                color: "#ffffff",
+                boxShadow: "0 4px 14px rgba(37,211,102,0.35)",
+              }}
+            >
+              <WhatsAppIcon className="w-5 h-5" />
+              {tr.concierge.chatButton}
+            </a>
           </div>
+
+          <button
+            onClick={() => setShowSurvey(true)}
+            className="px-8 py-3 text-[14px] font-light tracking-[0.08em] uppercase rounded-full transition-colors duration-200 hover:bg-white/10"
+            style={{ border: "1px solid rgba(255,255,255,0.65)", color: "#ffffff" }}
+          >
+            {tr.dashboard.checkOut}
+          </button>
         </div>
       </section>
 
@@ -633,49 +665,6 @@ export default function Dashboard() {
           </button>
         </div>
       </section>
-
-      {/* ── FLOATING CHAT BUTTON ── */}
-      <button
-        onClick={() => setChatOpen((o) => !o)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3 transition-all duration-200 hover:opacity-90 active:scale-95"
-        style={{
-          background: "#0075de",
-          color: "#ffffff",
-          borderRadius: "9999px",
-          boxShadow: "0 4px 14px rgba(0,117,222,0.35), 0 2px 6px rgba(0,0,0,0.1)",
-        }}
-        aria-label={tr.common.openChat}
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
-        </svg>
-        <span className="text-[15px] font-medium whitespace-nowrap">{tr.common.askConcierge}</span>
-      </button>
-
-      {/* ── CHAT POPUP ── */}
-      <div
-        className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 transition-all duration-300 origin-bottom-right"
-        style={{
-          height: "480px",
-          opacity: chatOpen ? 1 : 0,
-          transform: chatOpen ? "scale(1) translateY(0)" : "scale(0.95) translateY(8px)",
-          pointerEvents: chatOpen ? "auto" : "none",
-        }}
-      >
-        <button
-          onClick={() => setChatOpen(false)}
-          className="absolute -top-3.5 -right-3.5 z-10 w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold shadow-lg transition-opacity duration-200 hover:opacity-80"
-          style={{ background: "#0075de", color: "#ffffff" }}
-          aria-label={tr.common.closeChat}
-        >
-          ✕
-        </button>
-        <ChatBox
-          riad={riad || undefined}
-          language={profile?.language as Lang | undefined}
-          guestName={firstName || undefined}
-        />
-      </div>
 
       {/* ── SURVEY MODAL ── */}
       {showSurvey && profile && (

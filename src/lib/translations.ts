@@ -252,21 +252,17 @@ const t = {
       phoneInvalid: "Please enter your full phone number with country code in your profile (e.g. +212 6XX XXX XXX or +33 6 XX XX XX XX), then try again.",
       retry: "Retry",
     },
-    chat: {
-      greeting: "Marhaba! How can I help you today?",
-      concierge: "Dar D'art Concierge",
-      placeholder: "Ask your concierge…",
-      poweredBy: "Powered by Claude AI · Responses are informational only",
+    concierge: {
+      title: "Your Personal Concierge",
+      subtitle: "Questions? Bookings? Chat with us on WhatsApp — we reply in your language, 24/7.",
+      chatButton: "Chat on WhatsApp",
+      fabLabel: "Chat with us on WhatsApp",
+      prefill: "Hello! I'm a guest at Riad Dar D'Art and I have a question.",
     },
     common: {
       loading: "Loading…",
-      send: "Send",
       close: "Close",
-      error: "Something went wrong. Please try again.",
       success: "Success",
-      askConcierge: "Ask our Concierge",
-      openChat: "Open concierge chat",
-      closeChat: "Close chat",
       toggleMenu: "Toggle menu",
       logout: "Logout",
       lastUpdated: "Last updated: June 2026",
@@ -350,7 +346,6 @@ const t = {
       hours: "Hours",
       deskHours: "Front desk available daily, 08:00 – 22:00",
       conciergeAvailable: "AI Concierge available 24/7 via",
-      yourDashboard: "your dashboard",
       chatOnWhatsApp: "Chat on WhatsApp",
       whatsappDesc: "The fastest way to reach us — questions, bookings, and anything about your stay.",
       whatsappPrefill: "Hello! I have a question about Riad Dar D'Art",
@@ -456,11 +451,11 @@ We do not sell your personal data to third parties.`,
           title: "3. Data Retention",
           body: `Account data is retained for the duration of your stay plus 90 days, after which it is permanently deleted unless you request earlier deletion.
 
-Chat logs are retained for 30 days to allow us to review service quality. You may request deletion of your chat history at any time by contacting us.`,
+Concierge conversation history is retained for the duration of your stay and for up to 12 months afterwards to improve service quality, after which it may be deleted. You may request deletion of your chat history at any time by contacting us.`,
         },
         {
           title: "4. Third-Party Services",
-          body: `The AI concierge is powered by Anthropic's Claude AI. Your chat messages are transmitted to Anthropic's API solely to generate responses. Anthropic processes this data in accordance with their own privacy policy. We do not share your name, email, or booking details with Anthropic.
+          body: `Our concierge service runs on WhatsApp. Conversations with our WhatsApp concierge are processed by our automation system and an AI provider (Anthropic) to answer your questions. Anthropic processes this data in accordance with its own privacy policy. Conversation history is stored to improve the quality and accuracy of responses.
 
 Our platform is hosted on Vercel. Your data is stored and processed in compliance with Vercel's data processing terms.`,
         },
@@ -798,21 +793,17 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       phoneInvalid: "Veuillez saisir dans votre profil votre numéro de téléphone complet avec l'indicatif du pays (ex. +212 6XX XXX XXX ou +33 6 XX XX XX XX), puis réessayez.",
       retry: "Réessayer",
     },
-    chat: {
-      greeting: "Bienvenue ! Comment puis-je vous aider aujourd'hui ?",
-      concierge: "Concierge Dar D'art",
-      placeholder: "Demandez à votre concierge…",
-      poweredBy: "Propulsé par Claude AI · Les réponses sont à titre informatif uniquement",
+    concierge: {
+      title: "Votre Concierge Personnel",
+      subtitle: "Une question ? Une réservation ? Écrivez-nous sur WhatsApp — nous vous répondons dans votre langue, 24h/24 et 7j/7.",
+      chatButton: "Discuter sur WhatsApp",
+      fabLabel: "Discuter avec nous sur WhatsApp",
+      prefill: "Bonjour ! Je suis client au Riad Dar D'Art et j'ai une question.",
     },
     common: {
       loading: "Chargement…",
-      send: "Envoyer",
       close: "Fermer",
-      error: "Une erreur s'est produite. Veuillez réessayer.",
       success: "Succès",
-      askConcierge: "Demandez à notre Concierge",
-      openChat: "Ouvrir le chat du concierge",
-      closeChat: "Fermer le chat",
       toggleMenu: "Afficher/masquer le menu",
       logout: "Déconnexion",
       lastUpdated: "Dernière mise à jour : juin 2026",
@@ -896,7 +887,6 @@ The service is provided "as is" without warranties of any kind. We do not guaran
       hours: "Horaires",
       deskHours: "Réception ouverte tous les jours, 08h00 – 22h00",
       conciergeAvailable: "Concierge IA disponible 24h/24 via",
-      yourDashboard: "votre tableau de bord",
       chatOnWhatsApp: "Discuter sur WhatsApp",
       whatsappDesc: "Le moyen le plus rapide de nous joindre — questions, réservations et tout ce qui concerne votre séjour.",
       whatsappPrefill: "Bonjour ! J'ai une question à propos du Riad Dar D'Art",
@@ -1002,11 +992,11 @@ Nous ne vendons pas vos données personnelles à des tiers.`,
           title: "3. Conservation des données",
           body: `Les données de compte sont conservées pendant la durée de votre séjour plus 90 jours, après quoi elles sont définitivement supprimées, sauf demande de suppression anticipée de votre part.
 
-Les journaux de chat sont conservés pendant 30 jours afin de nous permettre d'évaluer la qualité du service. Vous pouvez demander la suppression de votre historique de chat à tout moment en nous contactant.`,
+L'historique des conversations avec le concierge est conservé pendant la durée de votre séjour et jusqu'à 12 mois après, afin d'améliorer la qualité du service, après quoi il peut être supprimé. Vous pouvez demander la suppression de votre historique de chat à tout moment en nous contactant.`,
         },
         {
           title: "4. Services tiers",
-          body: `Le concierge IA est propulsé par Claude AI d'Anthropic. Vos messages de chat sont transmis à l'API d'Anthropic uniquement pour générer des réponses. Anthropic traite ces données conformément à sa propre politique de confidentialité. Nous ne partageons pas votre nom, votre e-mail ou vos détails de réservation avec Anthropic.
+          body: `Notre service de conciergerie fonctionne sur WhatsApp. Les conversations avec notre concierge WhatsApp sont traitées par notre système d'automatisation et un fournisseur d'IA (Anthropic) afin de répondre à vos questions. Anthropic traite ces données conformément à sa propre politique de confidentialité. L'historique des conversations est conservé afin d'améliorer la qualité et la précision des réponses.
 
 Notre plateforme est hébergée sur Vercel. Vos données sont stockées et traitées conformément aux conditions de traitement des données de Vercel.`,
         },
@@ -1344,21 +1334,17 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       phoneInvalid: "Por favor ingrese en su perfil su número de teléfono completo con el código de país (p. ej. +212 6XX XXX XXX o +33 6 XX XX XX XX) e intente de nuevo.",
       retry: "Reintentar",
     },
-    chat: {
-      greeting: "¡Bienvenido! ¿En qué puedo ayudarle hoy?",
-      concierge: "Conserje Dar D'art",
-      placeholder: "Pregunta a tu conserje…",
-      poweredBy: "Desarrollado por Claude AI · Las respuestas son solo informativas",
+    concierge: {
+      title: "Tu Conserje Personal",
+      subtitle: "¿Preguntas? ¿Reservas? Escríbenos por WhatsApp: te respondemos en tu idioma, las 24 horas.",
+      chatButton: "Chatear por WhatsApp",
+      fabLabel: "Chatea con nosotros por WhatsApp",
+      prefill: "¡Hola! Soy huésped del Riad Dar D'Art y tengo una pregunta.",
     },
     common: {
       loading: "Cargando…",
-      send: "Enviar",
       close: "Cerrar",
-      error: "Algo salió mal. Por favor, inténtalo de nuevo.",
       success: "Éxito",
-      askConcierge: "Pregunta a nuestro Conserje",
-      openChat: "Abrir el chat del conserje",
-      closeChat: "Cerrar el chat",
       toggleMenu: "Mostrar/ocultar menú",
       logout: "Cerrar sesión",
       lastUpdated: "Última actualización: junio de 2026",
@@ -1442,7 +1428,6 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
       hours: "Horario",
       deskHours: "Recepción disponible todos los días, de 08:00 a 22:00",
       conciergeAvailable: "Conserje IA disponible 24/7 a través de",
-      yourDashboard: "tu panel",
       chatOnWhatsApp: "Chatear por WhatsApp",
       whatsappDesc: "La forma más rápida de contactarnos — preguntas, reservas y todo lo relacionado con tu estancia.",
       whatsappPrefill: "¡Hola! Tengo una pregunta sobre el Riad Dar D'Art",
@@ -1548,11 +1533,11 @@ No vendemos tus datos personales a terceros.`,
           title: "3. Retención de Datos",
           body: `Los datos de la cuenta se conservan durante la duración de tu estancia más 90 días, tras lo cual se eliminan permanentemente a menos que solicites una eliminación anticipada.
 
-Los registros de chat se conservan durante 30 días para permitirnos revisar la calidad del servicio. Puedes solicitar la eliminación de tu historial de chat en cualquier momento contactándonos.`,
+El historial de conversaciones con el conserje se conserva durante tu estancia y hasta 12 meses después para mejorar la calidad del servicio, tras lo cual puede ser eliminado. Puedes solicitar la eliminación de tu historial de chat en cualquier momento contactándonos.`,
         },
         {
           title: "4. Servicios de Terceros",
-          body: `El conserje IA está impulsado por Claude AI de Anthropic. Tus mensajes de chat se transmiten a la API de Anthropic únicamente para generar respuestas. Anthropic procesa estos datos de acuerdo con su propia política de privacidad. No compartimos tu nombre, correo electrónico o detalles de reserva con Anthropic.
+          body: `Nuestro servicio de conserjería funciona a través de WhatsApp. Las conversaciones con nuestro conserje de WhatsApp son procesadas por nuestro sistema de automatización y un proveedor de IA (Anthropic) para responder a tus preguntas. Anthropic procesa estos datos de acuerdo con su propia política de privacidad. El historial de conversaciones se almacena para mejorar la calidad y precisión de las respuestas.
 
 Nuestra plataforma está alojada en Vercel. Tus datos se almacenan y procesan de conformidad con los términos de procesamiento de datos de Vercel.`,
         },
@@ -1890,21 +1875,17 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       phoneInvalid: "يرجى إدخال رقم هاتفك الكامل مع رمز البلد في ملفك الشخصي (مثال: +212 6XX XXX XXX أو +33 6 XX XX XX XX) ثم المحاولة مرة أخرى.",
       retry: "إعادة المحاولة",
     },
-    chat: {
-      greeting: "مرحباً! كيف يمكنني مساعدتك اليوم؟",
-      concierge: "كونسيرج دار دار",
-      placeholder: "اسأل الكونسيرج…",
-      poweredBy: "مدعوم بالذكاء الاصطناعي · الردود لأغراض إعلامية فقط",
+    concierge: {
+      title: "الكونسيرج الشخصي الخاص بك",
+      subtitle: "أسئلة؟ حجوزات؟ راسلنا على واتساب — نرد عليك بلغتك، على مدار الساعة.",
+      chatButton: "تحدث معنا على واتساب",
+      fabLabel: "تحدث معنا على واتساب",
+      prefill: "مرحباً! أنا نزيل في رياض دار دار ولدي سؤال.",
     },
     common: {
       loading: "جارٍ التحميل…",
-      send: "إرسال",
       close: "إغلاق",
-      error: "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
       success: "نجاح",
-      askConcierge: "اسأل كونسيرجنا",
-      openChat: "فتح محادثة الكونسيرج",
-      closeChat: "إغلاق المحادثة",
       toggleMenu: "إظهار/إخفاء القائمة",
       logout: "تسجيل الخروج",
       lastUpdated: "آخر تحديث: يونيو 2026",
@@ -1988,7 +1969,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       hours: "ساعات العمل",
       deskHours: "الاستقبال متاح يومياً من 08:00 حتى 22:00",
       conciergeAvailable: "الكونسيرج الذكي متاح على مدار الساعة عبر",
-      yourDashboard: "لوحة التحكم الخاصة بك",
       chatOnWhatsApp: "تواصل عبر واتساب",
       whatsappDesc: "أسرع طريقة للتواصل معنا — أسئلة وحجوزات وكل ما يخص إقامتك.",
       whatsappPrefill: "مرحباً! لدي سؤال حول رياض دار دار",
@@ -2094,11 +2074,11 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
           title: "3. الاحتفاظ بالبيانات",
           body: `يُحتفظ ببيانات الحساب طوال مدة إقامتك بالإضافة إلى 90 يوماً، وبعد ذلك تُحذف نهائياً ما لم تطلب حذفها مبكراً.
 
-تُحتفظ بسجلات الدردشة لمدة 30 يوماً لتمكيننا من مراجعة جودة الخدمة. يمكنك طلب حذف سجل محادثاتك في أي وقت من خلال التواصل معنا.`,
+يُحتفظ بسجل محادثات الكونسيرج طوال مدة إقامتك ولمدة تصل إلى 12 شهراً بعدها لتحسين جودة الخدمة، وبعد ذلك قد يُحذف. يمكنك طلب حذف سجل محادثاتك في أي وقت من خلال التواصل معنا.`,
         },
         {
           title: "4. خدمات الأطراف الثالثة",
-          body: `يعمل الكونسيرج الذكي بواسطة Claude AI من Anthropic. تُرسَل رسائل الدردشة الخاصة بك إلى واجهة برمجة تطبيقات Anthropic فقط لتوليد الردود. تعالج Anthropic هذه البيانات وفقاً لسياسة الخصوصية الخاصة بها. نحن لا نشارك اسمك أو بريدك الإلكتروني أو تفاصيل حجزك مع Anthropic.
+          body: `تعمل خدمة الكونسيرج لدينا عبر واتساب. تُعالَج المحادثات مع كونسيرج واتساب الخاص بنا بواسطة نظام الأتمتة لدينا ومزوّد ذكاء اصطناعي (Anthropic) للإجابة على أسئلتك. تعالج Anthropic هذه البيانات وفقاً لسياسة الخصوصية الخاصة بها. يُخزَّن سجل المحادثات لتحسين جودة الردود ودقتها.
 
 منصتنا مستضافة على Vercel. تُخزَّن بياناتك وتُعالَج وفقاً لشروط معالجة البيانات الخاصة بـ Vercel.`,
         },
@@ -2436,21 +2416,17 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       phoneInvalid: "Bitte geben Sie in Ihrem Profil Ihre vollständige Telefonnummer mit Ländervorwahl ein (z. B. +212 6XX XXX XXX oder +33 6 XX XX XX XX) und versuchen Sie es erneut.",
       retry: "Erneut versuchen",
     },
-    chat: {
-      greeting: "Herzlich willkommen! Wie kann ich Ihnen heute helfen?",
-      concierge: "Dar D'art Concierge",
-      placeholder: "Fragen Sie Ihren Concierge…",
-      poweredBy: "Unterstützt von Claude AI · Antworten dienen nur zur Information",
+    concierge: {
+      title: "Ihr Persönlicher Concierge",
+      subtitle: "Fragen? Buchungen? Schreiben Sie uns auf WhatsApp — wir antworten in Ihrer Sprache, rund um die Uhr.",
+      chatButton: "Auf WhatsApp chatten",
+      fabLabel: "Chatten Sie mit uns auf WhatsApp",
+      prefill: "Hallo! Ich bin Gast im Riad Dar D'Art und habe eine Frage.",
     },
     common: {
       loading: "Laden…",
-      send: "Senden",
       close: "Schließen",
-      error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
       success: "Erfolg",
-      askConcierge: "Fragen Sie unseren Concierge",
-      openChat: "Concierge-Chat öffnen",
-      closeChat: "Chat schließen",
       toggleMenu: "Menü ein-/ausblenden",
       logout: "Abmelden",
       lastUpdated: "Letzte Aktualisierung: Juni 2026",
@@ -2534,7 +2510,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
       hours: "Öffnungszeiten",
       deskHours: "Rezeption täglich verfügbar, 08:00 – 22:00 Uhr",
       conciergeAvailable: "KI-Concierge rund um die Uhr verfügbar über",
-      yourDashboard: "Ihr Dashboard",
       chatOnWhatsApp: "Auf WhatsApp chatten",
       whatsappDesc: "Der schnellste Weg, uns zu erreichen — Fragen, Buchungen und alles rund um Ihren Aufenthalt.",
       whatsappPrefill: "Hallo! Ich habe eine Frage zum Riad Dar D'Art",
@@ -2640,11 +2615,11 @@ Wir verkaufen Ihre persönlichen Daten nicht an Dritte.`,
           title: "3. Datenspeicherung",
           body: `Kontodaten werden für die Dauer Ihres Aufenthalts plus 90 Tage gespeichert, danach werden sie dauerhaft gelöscht, sofern Sie keine frühere Löschung beantragen.
 
-Chat-Protokolle werden 30 Tage lang aufbewahrt, damit wir die Servicequalität überprüfen können. Sie können jederzeit die Löschung Ihres Chatverlaufs beantragen, indem Sie uns kontaktieren.`,
+Der Gesprächsverlauf mit dem Concierge wird für die Dauer Ihres Aufenthalts und bis zu 12 Monate danach aufbewahrt, um die Servicequalität zu verbessern; danach kann er gelöscht werden. Sie können jederzeit die Löschung Ihres Chatverlaufs beantragen, indem Sie uns kontaktieren.`,
         },
         {
           title: "4. Dienste Dritter",
-          body: `Der KI-Concierge wird von Anthropics Claude AI angetrieben. Ihre Chat-Nachrichten werden ausschließlich zur Generierung von Antworten an die API von Anthropic übermittelt. Anthropic verarbeitet diese Daten gemäß seiner eigenen Datenschutzrichtlinie. Wir geben Ihren Namen, Ihre E-Mail-Adresse oder Buchungsdetails nicht an Anthropic weiter.
+          body: `Unser Concierge-Service läuft über WhatsApp. Unterhaltungen mit unserem WhatsApp-Concierge werden von unserem Automatisierungssystem und einem KI-Anbieter (Anthropic) verarbeitet, um Ihre Fragen zu beantworten. Anthropic verarbeitet diese Daten gemäß seiner eigenen Datenschutzrichtlinie. Der Gesprächsverlauf wird gespeichert, um die Qualität und Genauigkeit der Antworten zu verbessern.
 
 Unsere Plattform wird auf Vercel gehostet. Ihre Daten werden gemäß den Datenverarbeitungsbedingungen von Vercel gespeichert und verarbeitet.`,
         },
@@ -2982,21 +2957,17 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       phoneInvalid: "Inserisci nel tuo profilo il tuo numero di telefono completo con il prefisso internazionale (es. +212 6XX XXX XXX o +33 6 XX XX XX XX) e riprova.",
       retry: "Riprova",
     },
-    chat: {
-      greeting: "Benvenuto! Come posso aiutarti oggi?",
-      concierge: "Concierge Dar D'art",
-      placeholder: "Chiedi al tuo concierge…",
-      poweredBy: "Powered by Claude AI · Le risposte sono solo informative",
+    concierge: {
+      title: "Il Tuo Concierge Personale",
+      subtitle: "Domande? Prenotazioni? Scrivici su WhatsApp — ti rispondiamo nella tua lingua, 24 ore su 24.",
+      chatButton: "Chatta su WhatsApp",
+      fabLabel: "Chatta con noi su WhatsApp",
+      prefill: "Ciao! Sono ospite del Riad Dar D'Art e ho una domanda.",
     },
     common: {
       loading: "Caricamento…",
-      send: "Invia",
       close: "Chiudi",
-      error: "Qualcosa è andato storto. Riprova.",
       success: "Successo",
-      askConcierge: "Chiedi al nostro Concierge",
-      openChat: "Apri la chat del concierge",
-      closeChat: "Chiudi la chat",
       toggleMenu: "Apri/chiudi il menu",
       logout: "Esci",
       lastUpdated: "Ultimo aggiornamento: giugno 2026",
@@ -3080,7 +3051,6 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
       hours: "Orari",
       deskHours: "Reception disponibile tutti i giorni, dalle 08:00 alle 22:00",
       conciergeAvailable: "Concierge IA disponibile 24/7 tramite",
-      yourDashboard: "la tua dashboard",
       chatOnWhatsApp: "Chatta su WhatsApp",
       whatsappDesc: "Il modo più veloce per raggiungerci — domande, prenotazioni e tutto ciò che riguarda il tuo soggiorno.",
       whatsappPrefill: "Ciao! Ho una domanda sul Riad Dar D'Art",
@@ -3186,11 +3156,11 @@ Non vendiamo i tuoi dati personali a terzi.`,
           title: "3. Conservazione dei Dati",
           body: `I dati dell'account vengono conservati per la durata del tuo soggiorno più 90 giorni, dopodiché vengono eliminati definitivamente a meno che tu non richieda una cancellazione anticipata.
 
-I log delle chat vengono conservati per 30 giorni per permetterci di verificare la qualità del servizio. Puoi richiedere la cancellazione della cronologia chat in qualsiasi momento contattandoci.`,
+La cronologia delle conversazioni con il concierge viene conservata per la durata del tuo soggiorno e fino a 12 mesi dopo per migliorare la qualità del servizio, dopodiché può essere eliminata. Puoi richiedere la cancellazione della cronologia chat in qualsiasi momento contattandoci.`,
         },
         {
           title: "4. Servizi di Terze Parti",
-          body: `Il concierge IA è basato su Claude AI di Anthropic. I tuoi messaggi di chat vengono trasmessi all'API di Anthropic esclusivamente per generare risposte. Anthropic elabora questi dati in conformità con la propria informativa sulla privacy. Non condividiamo il tuo nome, la tua email o i dettagli della prenotazione con Anthropic.
+          body: `Il nostro servizio di concierge funziona su WhatsApp. Le conversazioni con il nostro concierge WhatsApp vengono elaborate dal nostro sistema di automazione e da un fornitore di IA (Anthropic) per rispondere alle tue domande. Anthropic elabora questi dati in conformità con la propria informativa sulla privacy. La cronologia delle conversazioni viene conservata per migliorare la qualità e la precisione delle risposte.
 
 La nostra piattaforma è ospitata su Vercel. I tuoi dati sono conservati ed elaborati in conformità con i termini di elaborazione dei dati di Vercel.`,
         },
