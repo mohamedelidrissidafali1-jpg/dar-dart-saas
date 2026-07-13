@@ -7,6 +7,9 @@ import { LANGUAGES, getLang, getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
 import { getURL } from "@/lib/get-url";
 import { normalizePhone } from "@/lib/phone";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
 
 export default function SignUp() {
   const router = useRouter();
@@ -111,18 +114,6 @@ export default function SignUp() {
 
   const dir = isRtl(lang) ? "rtl" : undefined;
 
-  const inputBase = {
-    border: "1px solid var(--hairline)",
-    color: "var(--ink)",
-    background: "var(--surface)",
-    caretColor: "var(--accent)",
-  };
-
-  const focusOn = (e: React.FocusEvent<HTMLInputElement>) =>
-    (e.target.style.borderColor = "var(--accent)");
-  const focusOff = (e: React.FocusEvent<HTMLInputElement>) =>
-    (e.target.style.borderColor = "var(--hairline)");
-
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-16"
@@ -152,10 +143,7 @@ export default function SignUp() {
         </div>
 
         {/* Card */}
-        <div
-          className="p-8 sm:p-10 rounded-xl"
-          style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
-        >
+        <Card className="p-8 sm:p-10">
           <h1
             className="text-xl font-bold mb-6"
             style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
@@ -222,100 +210,52 @@ export default function SignUp() {
             </div>
 
             {/* Reservation name */}
-            <div className="flex flex-col gap-1.5">
-              <label
-                htmlFor="firstName"
-                className="text-[14px] font-medium"
-                style={{ color: "var(--ink-secondary)" }}
-              >
-                {tr.signUp.nameOnReservation}
-              </label>
-              <input
-                id="firstName"
-                type="text"
-                value={form.firstName}
-                onChange={(e) => set("firstName", e.target.value)}
-                required
-                autoComplete="name"
-                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                style={inputBase}
-                onFocus={focusOn}
-                onBlur={focusOff}
-                placeholder={tr.signUp.namePlaceholder}
-              />
-            </div>
+            <Input
+              id="firstName"
+              type="text"
+              label={tr.signUp.nameOnReservation}
+              value={form.firstName}
+              onChange={(v) => set("firstName", v)}
+              required
+              autoComplete="name"
+              placeholder={tr.signUp.namePlaceholder}
+            />
 
             {/* Email */}
-            <div className="flex flex-col gap-1.5">
-              <label
-                htmlFor="email"
-                className="text-[14px] font-medium"
-                style={{ color: "var(--ink-secondary)" }}
-              >
-                {tr.signUp.email}
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={form.email}
-                onChange={(e) => set("email", e.target.value)}
-                required
-                autoComplete="email"
-                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                style={inputBase}
-                onFocus={focusOn}
-                onBlur={focusOff}
-                placeholder="you@example.com"
-              />
-            </div>
+            <Input
+              id="email"
+              type="email"
+              label={tr.signUp.email}
+              value={form.email}
+              onChange={(v) => set("email", v)}
+              required
+              autoComplete="email"
+              placeholder="you@example.com"
+            />
 
             {/* Phone */}
-            <div className="flex flex-col gap-1.5">
-              <label
-                htmlFor="phone"
-                className="text-[14px] font-medium"
-                style={{ color: "var(--ink-secondary)" }}
-              >
-                {tr.signUp.phone}
-              </label>
-              <input
-                id="phone"
-                type="tel"
-                value={form.phone}
-                onChange={(e) => set("phone", e.target.value)}
-                required
-                autoComplete="tel"
-                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                style={inputBase}
-                onFocus={focusOn}
-                onBlur={focusOff}
-                placeholder={tr.signUp.phonePlaceholder}
-              />
-            </div>
+            <Input
+              id="phone"
+              type="tel"
+              label={tr.signUp.phone}
+              value={form.phone}
+              onChange={(v) => set("phone", v)}
+              required
+              autoComplete="tel"
+              placeholder={tr.signUp.phonePlaceholder}
+            />
 
             {/* Password */}
-            <div className="flex flex-col gap-1.5">
-              <label
-                htmlFor="password"
-                className="text-[14px] font-medium"
-                style={{ color: "var(--ink-secondary)" }}
-              >
-                {tr.signUp.password}
-              </label>
-              <input
-                id="password"
-                type="password"
-                value={form.password}
-                onChange={(e) => set("password", e.target.value)}
-                required
-                autoComplete="new-password"
-                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                style={inputBase}
-                onFocus={focusOn}
-                onBlur={focusOff}
-                placeholder="••••••••"
-              />
-            </div>
+            <Input
+              id="password"
+              type="password"
+              label={tr.signUp.password}
+              value={form.password}
+              onChange={(v) => set("password", v)}
+              required
+              autoComplete="new-password"
+              placeholder="••••••••"
+            />
 
             {/* Riad selection */}
             <div className="flex flex-col gap-2">
@@ -405,14 +345,15 @@ export default function SignUp() {
             )}
 
             {/* Submit */}
-            <button
+            <Button
               type="submit"
+              variant="primary"
+              fullWidth
               disabled={loading || confirmEmail}
-              className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-              style={{ background: "var(--accent)", color: "#ffffff" }}
+              className="mt-2"
             >
               {loading ? tr.signUp.creatingAccount : tr.signUp.submit}
-            </button>
+            </Button>
           </form>
 
           <div className="flex items-center gap-4 my-6">
@@ -431,7 +372,7 @@ export default function SignUp() {
               {tr.signUp.signIn}
             </Link>
           </p>
-        </div>
+        </Card>
 
         {/* Back to home */}
         <div className="text-center mt-6">

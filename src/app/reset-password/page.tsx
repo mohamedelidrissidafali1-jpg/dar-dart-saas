@@ -6,6 +6,9 @@ import Link from "next/link";
 import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
 import { getURL } from "@/lib/get-url";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
 
 export default function ResetPassword() {
   const router = useRouter();
@@ -80,17 +83,6 @@ export default function ResetPassword() {
     setTimeout(() => router.push("/dashboard"), 2000);
   }
 
-  const inputStyle = {
-    border: "1px solid var(--hairline)",
-    color: "var(--ink)",
-    background: "var(--surface)",
-    caretColor: "var(--primary)",
-  };
-  const focusOn = (e: React.FocusEvent<HTMLInputElement>) =>
-    (e.target.style.borderColor = "var(--primary)");
-  const focusOff = (e: React.FocusEvent<HTMLInputElement>) =>
-    (e.target.style.borderColor = "var(--hairline)");
-
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-16"
@@ -117,10 +109,7 @@ export default function ResetPassword() {
         </div>
 
         {/* Card */}
-        <div
-          className="p-8 sm:p-10 rounded-xl"
-          style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
-        >
+        <Card className="p-8 sm:p-10">
           <h1
             className="text-xl font-bold mb-3"
             style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
@@ -143,41 +132,24 @@ export default function ResetPassword() {
                   {tr.signIn.resetDesc}
                 </p>
                 <form onSubmit={handleRequest} className="flex flex-col gap-5">
-                  <div className="flex flex-col gap-1.5">
-                    <label
-                      htmlFor="email"
-                      className="text-[14px] font-medium"
-                      style={{ color: "var(--ink-secondary)" }}
-                    >
-                      {tr.signIn.email}
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      autoComplete="email"
-                      className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                      style={inputStyle}
-                      onFocus={focusOn}
-                      onBlur={focusOff}
-                      placeholder="you@example.com"
-                    />
-                  </div>
+                  <Input
+                    id="email"
+                    type="email"
+                    label={tr.signIn.email}
+                    value={email}
+                    onChange={setEmail}
+                    required
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                  />
 
                   {error && (
                     <p className="text-[14px] text-center" style={{ color: "#ef4444" }}>{error}</p>
                   )}
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-                    style={{ background: "var(--accent)", color: "#ffffff" }}
-                  >
+                  <Button type="submit" variant="primary" fullWidth disabled={loading} className="mt-2">
                     {loading ? tr.common.loading : tr.signIn.sendResetLink}
-                  </button>
+                  </Button>
                 </form>
               </>
             )
@@ -187,67 +159,38 @@ export default function ResetPassword() {
             </p>
           ) : (
             <form onSubmit={handleUpdate} className="flex flex-col gap-5">
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="new-password"
-                  className="text-[14px] font-medium"
-                  style={{ color: "var(--ink-secondary)" }}
-                >
-                  {tr.signIn.newPassword}
-                </label>
-                <input
-                  id="new-password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  autoComplete="new-password"
-                  className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                  style={inputStyle}
-                  onFocus={focusOn}
-                  onBlur={focusOff}
-                  placeholder="••••••••"
-                />
-              </div>
+              <Input
+                id="new-password"
+                type="password"
+                label={tr.signIn.newPassword}
+                value={password}
+                onChange={setPassword}
+                required
+                autoComplete="new-password"
+                placeholder="••••••••"
+              />
 
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="confirm-password"
-                  className="text-[14px] font-medium"
-                  style={{ color: "var(--ink-secondary)" }}
-                >
-                  {tr.signIn.confirmPassword}
-                </label>
-                <input
-                  id="confirm-password"
-                  type="password"
-                  value={confirm}
-                  onChange={(e) => setConfirm(e.target.value)}
-                  required
-                  autoComplete="new-password"
-                  className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                  style={inputStyle}
-                  onFocus={focusOn}
-                  onBlur={focusOff}
-                  placeholder="••••••••"
-                />
-              </div>
+              <Input
+                id="confirm-password"
+                type="password"
+                label={tr.signIn.confirmPassword}
+                value={confirm}
+                onChange={setConfirm}
+                required
+                autoComplete="new-password"
+                placeholder="••••••••"
+              />
 
               {error && (
                 <p className="text-[14px] text-center" style={{ color: "#ef4444" }}>{error}</p>
               )}
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-                style={{ background: "var(--accent)", color: "#ffffff" }}
-              >
+              <Button type="submit" variant="primary" fullWidth disabled={loading} className="mt-2">
                 {loading ? tr.common.loading : tr.signIn.updatePassword}
-              </button>
+              </Button>
             </form>
           )}
-        </div>
+        </Card>
 
         {/* Back to sign in */}
         <div className="text-center mt-6">

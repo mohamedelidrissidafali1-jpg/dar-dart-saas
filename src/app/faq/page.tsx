@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
-import { WhatsAppIcon, conciergeWhatsAppUrl } from "@/components/WhatsAppFab";
+import { conciergeWhatsAppUrl } from "@/components/WhatsAppFab";
+import Button from "@/components/ui/Button";
 
 interface FaqItem {
   q: string;
@@ -111,16 +112,13 @@ export default function FAQ() {
         <p className="text-sm mb-10 max-w-xs mx-auto leading-relaxed" style={{ color: "var(--ink-muted)" }}>
           {tr.faqPage.ctaDesc}
         </p>
-        <a
+        <Button
+          variant="whatsapp"
+          size="lg"
           href={conciergeWhatsAppUrl(tr.concierge.prefill)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 px-10 py-3.5 text-xs tracking-[0.3em] uppercase font-semibold transition-opacity duration-200 hover:opacity-85"
-          style={{ background: "#25D366", color: "#ffffff" }}
         >
-          <WhatsAppIcon className="w-4 h-4" />
           {tr.faqPage.openConcierge}
-        </a>
+        </Button>
       </section>
 
       <Footer />

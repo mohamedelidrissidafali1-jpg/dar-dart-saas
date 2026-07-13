@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 import { conciergeWhatsAppUrl } from "@/components/WhatsAppFab";
+import Button from "@/components/ui/Button";
 
 const WHATSAPP_NUMBER = "212709086496";
 
@@ -157,9 +158,9 @@ export default function Contact() {
 
             <div
               className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-full"
-              style={{ background: "rgba(37,211,102,0.12)" }}
+              style={{ background: "rgba(30,77,69,0.10)" }}
             >
-              <WhatsAppIcon className="w-7 h-7" style={{ color: "#25D366" }} />
+              <WhatsAppIcon className="w-7 h-7" style={{ color: "var(--accent)" }} />
             </div>
 
             <h2 className="text-lg font-light mb-3 tracking-wide" style={{ color: "var(--ink)" }}>
@@ -169,16 +170,9 @@ export default function Contact() {
               {tr.contactPage.whatsappDesc}
             </p>
 
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-3 py-4 text-[15px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-90"
-              style={{ background: "#25D366", color: "#ffffff" }}
-            >
-              <WhatsAppIcon className="w-5 h-5" />
+            <Button variant="whatsapp" size="lg" fullWidth href={whatsappUrl}>
               {tr.contactPage.chatOnWhatsApp}
-            </a>
+            </Button>
 
             <p className="text-sm mt-5" style={{ color: "var(--ink-faint)" }} dir="ltr">
               {tr.contactPage.whatsappLabel}

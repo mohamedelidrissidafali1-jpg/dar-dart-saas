@@ -2,9 +2,12 @@
 
 import { useState, useEffect, type JSX } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { WhatsAppIcon, conciergeWhatsAppUrl } from "@/components/WhatsAppFab";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
+import Badge from "@/components/ui/Badge";
+import SectionHeader from "@/components/ui/SectionHeader";
 import CheckoutSurveyModal from "./checkout-survey";
 import { getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
@@ -280,13 +283,9 @@ export default function Dashboard() {
           <p className="text-[15px] max-w-sm" style={{ color: inkMuted }}>
             {tr.dashboard.stayEndedThanks}{firstName ? `, ${firstName}` : ""}.
           </p>
-          <Link
-            href="/"
-            className="mt-4 px-6 py-3 text-[15px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-85"
-            style={{ background: "var(--accent)", color: "#ffffff" }}
-          >
+          <Button variant="primary" size="md" href="/" className="mt-4">
             {tr.dashboard.backToHome}
-          </Link>
+          </Button>
         </div>
       </div>
     );
@@ -347,7 +346,7 @@ export default function Dashboard() {
           >
             <div
               className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full"
-              style={{ background: "rgba(37,211,102,0.18)", color: "#25D366" }}
+              style={{ background: "rgba(255,255,255,0.15)", color: "#ffffff" }}
             >
               <WhatsAppIcon className="w-6 h-6" />
             </div>
@@ -360,49 +359,38 @@ export default function Dashboard() {
             >
               {tr.concierge.subtitle}
             </p>
-            <a
+            <Button
+              variant="whatsapp"
+              size="lg"
+              fullWidth
               href={conciergeWhatsAppUrl(tr.concierge.prefill)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2.5 py-3.5 text-[16px] font-semibold rounded-[2px] transition-all duration-200 hover:opacity-90 active:scale-95"
-              style={{
-                background: "#25D366",
-                color: "#ffffff",
-                boxShadow: "0 4px 14px rgba(37,211,102,0.35)",
-              }}
             >
-              <WhatsAppIcon className="w-5 h-5" />
               {tr.concierge.chatButton}
-            </a>
+            </Button>
           </div>
 
-          <button
+          <Button
+            variant="secondary"
+            size="md"
             onClick={() => setShowSurvey(true)}
-            className="px-8 py-3 text-[14px] font-light tracking-[0.08em] uppercase rounded-[2px] transition-colors duration-200 hover:bg-white/10"
+            className="hover:bg-white/10"
             style={{ border: "1px solid rgba(255,255,255,0.65)", color: "#ffffff" }}
           >
             {tr.dashboard.checkOut}
-          </button>
+          </Button>
         </div>
       </section>
 
       {/* ── ROOMS ── */}
       <section className="py-24 px-6" style={{ background: bg }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <span
-              className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: surface, color: "var(--accent)", border: `1px solid ${border}` }}
-            >
-              {riadLabel}
-            </span>
-            <h2
-              className="text-3xl md:text-[40px] font-bold"
-              style={{ color: ink, letterSpacing: "normal", lineHeight: 1.1 }}
-            >
-              {tr.dashboard.accommodation}
-            </h2>
-          </div>
+          <SectionHeader
+            className="text-center mb-14"
+            eyebrow={riadLabel}
+            title={tr.dashboard.accommodation}
+            titleColor={ink}
+            badgeStyle={{ background: surface, color: "var(--accent)", border: `1px solid ${border}` }}
+          />
 
           {rooms.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
@@ -452,20 +440,13 @@ export default function Dashboard() {
       {/* ── SERVICES ── */}
       <section className="py-24 px-6" style={{ background: surface }}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <span
-              className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: bg, color: "var(--accent)", border: `1px solid ${border}` }}
-            >
-              {tr.dashboard.includedInStay}
-            </span>
-            <h2
-              className="text-3xl md:text-[40px] font-bold"
-              style={{ color: ink, letterSpacing: "normal", lineHeight: 1.1 }}
-            >
-              {tr.dashboard.servicesAmenities}
-            </h2>
-          </div>
+          <SectionHeader
+            className="text-center mb-14"
+            eyebrow={tr.dashboard.includedInStay}
+            title={tr.dashboard.servicesAmenities}
+            titleColor={ink}
+            badgeStyle={{ background: bg, color: "var(--accent)", border: `1px solid ${border}` }}
+          />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICE_LIST.map(({ key, Icon, bookSlug }) => {
@@ -474,9 +455,9 @@ export default function Dashboard() {
               const detail: string = svc.detail;
               const desc: string = svc.desc;
               return (
-                <div
+                <Card
                   key={key}
-                  className="p-7 flex gap-5 items-start rounded-xl transition-shadow duration-200 hover:shadow-md"
+                  className="p-7 flex gap-5 items-start transition-shadow duration-200 hover:shadow-md"
                   style={{ background: bg, border: `1px solid ${border}` }}
                 >
                   <div className="flex-shrink-0 mt-0.5" style={{ color: "var(--accent)" }}>
@@ -493,18 +474,17 @@ export default function Dashboard() {
                       {desc}
                     </p>
                     {bookSlug && (
-                      <a
+                      <Button
+                        variant="whatsapp"
+                        size="sm"
                         href={whatsappUrl(bookSlug)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-85"
-                        style={{ background: "var(--accent)", color: "#ffffff" }}
+                        className="mt-3"
                       >
                         {tr.dashboard.bookViaWhatsApp}
-                      </a>
+                      </Button>
                     )}
                   </div>
-                </div>
+                </Card>
               );
             })}
           </div>
@@ -514,20 +494,13 @@ export default function Dashboard() {
       {/* ── EXCURSIONS ── */}
       <section className="py-24 px-6" style={{ background: bg }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <span
-              className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: surface, color: "var(--accent)", border: `1px solid ${border}` }}
-            >
-              {tr.dashboard.marrakechBeyond}
-            </span>
-            <h2
-              className="text-3xl md:text-[40px] font-bold"
-              style={{ color: ink, letterSpacing: "normal", lineHeight: 1.1 }}
-            >
-              {tr.dashboard.excursionsHeading}
-            </h2>
-          </div>
+          <SectionHeader
+            className="text-center mb-14"
+            eyebrow={tr.dashboard.marrakechBeyond}
+            title={tr.dashboard.excursionsHeading}
+            titleColor={ink}
+            badgeStyle={{ background: surface, color: "var(--accent)", border: `1px solid ${border}` }}
+          />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {EXCURSIONS.map((ex) => {
@@ -561,15 +534,14 @@ export default function Dashboard() {
                       {info.price}
                     </p>
                     <div className="flex-1 mb-4" />
-                    <a
+                    <Button
+                      variant="whatsapp"
+                      size="sm"
+                      fullWidth
                       href={whatsappUrl(ex.slug)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-2.5 text-[14px] font-medium rounded-lg transition-opacity duration-200 hover:opacity-85 text-center block"
-                      style={{ background: "var(--accent)", color: "#ffffff" }}
                     >
                       {tr.dashboard.bookViaWhatsApp}
-                    </a>
+                    </Button>
                   </div>
                 </article>
               );
@@ -581,28 +553,21 @@ export default function Dashboard() {
       {/* ── IMPORTANT INFO ── */}
       <section className="py-24 px-6" style={{ background: surface }}>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <span
-              className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
-              style={{ background: bg, color: "var(--accent)", border: `1px solid ${border}` }}
-            >
-              {tr.dashboard.goodToKnow}
-            </span>
-            <h2
-              className="text-3xl md:text-[40px] font-bold"
-              style={{ color: ink, letterSpacing: "normal", lineHeight: 1.1 }}
-            >
-              {tr.dashboard.importantInfo}
-            </h2>
-          </div>
+          <SectionHeader
+            className="text-center mb-14"
+            eyebrow={tr.dashboard.goodToKnow}
+            title={tr.dashboard.importantInfo}
+            titleColor={ink}
+            badgeStyle={{ background: bg, color: "var(--accent)", border: `1px solid ${border}` }}
+          />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {INFO_KEYS.map(({ key, bookSlug }) => {
               const info = tr.dashboard.info[key];
               return (
-                <div
+                <Card
                   key={key}
-                  className="p-7 rounded-xl text-center"
+                  className="p-7 text-center"
                   style={{ background: bg, border: `1px solid ${border}` }}
                 >
                   <p
@@ -621,17 +586,16 @@ export default function Dashboard() {
                     {info.sub}
                   </p>
                   {bookSlug && (
-                    <a
+                    <Button
+                      variant="whatsapp"
+                      size="sm"
                       href={whatsappUrl(bookSlug)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-3 px-4 py-1.5 text-[13px] font-medium rounded-[2px] transition-opacity duration-200 hover:opacity-85"
-                      style={{ background: "var(--accent)", color: "#ffffff" }}
+                      className="mt-3"
                     >
                       {tr.dashboard.bookViaWhatsApp}
-                    </a>
+                    </Button>
                   )}
-                </div>
+                </Card>
               );
             })}
           </div>
@@ -641,14 +605,14 @@ export default function Dashboard() {
       {/* ── CHECK OUT ── */}
       <section className="py-24 px-6" style={{ background: bg }}>
         <div className="max-w-xl mx-auto text-center">
-          <span
-            className="inline-block text-[12px] font-semibold tracking-[0.125px] uppercase mb-5 px-3 py-1 rounded-full"
+          <Badge
+            className="mb-5"
             style={{ background: surface, color: "var(--accent)", border: `1px solid ${border}` }}
           >
             {tr.dashboard.endOfStay}
-          </span>
+          </Badge>
           <h2
-            className="text-3xl md:text-[36px] font-bold mb-4"
+            className="text-3xl md:text-[36px] font-medium mb-4"
             style={{ color: ink, letterSpacing: "normal", lineHeight: 1.15 }}
           >
             {tr.dashboard.enjoyedStay}
@@ -656,13 +620,9 @@ export default function Dashboard() {
           <p className="text-[16px] mb-10" style={{ color: inkMuted }}>
             {tr.dashboard.checkoutDesc}
           </p>
-          <button
-            onClick={() => setShowSurvey(true)}
-            className="px-10 py-4 text-[16px] font-medium tracking-[0.04em] rounded-[2px] transition-all duration-200 hover:opacity-85 active:scale-95"
-            style={{ background: "var(--accent)", color: "#ffffff" }}
-          >
+          <Button variant="primary" size="lg" onClick={() => setShowSurvey(true)}>
             {tr.dashboard.checkoutReview}
-          </button>
+          </Button>
         </div>
       </section>
 

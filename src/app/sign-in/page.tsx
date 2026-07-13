@@ -6,6 +6,9 @@ import Link from "next/link";
 import { getLang, getT, isRtl, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
 import { getURL } from "@/lib/get-url";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
 
 export default function SignIn() {
   const router = useRouter();
@@ -77,10 +80,7 @@ export default function SignIn() {
         </div>
 
         {/* Card */}
-        <div
-          className="p-8 sm:p-10 rounded-xl"
-          style={{ background: "var(--surface)", border: "1px solid var(--hairline)" }}
-        >
+        <Card className="p-8 sm:p-10">
           <h1
             className="text-xl font-bold mb-8"
             style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
@@ -90,61 +90,37 @@ export default function SignIn() {
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {/* Email */}
-            <div className="flex flex-col gap-1.5">
-              <label
-                htmlFor="email"
-                className="text-[14px] font-medium"
-                style={{ color: "var(--ink-secondary)" }}
-              >
-                {tr.signIn.email}
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                style={{ border: "1px solid var(--hairline)", color: "var(--ink)", background: "var(--surface)", caretColor: "var(--primary)" }}
-                onFocus={(e) => (e.target.style.borderColor = "var(--primary)")}
-                onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
-                placeholder="you@example.com"
-              />
-            </div>
+            <Input
+              id="email"
+              type="email"
+              label={tr.signIn.email}
+              value={email}
+              onChange={setEmail}
+              required
+              autoComplete="email"
+              placeholder="you@example.com"
+            />
 
             {/* Password */}
-            <div className="flex flex-col gap-1.5">
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="text-[14px] font-medium"
-                  style={{ color: "var(--ink-secondary)" }}
-                >
-                  {tr.signIn.password}
-                </label>
+            <Input
+              id="password"
+              type="password"
+              label={tr.signIn.password}
+              labelRight={
                 <Link
                   href="/reset-password"
                   className="text-[14px] transition-opacity duration-200 hover:opacity-70"
-                  style={{ color: "var(--primary)" }}
+                  style={{ color: "var(--accent)" }}
                 >
                   {tr.signIn.forgotPassword}
                 </Link>
-              </div>
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                autoComplete="current-password"
-                className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px]"
-                style={{ border: "1px solid var(--hairline)", color: "var(--ink)", background: "var(--surface)", caretColor: "var(--primary)" }}
-                onFocus={(e) => (e.target.style.borderColor = "var(--primary)")}
-                onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
-                placeholder="••••••••"
-              />
-            </div>
+              }
+              value={password}
+              onChange={setPassword}
+              required
+              autoComplete="current-password"
+              placeholder="••••••••"
+            />
 
             {/* Error */}
             {error && (
@@ -152,14 +128,9 @@ export default function SignIn() {
             )}
 
             {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-3 text-[16px] font-medium rounded-[2px] mt-2 transition-opacity duration-200 hover:opacity-85 disabled:opacity-50"
-              style={{ background: "var(--accent)", color: "#ffffff" }}
-            >
+            <Button type="submit" variant="primary" fullWidth disabled={loading} className="mt-2">
               {loading ? tr.signIn.signingIn : tr.signIn.submit}
-            </button>
+            </Button>
           </form>
 
           {/* Google sign-in */}
@@ -194,7 +165,7 @@ export default function SignIn() {
               {tr.signIn.createAccount}
             </Link>
           </p>
-        </div>
+        </Card>
 
         {/* Back to home */}
         <div className="text-center mt-6">

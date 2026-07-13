@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { getT, type Lang } from "@/lib/translations";
 import { createClient } from "@/lib/supabase/client";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
 
 interface Props {
   firstName: string;
@@ -202,28 +204,22 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
               ))}
 
               {/* Comment */}
-              <div className="flex flex-col gap-1.5 mt-2">
-                <label
-                  className="text-[14px] font-medium"
-                  style={{ color: "var(--ink-secondary)" }}
-                >
-                  {tr.survey.comments}{" "}
-                  <span style={{ color: "var(--ink-faint)", fontWeight: 400 }}>{tr.survey.optional}</span>
-                </label>
-                <textarea
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
+              <div className="mt-2">
+                <Input
+                  multiline
                   rows={3}
+                  label={
+                    <>
+                      {tr.survey.comments}{" "}
+                      <span style={{ color: "var(--ink-faint)", fontWeight: 400 }}>
+                        {tr.survey.optional}
+                      </span>
+                    </>
+                  }
+                  value={comment}
+                  onChange={setComment}
                   placeholder={tr.survey.commentsPlaceholder}
-                  className="w-full px-3 py-2 text-[15px] outline-none transition-all duration-200 rounded-[4px] resize-none"
-                  style={{
-                    border: "1px solid var(--hairline)",
-                    color: "var(--ink)",
-                    background: "var(--background)",
-                    caretColor: "var(--accent)",
-                  }}
-                  onFocus={(e) => (e.target.style.borderColor = "var(--accent)")}
-                  onBlur={(e) => (e.target.style.borderColor = "var(--hairline)")}
+                  background="var(--background)"
                 />
               </div>
 
@@ -237,22 +233,23 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
               className="flex gap-3 px-6 py-4"
               style={{ borderTop: "1px solid var(--hairline)" }}
             >
-              <button
+              <Button
                 type="button"
+                variant="secondary"
                 onClick={onClose}
-                className="flex-1 py-2.5 text-[15px] font-medium rounded-[2px] transition-opacity hover:opacity-70"
+                className="flex-1"
                 style={{ border: "1px solid var(--hairline)", color: "var(--ink-secondary)" }}
               >
                 {tr.survey.cancel}
-              </button>
-              <button
+              </Button>
+              <Button
                 type="submit"
+                variant="primary"
                 disabled={loading}
-                className="flex-1 py-2.5 text-[15px] font-medium rounded-[2px] transition-opacity hover:opacity-85 disabled:opacity-50"
-                style={{ background: "var(--accent)", color: "#ffffff" }}
+                className="flex-1"
               >
                 {loading ? tr.survey.submitting : error ? tr.survey.retry : tr.survey.submitAndWhatsapp}
-              </button>
+              </Button>
             </div>
           </form>
         )}
