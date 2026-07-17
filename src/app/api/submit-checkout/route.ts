@@ -105,6 +105,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "handoff_failed" }, { status: 500 });
     }
 
+    // Step 4 — notify the n8n bot immediately. Best-effort: awaited so the
+    // serverless runtime doesn't kill the request, but a failure never fails
+    // the guest's checkout.
+    try {
+      await fetch("https://n8n.elidrissi.tech/webhook/web-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          guest_phone: guestPhone,
+          guest_name: profile.first_name,
+          riad: riadLabel,
+          survey: { ...ratings, comment },
+        }),
+        signal: AbortSignal.timeout(3000),
+      });
+    } catch (webhookError) {
+      console.error("[submit-checkout] web-checkout webhook failed:", webhookError);
+    }
+
     return NextResponse.json({ ok: true, guestName: profile.first_name, riad: riadLabel });
   } catch (err) {
     console.error("[submit-checkout] unexpected error:", err);
