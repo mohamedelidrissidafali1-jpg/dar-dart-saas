@@ -116,9 +116,16 @@ export async function POST(req: NextRequest) {
     // serverless runtime doesn't kill the request, but a failure never fails
     // the guest's checkout.
     try {
+      const webhookSecret = process.env.CHECKOUT_WEBHOOK_SECRET;
+      if (webhookSecret === undefined) {
+        console.error("[submit-checkout] CHECKOUT_WEBHOOK_SECRET is undefined");
+      }
       await fetch("https://n8n.elidrissi.tech/webhook/web-checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-dardart-secret": webhookSecret ?? "",
+        },
         body: JSON.stringify({
           guest_phone: guestPhone,
           guest_name: profile.first_name,
