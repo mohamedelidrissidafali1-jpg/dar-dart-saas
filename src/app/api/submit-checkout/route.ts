@@ -53,13 +53,18 @@ export async function POST(req: NextRequest) {
     // Profile is the source of truth for name / riad / phone.
     const { data: profile, error: profileFetchError } = await admin
       .from("profiles")
-      .select("first_name, riad, phone")
+      .select("first_name, riad, phone, checked_out")
       .eq("id", user.id)
       .single();
 
     if (profileFetchError || !profile) {
       console.error("[submit-checkout] failed to load profile:", profileFetchError);
       return NextResponse.json({ error: "profile_not_found" }, { status: 500 });
+    }
+
+    // A guest can only check out once — the bot pipeline must not receive duplicates.
+    if (profile.checked_out) {
+      return NextResponse.json({ error: "already_checked_out" }, { status: 409 });
     }
 
     // Validate the phone BEFORE writing anything, so a rejection leaves no partial state.
@@ -98,7 +103,9 @@ export async function POST(req: NextRequest) {
       guest_name: profile.first_name,
       riad: riadLabel,
       checked_out_at: new Date().toISOString(),
-      goodbye_sent: false,
+      // The web-checkout webhook below sends the guest their thank-you message,
+      // which IS the farewell — so the bot's goodbye poller must not fire again.
+      goodbye_sent: true,
     });
     if (checkedOutGuestError) {
       console.error("[submit-checkout] checked_out_guests insert failed:", checkedOutGuestError);

@@ -630,7 +630,6 @@ export default function Dashboard() {
       {showSurvey && profile && (
         <CheckoutSurveyModal
           firstName={firstName}
-          riadLabel={riadLabel}
           lang={lang}
           onClose={() => setShowSurvey(false)}
           onCheckedOut={() => {

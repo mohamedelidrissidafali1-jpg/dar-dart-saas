@@ -9,13 +9,10 @@ import Button from "@/components/ui/Button";
 
 interface Props {
   firstName: string;
-  riadLabel: string;
   lang: Lang;
   onClose: () => void;
   onCheckedOut: () => void;
 }
-
-const WHATSAPP_NUMBER = "212709086496";
 
 const RATING_KEYS = [
   { key: "overall_rating", labelKey: "overallRating" },
@@ -28,7 +25,7 @@ const RATING_KEYS = [
 
 type RatingKey = (typeof RATING_KEYS)[number]["key"];
 
-export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClose, onCheckedOut }: Props) {
+export default function CheckoutSurveyModal({ firstName, lang, onClose, onCheckedOut }: Props) {
   const router = useRouter();
   const tr = getT(lang);
 
@@ -43,10 +40,19 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState<"success" | "already" | null>(null);
 
   function setRating(key: RatingKey, value: number) {
     setRatings((prev) => ({ ...prev, [key]: value }));
+  }
+
+  function finishCheckout(kind: "success" | "already") {
+    setDone(kind);
+    setTimeout(async () => {
+      await createClient().auth.signOut();
+      onCheckedOut();
+      router.push("/");
+    }, 3000);
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -77,6 +83,10 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
       const code = data?.error;
+      if (code === "already_checked_out") {
+        finishCheckout("already");
+        return;
+      }
       setError(
         code === "not_authenticated"
           ? tr.survey.sessionExpired
@@ -90,27 +100,7 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
       return;
     }
 
-    const supabase = createClient();
-
-    const message = [
-      "CHECKOUT_SUBMITTED",
-      `Guest name: ${firstName}`,
-      `Riad: ${riadLabel}`,
-      `Room rating: ${ratings.rooms_rating}`,
-      `Food rating: ${ratings.food_rating}`,
-      `Staff rating: ${ratings.staff_rating}`,
-      `Cleanliness rating: ${ratings.cleanliness_rating}`,
-      `Comment: ${comment.trim() || "None"}`,
-    ].join("\n");
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-
-    setDone(true);
-    setTimeout(async () => {
-      await supabase.auth.signOut();
-      onCheckedOut();
-      router.push("/");
-    }, 3000);
+    finishCheckout("success");
   }
 
   return (
@@ -135,10 +125,10 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
               className="text-2xl font-bold"
               style={{ color: "var(--ink)", letterSpacing: "-0.25px" }}
             >
-              {tr.survey.thankYou} {firstName}!
+              {done === "already" ? `${tr.survey.thankYou} ${firstName}!` : tr.survey.farewellTitle}
             </h2>
             <p className="text-[15px]" style={{ color: "var(--ink-muted)" }}>
-              {tr.survey.feedbackMessage}
+              {done === "already" ? tr.survey.alreadyCheckedOut : tr.survey.farewellMessage}
             </p>
             <p className="text-[13px]" style={{ color: "var(--ink-faint)" }}>
               {tr.survey.signingOut}
@@ -248,7 +238,7 @@ export default function CheckoutSurveyModal({ firstName, riadLabel, lang, onClos
                 disabled={loading}
                 className="flex-1"
               >
-                {loading ? tr.survey.submitting : error ? tr.survey.retry : tr.survey.submitAndWhatsapp}
+                {loading ? tr.survey.submitting : error ? tr.survey.retry : tr.survey.complete}
               </Button>
             </div>
           </form>
