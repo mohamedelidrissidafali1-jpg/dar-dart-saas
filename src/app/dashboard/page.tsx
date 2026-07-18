@@ -79,11 +79,6 @@ const EXCURSIONS = [
     img: "/excursions/essaouira.webp",
   },
   {
-    name: "Hot Air Balloon",
-    slug: "hot-air-balloon",
-    img: "/excursions/hot-air-balloon.webp",
-  },
-  {
     name: "City Tour Guide",
     slug: "city-tour",
     img: "/excursions/city-tour.webp",
@@ -101,7 +96,6 @@ const SLUG_TO_MESSAGE_KEY: Record<string, string> = {
   agafay: "agafay",
   "ourika-valley": "ourikaValley",
   essaouira: "essaouira",
-  "hot-air-balloon": "hotAirBalloon",
   "city-tour": "cityTour",
 };
 

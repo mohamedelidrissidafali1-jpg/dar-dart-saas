@@ -176,7 +176,6 @@ const t = {
         agafay: "Hello, I would like to book the Agafay Desert Excursion",
         ourikaValley: "Hello, I would like to book the Ourika Valley Excursion",
         essaouira: "Hello, I would like to book the Essaouira Day Trip",
-        hotAirBalloon: "Hello, I would like to book the Hot Air Balloon experience",
         cityTour: "Hello, I would like to book a Guided City Day",
       },
       services: {
@@ -221,7 +220,6 @@ const t = {
         agafay: { subtitle: "Quad · Camel · Dinner · Fire show", price: "Pack A €30 · Pack B €55" },
         "ourika-valley": { subtitle: "Atlas · Waterfalls · Berber villages · 09:00–17:00", price: "€20 · €27 with meal" },
         essaouira: { subtitle: "UNESCO medina · Atlantic coast · 08:00–20:00", price: "€25 / person" },
-        "hot-air-balloon": { subtitle: "Sunrise · Panoramic views · Reserve in advance", price: "€97 / person" },
         "city-tour": { subtitle: "Medina · Souks · Hidden places", price: "€65 / group (1–4 people)" },
       },
     },
@@ -292,7 +290,6 @@ const t = {
         agafayFull: { name: "Agafay Desert — Pack B Full Experience", desc: "Quad biking (1 h), camel ride (20 min), dinner, fire show, pool and transport included.", price: "€55 / person" },
         essaouira: { name: "Essaouira Day Trip", desc: "A full day on the Atlantic coast — UNESCO-listed medina, port, and ramparts. Departure 08:00, return 20:00.", price: "€25 / person" },
         ourika: { name: "Ourika Valley", desc: "Atlas mountains, waterfalls, and Berber villages. Departure 09:00, return 17:00. €27 with meal included.", price: "From €20 / person" },
-        hotAirBalloon: { name: "Hot Air Balloon", desc: "Sunrise flight with panoramic views over the Atlas and palm groves. Advance reservation required.", price: "€97 / person" },
         cityDay: { name: "Guided City Day", desc: "A full day in Marrakech with an expert local guide — medina, souks, and hidden places.", price: "€65 / group (1–4)" },
       },
       servicesList: {
@@ -718,7 +715,6 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         agafay: "Bonjour, je souhaite réserver l'excursion désert d'Agafay",
         ourikaValley: "Bonjour, je souhaite réserver l'excursion vallée de l'Ourika",
         essaouira: "Bonjour, je souhaite réserver l'excursion d'une journée à Essaouira",
-        hotAirBalloon: "Bonjour, je souhaite réserver l'expérience montgolfière",
         cityTour: "Bonjour, je souhaite réserver une journée guidée en ville",
       },
       services: {
@@ -763,7 +759,6 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         agafay: { subtitle: "Quad · Chameau · Dîner · Spectacle de feu", price: "Pack A 30 € · Pack B 55 €" },
         "ourika-valley": { subtitle: "Atlas · Cascades · Villages berbères · 9h00–17h00", price: "20 € · 27 € avec repas" },
         essaouira: { subtitle: "Médina UNESCO · Côte atlantique · 8h00–20h00", price: "25 € / personne" },
-        "hot-air-balloon": { subtitle: "Lever du soleil · Vues panoramiques · Réservation à l'avance", price: "97 € / personne" },
         "city-tour": { subtitle: "Médina · Souks · Lieux cachés", price: "65 € / groupe (1–4 personnes)" },
       },
     },
@@ -834,7 +829,6 @@ The service is provided "as is" without warranties of any kind. We do not guaran
         agafayFull: { name: "Désert d'Agafay — Pack B Expérience Complète", desc: "Quad (1 h), balade à dos de chameau (20 min), dîner, spectacle de feu, piscine et transport inclus.", price: "55 € / personne" },
         essaouira: { name: "Journée à Essaouira", desc: "Une journée complète sur la côte atlantique — médina classée UNESCO, port et remparts. Départ 8h00, retour 20h00.", price: "25 € / personne" },
         ourika: { name: "Vallée de l'Ourika", desc: "Montagnes de l'Atlas, cascades et villages berbères. Départ 9h00, retour 17h00. 27 € avec repas inclus.", price: "À partir de 20 € / personne" },
-        hotAirBalloon: { name: "Montgolfière", desc: "Vol au lever du soleil avec vues panoramiques sur l'Atlas et les palmeraies. Réservation à l'avance obligatoire.", price: "97 € / personne" },
         cityDay: { name: "Journée guidée en ville", desc: "Une journée complète à Marrakech avec un guide local expert — médina, souks et lieux cachés.", price: "65 € / groupe (1–4)" },
       },
       servicesList: {
@@ -1260,7 +1254,6 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         agafay: "Hola, me gustaría reservar la excursión al desierto de Agafay",
         ourikaValley: "Hola, me gustaría reservar la excursión al valle de Ourika",
         essaouira: "Hola, me gustaría reservar la excursión de un día a Esauira",
-        hotAirBalloon: "Hola, me gustaría reservar la experiencia en globo aerostático",
         cityTour: "Hola, me gustaría reservar un día guiado por la ciudad",
       },
       services: {
@@ -1305,7 +1298,6 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         agafay: { subtitle: "Quad · Camello · Cena · Espectáculo de fuego", price: "Pack A 30 € · Pack B 55 €" },
         "ourika-valley": { subtitle: "Atlas · Cascadas · Pueblos bereberes · 9:00–17:00", price: "20 € · 27 € con comida" },
         essaouira: { subtitle: "Medina UNESCO · Costa atlántica · 8:00–20:00", price: "25 € / persona" },
-        "hot-air-balloon": { subtitle: "Amanecer · Vistas panorámicas · Reserva anticipada", price: "97 € / persona" },
         "city-tour": { subtitle: "Medina · Zocos · Lugares ocultos", price: "65 € / grupo (1–4 personas)" },
       },
     },
@@ -1376,7 +1368,6 @@ Le service est fourni « tel quel » sans garantie d'aucune sorte. Nous ne garan
         agafayFull: { name: "Desierto de Agafay — Pack B Experiencia Completa", desc: "Quad (1 h), paseo en camello (20 min), cena, espectáculo de fuego, piscina y transporte incluidos.", price: "55 € / persona" },
         essaouira: { name: "Excursión de un Día a Esauira", desc: "Un día completo en la costa atlántica — medina declarada Patrimonio de la UNESCO, puerto y murallas. Salida 8:00, regreso 20:00.", price: "25 € / persona" },
         ourika: { name: "Valle de Ourika", desc: "Montañas del Atlas, cascadas y pueblos bereberes. Salida 9:00, regreso 17:00. 27 € con comida incluida.", price: "Desde 20 € / persona" },
-        hotAirBalloon: { name: "Globo Aerostático", desc: "Vuelo al amanecer con vistas panorámicas del Atlas y los palmerales. Reserva anticipada obligatoria.", price: "97 € / persona" },
         cityDay: { name: "Día Guiado por la Ciudad", desc: "Un día completo en Marrakech con un experto guía local — medina, zocos y lugares ocultos.", price: "65 € / grupo (1–4)" },
       },
       servicesList: {
@@ -1802,7 +1793,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         agafay: "مرحباً، أود حجز رحلة صحراء أكافاي",
         ourikaValley: "مرحباً، أود حجز رحلة وادي أوريكا",
         essaouira: "مرحباً، أود حجز رحلة يوم إلى الصويرة",
-        hotAirBalloon: "مرحباً، أود حجز تجربة المنطاد",
         cityTour: "مرحباً، أود حجز يوم بمرشد سياحي في المدينة",
       },
       services: {
@@ -1847,7 +1837,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         agafay: { subtitle: "دراجات رباعية · جمال · عشاء · عرض ناري", price: "الباقة A ‏30€ · الباقة B ‏55€" },
         "ourika-valley": { subtitle: "الأطلس · شلالات · قرى أمازيغية · 9:00–17:00", price: "20€ · 27€ مع وجبة" },
         essaouira: { subtitle: "مدينة اليونسكو القديمة · الساحل الأطلسي · 8:00–20:00", price: "25€ / شخص" },
-        "hot-air-balloon": { subtitle: "شروق الشمس · إطلالات بانورامية · حجز مسبق", price: "97€ / شخص" },
         "city-tour": { subtitle: "المدينة القديمة · الأسواق · أماكن خفية", price: "65€ / مجموعة (1–4 أشخاص)" },
       },
     },
@@ -1918,7 +1907,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         agafayFull: { name: "صحراء أكافاي — الباقة B التجربة الكاملة", desc: "دراجة رباعية (ساعة)، ركوب الجمال (20 دقيقة)، عشاء، عرض ناري، مسبح والنقل مشمول.", price: "55€ / شخص" },
         essaouira: { name: "رحلة يوم إلى الصويرة", desc: "يوم كامل على الساحل الأطلسي — مدينة قديمة مدرجة لدى اليونسكو، الميناء والأسوار. الانطلاق 8:00، العودة 20:00.", price: "25€ / شخص" },
         ourika: { name: "وادي أوريكا", desc: "جبال الأطلس، شلالات وقرى أمازيغية. الانطلاق 9:00، العودة 17:00. ‏27€ مع وجبة.", price: "ابتداءً من 20€ / شخص" },
-        hotAirBalloon: { name: "المنطاد", desc: "تحليق عند شروق الشمس بإطلالات بانورامية على الأطلس وبساتين النخيل. الحجز المسبق إلزامي.", price: "97€ / شخص" },
         cityDay: { name: "يوم بمرشد في المدينة", desc: "يوم كامل في مراكش برفقة مرشد محلي خبير — المدينة القديمة، الأسواق والأماكن الخفية.", price: "65€ / مجموعة (1–4)" },
       },
       servicesList: {
@@ -2344,7 +2332,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         agafay: "Hallo, ich möchte die Agafay-Wüsten-Exkursion buchen",
         ourikaValley: "Hallo, ich möchte die Ourika-Tal-Exkursion buchen",
         essaouira: "Hallo, ich möchte den Tagesausflug nach Essaouira buchen",
-        hotAirBalloon: "Hallo, ich möchte die Heißluftballon-Erfahrung buchen",
         cityTour: "Hallo, ich möchte einen geführten Stadttag buchen",
       },
       services: {
@@ -2389,7 +2376,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         agafay: { subtitle: "Quad · Kamel · Abendessen · Feuershow", price: "Pack A 30 € · Pack B 55 €" },
         "ourika-valley": { subtitle: "Atlas · Wasserfälle · Berberdörfer · 9:00–17:00", price: "20 € · 27 € mit Mahlzeit" },
         essaouira: { subtitle: "UNESCO-Medina · Atlantikküste · 8:00–20:00", price: "25 € / Person" },
-        "hot-air-balloon": { subtitle: "Sonnenaufgang · Panoramablick · Vorreservierung", price: "97 € / Person" },
         "city-tour": { subtitle: "Medina · Souks · Versteckte Orte", price: "65 € / Gruppe (1–4 Personen)" },
       },
     },
@@ -2460,7 +2446,6 @@ El servicio se proporciona "tal cual" sin garantías de ningún tipo. No garanti
         agafayFull: { name: "Agafay-Wüste — Pack B Full Experience", desc: "Quad (1 Std.), Kamelritt (20 Min.), Abendessen, Feuershow, Pool und Transport inklusive.", price: "55 € / Person" },
         essaouira: { name: "Tagesausflug nach Essaouira", desc: "Ein ganzer Tag an der Atlantikküste — UNESCO-Medina, Hafen und Stadtmauern. Abfahrt 8:00, Rückkehr 20:00 Uhr.", price: "25 € / Person" },
         ourika: { name: "Ourika-Tal", desc: "Atlasgebirge, Wasserfälle und Berberdörfer. Abfahrt 9:00, Rückkehr 17:00 Uhr. 27 € inkl. Mahlzeit.", price: "Ab 20 € / Person" },
-        hotAirBalloon: { name: "Heißluftballon", desc: "Flug bei Sonnenaufgang mit Panoramablick über den Atlas und die Palmenhaine. Vorreservierung erforderlich.", price: "97 € / Person" },
         cityDay: { name: "Geführter Stadttag", desc: "Ein ganzer Tag in Marrakesch mit einem erfahrenen lokalen Guide — Medina, Souks und versteckte Orte.", price: "65 € / Gruppe (1–4)" },
       },
       servicesList: {
@@ -2886,7 +2871,6 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         agafay: "Ciao, vorrei prenotare l'escursione nel deserto di Agafay",
         ourikaValley: "Ciao, vorrei prenotare l'escursione nella valle di Ourika",
         essaouira: "Ciao, vorrei prenotare la gita di un giorno a Essaouira",
-        hotAirBalloon: "Ciao, vorrei prenotare l'esperienza in mongolfiera",
         cityTour: "Ciao, vorrei prenotare una giornata guidata in città",
       },
       services: {
@@ -2931,7 +2915,6 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         agafay: { subtitle: "Quad · Cammello · Cena · Spettacolo di fuoco", price: "Pack A 30 € · Pack B 55 €" },
         "ourika-valley": { subtitle: "Atlante · Cascate · Villaggi berberi · 9:00–17:00", price: "20 € · 27 € con pasto" },
         essaouira: { subtitle: "Medina UNESCO · Costa atlantica · 8:00–20:00", price: "25 € / persona" },
-        "hot-air-balloon": { subtitle: "Alba · Viste panoramiche · Prenotazione anticipata", price: "97 € / persona" },
         "city-tour": { subtitle: "Medina · Souk · Luoghi nascosti", price: "65 € / gruppo (1–4 persone)" },
       },
     },
@@ -3002,7 +2985,6 @@ Der Dienst wird „wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wi
         agafayFull: { name: "Deserto di Agafay — Pack B Esperienza Completa", desc: "Quad (1 h), giro in cammello (20 min), cena, spettacolo di fuoco, piscina e trasporto inclusi.", price: "55 € / persona" },
         essaouira: { name: "Gita di un Giorno a Essaouira", desc: "Una giornata intera sulla costa atlantica — medina patrimonio UNESCO, porto e bastioni. Partenza 8:00, rientro 20:00.", price: "25 € / persona" },
         ourika: { name: "Valle dell'Ourika", desc: "Montagne dell'Atlante, cascate e villaggi berberi. Partenza 9:00, rientro 17:00. 27 € con pasto incluso.", price: "Da 20 € / persona" },
-        hotAirBalloon: { name: "Mongolfiera", desc: "Volo all'alba con viste panoramiche sull'Atlante e sui palmeti. Prenotazione anticipata obbligatoria.", price: "97 € / persona" },
         cityDay: { name: "Giornata Guidata in Città", desc: "Una giornata intera a Marrakech con una guida locale esperta — medina, souk e luoghi nascosti.", price: "65 € / gruppo (1–4)" },
       },
       servicesList: {

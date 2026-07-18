@@ -85,10 +85,6 @@ const EXCURSIONS = [
     img: "/excursions/ourika-valley.webp",
   },
   {
-    key: "hotAirBalloon",
-    img: "/excursions/hot-air-balloon.webp",
-  },
-  {
     key: "cityDay",
     img: "/excursions/city-tour.webp",
   },
